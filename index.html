@@ -282,6 +282,19 @@ textarea.inp{resize:vertical;min-height:40px}
         <li>Football Field Chart und Sensitivitätsmatrix erstellen</li>
       </ul>
       <div class="co w"><b>Wichtiger Hinweis:</b> In Modul 3 und 4 befinden sich bewusst unpassende Peers und Transaktionen. Das Herausfiltern und Begründen ist ein zentraler Teil der Aufgabe.</div>
+
+      <h3>Gruppen-Zugänge (vorab zugeteilt)</h3>
+      <div class="co" style="margin-top:6px">
+        Die Zuteilung erfolgt vorab durch die Lehrkraft. Jede Gruppe nutzt ihren eigenen Link.
+        <ul style="margin:8px 0 0 18px;line-height:1.9">
+          <li><a href="group1.html" style="color:var(--teal);font-weight:700">Gruppe 1 – Arbeitsseite öffnen</a></li>
+          <li><a href="group2.html" style="color:var(--teal);font-weight:700">Gruppe 2 – Arbeitsseite öffnen</a></li>
+          <li><a href="group3.html" style="color:var(--teal);font-weight:700">Gruppe 3 – Arbeitsseite öffnen</a></li>
+          <li><a href="group4.html" style="color:var(--teal);font-weight:700">Gruppe 4 – Arbeitsseite öffnen</a></li>
+        </ul>
+        <p class="mu" style="margin-top:8px">Hinweis: Mehrere Studierende können innerhalb einer Gruppe parallel auf verschiedenen PCs arbeiten, solange sie denselben Gruppen-Link nutzen.</p>
+      </div>
+
     </div>
     <div>
       <h3>Zeitplan</h3>
@@ -856,6 +869,27 @@ textarea.inp{resize:vertical;min-height:40px}
       <button class="sb" style="margin-top:6px" onclick="drawFF()">Chart aktualisieren</button>
     </div>
   </div>
+  <div style="margin-top:16px" class="co">
+    <h3 style="margin-top:0">Summary Slide – Management-Überblick</h3>
+    <p class="mu" style="margin-bottom:10px">Kompakte Übersicht der wichtigsten Ergebnisse für Präsentation und gemeinsame Diskussion.</p>
+    <table>
+      <thead><tr><th>Kennzahl</th><th class="nr">Ergebnis</th><th>Kommentar</th></tr></thead>
+      <tbody>
+        <tr><td>Adj. EBITDA</td><td class="nr" id="sum_e">—</td><td>Bereinigte Bewertungsbasis</td></tr>
+        <tr><td>EV Trading (Low–High)</td><td class="nr" id="sum_t">—</td><td>Marktvergleich börsennotierter Peers</td></tr>
+        <tr><td>EV Transactions (Low–High)</td><td class="nr" id="sum_tx">—</td><td>Vergleich realer M&amp;A-Deals</td></tr>
+        <tr><td>Equity Value (Mid)</td><td class="nr" id="sum_eq">—</td><td>Kaufpreisindikator nach Brücke</td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:10px">Diskussion (einfach)</h3>
+    <ul style="margin:6px 0 0 18px;line-height:1.8">
+      <li>Welche Bewertungsmethode wirkt für LORCH am plausibelsten – und warum?</li>
+      <li>Welche 2 Annahmen beeinflussen den Equity Value am stärksten?</li>
+      <li>Welcher realistische Zielkorridor sollte dem Gesellschafter kommuniziert werden?</li>
+      <li>Welche eine Maßnahme würde den Unternehmenswert kurzfristig am meisten steigern?</li>
+    </ul>
+  </div>
+
   <div class="g2" style="margin-top:18px">
     <div>
       <h3>Empfehlung</h3>
@@ -917,6 +951,19 @@ function removeLegacyIntegratedCaseSection(){
 }
 
 
+<<<<<<< codex/merge-conflict-beheben-6ds0pa
+
+function removeLehrkraftSetupFromTabs(){
+  document.querySelectorAll('.step, .tab, button, h1, h2, h3, section').forEach(el=>{
+    if((el.textContent||'').trim().toLowerCase()==='1) lehrkraft setup'){
+      const stepEl = el.closest('.step, .tab, section') || el;
+      if(stepEl){ stepEl.remove(); }
+    }
+  });
+}
+
+=======
+>>>>>>> main
 function syncLegacyIntroCardsVisibility(){
   document.querySelectorAll('.container section.card').forEach((sec,idx)=>{
     if(idx===0){
@@ -928,6 +975,10 @@ function syncLegacyIntroCardsVisibility(){
 const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 
 removeLegacyIntegratedCaseSection();
+<<<<<<< codex/merge-conflict-beheben-6ds0pa
+removeLehrkraftSetupFromTabs();
+=======
+>>>>>>> main
 syncLegacyIntroCardsVisibility();
 
 function go(n){
@@ -1009,6 +1060,11 @@ function sync(){
   if(R.tL&&R.tH)document.getElementById('r6_t').textContent='TEUR '+R.tL.toLocaleString('de-DE')+' – '+R.tH.toLocaleString('de-DE');
   if(R.txL&&R.txH)document.getElementById('r6_tx').textContent='TEUR '+R.txL.toLocaleString('de-DE')+' – '+R.txH.toLocaleString('de-DE');
   if(R.eq)document.getElementById('r6_eq').textContent='TEUR '+Math.round(R.eq).toLocaleString('de-DE');
+  const se=document.getElementById('sum_e'),st=document.getElementById('sum_t'),stx=document.getElementById('sum_tx'),seq=document.getElementById('sum_eq');
+  if(se && e)se.textContent='TEUR '+Math.round(e).toLocaleString('de-DE');
+  if(st && R.tL && R.tH)st.textContent='TEUR '+R.tL.toLocaleString('de-DE')+' – '+R.tH.toLocaleString('de-DE');
+  if(stx && R.txL && R.txH)stx.textContent='TEUR '+R.txL.toLocaleString('de-DE')+' – '+R.txH.toLocaleString('de-DE');
+  if(seq && R.eq)seq.textContent='TEUR '+Math.round(R.eq).toLocaleString('de-DE');
 }
 
 function drawFF(){

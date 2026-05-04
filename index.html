@@ -236,6 +236,11 @@ textarea.inp{resize:vertical;min-height:40px}
 .tx-tbl th{font-size:7.5px}
 .ex td{background:rgba(166,45,42,.04);color:#888}
 .chk{accent-color:var(--teal);width:14px;height:14px;cursor:pointer}
+
+.container .card{background:rgba(47,94,89,.10);border:1px solid #7A6E63;border-left:4px solid var(--teal);border-radius:10px;padding:16px 18px;margin-bottom:12px;color:var(--t)}
+.container .card h1,.container .card h2,.container .card h3{color:var(--t)}
+.container .card .subtitle{color:var(--s);font-weight:600}
+
 </style>
 </head>
 <body>
@@ -901,14 +906,36 @@ textarea.inp{resize:vertical;min-height:40px}
 </div>
 <script>
 let cur=0,tid=null,sl=5400;
+
+function removeLegacyIntegratedCaseSection(){
+  document.querySelectorAll('section.card').forEach(sec=>{
+    const h2=sec.querySelector('h2');
+    if(h2 && h2.textContent && h2.textContent.trim().toLowerCase()==='2) alte case study (integriert)'){
+      sec.remove();
+    }
+  });
+}
+
+
+function syncLegacyIntroCardsVisibility(){
+  document.querySelectorAll('.container section.card').forEach((sec,idx)=>{
+    if(idx===0){
+      sec.style.display = (cur===0 ? '' : 'none');
+    }
+  });
+}
+
 const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
+
+removeLegacyIntegratedCaseSection();
+syncLegacyIntroCardsVisibility();
 
 function go(n){
   cur=n;
   document.querySelectorAll('.sc').forEach((s,i)=>s.classList.toggle('active',i===n));
   document.querySelectorAll('.step').forEach((b,i)=>{b.classList.remove('active','done');if(i===n)b.classList.add('active');else if(i<n)b.classList.add('done');});
   document.getElementById('prog').textContent='Modul '+n+' von 6';
-  window.scrollTo(0,0);sync();
+  window.scrollTo(0,0);syncLegacyIntroCardsVisibility();sync();
 }
 function next(){if(cur<6)go(cur+1);}
 function prev(){if(cur>0)go(cur-1);}

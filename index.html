@@ -709,7 +709,7 @@ textarea.inp{resize:vertical;min-height:40px}
   </div>
   <div style="margin-top:16px" class="co">
     <h3 style="margin-top:0">Summary Slide – Management-Überblick</h3>
-    <p class="mu" style="margin-bottom:10px">Kompakte Übersicht der wichtigsten Ergebnisse für Präsentation und gemeinsame Diskussion.</p>
+    <p class="mu" style="margin-bottom:10px">Kompakte Übersicht der 4 Kernwerte für die Abschlussfolie.</p>
     <table>
       <thead><tr><th>Kennzahl</th><th class="nr">Ergebnis</th><th>Kommentar</th></tr></thead>
       <tbody>
@@ -719,14 +719,6 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>Equity Value (Mid)</td><td class="nr" id="sum_eq">—</td><td>Kaufpreisindikator nach Brücke</td></tr>
       </tbody>
     </table>
-    <h3 style="margin-top:10px">Diskussion (einfach)</h3>
-    <ul style="margin:6px 0 0 18px;line-height:1.8">
-      <li>Wie verändert sich der Kaufpreis bei einem strategischen Käufer vs. Finanzinvestor?</li>
-      <li>Welche eine Annahme verschiebt den Equity Value am stärksten?</li>
-      <li>Welcher Zielkorridor ist gut erklärbar und realistisch?</li>
-      <li>Welche kurzfristige Maßnahme würde den Wert vor dem Verkauf am ehesten steigern?</li>
-    </ul>
-
     <h3 style="margin-top:12px">Ergebnis-Sheet &amp; Verlinkungen</h3>
     <p style="font-size:10px;color:var(--s);margin-bottom:8px">Bitte pro Gruppe genau einen Link pflegen und prüfen, ob er sich öffnen lässt.</p>
     <table>
@@ -752,10 +744,15 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
     <div>
       <h3>Diskussionsfragen (vereinfacht)</h3>
-      <div class="co" style="margin-bottom:8px">1. Wie verändert sich der Kaufpreis bei einem strategischen Käufer im Vergleich zu einem Finanzinvestor?</div>
-      <div class="co" style="margin-bottom:8px">2. Was ist für den Preis wichtiger: höheres EBITDA oder höheres Multiple – und warum?</div>
-      <div class="co" style="margin-bottom:8px">3. Welche zwei Risiken würden Käufer sofort im Preis abziehen?</div>
-      <div class="co">4. Welche eine Verbesserung vor dem Verkauf würde den größten Preiseffekt haben?</div>
+      <div class="entry-focus"><b>Hier eintragen:</b> Beantworten Sie die 4 Fragen kurz in Stichpunkten (1–2 Sätze pro Feld).</div>
+      <label class="lbl">1) Wer zahlt eher mehr: Strategischer Käufer oder Finanzinvestor?</label>
+      <textarea class="inp" id="dq1" placeholder="Kurze Begründung..."></textarea>
+      <label class="lbl">2) Was beeinflusst den Preis stärker: EBITDA oder Multiple?</label>
+      <textarea class="inp" id="dq2" placeholder="Kurze Begründung..."></textarea>
+      <label class="lbl">3) Welche zwei Risiken würden Sie direkt im Preis berücksichtigen?</label>
+      <textarea class="inp" id="dq3" placeholder="Risiko 1, Risiko 2..."></textarea>
+      <label class="lbl">4) Welche eine Maßnahme vor dem Verkauf erhöht den Wert am schnellsten?</label>
+      <textarea class="inp" id="dq4" placeholder="Maßnahme + kurzer Effekt..."></textarea>
       <div class="hint on" id="hint_simple_disc">
         <b>Hint Box (einfach erklärt):</b><br>
         <b>Strategischer Käufer</b> zahlt oft mehr, wenn er Synergien heben kann (z. B. gemeinsamer Vertrieb, Einkauf, Produktion).<br>
@@ -847,7 +844,7 @@ function getModeAdjustedMultiple(entry,mode){
   const ltm=entry.ltm;
   if(mode==='LTM')return ltm;
   if(entry.ntm)return entry.ntm;
-  return {low:ltm.low-0.5,mid:ltm.mid-0.5,high:ltm.high-0.5};
+  return {low:ltm.low-0.2,mid:ltm.mid-0.2,high:ltm.high-0.2};
 }
 
 

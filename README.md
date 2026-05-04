@@ -9,6 +9,9 @@ Einfache, statische Web-App für eine M&A-Case-Study im Unterricht.
 - Gruppenmodus über URL (`?group=1` bis `?group=4`), damit Gruppen in unterschiedlichen Versionen arbeiten
 - Auswahl der Peer-Referenz je Gruppe: `FY-1`, `FY0`, `LTM`, `NTM`
 - Gruppennotizen je Gruppe separat im Browser gespeichert
+- Ergebnisbereich mit Checkliste für verlinkte Ergebnis-Sheets je Gruppe
+- Vereinfachte Diskussionsfragen (u. a. Preiswirkung Strategischer Käufer vs. Finanzinvestor)
+- Zusätzliche Hint-Boxen für unklare Punkte in einfacher Sprache
 
 ## Nutzung
 1. Lehrkraft öffnet die Seite ohne URL-Parameter und erstellt die 4 Gruppen.

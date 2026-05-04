@@ -828,6 +828,62 @@ function syncLegacyIntroCardsVisibility(){
 
 const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 
+const BASE_MULTIPLES={
+  trading:{
+    p1:{ltm:{low:17.7,mid:17.7,high:17.7}},p2:{ltm:{low:11.5,mid:11.5,high:11.5}},p3:{ltm:{low:17.8,mid:17.8,high:17.8}},
+    p4:{ltm:{low:38.5,mid:38.5,high:38.5}},p5:{ltm:{low:11.0,mid:12.0,high:13.0}},p6:{ltm:{low:17.2,mid:17.2,high:17.2}},p7:{ltm:{low:8.4,mid:8.4,high:8.4}}
+  },
+  transaction:{
+    tx1:{ltm:{low:19.4,mid:19.4,high:19.4}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9}},tx3:null,tx4:{ltm:{low:10.7,mid:10.7,high:10.7}},
+    tx5:{ltm:{low:10.6,mid:10.6,high:10.6}},tx6:{ltm:{low:11.2,mid:11.2,high:11.2}},tx7:{ltm:{low:9.2,mid:9.2,high:9.2}},tx8:{ltm:{low:11.1,mid:11.1,high:11.1}},
+    tx9:{ltm:{low:7.5,mid:7.5,high:7.5}},tx10:{ltm:{low:55.0,mid:55.0,high:55.0}},tx11:{ltm:{low:9.4,mid:9.4,high:9.4}},tx12:{ltm:{low:11.0,mid:11.0,high:11.0}}
+  }
+};
+
+let peerMode='LTM',txMode='LTM';
+
+function getModeAdjustedMultiple(entry,mode){
+  if(!entry)return null;
+  const ltm=entry.ltm;
+  if(mode==='LTM')return ltm;
+  if(entry.ntm)return entry.ntm;
+  return {low:ltm.low-0.5,mid:ltm.mid-0.5,high:ltm.high-0.5};
+}
+
+
+function median(values){
+  if(!values.length)return null;
+  const sorted=[...values].sort((a,b)=>a-b),mid=Math.floor(sorted.length/2);
+  return sorted.length%2===0?(sorted[mid-1]+sorted[mid])/2:sorted[mid];
+}
+
+function updateRangeFromSelection(map,prefix,targetIds,mode='LTM'){
+  const selected=Object.entries(map)
+    .filter(([id,m])=>m && document.getElementById(id)?.checked)
+    .map(([,m])=>getModeAdjustedMultiple(m,mode))
+    .filter(Boolean);
+  if(!selected.length)return;
+  const low=Math.min(...selected.map(m=>m.low));
+  const high=Math.max(...selected.map(m=>m.high));
+  const mid=median(selected.map(m=>m.mid));
+  document.getElementById(targetIds.low).value=low.toFixed(1);
+  document.getElementById(targetIds.mid).value=mid.toFixed(1);
+  document.getElementById(targetIds.high).value=high.toFixed(1);
+  if(prefix==='t')calcTE();
+  if(prefix==='tx')calcTX();
+}
+
+function bindRangeAutoCalc(){
+  Object.keys(BASE_MULTIPLES.trading).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener('change',()=>updateRangeFromSelection(BASE_MULTIPLES.trading,'t',{low:'tc_l',mid:'tc_m',high:'tc_h'},peerMode));
+  });
+  Object.keys(BASE_MULTIPLES.transaction).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener('change',()=>updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m',high:'ttx_h'},txMode));
+  });
+}
+
 removeLegacyIntegratedCaseSection();
 syncLegacyIntroCardsVisibility();
 
@@ -950,17 +1006,23 @@ function drawFF(){
 
 
 function setPeerBasis(mode){
+  peerMode=mode;
   document.querySelectorAll('.peer-metric').forEach(el=>{
     const est=el.textContent.includes('(est.)');
     el.textContent='EV/EBITDA '+mode+(est?' (est.)':'');
   });
   document.getElementById('peer_basis').textContent='Aktuell: '+mode;
+  updateRangeFromSelection(BASE_MULTIPLES.trading,'t',{low:'tc_l',mid:'tc_m',high:'tc_h'},peerMode);
 }
 
+
 function setTxBasis(mode){
+  txMode=mode;
   document.getElementById('tx_metric_head').textContent='EV/EBITDA '+mode;
   document.getElementById('tx_basis').textContent='Aktuell: '+mode;
+  updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m',high:'ttx_h'},txMode);
 }
+
 
 const STORAGE_PREFIX='ma_case_study_state_v1';
 
@@ -1010,6 +1072,9 @@ function bindPersistence(){
 
 loadState();
 bindPersistence();
+bindRangeAutoCalc();
+updateRangeFromSelection(BASE_MULTIPLES.trading,'t',{low:'tc_l',mid:'tc_m',high:'tc_h'},peerMode);
+updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m',high:'ttx_h'},txMode);
 go(cur);
 calcE();
 sync();

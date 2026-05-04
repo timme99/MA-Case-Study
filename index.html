@@ -1,52 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wintergerst Lorch Case Study</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M&A Case Study – Gruppenplanung</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #1d4ed8;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1000px, 92%);
+      margin: 2rem auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    h1, h2 { margin-top: 0; }
+
+    .subtle { color: var(--muted); }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover { filter: brightness(0.95); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    ul { margin: 0.35rem 0 0 1rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: #1e3a8a;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Wintergerst Lorch Case Study</h1>
-            <p>Welcome to the detailed analysis of the Wintergerst Lorch project...</p>
-        </div>
+  <div class="container">
+    <header class="card">
+      <h1>M&A Case Study – Ablauf für 20 Studierende</h1>
+      <p class="subtle">Ziel: 4 Gruppen mit jeweils 5 Personen, Bearbeitung der Case Study, Abschluss mit Präsentation und Diskussion.</p>
     </header>
-    <main class="container">
-        <section>
-            <h2>Introduction</h2>
-            <p>This document discusses the various aspects and findings of the Wintergerst Lorch case study, aiming to provide comprehensive insights...</p>
-        </section>
-        <section>
-            <h2>Methodology</h2>
-            <p>The project utilized a range of research methodologies and approaches. Specifically, we focused on quantitative data collection...</p>
-        </section>
-        <section>
-            <h2>Findings</h2>
-            <p>Key findings from the study include significant patterns observed in the data. These include...</p>
-        </section>
-        <section>
-            <h2>Conclusion</h2>
-            <p>In conclusion, the research highlights the importance of maintaining quality in project deliverables...</p>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Wintergerst Lorch Project. All rights reserved.</p>
-        </div>
-    </footer>
+
+    <section class="card">
+      <h2>1) Gruppeneinteilung</h2>
+      <p>Trage unten bis zu 20 Namen ein (jeweils durch Komma getrennt) und lasse die Gruppen automatisch bilden.</p>
+      <textarea id="students" rows="4" style="width:100%;padding:0.6rem;border:1px solid var(--border);border-radius:8px;" placeholder="Anna, Ben, Clara, ..."></textarea>
+      <div style="margin-top:0.8rem;">
+        <button id="shuffleBtn">Gruppen erstellen (4 × 5)</button>
+      </div>
+      <p class="subtle" id="status"></p>
+      <div id="groups" class="grid" style="margin-top:0.8rem;"></div>
+    </section>
+
+    <section class="card">
+      <h2>2) Arbeitsauftrag je Gruppe</h2>
+      <ul>
+        <li>Analyse der Ausgangslage des Zielunternehmens und des Käufers.</li>
+        <li>Bewertung von Synergien (Kosten, Umsatz, strategischer Fit).</li>
+        <li>Herleitung einer Kaufpreis-Spanne und zentrale Werttreiber.</li>
+        <li>Risiken im Dealprozess (Finanzierung, Integration, Governance).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3) Abschlusspräsentation</h2>
+      <p>Jede Gruppe präsentiert ihre Ergebnisse in <strong>8 Minuten</strong> + <strong>4 Minuten Q&A</strong>.</p>
+      <ul>
+        <li>Empfohlene Struktur: Problem, Analyse, Empfehlung, Risiken, nächste Schritte.</li>
+        <li>1 Slide mit Preislogik und Sensitivitäten ist verpflichtend.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4) Diskussionsfragen</h2>
+      <ul>
+        <li>Was passiert mit dem Preis, wenn ein <strong>Finanzinvestor</strong> (Private Equity) kauft?</li>
+        <li>Was passiert mit dem Preis, wenn ein <strong>Strateg</strong> (Industriekäufer) kauft?</li>
+        <li>Welche Synergien sind realistisch und welche nur theoretisch?</li>
+        <li>Wie stark sollten Integrationsrisiken im Kaufpreis berücksichtigt werden?</li>
+        <li>Welche Kennzahl ist in diesem Fall der beste Preisanker (EBITDA, FCF, Wachstum)?</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    const groupsContainer = document.getElementById('groups');
+    const status = document.getElementById('status');
+
+    function shuffle(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    document.getElementById('shuffleBtn').addEventListener('click', () => {
+      const raw = document.getElementById('students').value;
+      const names = raw.split(',').map(s => s.trim()).filter(Boolean);
+
+      if (names.length !== 20) {
+        status.textContent = `Bitte genau 20 Namen eingeben. Aktuell: ${names.length}.`;
+        groupsContainer.innerHTML = '';
+        return;
+      }
+
+      const mixed = shuffle(names);
+      const groups = [mixed.slice(0, 5), mixed.slice(5, 10), mixed.slice(10, 15), mixed.slice(15, 20)];
+
+      groupsContainer.innerHTML = groups.map((group, idx) => `
+        <article class="card" style="margin:0;">
+          <span class="badge">Gruppe ${idx + 1}</span>
+          <ul>${group.map(name => `<li>${name}</li>`).join('')}</ul>
+        </article>
+      `).join('');
+
+      status.textContent = 'Gruppen erfolgreich erstellt: 4 Gruppen mit je 5 Personen.';
+    });
+  </script>
 </body>
 </html>

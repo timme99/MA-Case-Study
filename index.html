@@ -1,175 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M&A Case Study – Kursorganisation</title>
-  <style>
-    :root { --bg:#f5f7fb; --card:#fff; --text:#111827; --muted:#6b7280; --accent:#1d4ed8; --border:#e5e7eb; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: Inter, Arial, sans-serif; background:var(--bg); color:var(--text); }
-    .container { width:min(1100px, 92%); margin:2rem auto; }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem 1.2rem; margin-bottom:1rem; }
-    h1,h2,h3 { margin:.2rem 0 .6rem; }
-    .subtle { color:var(--muted); }
-    .actions { display:flex; gap:.6rem; flex-wrap:wrap; align-items:center; }
-    button { border:0; border-radius:8px; padding:.6rem .9rem; font-weight:600; cursor:pointer; background:var(--accent); color:#fff; }
-    button.secondary { background:#374151; }
-    textarea,input,select { border:1px solid var(--border); border-radius:8px; padding:.6rem; }
-    textarea { width:100%; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:.8rem; }
-    .group-title { font-weight:700; color:#1e3a8a; }
-    .hidden { display:none; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <section class="card">
-      <h1>M&A Case Study – Setup für den Kurs</h1>
-      <p class="subtle">Jetzt fix auf 4 Gruppen + Gruppenarbeitsmodus: Jede Gruppe sieht nur ihre eigene Version/Notizen.</p>
-    </section>
-
-    <section class="card" id="teacherSetup">
-      <h2>1) Lehrkraft-Setup: 4 Gruppen erstellen</h2>
-      <p>Namen kommasepariert einfügen (beliebige Anzahl, keine Duplikate). Es werden immer 4 Gruppen gebildet.</p>
-      <textarea id="students" rows="4" placeholder="Anna, Ben, Clara, ..."></textarea>
-      <div class="actions" style="margin-top:.6rem;">
-        <button id="shuffleBtn">4 Gruppen erstellen</button>
-        <button id="sampleBtn" class="secondary">20 Beispielnamen laden</button>
-      </div>
-      <p id="status" class="subtle"></p>
-      <div id="groups" class="grid"></div>
-      <p class="subtle">Gruppenlinks: <code>?group=1</code>, <code>?group=2</code>, <code>?group=3</code>, <code>?group=4</code></p>
-    </section>
-
-    <section class="card hidden" id="groupWorkspace">
-      <h2 id="groupHeading">Gruppenbereich</h2>
-      <p class="subtle">Nur diese Gruppe sieht diesen Bereich auf ihrem Gerät/Link.</p>
-      <label for="versionSelect">Arbeitsversion:</label>
-      <select id="versionSelect">
-        <option value="A">Version A</option>
-        <option value="B">Version B</option>
-        <option value="C">Version C</option>
-      </select>
-      <label for="periodSelect">Peer-Referenz:</label>
-      <select id="periodSelect">
-        <option value="FY-1">FY-1</option>
-        <option value="FY0">FY0</option>
-        <option value="LTM">LTM</option>
-        <option value="NTM">NTM</option>
-      </select>
-      <h3>Gruppennotizen</h3>
-      <textarea id="groupNotes" rows="10" placeholder="Nur für diese Gruppe sichtbar (lokal im Browser gespeichert)."></textarea>
-      <div class="actions" style="margin-top:.6rem;">
-        <button id="saveNotes">Notizen speichern</button>
-      </div>
-      <p id="groupStatus" class="subtle"></p>
-    </section>
-
-    <section class="card">
-      <h2>2) Alte Case Study (integriert)</h2>
-      <h3>Introduction</h3>
-      <p>This document discusses the various aspects and findings of the Wintergerst Lorch case study, aiming to provide comprehensive insights.</p>
-      <h3>Methodology</h3>
-      <p>The project utilized a range of research methodologies and approaches, with a focus on quantitative data collection and structured evaluation.</p>
-      <h3>Findings</h3>
-      <p>Key findings from the study include significant patterns observed in the data and implications for decision-making in transaction contexts.</p>
-      <h3>Conclusion</h3>
-      <p>In conclusion, the research highlights the importance of maintaining quality in project deliverables and disciplined analysis in M&A decisions.</p>
-    </section>
-  </div>
-
-  <script>
-    const statusEl = document.getElementById('status');
-    const groupsEl = document.getElementById('groups');
-    const studentInput = document.getElementById('students');
-    const teacherSetup = document.getElementById('teacherSetup');
-    const groupWorkspace = document.getElementById('groupWorkspace');
-    const groupHeading = document.getElementById('groupHeading');
-    const groupNotes = document.getElementById('groupNotes');
-    const groupStatus = document.getElementById('groupStatus');
-    const versionSelect = document.getElementById('versionSelect');
-    const periodSelect = document.getElementById('periodSelect');
-
-    function shuffle(arr) {
-      const copy = [...arr];
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy;
-    }
-
-    function splitIntoFourGroups(names) {
-      const mixed = shuffle(names);
-      const groups = [[], [], [], []];
-      mixed.forEach((name, idx) => groups[idx % 4].push(name));
-      return groups;
-    }
-
-    function parseStudents() {
-      const names = studentInput.value.split(',').map(s => s.trim()).filter(Boolean);
-      const unique = new Set(names.map(n => n.toLowerCase()));
-      if (!names.length) return { ok: false, message: 'Bitte mindestens einen Namen eingeben.' };
-      if (unique.size !== names.length) return { ok: false, message: 'Doppelte Namen erkannt. Bitte korrigieren.' };
-      return { ok: true, names };
-    }
-
-    function renderGroups(groups) {
-      groupsEl.innerHTML = groups.map((group, i) => `
-        <article class="card" style="margin:0;">
-          <div class="group-title">Gruppe ${i + 1} (${group.length})</div>
-          <ol>${group.map(name => `<li>${name}</li>`).join('')}</ol>
-        </article>
-      `).join('');
-    }
-
-    document.getElementById('shuffleBtn').addEventListener('click', () => {
-      const parsed = parseStudents();
-      if (!parsed.ok) {
-        statusEl.textContent = parsed.message;
-        groupsEl.innerHTML = '';
-        return;
-      }
-      const groups = splitIntoFourGroups(parsed.names);
-      renderGroups(groups);
-      localStorage.setItem('ma_case_groups', JSON.stringify(groups));
-      statusEl.textContent = `Fertig: ${parsed.names.length} Studierende auf 4 Gruppen verteilt.`;
-    });
-
-    document.getElementById('sampleBtn').addEventListener('click', () => {
-      studentInput.value = ['Anna','Ben','Clara','David','Elena','Felix','Greta','Hassan','Ines','Jonas','Karla','Luca','Mia','Noah','Olivia','Paul','Quinn','Rania','Sven','Tara'].join(', ');
-      statusEl.textContent = '20 Beispielnamen eingefügt.';
-    });
-
-    function initGroupMode() {
-      const params = new URLSearchParams(window.location.search);
-      const group = Number(params.get('group'));
-      if (!Number.isInteger(group) || group < 1 || group > 4) return;
-
-      teacherSetup.classList.add('hidden');
-      groupWorkspace.classList.remove('hidden');
-      groupHeading.textContent = `Gruppenbereich – Gruppe ${group}`;
-
-      const notesKey = `ma_case_notes_group_${group}`;
-      const versionKey = `ma_case_version_group_${group}`;
-      const periodKey = `ma_case_period_group_${group}`;
-      groupNotes.value = localStorage.getItem(notesKey) || '';
-      versionSelect.value = localStorage.getItem(versionKey) || 'A';
-      periodSelect.value = localStorage.getItem(periodKey) || 'LTM';
-
-      document.getElementById('saveNotes').addEventListener('click', () => {
-        localStorage.setItem(notesKey, groupNotes.value);
-        localStorage.setItem(versionKey, versionSelect.value);
-        localStorage.setItem(periodKey, periodSelect.value);
-        groupStatus.textContent = `Gespeichert für Gruppe ${group} (Version ${versionSelect.value}, Peer-Referenz ${periodSelect.value}).`;
-      });
-    }
-
-    initGroupMode();
-  </script>
-</body>
-</html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WINTERGERST – M&amp;A Case Study: LORCH Schweißtechnik GmbH</title>
@@ -968,7 +799,6 @@ function removeLegacyIntegratedCaseSection(){
 }
 
 
->>>>>>> main
 function syncLegacyIntroCardsVisibility(){
   document.querySelectorAll('.container section.card').forEach((sec,idx)=>{
     if(idx===0){
@@ -980,8 +810,6 @@ function syncLegacyIntroCardsVisibility(){
 const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 
 removeLegacyIntegratedCaseSection();
-removeLehrkraftSetupFromTabs();
->>>>>>> main
 syncLegacyIntroCardsVisibility();
 
 function go(n){
@@ -1115,37 +943,8 @@ function setTxBasis(mode){
   document.getElementById('tx_basis').textContent='Aktuell: '+mode;
 }
 
-function demoDisabled(){
-function demo(){
-  // EBITDA: adjustiere Pos 1,2,3,4,5,7 — nicht 6 und 8
-  document.getElementById('a1').value=172;
-  document.getElementById('a2').value=319; // 50% der F&E
-  document.getElementById('a3').value=234;
-  document.getElementById('a4').value=318;
-  document.getElementById('a5').value=260;
-  document.getElementById('a6').value=0;   // Messe: nicht adjustieren
-  document.getElementById('a7').value=192;
-  document.getElementById('a8').value=0;   // Rechtsstreit: nicht adjustieren
-  calcE();
-  document.getElementById('fin_e').value=4036;
-  // Peers: schließe ITW, Cognex, Watts, Hydro aus
-  document.getElementById('p3').checked=false;
-  document.getElementById('p4').checked=false;
-  document.getElementById('p6').checked=false;
-  document.getElementById('p7').checked=false;
-  document.getElementById('tc_l').value=7;document.getElementById('tc_m').value=10;document.getElementById('tc_h').value=13;document.getElementById('liq_d').value=0;
-  calcTE();
-  // Transaktionen
-  document.getElementById('tx6').checked=false;document.getElementById('tx8').checked=false;document.getElementById('tx10').checked=false;
-  document.getElementById('ttx_l').value=8;document.getElementById('ttx_m').value=11;document.getElementById('ttx_h').value=15;
-  calcTX();
-  document.getElementById('eb_ev').value=Math.round(4036*11);
-  document.getElementById('eb_d').value=2800;document.getElementById('eb_l').value=1400;document.getElementById('eb_p').value=1100;
-  document.getElementById('eb_c').value=3200;document.getElementById('eb_n').value=3680;document.getElementById('eb_co').value=0;
-  calcEB();calcS();closeM();
-}
+
 </script>
 </div>
 </body>
 </html>
-

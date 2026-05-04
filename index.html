@@ -5,46 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WINTERGERST – M&amp;A Case Study: LORCH Schweißtechnik GmbH</title>
 <style>
-:root{--bg:#EEEAE5;--t:#1A1814;--s:#6F6259;--m:#B5ADA5;--teal:#5E7775;--gn:#93A496;--dv:#333333;--rd:#A62D2A;--gd:#D8AE50}
+:root{--bg:#E9E3DA;--t:#111111;--s:#4A3F36;--m:#7A6E63;--teal:#2F5E59;--gn:#6D8A78;--dv:#1F1F1F;--rd:#8F1F1C;--gd:#B6862E}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:11px;line-height:1.55}
+body{background:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:14px;line-height:1.7}
 #app{background:var(--bg);max-width:1000px;margin:0 auto;min-height:100vh}
 .nav{background:var(--bg);border-bottom:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:8px 20px;position:sticky;top:0;z-index:50;flex-wrap:wrap;gap:4px}
-.brand{font-size:9px;letter-spacing:.18em;color:var(--s);text-transform:uppercase;white-space:nowrap}.brand b{color:var(--t)}
+.brand{font-size:11px;letter-spacing:.18em;color:var(--s);text-transform:uppercase;white-space:nowrap}.brand b{color:var(--t)}
 .steps{display:flex;gap:1px;flex-wrap:wrap}
-.step{padding:3px 8px;font-size:8px;cursor:pointer;border:none;background:transparent;color:var(--m);text-transform:uppercase;border-bottom:1.5px solid transparent;letter-spacing:.06em}
+.step{padding:5px 10px;font-size:10px;cursor:pointer;border:none;background:transparent;color:var(--m);text-transform:uppercase;border-bottom:1.5px solid transparent;letter-spacing:.06em}
 .step:hover{color:var(--t)}.step.active{color:var(--t);border-bottom-color:var(--t)}.step.done{color:var(--teal);border-bottom-color:var(--teal)}
-#tmr{font-size:10px;color:var(--s);cursor:pointer;border:.8px solid var(--m);padding:2px 7px;user-select:none}
+#tmr{font-size:12px;color:var(--s);cursor:pointer;border:.8px solid var(--m);padding:2px 7px;user-select:none}
 #tmr.warn{color:var(--rd);border-color:var(--rd)}
 .sc{display:none;padding:22px 20px 80px}.sc.active{display:block}
-.slbl{font-size:8px;letter-spacing:.2em;color:var(--s);text-transform:uppercase;margin-bottom:3px}
+.slbl{font-size:10px;letter-spacing:.2em;color:var(--s);text-transform:uppercase;margin-bottom:3px}
 .dline{border:none;border-bottom:.8px solid var(--dv);margin-bottom:14px}
-h1{font-size:17px;font-we
-light:400;margin-bottom:4px}
-h3{font-size:10px;font-weight:400;color:var(--s);margin:14px 0 5px;text-transform:uppercase;letter-spacing:.08em}
-p{margin-bottom:7px}.mu{color:var(--s);font-size:10px}
+h1{font-size:24px;font-weight:600;margin-bottom:6px}
+h3{font-size:14px;font-weight:400;color:var(--s);margin:14px 0 5px;text-transform:uppercase;letter-spacing:.08em}
+p{margin-bottom:7px}.mu{color:var(--s);font-size:13px;font-weight:600}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-table{width:100%;border-collapse:collapse;font-size:10px;margin-bottom:10px}
-th{text-align:left;padding:4px 5px;font-size:8px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--s);border-bottom:.8px solid var(--dv)}
-td{padding:4px 5px;border-bottom:.4px solid #ddd9d4}tr:last-child td{border-bottom:none}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px}
+th{text-align:left;padding:6px 7px;font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--s);border-bottom:.8px solid var(--dv)}
+td{padding:7px 8px;border-bottom:.8px solid #cfc5ba}tr:last-child td{border-bottom:none}
 .nr{text-align:right;font-variant-numeric:tabular-nums}
 .hl td{font-weight:600;background:rgba(93,119,117,.07)}.sub td{border-top:.8px solid var(--s)}.adj td{color:var(--teal);font-style:italic}
-.inp{background:transparent;border:none;border-bottom:.8px solid var(--s);font-family:Calibri,sans-serif;font-size:11px;color:var(--t);padding:3px 0;width:100%;outline:none}
+.inp{background:transparent;border:none;border-bottom:1.2px solid var(--s);font-family:Calibri,sans-serif;font-size:13px;color:var(--t);padding:3px 0;width:100%;outline:none}
 .inp:focus{border-bottom-color:var(--t)}
-.cinp{background:transparent;border:none;border-bottom:.8px solid var(--m);font-family:Calibri,sans-serif;font-size:10px;color:var(--teal);width:72px;text-align:right;padding:2px 0;outline:none}
-.lbl{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--s);margin-bottom:3px;margin-top:9px}
+.cinp{background:transparent;border:none;border-bottom:1px solid var(--m);font-family:Calibri,sans-serif;font-size:12px;color:var(--teal);width:72px;text-align:right;padding:2px 0;outline:none}
+.lbl{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--s);margin-bottom:3px;margin-top:9px}
 textarea.inp{resize:vertical;min-height:40px}
-.co{padding:8px 11px;margin-bottom:9px;border-left:2px solid var(--teal);background:rgba(93,119,117,.06);font-size:10px;color:var(--s)}
+.co{padding:10px 14px;margin-bottom:10px;border-left:3px solid var(--teal);background:rgba(47,94,89,.12);font-size:13px;color:var(--s)}
 .co.w{border-left-color:var(--gd);background:rgba(216,174,80,.06)}
 .co.r{border-left-color:var(--rd);background:rgba(166,45,42,.05);color:var(--rd)}
 .hbtn{font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:.8px solid var(--m);background:transparent;color:var(--m);padding:2px 8px;cursor:pointer;margin-top:5px}
 .hbtn:hover{border-color:var(--s);color:var(--s)}
 .hint{display:none;margin-top:6px;padding:8px 11px;border-left:2px solid var(--gd);background:rgba(216,174,80,.07);font-size:10px;color:var(--s);line-height:1.6}
 .hint.on{display:block}
-.rb{padding:9px 13px;background:rgba(0,0,0,.03);border-bottom:1.5px solid var(--t);margin-bottom:9px}
+.rb{padding:11px 14px;background:rgba(0,0,0,.05);border-bottom:1.5px solid var(--t);margin-bottom:9px}
 .rlbl{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--s)}
-.rval{font-size:16px;font-weight:400;color:var(--t);margin-top:2px}
+.rval{font-size:20px;font-weight:400;color:var(--t);margin-top:2px}
 .rsub{font-size:9px;color:var(--m);margin-top:1px}
 .pc{border-bottom:.5px solid #ddd9d4;padding:8px 0;display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:start}
 .pn{font-size:11px}.pd{font-size:9px;color:var(--s);margin-top:2px}
@@ -53,10 +52,10 @@ textarea.inp{resize:vertical;min-height:40px}
 .pill{display:inline-block;font-size:7px;letter-spacing:.08em;padding:1px 5px;text-transform:uppercase;margin-right:3px}
 .pg{background:rgba(147,164,150,.2);color:var(--teal)}.pw{background:rgba(216,174,80,.2);color:#8a6e10}.pr{background:rgba(166,45,42,.12);color:var(--rd)}
 .bot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1000px;background:var(--bg);border-top:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:7px 20px;z-index:49}
-.botb{font-size:8px;letter-spacing:.15em;color:var(--m);text-transform:uppercase}
-.pb{background:var(--t);color:var(--bg);border:none;padding:6px 15px;font-family:Calibri,sans-serif;font-size:8px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+.botb{font-size:10px;letter-spacing:.15em;color:var(--m);text-transform:uppercase}
+.pb{background:var(--t);color:var(--bg);border:none;padding:8px 16px;font-family:Calibri,sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
 .pb:hover{background:var(--s)}
-.sb{background:transparent;color:var(--s);border:.8px solid var(--s);padding:5px 11px;font-family:Calibri,sans-serif;font-size:8px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.sb{background:transparent;color:var(--s);border:1px solid var(--s);padding:7px 12px;font-family:Calibri,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .sb:hover{background:var(--s);color:var(--bg)}
 .mod-wrap{display:none;position:fixed;inset:0;background:rgba(26,24,20,.55);z-index:100;align-items:center;justify-content:center}
 .mod-wrap.open{display:flex}
@@ -68,6 +67,11 @@ textarea.inp{resize:vertical;min-height:40px}
 .tx-tbl th{font-size:7.5px}
 .ex td{background:rgba(166,45,42,.04);color:#888}
 .chk{accent-color:var(--teal);width:14px;height:14px;cursor:pointer}
+
+.container .card{background:rgba(47,94,89,.10);border:1px solid #7A6E63;border-left:4px solid var(--teal);border-radius:10px;padding:16px 18px;margin-bottom:12px;color:var(--t)}
+.container .card h1,.container .card h2,.container .card h3{color:var(--t)}
+.container .card .subtitle{color:var(--s);font-weight:600}
+
 </style>
 </head>
 <body>
@@ -324,6 +328,14 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="slbl">Modul 3 · Trading Comparables</div><hr class="dline">
   <h1>Peer Group Selektion – Börsennotierte Vergleichsunternehmen</h1>
   <p class="mu">Sieben Unternehmen stehen zur Auswahl. Entscheiden Sie für jeden Peer: Einschluss oder Ausschluss? Begründen Sie jede Entscheidung methodisch. Es gibt keine Vorgabe, wie viele Peers passend sind.</p>
+  <div class="co" style="margin-top:10px">
+    <b>Multiples-Basis nur für diese Seite:</b> LTM/NTM kann ausschließlich hier für Trading Peers umgestellt werden.
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button class="sb" onclick="setPeerBasis('LTM')">LTM</button>
+      <button class="sb" onclick="setPeerBasis('NTM')">NTM</button>
+      <span id="peer_basis" class="mu" style="margin:0">Aktuell: LTM</span>
+    </div>
+  </div>
 
   <div id="peer-list">
 
@@ -335,7 +347,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung Einschluss / Ausschluss</label>
         <textarea class="inp" style="min-height:36px" id="c_p1" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>17,7x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>21,5%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 4.190M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,7x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>21,5%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 4.190M</span></div>
     </div>
 
     <div class="pc">
@@ -346,7 +358,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung</label>
         <textarea class="inp" style="min-height:36px" id="c_p2" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>11,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,0x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>17,3%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.770M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>11,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,0x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>17,3%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.770M</span></div>
     </div>
 
     <div class="pc">
@@ -357,7 +369,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung</label>
         <textarea class="inp" style="min-height:36px" id="c_p3" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>17,8x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>4,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>30,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 15.900M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,8x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>4,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>30,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 15.900M</span></div>
     </div>
 
     <div class="pc">
@@ -368,7 +380,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung</label>
         <textarea class="inp" style="min-height:36px" id="c_p4" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>38,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>9,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>24,2%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 806M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>38,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>9,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>24,2%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 806M</span></div>
     </div>
 
     <div class="pc">
@@ -379,7 +391,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung</label>
         <textarea class="inp" style="min-height:36px" id="c_p5" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR 209M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR 209M</span></div>
     </div>
 
     <div class="pc">
@@ -390,7 +402,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung</label>
         <textarea class="inp" style="min-height:36px" id="c_p6" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>17,2x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>22,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.010M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,2x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>22,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.010M</span></div>
     </div>
 
     <div class="pc">
@@ -401,7 +413,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Begründung</label>
         <textarea class="inp" style="min-height:36px" id="c_p7" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>8,4x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>0,9x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>11,8%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR ~18.000M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>8,4x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>0,9x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>11,8%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR ~18.000M</span></div>
     </div>
 
   </div>
@@ -427,9 +439,9 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Multiple-Bandbreite (Trading Comps)</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div><label class="lbl">Low (x)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Mid (x)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">High (x)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Version A (Low, x)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Version B (Mid, x)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Version C (High, x)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
       </div>
       <label class="lbl">Angewendeter Discount (%)</label>
       <input class="inp" type="number" id="liq_d" placeholder="20" step="5" style="max-width:80px">
@@ -445,6 +457,14 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="slbl">Modul 4 · Precedent Transactions – 12 echte M&amp;A-Deals (alle mit EV/EBITDA)</div><hr class="dline">
   <h1>Transaction Comparables – Schweißtechnik &amp; Industrial Equipment</h1>
   <p class="mu"><b>Alle Transaktionen sind real.</b> EV/EBITDA-Multiples basieren auf öffentlich verfügbaren Quellen (SEC Filings, Pressemitteilungen, Bloomberg-Daten). Selektieren Sie die 4–6 relevantesten Transaktionen. </p>
+  <div class="co" style="margin-top:10px">
+    <b>Multiples-Basis nur für diese Seite:</b> LTM/NTM kann ausschließlich hier für Transaction Peers umgestellt werden.
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button class="sb" onclick="setTxBasis('LTM')">LTM</button>
+      <button class="sb" onclick="setTxBasis('NTM')">NTM</button>
+      <span id="tx_basis" class="mu" style="margin:0">Aktuell: LTM</span>
+    </div>
+  </div>
 
 
   <div style="overflow-x:auto">
@@ -459,7 +479,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <th class="nr">EV (MUSD/EUR)</th>
         <th class="nr">Umsatz</th>
         <th class="nr">EBITDA</th>
-        <th class="nr">EV/EBITDA</th>
+        <th class="nr" id="tx_metric_head">EV/EBITDA LTM</th>
         <th class="nr">EV/Rev.</th>
         <th>Kontext / Kommentar</th>
       </tr>
@@ -590,9 +610,9 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Transaction Multiple-Bandbreite</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div><label class="lbl">Low</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Mid</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">High</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Version A (Low)</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Version B (Mid)</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Version C (High)</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
       </div>
       <div id="r_ttev" style="margin-top:10px"></div>
       <button class="sb" style="margin-top:8px" onclick="calcTX()">EV-Bandbreite</button>
@@ -717,14 +737,36 @@ textarea.inp{resize:vertical;min-height:40px}
 </div>
 <script>
 let cur=0,tid=null,sl=5400;
+
+function removeLegacyIntegratedCaseSection(){
+  document.querySelectorAll('section.card').forEach(sec=>{
+    const h2=sec.querySelector('h2');
+    if(h2 && h2.textContent && h2.textContent.trim().toLowerCase()==='2) alte case study (integriert)'){
+      sec.remove();
+    }
+  });
+}
+
+
+function syncLegacyIntroCardsVisibility(){
+  document.querySelectorAll('.container section.card').forEach((sec,idx)=>{
+    if(idx===0){
+      sec.style.display = (cur===0 ? '' : 'none');
+    }
+  });
+}
+
 const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
+
+removeLegacyIntegratedCaseSection();
+syncLegacyIntroCardsVisibility();
 
 function go(n){
   cur=n;
   document.querySelectorAll('.sc').forEach((s,i)=>s.classList.toggle('active',i===n));
   document.querySelectorAll('.step').forEach((b,i)=>{b.classList.remove('active','done');if(i===n)b.classList.add('active');else if(i<n)b.classList.add('done');});
   document.getElementById('prog').textContent='Modul '+n+' von 6';
-  window.scrollTo(0,0);sync();
+  window.scrollTo(0,0);syncLegacyIntroCardsVisibility();sync();
 }
 function next(){if(cur<6)go(cur+1);}
 function prev(){if(cur>0)go(cur-1);}
@@ -830,6 +872,20 @@ function drawFF(){
     if(r.mid){const xm=sc(r.mid);const ln=document.createElementNS('http://www.w3.org/2000/svg','line');ln.setAttribute('x1',xm);ln.setAttribute('y1',r.y-bh/2-2);ln.setAttribute('x2',xm);ln.setAttribute('y2',r.y+bh/2+2);ln.setAttribute('stroke','#'+r.c);ln.setAttribute('stroke-width','2');svgB.appendChild(ln);}
     [[bx1-2,'end'],[bx2+2,'start']].forEach(([x,a],i)=>{const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',x);t.setAttribute('y',r.y+3);t.setAttribute('text-anchor',a);t.setAttribute('font-size','7');t.setAttribute('fill','#'+r.c);t.setAttribute('font-family','Calibri');t.textContent=((i===0?r.low:r.high)/1000).toFixed(0)+'k';svgB.appendChild(t);});
   });
+}
+
+
+function setPeerBasis(mode){
+  document.querySelectorAll('.peer-metric').forEach(el=>{
+    const est=el.textContent.includes('(est.)');
+    el.textContent='EV/EBITDA '+mode+(est?' (est.)':'');
+  });
+  document.getElementById('peer_basis').textContent='Aktuell: '+mode;
+}
+
+function setTxBasis(mode){
+  document.getElementById('tx_metric_head').textContent='EV/EBITDA '+mode;
+  document.getElementById('tx_basis').textContent='Aktuell: '+mode;
 }
 
 function demo(){

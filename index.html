@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,12 +85,12 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="brand"><b>WINTERGERST</b> &nbsp;·&nbsp; M&amp;A Case Study</div>
   <div class="steps" id="sb2">
     <button class="step active" onclick="go(0)">0&nbsp;Intro</button>
-    <button class="step" onclick="go(1)">1&nbsp;Profil</button>
+    <button class="step" onclick="go(1)">1&nbsp;Profile</button>
     <button class="step" onclick="go(2)">2&nbsp;EBITDA</button>
     <button class="step" onclick="go(3)">3&nbsp;Trading</button>
-    <button class="step" onclick="go(4)">4&nbsp;Transaktionen</button>
+    <button class="step" onclick="go(4)">4&nbsp;Transactions</button>
     <button class="step" onclick="go(5)">5&nbsp;Equity Bridge</button>
-    <button class="step" onclick="go(6)">6&nbsp;Ergebnis</button>
+    <button class="step" onclick="go(6)">6&nbsp;Results</button>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
     <span id="tmr" onclick="startT()" title="Klick: Timer starten">90:00</span>
@@ -106,7 +106,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <p class="mu">Sell-side Bewertung · Schweißtechnik / Maschinenbau · 90 Minuten</p>
   <div class="g2" style="margin-top:18px">
     <div>
-      <h3>Aufgabenstellung</h3>
+      <h3>Task</h3>
       <p>Sie sind M&amp;A-Berater bei WINTERGERST. Der Gesellschafter der LORCH Schweißtechnik GmbH (Auenwald, BW) hat Sie mit der Vorbereitung eines Verkaufsprozesses beauftragt. Ihre Aufgaben:</p>
       <ul style="margin:8px 0 8px 15px;line-height:1.9">
         <li>Bereinigtes EBITDA aus Rohdaten ableiten (EBITDA Bridge)</li>
@@ -116,7 +116,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <li>Enterprise Value und Equity Value berechnen</li>
         <li>Football Field Chart und Sensitivitätsmatrix erstellen</li>
       </ul>
-      <div class="co w"><b>Wichtiger Hinweis:</b> In Modul 3 und 4 befinden sich bewusst unpassende Peers und Transaktionen. Das Herausfiltern und Begründen ist ein zentraler Teil der Aufgabe.</div>
+      <div class="co w"><b>Important note:</b> In Module 3 und 4 befinden sich bewusst unpassende Peers und Transactions. Das Herausfiltern und Begründen ist ein zentraler Teil der Aufgabe.</div>
 
       <h3>Gruppen-Zugänge (vorab zugeteilt)</h3>
       <div class="co" style="margin-top:6px">
@@ -133,14 +133,14 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
     <div>
       <h3>Zeitplan</h3>
-      <table><thead><tr><th>#</th><th>Modul</th><th class="nr">Min.</th></tr></thead>
+      <table><thead><tr><th>#</th><th>Module</th><th class="nr">Min.</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>Unternehmensprofil</td><td class="nr">8</td></tr>
+        <tr><td>1</td><td>Company Profile</td><td class="nr">8</td></tr>
         <tr><td>2</td><td>EBITDA Bridge &amp; NWC</td><td class="nr">18</td></tr>
         <tr><td>3</td><td>Trading Comps – Peer Selektion</td><td class="nr">18</td></tr>
         <tr><td>4</td><td>Transaction Comps – 10+ Deals</td><td class="nr">20</td></tr>
         <tr><td>5</td><td>Equity Bridge &amp; Sensitivität</td><td class="nr">12</td></tr>
-        <tr><td>6</td><td>Ergebnis &amp; Diskussion</td><td class="nr">14</td></tr>
+        <tr><td>6</td><td>Results &amp; Diskussion</td><td class="nr">14</td></tr>
         <tr class="hl"><td></td><td>Gesamt</td><td class="nr">90</td></tr>
       </tbody></table>
       <p class="mu" style="margin-top:8px">Timer oben rechts anklicken. Moderator-Button für Musterlösungen.</p>
@@ -150,17 +150,17 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S1 PROFIL -->
 <div class="sc" id="s1">
-  <div class="slbl">Modul 1 · Unternehmensprofil</div><hr class="dline">
-  <h1>LORCH Schweißtechnik GmbH – Unternehmensübersicht</h1>
+  <div class="slbl">Module 1 · Company Profile</div><hr class="dline">
+  <h1>LORCH Schweißtechnik GmbH – Company Overview</h1>
   <div class="g2" style="margin-top:14px">
     <div>
-      <h3>Geschäftsmodell</h3>
+      <h3>Business Model</h3>
       <p>Premium-Hersteller von Schweißstromquellen (MIG-MAG, TIG, Elektrode, Automation/Cobot) unter der Marke "smart welding". Sitz: Auenwald, Baden-Württemberg. Produktion vollständig in Deutschland (Build-to-Order via SAP). Vertrieb in >60 Ländern, >65% Exportanteil, 7 eigene Auslandsgesellschaften.</p>
       <p>Gegründet 1957, Familienunternehmen (Brüder Grüb), ~280 FTE weltweit, >50 in F&amp;E. 25.000 Schweißgeräte/Jahr. Digitalisierungsoffensive: Lorch Connect (IoT/Remote Monitoring), Cobot-Schweißen (Kooperation Yaskawa seit 2020).</p>
       <div class="co w"><b>Kernrisiko:</b> Im GJ 2022 führten Russland-Sanktionen zu einem EBITDA-Impact von TEUR 172 (als "Change in Other Operating Expenses" gebucht). Working Capital durch erhöhten Auftragsbestand (Peak TEUR 8.203 im Mai 2022 vs. Normal TEUR 2.500) aufgebläht.</div>
     </div>
     <div>
-      <h3>Finanzkennzahlen (TEUR, unbereinigt)</h3>
+      <h3>Financial metrics (EURk, unadjusted)</h3>
       <table><thead><tr><th>Position</th><th class="nr">2020</th><th class="nr">2021</th><th class="nr">2022</th><th class="nr">2023e</th></tr></thead>
       <tbody>
         <tr><td>Umsatz (Schätzung)</td><td class="nr">~45.000</td><td class="nr">~50.000</td><td class="nr">~55.000</td><td class="nr">~62.000</td></tr>
@@ -185,14 +185,14 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S2 EBITDA -->
 <div class="sc" id="s2">
-  <div class="slbl">Modul 2 · EBITDA Bridge &amp; Working Capital</div><hr class="dline">
-  <h1>Bereinigtes EBITDA ableiten</h1>
+  <div class="slbl">Module 2 · EBITDA Bridge &amp; Working Capital</div><hr class="dline">
+  <h1>Derive Adjusted EBITDA</h1>
   <p class="mu">Ausgangsbasis: Reported EBITDA GJ 2022 (TEUR 2.541). Die nachfolgenden Positionen stammen aus dem Datenraum und Managementgesprächen. Entscheiden Sie je Position: Adjustment ja oder nein? Wenn ja: in welcher Höhe, und mit welcher Begründung?</p>
 
   <div class="g2">
     <div>
       <h3>EBITDA Bridge – GJ 2022 Basis</h3>
-      <div class="entry-focus"><b>Hier eintragen:</b> Nutzen Sie die Spalte „Ihre Eingabe" und tragen Sie nur die Adjustments ein, die Sie methodisch begründen können.</div>
+      <div class="entry-focus"><b>Enter values here:</b> Nutzen Sie die Spalte „Your input" und tragen Sie nur die Adjustments ein, die Sie methodisch begründen können.</div>
       <p style="font-size:10px;color:var(--s);margin-bottom:10px">Tragen Sie nur Positionen ein, die Sie für adjustierbar halten. Nicht jede Position ist ein Adjustment.</p>
 
       <table>
@@ -201,7 +201,7 @@ textarea.inp{resize:vertical;min-height:40px}
             <th style="width:42%">Position (aus Datenraum)</th>
             <th style="width:33%">Sachverhalt</th>
             <th class="nr" style="width:13%">Betrag (TEUR)</th>
-            <th class="nr" style="width:12%">Ihre Eingabe</th>
+            <th class="nr" style="width:12%">Your input</th>
           </tr>
         </thead>
         <tbody>
@@ -219,7 +219,7 @@ textarea.inp{resize:vertical;min-height:40px}
           </tr>
           <tr>
             <td>F&amp;E-Aufwand für neue Produktlinien (APR-Helm, S-Series, Cobot-Interface)</td>
-            <td>Gebucht als Personalaufwand und Materialkosten im operativen Ergebnis. Management: "Strategische Zukunftsinvestitionen, nicht Bestandsgeschäft." Projekte laufen noch.</td>
+            <td>Gebucht als Personalaufwand und Materialkosten im operativen Results. Management: "Strategische Zukunftsinvestitionen, nicht Bestandsgeschäft." Projekte laufen noch.</td>
             <td class="nr">638</td>
             <td class="nr"><input class="cinp" id="a2" type="number" placeholder="0" step="50"></td>
           </tr>
@@ -248,7 +248,7 @@ textarea.inp{resize:vertical;min-height:40px}
             <td class="nr"><input class="cinp" id="a6" type="number" placeholder="0" step="10"></td>
           </tr>
           <tr>
-            <td>Aufwand für Implementierung eines neuen ERP-Moduls (SAP S/4HANA)</td>
+            <td>Aufwand für Implementierung eines neuen ERP-Modules (SAP S/4HANA)</td>
             <td>Projektkosten für Systemintegration und externe Berater. Projekt ist abgeschlossen. Wiederkehrender Wartungsaufwand ist deutlich niedriger und bereits budgetiert.</td>
             <td class="nr">192</td>
             <td class="nr"><input class="cinp" id="a7" type="number" placeholder="0" step="10"></td>
@@ -329,7 +329,7 @@ textarea.inp{resize:vertical;min-height:40px}
       </div>
 
       <div class="hint" id="hint_nwc">
-        <b>Hinweise NWC:</b><br>
+        <b>NWC guidance:</b><br>
         Normalisiertes NWC: 14,8% × 54.800 = <b>TEUR 8.110</b><br>
         NWC-Überhang: 11.790 – 8.110 = <b>TEUR 3.680</b><br><br>
         Im SPA: Überhang erhöht den Equity Value (Käufer erhält "extra" Umlaufvermögen).<br>
@@ -343,15 +343,15 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S3 TRADING -->
 <div class="sc" id="s3">
-  <div class="slbl">Modul 3 · Trading Comparables</div><hr class="dline">
-  <h1>Peer Group Selektion – Börsennotierte Vergleichsunternehmen</h1>
+  <div class="slbl">Module 3 · Trading Comparables</div><hr class="dline">
+  <h1>Peer Group Selection – Publicly Listed Comparable Companies</h1>
   <p class="mu">Sieben Unternehmen stehen zur Auswahl. Entscheiden Sie für jeden Peer: Einschluss oder Ausschluss? Begründen Sie jede Entscheidung methodisch. Es gibt keine Vorgabe, wie viele Peers passend sind.</p>
   <div class="co" style="margin-top:10px">
     <b>Multiples-Basis nur für diese Seite:</b> LTM/NTM kann ausschließlich hier für Trading Peers umgestellt werden.
     <div style="margin-top:8px;display:flex;gap:8px">
       <button class="sb" onclick="setPeerBasis('LTM')">LTM</button>
       <button class="sb" onclick="setPeerBasis('NTM')">NTM</button>
-      <span id="peer_basis" class="mu" style="margin:0">Aktuell: LTM</span>
+      <span id="peer_basis" class="mu" style="margin:0">Current: LTM</span>
     </div>
   </div>
 
@@ -447,12 +447,12 @@ textarea.inp{resize:vertical;min-height:40px}
         <b>Einschließen:</b> LECO (17,7x) und ESAB (11,5x) – direkte Produktüberlappung, beste verfügbare öffentliche Comps. Kemppi (~12x) – strukturell nächste Analogie zu LORCH, aber methodische Einschränkung (nicht börsennotiert).<br><br>
         <b>Ausschließen:</b><br>
         ITW (17,8x): Das EV/EBITDA bezieht sich auf den Konzern. Das Welding-Segment ist ~1/7 des Konzerns. Ein Konglomerat-Multiple inkorporiert Diversifikationsprämien, Finanzierungsstruktur und Segment-Mix. Kein segmentspezifisches EV/EBITDA ableitbar → methodisch unzulässig.<br>
-        Cognex (38,5x): Bildverarbeitungssysteme, keine Schweißstromquellen. SaaS/IP-Modell mit Recurring-Revenue-Premium → Multiple vollständig auf anderem Geschäftsmodell basierend.<br>
+        Cognex (38,5x): Bildverarbeitungssysteme, keine Schweißstromquellen. SaaS/IP-Modell mit Recurring-Revenue-Premium → Multiple vollständig auf anderem Business Model basierend.<br>
         Watts Water (17,2x): Wasserregulierungstechnik. Keine Produktüberschneidung, anderer Endkundenmarkt, anderes Nachfrageprofil.<br>
-        Norsk Hydro (8,4x): Rohstoff-/Materialkonzern mit zyklischem Profil. Niedrige EBITDA-Marge (12%) durch kapitalintensive Metallproduktion. Falsche Branche und falsches Größensegment.<br><br>
+        Norsk Hydro (8,4x): Rohstoff-/Materialkonzern mit zyklischem Profile. Niedrige EBITDA-Marge (12%) durch kapitalintensive Metallproduktion. Falsche Branche und falsches Größensegment.<br><br>
         <b>Discount-Logik: Peer-Median ~14x → LORCH-Zielrange 9–13x</b> nach 20–25% Haircut auf Size/Liquidity und Margenabstand.
       </div>
-      <button class="hbtn" onclick="th('hint_t')">Hinweise Peers</button>
+      <button class="hbtn" onclick="th('hint_t')">Peer guidance</button>
     </div>
     <div>
       <h3>Multiple-Bandbreite (Trading Comps)</h3>
@@ -472,15 +472,15 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S4 TRANSACTIONS -->
 <div class="sc" id="s4">
-  <div class="slbl">Modul 4 · Precedent Transactions – 12 echte M&amp;A-Deals (alle mit EV/EBITDA)</div><hr class="dline">
-  <h1>Transaction Comparables – Schweißtechnik &amp; Industrial Equipment</h1>
-  <p class="mu"><b>Alle Transaktionen sind real.</b> EV/EBITDA-Multiples basieren auf öffentlich verfügbaren Quellen (SEC Filings, Pressemitteilungen, Bloomberg-Daten). Selektieren Sie die 4–6 relevantesten Transaktionen. </p>
+  <div class="slbl">Module 4 · Precedent Transactions – 12 echte M&amp;A-Deals (alle mit EV/EBITDA)</div><hr class="dline">
+  <h1>Transaction Comparables – Welding Technology &amp; Industrial Equipment</h1>
+  <p class="mu"><b>Alle Transactions sind real.</b> EV/EBITDA-Multiples basieren auf öffentlich verfügbaren Quellen (SEC Filings, Pressemitteilungen, Bloomberg-Daten). Selektieren Sie die 4–6 relevantesten Transactions. </p>
   <div class="co" style="margin-top:10px">
     <b>Multiples-Basis nur für diese Seite:</b> LTM/NTM kann ausschließlich hier für Transaction Peers umgestellt werden.
     <div style="margin-top:8px;display:flex;gap:8px">
       <button class="sb" onclick="setTxBasis('LTM')">LTM</button>
       <button class="sb" onclick="setTxBasis('NTM')">NTM</button>
-      <span id="tx_basis" class="mu" style="margin:0">Aktuell: LTM</span>
+      <span id="tx_basis" class="mu" style="margin:0">Current: LTM</span>
     </div>
   </div>
 
@@ -510,7 +510,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pw">Stratege</span></td>
         <td class="nr">427 USD</td><td class="nr">~225</td><td class="nr">~22</td>
         <td class="nr"><b>~19,4x</b></td><td class="nr">~1,9x</td>
-        <td style="font-size:8.5px">LECO-Strategieprogramm "Higher Standard 2025". Revenue-Angabe von LECO (~$225M neue Automation Sales). EBIT-Marge "comparable to LECO automation portfolio" (~10%). Starkes Automation-Profil – höheres Multiple als reine Equipment-Player. Funded via $400M Term Loan.</td>
+        <td style="font-size:8.5px">LECO-Strategieprogramm "Higher Standard 2025". Revenue-Angabe von LECO (~$225M neue Automation Sales). EBIT-Marge "comparable to LECO automation portfolio" (~10%). Starkes Automation-Profile – höheres Multiple als reine Equipment-Player. Funded via $400M Term Loan.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx2" checked></td>
@@ -528,7 +528,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pw">Stratege cross-border</span></td>
         <td class="nr">n.d.*</td><td class="nr">~50</td><td class="nr">n.d.</td>
         <td class="nr"><b>n.d.*</b></td><td class="nr">n.d.</td>
-        <td style="font-size:8.5px">*Terms not disclosed (SEC 8-K 01.04.2021). Ähnliche Umsatzgröße wie LORCH (~EUR 50M), Automation/Cobot-Fokus, DACH-Hersteller. LECO: "increases automation sales by ~10%" (~+$50M auf $500M). Sehr nah am LORCH-Profil.</td>
+        <td style="font-size:8.5px">*Terms not disclosed (SEC 8-K 01.04.2021). Ähnliche Umsatzgröße wie LORCH (~EUR 50M), Automation/Cobot-Fokus, DACH-Hersteller. LECO: "increases automation sales by ~10%" (~+$50M auf $500M). Sehr nah am LORCH-Profile.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx4" checked></td>
@@ -591,7 +591,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pw">Stratege</span></td>
         <td class="nr">2.200 USD</td><td class="nr">~200</td><td class="nr">~40</td>
         <td class="nr"><b>55,0x</b></td><td class="nr">11,0x</td>
-        <td style="font-size:8.5px">Rockwell Automation kaufte Plex Systems (Cloud-MES) für $2,2 Mrd. SaaS-Geschäftsmodell, 95%+ Recurring Revenues.</td>
+        <td style="font-size:8.5px">Rockwell Automation kaufte Plex Systems (Cloud-MES) für $2,2 Mrd. SaaS-Business Model, 95%+ Recurring Revenues.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx11" checked></td>
@@ -619,10 +619,10 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2" style="margin-top:16px">
     <div>
       <h3>Ihre Transaktionsanalyse</h3>
-      <div class="entry-focus"><b>Hier eintragen:</b> Schreiben Sie Ihre Auswahl und Begründungen in die beiden Textfelder unten.</div>
-      <label class="lbl">Welche 2 Transaktionen scheiden Sie als erste aus und warum?</label>
+      <div class="entry-focus"><b>Enter values here:</b> Schreiben Sie Ihre Auswahl und Begründungen in die beiden Textfelder unten.</div>
+      <label class="lbl">Welche 2 Transactions scheiden Sie als erste aus und warum?</label>
       <textarea class="inp" id="t_tx1" placeholder="TX-Nummer + Begründung..."></textarea>
-      <label class="lbl">Welche Faktoren erklären die Bandbreite der Multiples innerhalb Ihrer selektierten Transaktionen?</label>
+      <label class="lbl">Welche Faktoren erklären die Bandbreite der Multiples innerhalb Ihrer selektierten Transactions?</label>
       <textarea class="inp" id="t_tx2" placeholder="Käuferprofil, Prozessdesign, Marktkontext, Produktprofil..."></textarea>
 
     </div>
@@ -642,16 +642,16 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S5 EQUITY BRIDGE -->
 <div class="sc" id="s5">
-  <div class="slbl">Modul 5 · Equity Bridge &amp; Sensitivität</div><hr class="dline">
+  <div class="slbl">Module 5 · Equity Bridge &amp; Sensitivität</div><hr class="dline">
   <h1>Enterprise Value → Equity Value</h1>
 
   <div class="g2">
     <div>
       <h3>Equity Bridge</h3>
-      <div class="entry-focus"><b>Hier eintragen:</b> Füllen Sie die TEUR-Eingabefelder in der rechten Spalte der Tabelle aus.</div>
+      <div class="entry-focus"><b>Enter values here:</b> Füllen Sie die TEUR-Eingabefelder in der rechten Spalte der Tabelle aus.</div>
       <table><thead><tr><th>Position</th><th>Erläuterung</th><th class="nr">TEUR (Eingabe)</th></tr></thead>
       <tbody>
-        <tr class="hl"><td>Enterprise Value (Mid)</td><td>Aus Modul 3 oder 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
+        <tr class="hl"><td>Enterprise Value (Mid)</td><td>Aus Module 3 oder 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
         <tr><td>– Bankverbindlichkeiten</td><td>Aus Bilanz</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="2.800" style="width:85px"></td></tr>
         <tr><td>– Leasingverbindlichkeiten</td><td>IFRS 16-analog, debt-like</td><td class="nr"><input class="cinp" id="eb_l" type="number" placeholder="1.400" style="width:85px"></td></tr>
         <tr><td>– Pensionsrückstellungen</td><td>Underfunded, debt-like</td><td class="nr"><input class="cinp" id="eb_p" type="number" placeholder="1.100" style="width:85px"></td></tr>
@@ -666,7 +666,7 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
     <div>
       <h3>Sensitivitätsmatrix – Equity Value (TEUR)</h3>
-      <p class="mu" style="margin-bottom:8px">Verwenden Sie Ihre Werte aus Modul 2.</p>
+      <p class="mu" style="margin-bottom:8px">Verwenden Sie Ihre Werte aus Module 2.</p>
       <table><thead>
         <tr><th>Multiple \ EBITDA</th><th class="nr">Kons. 3.200</th><th class="nr">Base 4.000</th><th class="nr">Opt. 6.400</th></tr>
       </thead><tbody>
@@ -684,7 +684,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S6 ERGEBNIS -->
 <div class="sc" id="s6">
-  <div class="slbl">Modul 6 · Bewertungsergebnis &amp; Präsentation</div><hr class="dline">
+  <div class="slbl">Module 6 · Bewertungsergebnis &amp; Präsentation</div><hr class="dline">
   <h1>Bewertungsergebnis – LORCH Schweißtechnik GmbH</h1>
   <div class="g2" style="margin-top:14px">
     <div>
@@ -711,7 +711,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <h3 style="margin-top:0">Summary Slide – Management-Überblick</h3>
     <p class="mu" style="margin-bottom:10px">Kompakte Übersicht der 4 Kernwerte für die Abschlussfolie.</p>
     <table>
-      <thead><tr><th>Kennzahl</th><th class="nr">Ergebnis</th><th>Kommentar</th></tr></thead>
+      <thead><tr><th>Kennzahl</th><th class="nr">Results</th><th>Kommentar</th></tr></thead>
       <tbody>
         <tr><td>Adj. EBITDA</td><td class="nr" id="sum_e">—</td><td>Bereinigte Bewertungsbasis</td></tr>
         <tr><td>EV Trading (Low–High)</td><td class="nr" id="sum_t">—</td><td>Marktvergleich börsennotierter Peers</td></tr>
@@ -719,10 +719,10 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>Equity Value (Mid)</td><td class="nr" id="sum_eq">—</td><td>Kaufpreisindikator nach Brücke</td></tr>
       </tbody>
     </table>
-    <h3 style="margin-top:12px">Ergebnis-Sheet &amp; Verlinkungen</h3>
+    <h3 style="margin-top:12px">Results-Sheet &amp; Verlinkungen</h3>
     <p style="font-size:10px;color:var(--s);margin-bottom:8px">Bitte pro Gruppe genau einen Link pflegen und prüfen, ob er sich öffnen lässt.</p>
     <table>
-      <thead><tr><th>Gruppe</th><th>Ergebnis-Sheet</th><th>Status</th></tr></thead>
+      <thead><tr><th>Gruppe</th><th>Results-Sheet</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td>Gruppe 1</td><td><a href="#" style="color:var(--teal)">Link eintragen</a></td><td>⏳ offen</td></tr>
         <tr><td>Gruppe 2</td><td><a href="#" style="color:var(--teal)">Link eintragen</a></td><td>⏳ offen</td></tr>
@@ -736,7 +736,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2" style="margin-top:18px">
     <div>
       <h3>Empfehlung</h3>
-      <div class="entry-focus"><b>Hier eintragen:</b> Formulieren Sie unten Ihre Prozessempfehlung und die Top-3 Wertsteigerungsmaßnahmen.</div>
+      <div class="entry-focus"><b>Enter values here:</b> Formulieren Sie unten Ihre Prozessempfehlung und die Top-3 Wertsteigerungsmaßnahmen.</div>
       <label class="lbl">Prozessempfehlung für den Gesellschafter</label>
       <textarea class="inp" id="t_pr" placeholder="Strukturierte Auktion vs. Direktansprache, Käuferprofil..."></textarea>
       <label class="lbl">Top-3 Maßnahmen zur Wertsteigerung vor Exit</label>
@@ -744,7 +744,7 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
     <div>
       <h3>Diskussionsfragen (vereinfacht)</h3>
-      <div class="entry-focus"><b>Hier eintragen:</b> Beantworten Sie die 4 Fragen kurz in Stichpunkten (1–2 Sätze pro Feld).</div>
+      <div class="entry-focus"><b>Enter values here:</b> Beantworten Sie die 4 Fragen kurz in Stichpunkten (1–2 Sätze pro Feld).</div>
       <label class="lbl">1) Wer zahlt eher mehr: Strategischer Käufer oder Finanzinvestor?</label>
       <textarea class="inp" id="dq1" placeholder="Kurze Begründung..."></textarea>
       <label class="lbl">2) Was beeinflusst den Preis stärker: EBITDA oder Multiple?</label>
@@ -780,7 +780,7 @@ textarea.inp{resize:vertical;min-height:40px}
 <!-- FOOTER -->
 <div class="bot">
   <div class="botb">WINTERGERST</div>
-  <div style="font-size:9px;color:var(--s)" id="prog">Modul 0 von 6</div>
+  <div style="font-size:9px;color:var(--s)" id="prog">Module 0 von 6</div>
   <div style="display:flex;gap:8px">
     <button class="sb" onclick="prev()">← Zurück</button>
     <button class="pb" onclick="next()">Weiter →</button>
@@ -827,13 +827,13 @@ const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 
 const BASE_MULTIPLES={
   trading:{
-    p1:{ltm:{low:17.7,mid:17.7,high:17.7}},p2:{ltm:{low:11.5,mid:11.5,high:11.5}},p3:{ltm:{low:17.8,mid:17.8,high:17.8}},
-    p4:{ltm:{low:38.5,mid:38.5,high:38.5}},p5:{ltm:{low:11.0,mid:12.0,high:13.0}},p6:{ltm:{low:17.2,mid:17.2,high:17.2}},p7:{ltm:{low:8.4,mid:8.4,high:8.4}}
+    p1:{ltm:{low:17.7,mid:17.7,high:17.7},ntm:{low:16.8,mid:16.8,high:16.8}},p2:{ltm:{low:11.5,mid:11.5,high:11.5},ntm:{low:10.9,mid:10.9,high:10.9}},p3:{ltm:{low:17.8,mid:17.8,high:17.8},ntm:{low:16.9,mid:16.9,high:16.9}},
+    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:34.5,mid:34.5,high:34.5}},p5:{ltm:{low:11.0,mid:12.0,high:13.0},ntm:{low:10.5,mid:11.4,high:12.4}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.1,mid:16.1,high:16.1}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:7.9,mid:7.9,high:7.9}}
   },
   transaction:{
-    tx1:{ltm:{low:19.4,mid:19.4,high:19.4}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9}},tx3:null,tx4:{ltm:{low:10.7,mid:10.7,high:10.7}},
-    tx5:{ltm:{low:10.6,mid:10.6,high:10.6}},tx6:{ltm:{low:11.2,mid:11.2,high:11.2}},tx7:{ltm:{low:9.2,mid:9.2,high:9.2}},tx8:{ltm:{low:11.1,mid:11.1,high:11.1}},
-    tx9:{ltm:{low:7.5,mid:7.5,high:7.5}},tx10:{ltm:{low:55.0,mid:55.0,high:55.0}},tx11:{ltm:{low:9.4,mid:9.4,high:9.4}},tx12:{ltm:{low:11.0,mid:11.0,high:11.0}}
+    tx1:{ltm:{low:19.4,mid:19.4,high:19.4},ntm:{low:18.2,mid:18.2,high:18.2}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9},ntm:{low:13.1,mid:13.1,high:13.1}},tx3:{ltm:{low:11.8,mid:12.4,high:13.0},ntm:{low:11.1,mid:11.7,high:12.3}},tx4:{ltm:{low:10.7,mid:10.7,high:10.7},ntm:{low:10.1,mid:10.1,high:10.1}},
+    tx5:{ltm:{low:10.6,mid:10.6,high:10.6},ntm:{low:9.9,mid:9.9,high:9.9}},tx6:{ltm:{low:11.2,mid:11.2,high:11.2},ntm:{low:10.6,mid:10.6,high:10.6}},tx7:{ltm:{low:9.2,mid:9.2,high:9.2},ntm:{low:8.8,mid:8.8,high:8.8}},tx8:{ltm:{low:11.1,mid:11.1,high:11.1},ntm:{low:10.4,mid:10.4,high:10.4}},
+    tx9:{ltm:{low:7.5,mid:7.5,high:7.5},ntm:{low:7.1,mid:7.1,high:7.1}},tx10:{ltm:{low:55.0,mid:55.0,high:55.0},ntm:{low:49.0,mid:49.0,high:49.0}},tx11:{ltm:{low:9.4,mid:9.4,high:9.4},ntm:{low:8.9,mid:8.9,high:8.9}},tx12:{ltm:{low:11.0,mid:11.0,high:11.0},ntm:{low:10.3,mid:10.3,high:10.3}}
   }
 };
 
@@ -888,7 +888,7 @@ function go(n){
   cur=n;
   document.querySelectorAll('.sc').forEach((s,i)=>s.classList.toggle('active',i===n));
   document.querySelectorAll('.step').forEach((b,i)=>{b.classList.remove('active','done');if(i===n)b.classList.add('active');else if(i<n)b.classList.add('done');});
-  document.getElementById('prog').textContent='Modul '+n+' von 6';
+  document.getElementById('prog').textContent='Module '+n+' von 6';
   window.scrollTo(0,0);syncLegacyIntroCardsVisibility();sync();
 }
 function next(){if(cur<6)go(cur+1);}
@@ -925,7 +925,7 @@ function calcTE(){
   const m=parseFloat(document.getElementById('tc_m').value);
   const h=parseFloat(document.getElementById('tc_h').value);
   const d=1-(parseFloat(document.getElementById('liq_d').value)||0)/100;
-  if(!l||!m||!h){alert('Bitte Low/Mid/High eingeben.');return;}
+  if(!l||!m||!h){alert('Please enter Low/Mid/High.');return;}
   R.tL=Math.round(e*l*d);R.tM=Math.round(e*m*d);R.tH=Math.round(e*h*d);
   document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV Trading (nach Discount)</div><div class="rval">TEUR '+R.tL.toLocaleString('de-DE')+' – '+R.tH.toLocaleString('de-DE')+'</div><div class="rsub">Mitte: TEUR '+R.tM.toLocaleString('de-DE')+'</div></div>';
   sync();
@@ -936,7 +936,7 @@ function calcTX(){
   const l=parseFloat(document.getElementById('ttx_l').value);
   const m=parseFloat(document.getElementById('ttx_m').value);
   const h=parseFloat(document.getElementById('ttx_h').value);
-  if(!l||!m||!h){alert('Bitte Low/Mid/High eingeben.');return;}
+  if(!l||!m||!h){alert('Please enter Low/Mid/High.');return;}
   R.txL=Math.round(e*l);R.txM=Math.round(e*m);R.txH=Math.round(e*h);
   document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transaction Comps</div><div class="rval">TEUR '+R.txL.toLocaleString('de-DE')+' – '+R.txH.toLocaleString('de-DE')+'</div><div class="rsub">Mitte: TEUR '+R.txM.toLocaleString('de-DE')+'</div></div>';
   sync();
@@ -979,7 +979,7 @@ function drawFF(){
     {low:R.tL?R.tL-2100+3300:null,high:R.txH?R.txH-2100+3300:null,mid:R.eq,y:128,c:'1A1814'}
   ];
   const vals=rows.flatMap(r=>[r.low,r.high,r.mid]).filter(Boolean);
-  if(vals.length<2){svgB.innerHTML='<text x="115" y="80" font-size="9" fill="#B5ADA5" font-family="Calibri">Noch keine Werte berechnet</text>';return;}
+  if(vals.length<2){svgB.innerHTML='<text x="115" y="80" font-size="9" fill="#B5ADA5" font-family="Calibri">No values calculated yet</text>';return;}
   const mn=Math.min(...vals)*.88,mx=Math.max(...vals)*1.08;
   const x1=115,x2=550,sc=v=>x1+(v-mn)/(mx-mn)*(x2-x1);
   const st=Math.round((mx-mn)/4/5000)*5000||5000;
@@ -1008,7 +1008,7 @@ function setPeerBasis(mode){
     const est=el.textContent.includes('(est.)');
     el.textContent='EV/EBITDA '+mode+(est?' (est.)':'');
   });
-  document.getElementById('peer_basis').textContent='Aktuell: '+mode;
+  document.getElementById('peer_basis').textContent='Current: '+mode;
   updateRangeFromSelection(BASE_MULTIPLES.trading,'t',{low:'tc_l',mid:'tc_m',high:'tc_h'},peerMode);
 }
 
@@ -1016,7 +1016,7 @@ function setPeerBasis(mode){
 function setTxBasis(mode){
   txMode=mode;
   document.getElementById('tx_metric_head').textContent='EV/EBITDA '+mode;
-  document.getElementById('tx_basis').textContent='Aktuell: '+mode;
+  document.getElementById('tx_basis').textContent='Current: '+mode;
   updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m',high:'ttx_h'},txMode);
 }
 

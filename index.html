@@ -962,6 +962,63 @@ function setTxBasis(mode){
   document.getElementById('tx_basis').textContent='Aktuell: '+mode;
 }
 
+const STORAGE_PREFIX='ma_case_study_state_v1';
+
+function getGroupFromUrl(){
+  const params=new URLSearchParams(window.location.search);
+  return params.get('group') || 'default';
+}
+
+function getStorageKey(){
+  return `${STORAGE_PREFIX}_${getGroupFromUrl()}`;
+}
+
+function saveState(){
+  const fields=[...document.querySelectorAll('input, textarea, select')].map(el=>({
+    id:el.id,
+    type:el.type,
+    value:el.type==='checkbox' ? el.checked : el.value
+  })).filter(x=>x.id);
+
+  const state={fields,cur,sl,tidRunning:!!tid,ts:Date.now()};
+  localStorage.setItem(getStorageKey(),JSON.stringify(state));
+}
+
+function loadState(){
+  const raw=localStorage.getItem(getStorageKey());
+  if(!raw)return;
+  try{
+    const state=JSON.parse(raw);
+    (state.fields||[]).forEach(f=>{
+      const el=document.getElementById(f.id);
+      if(!el)return;
+      if(f.type==='checkbox')el.checked=!!f.value;
+      else el.value=f.value ?? '';
+    });
+    if(Number.isFinite(state.cur))cur=Math.max(0,Math.min(6,state.cur));
+    if(Number.isFinite(state.sl))sl=state.sl;
+  }catch(_e){}
+}
+
+function bindPersistence(){
+  document.querySelectorAll('input, textarea, select').forEach(el=>{
+    el.addEventListener('input',saveState);
+    el.addEventListener('change',saveState);
+  });
+  window.addEventListener('beforeunload',saveState);
+}
+
+loadState();
+bindPersistence();
+go(cur);
+calcE();
+sync();
+if(sl<5400){
+  const m=Math.floor(sl/60),s=sl%60;
+  const el=document.getElementById('tmr');
+  el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  el.classList.toggle('warn',sl<600);
+}
 
 </script>
 </div>

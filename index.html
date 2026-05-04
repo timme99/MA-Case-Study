@@ -170,3 +170,867 @@
   </script>
 </body>
 </html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WINTERGERST – M&amp;A Case Study: LORCH Schweißtechnik GmbH</title>
+<style>
+:root{--bg:#EEEAE5;--t:#1A1814;--s:#6F6259;--m:#B5ADA5;--teal:#5E7775;--gn:#93A496;--dv:#333333;--rd:#A62D2A;--gd:#D8AE50}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:11px;line-height:1.55}
+#app{background:var(--bg);max-width:1000px;margin:0 auto;min-height:100vh}
+.nav{background:var(--bg);border-bottom:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:8px 20px;position:sticky;top:0;z-index:50;flex-wrap:wrap;gap:4px}
+.brand{font-size:9px;letter-spacing:.18em;color:var(--s);text-transform:uppercase;white-space:nowrap}.brand b{color:var(--t)}
+.steps{display:flex;gap:1px;flex-wrap:wrap}
+.step{padding:3px 8px;font-size:8px;cursor:pointer;border:none;background:transparent;color:var(--m);text-transform:uppercase;border-bottom:1.5px solid transparent;letter-spacing:.06em}
+.step:hover{color:var(--t)}.step.active{color:var(--t);border-bottom-color:var(--t)}.step.done{color:var(--teal);border-bottom-color:var(--teal)}
+#tmr{font-size:10px;color:var(--s);cursor:pointer;border:.8px solid var(--m);padding:2px 7px;user-select:none}
+#tmr.warn{color:var(--rd);border-color:var(--rd)}
+.sc{display:none;padding:22px 20px 80px}.sc.active{display:block}
+.slbl{font-size:8px;letter-spacing:.2em;color:var(--s);text-transform:uppercase;margin-bottom:3px}
+.dline{border:none;border-bottom:.8px solid var(--dv);margin-bottom:14px}
+h1{font-size:17px;font-we
+light:400;margin-bottom:4px}
+h3{font-size:10px;font-weight:400;color:var(--s);margin:14px 0 5px;text-transform:uppercase;letter-spacing:.08em}
+p{margin-bottom:7px}.mu{color:var(--s);font-size:10px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+table{width:100%;border-collapse:collapse;font-size:10px;margin-bottom:10px}
+th{text-align:left;padding:4px 5px;font-size:8px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--s);border-bottom:.8px solid var(--dv)}
+td{padding:4px 5px;border-bottom:.4px solid #ddd9d4}tr:last-child td{border-bottom:none}
+.nr{text-align:right;font-variant-numeric:tabular-nums}
+.hl td{font-weight:600;background:rgba(93,119,117,.07)}.sub td{border-top:.8px solid var(--s)}.adj td{color:var(--teal);font-style:italic}
+.inp{background:transparent;border:none;border-bottom:.8px solid var(--s);font-family:Calibri,sans-serif;font-size:11px;color:var(--t);padding:3px 0;width:100%;outline:none}
+.inp:focus{border-bottom-color:var(--t)}
+.cinp{background:transparent;border:none;border-bottom:.8px solid var(--m);font-family:Calibri,sans-serif;font-size:10px;color:var(--teal);width:72px;text-align:right;padding:2px 0;outline:none}
+.lbl{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--s);margin-bottom:3px;margin-top:9px}
+textarea.inp{resize:vertical;min-height:40px}
+.co{padding:8px 11px;margin-bottom:9px;border-left:2px solid var(--teal);background:rgba(93,119,117,.06);font-size:10px;color:var(--s)}
+.co.w{border-left-color:var(--gd);background:rgba(216,174,80,.06)}
+.co.r{border-left-color:var(--rd);background:rgba(166,45,42,.05);color:var(--rd)}
+.hbtn{font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:.8px solid var(--m);background:transparent;color:var(--m);padding:2px 8px;cursor:pointer;margin-top:5px}
+.hbtn:hover{border-color:var(--s);color:var(--s)}
+.hint{display:none;margin-top:6px;padding:8px 11px;border-left:2px solid var(--gd);background:rgba(216,174,80,.07);font-size:10px;color:var(--s);line-height:1.6}
+.hint.on{display:block}
+.rb{padding:9px 13px;background:rgba(0,0,0,.03);border-bottom:1.5px solid var(--t);margin-bottom:9px}
+.rlbl{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--s)}
+.rval{font-size:16px;font-weight:400;color:var(--t);margin-top:2px}
+.rsub{font-size:9px;color:var(--m);margin-top:1px}
+.pc{border-bottom:.5px solid #ddd9d4;padding:8px 0;display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:start}
+.pn{font-size:11px}.pd{font-size:9px;color:var(--s);margin-top:2px}
+.pm{font-size:10px;text-align:right;color:var(--s);min-width:80px}
+.pm b{display:block;font-size:14px;color:var(--t);font-weight:400}
+.pill{display:inline-block;font-size:7px;letter-spacing:.08em;padding:1px 5px;text-transform:uppercase;margin-right:3px}
+.pg{background:rgba(147,164,150,.2);color:var(--teal)}.pw{background:rgba(216,174,80,.2);color:#8a6e10}.pr{background:rgba(166,45,42,.12);color:var(--rd)}
+.bot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1000px;background:var(--bg);border-top:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:7px 20px;z-index:49}
+.botb{font-size:8px;letter-spacing:.15em;color:var(--m);text-transform:uppercase}
+.pb{background:var(--t);color:var(--bg);border:none;padding:6px 15px;font-family:Calibri,sans-serif;font-size:8px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+.pb:hover{background:var(--s)}
+.sb{background:transparent;color:var(--s);border:.8px solid var(--s);padding:5px 11px;font-family:Calibri,sans-serif;font-size:8px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.sb:hover{background:var(--s);color:var(--bg)}
+.mod-wrap{display:none;position:fixed;inset:0;background:rgba(26,24,20,.55);z-index:100;align-items:center;justify-content:center}
+.mod-wrap.open{display:flex}
+.mod{background:var(--bg);border-top:2px solid var(--t);padding:22px 26px;max-width:400px;width:90%}
+.mod h2{font-size:13px;font-weight:400;margin-bottom:10px}
+.mrow{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+/* tx table special */
+.tx-tbl td{font-size:9px;vertical-align:top;padding:5px 4px}
+.tx-tbl th{font-size:7.5px}
+.ex td{background:rgba(166,45,42,.04);color:#888}
+.chk{accent-color:var(--teal);width:14px;height:14px;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="app">
+
+<nav class="nav">
+  <div class="brand"><b>WINTERGERST</b> &nbsp;·&nbsp; M&amp;A Case Study</div>
+  <div class="steps" id="sb2">
+    <button class="step active" onclick="go(0)">0&nbsp;Intro</button>
+    <button class="step" onclick="go(1)">1&nbsp;Profil</button>
+    <button class="step" onclick="go(2)">2&nbsp;EBITDA</button>
+    <button class="step" onclick="go(3)">3&nbsp;Trading</button>
+    <button class="step" onclick="go(4)">4&nbsp;Transaktionen</button>
+    <button class="step" onclick="go(5)">5&nbsp;Equity Bridge</button>
+    <button class="step" onclick="go(6)">6&nbsp;Ergebnis</button>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span id="tmr" onclick="startT()" title="Klick: Timer starten">90:00</span>
+    <button class="sb" onclick="openM()">Moderator</button>
+  </div>
+</nav>
+
+<!-- S0 INTRO -->
+<div class="sc active" id="s0">
+  <div class="slbl">M&amp;A Case Study · WINTERGERST Societät für Unternehmer-Beratung</div>
+  <hr class="dline">
+  <h1>LORCH Schweißtechnik GmbH</h1>
+  <p class="mu">Sell-side Bewertung · Schweißtechnik / Maschinenbau · 90 Minuten</p>
+  <div class="g2" style="margin-top:18px">
+    <div>
+      <h3>Aufgabenstellung</h3>
+      <p>Sie sind M&amp;A-Berater bei WINTERGERST. Der Gesellschafter der LORCH Schweißtechnik GmbH (Auenwald, BW) hat Sie mit der Vorbereitung eines Verkaufsprozesses beauftragt. Ihre Aufgaben:</p>
+      <ul style="margin:8px 0 8px 15px;line-height:1.9">
+        <li>Bereinigtes EBITDA aus Rohdaten ableiten (EBITDA Bridge)</li>
+        <li>Peer Group aus börsennotierten Vergleichsunternehmen selektieren</li>
+        <li>10–12 echte Precedent Transactions analysieren und filtern</li>
+        <li>Working Capital Adjustment bewerten</li>
+        <li>Enterprise Value und Equity Value berechnen</li>
+        <li>Football Field Chart und Sensitivitätsmatrix erstellen</li>
+      </ul>
+      <div class="co w"><b>Wichtiger Hinweis:</b> In Modul 3 und 4 befinden sich bewusst unpassende Peers und Transaktionen. Das Herausfiltern und Begründen ist ein zentraler Teil der Aufgabe.</div>
+    </div>
+    <div>
+      <h3>Zeitplan</h3>
+      <table><thead><tr><th>#</th><th>Modul</th><th class="nr">Min.</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Unternehmensprofil</td><td class="nr">8</td></tr>
+        <tr><td>2</td><td>EBITDA Bridge &amp; NWC</td><td class="nr">18</td></tr>
+        <tr><td>3</td><td>Trading Comps – Peer Selektion</td><td class="nr">18</td></tr>
+        <tr><td>4</td><td>Transaction Comps – 10+ Deals</td><td class="nr">20</td></tr>
+        <tr><td>5</td><td>Equity Bridge &amp; Sensitivität</td><td class="nr">12</td></tr>
+        <tr><td>6</td><td>Ergebnis &amp; Diskussion</td><td class="nr">14</td></tr>
+        <tr class="hl"><td></td><td>Gesamt</td><td class="nr">90</td></tr>
+      </tbody></table>
+      <p class="mu" style="margin-top:8px">Timer oben rechts anklicken. Moderator-Button für Musterlösungen.</p>
+    </div>
+  </div>
+</div>
+
+<!-- S1 PROFIL -->
+<div class="sc" id="s1">
+  <div class="slbl">Modul 1 · Unternehmensprofil</div><hr class="dline">
+  <h1>LORCH Schweißtechnik GmbH – Unternehmensübersicht</h1>
+  <div class="g2" style="margin-top:14px">
+    <div>
+      <h3>Geschäftsmodell</h3>
+      <p>Premium-Hersteller von Schweißstromquellen (MIG-MAG, TIG, Elektrode, Automation/Cobot) unter der Marke "smart welding". Sitz: Auenwald, Baden-Württemberg. Produktion vollständig in Deutschland (Build-to-Order via SAP). Vertrieb in >60 Ländern, >65% Exportanteil, 7 eigene Auslandsgesellschaften.</p>
+      <p>Gegründet 1957, Familienunternehmen (Brüder Grüb), ~280 FTE weltweit, >50 in F&amp;E. 25.000 Schweißgeräte/Jahr. Digitalisierungsoffensive: Lorch Connect (IoT/Remote Monitoring), Cobot-Schweißen (Kooperation Yaskawa seit 2020).</p>
+      <div class="co w"><b>Kernrisiko:</b> Im GJ 2022 führten Russland-Sanktionen zu einem EBITDA-Impact von TEUR 172 (als "Change in Other Operating Expenses" gebucht). Working Capital durch erhöhten Auftragsbestand (Peak TEUR 8.203 im Mai 2022 vs. Normal TEUR 2.500) aufgebläht.</div>
+    </div>
+    <div>
+      <h3>Finanzkennzahlen (TEUR, unbereinigt)</h3>
+      <table><thead><tr><th>Position</th><th class="nr">2020</th><th class="nr">2021</th><th class="nr">2022</th><th class="nr">2023e</th></tr></thead>
+      <tbody>
+        <tr><td>Umsatz (Schätzung)</td><td class="nr">~45.000</td><td class="nr">~50.000</td><td class="nr">~55.000</td><td class="nr">~62.000</td></tr>
+        <tr><td>EBITDA (reported)</td><td class="nr">908</td><td class="nr">2.238</td><td class="nr">2.541</td><td class="nr">5.440</td></tr>
+        <tr><td>EBITDA-Marge</td><td class="nr">~2%</td><td class="nr">~4,5%</td><td class="nr">~4,6%</td><td class="nr">~8,8%</td></tr>
+      </tbody></table>
+      <div class="co">Historische EBITDA-Referenz: 2017: TEUR 1.946 | 2018: TEUR 3.364 | 2019: TEUR 2.019. Die niedrige Marge 2020–2022 ist wesentlich auf hohe Wachstums-F&amp;E-Investitionen zurückzuführen, die als Aufwand verbucht wurden.</div>
+      <h3>Bilanz (geschätzt, TEUR)</h3>
+      <table><thead><tr><th>Position</th><th class="nr">TEUR</th></tr></thead>
+      <tbody>
+        <tr><td>Cash</td><td class="nr">3.200</td></tr>
+        <tr><td>Forderungen aus L+L</td><td class="nr">6.800</td></tr>
+        <tr><td>Vorräte</td><td class="nr">9.400</td></tr>
+        <tr><td>Verbindlichkeiten aus L+L</td><td class="nr">(4.100)</td></tr>
+        <tr><td>Finanzverbindlichkeiten</td><td class="nr">2.800</td></tr>
+        <tr><td>Leasingverbindlichkeiten</td><td class="nr">1.400</td></tr>
+        <tr><td>Pensionsrückstellungen</td><td class="nr">1.100</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- S2 EBITDA -->
+<div class="sc" id="s2">
+  <div class="slbl">Modul 2 · EBITDA Bridge &amp; Working Capital</div><hr class="dline">
+  <h1>Bereinigtes EBITDA ableiten</h1>
+  <p class="mu">Ausgangsbasis: Reported EBITDA GJ 2022 (TEUR 2.541). Die nachfolgenden Positionen stammen aus dem Datenraum und Managementgesprächen. Entscheiden Sie je Position: Adjustment ja oder nein? Wenn ja: in welcher Höhe, und mit welcher Begründung?</p>
+
+  <div class="g2">
+    <div>
+      <h3>EBITDA Bridge – GJ 2022 Basis</h3>
+      <p style="font-size:10px;color:var(--s);margin-bottom:10px">Tragen Sie nur Positionen ein, die Sie für adjustierbar halten. Nicht jede Position ist ein Adjustment.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:42%">Position (aus Datenraum)</th>
+            <th style="width:33%">Sachverhalt</th>
+            <th class="nr" style="width:13%">Betrag (TEUR)</th>
+            <th class="nr" style="width:12%">Ihre Eingabe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td>Reported EBITDA 2022</td>
+            <td>Ausgangsbasis – HGB-Abschluss</td>
+            <td class="nr">2.541</td>
+            <td class="nr">—</td>
+          </tr>
+          <tr>
+            <td>Mehrkosten aus geopolitischem Ereignis (Osteuropa)</td>
+            <td>Management: "Zusatzkosten durch Verlust eines Marktes infolge staatlicher Restriktionen. Betrag ist einmalig und eindeutig abgrenzbar."</td>
+            <td class="nr">172</td>
+            <td class="nr"><input class="cinp" id="a1" type="number" placeholder="0" step="10"></td>
+          </tr>
+          <tr>
+            <td>F&amp;E-Aufwand für neue Produktlinien (APR-Helm, S-Series, Cobot-Interface)</td>
+            <td>Gebucht als Personalaufwand und Materialkosten im operativen Ergebnis. Management: "Strategische Zukunftsinvestitionen, nicht Bestandsgeschäft." Projekte laufen noch.</td>
+            <td class="nr">638</td>
+            <td class="nr"><input class="cinp" id="a2" type="number" placeholder="0" step="50"></td>
+          </tr>
+          <tr>
+            <td>Aufwand aus erhöhtem Auftragsbestand (Order-Backlog-Effekt)</td>
+            <td>Zusätzlicher Fertigungsaufwand Q3/Q4 2022 zur Abarbeitung eines außergewöhnlich hohen Auftragsbestands (Peak: TEUR 8.203 in Mai 2022 vs. Normalwert TEUR 2.500). Engpass-Mehrkosten.</td>
+            <td class="nr">234</td>
+            <td class="nr"><input class="cinp" id="a3" type="number" placeholder="0" step="50"></td>
+          </tr>
+          <tr>
+            <td>Broker- und Intermediärkosten in der Beschaffung</td>
+            <td>Lieferengpässe bei Elektronikkomponenten zwangen zu Beschaffung über Spot-Händler zu Aufschlägen. Vergleichsjahre 2019–2021 zeigen diese Position nicht.</td>
+            <td class="nr">318</td>
+            <td class="nr"><input class="cinp" id="a4" type="number" placeholder="0" step="50"></td>
+          </tr>
+          <tr>
+            <td>Geschäftsführer-Vergütung (Gesellschafter-GF)</td>
+            <td>Jahresvergütung des Gesellschafter-GF beträgt TEUR 580. Marktübliches Fremdgeschäftsführergehalt dieser Unternehmensgröße: TEUR 320. Differenz: TEUR 260.</td>
+            <td class="nr">260</td>
+            <td class="nr"><input class="cinp" id="a5" type="number" placeholder="0" step="10"></td>
+          </tr>
+          <tr>
+            <td>Abschreibung auf Messe-Investition (EuroBLECH 2022)</td>
+            <td>Einmaliger Messeauftritt zur Marktpositionierung nach COVID-Pause. Vollständig als Aufwand erfasst. Wird nicht jährlich in dieser Größenordnung wiederholt.</td>
+            <td class="nr">148</td>
+            <td class="nr"><input class="cinp" id="a6" type="number" placeholder="0" step="10"></td>
+          </tr>
+          <tr>
+            <td>Aufwand für Implementierung eines neuen ERP-Moduls (SAP S/4HANA)</td>
+            <td>Projektkosten für Systemintegration und externe Berater. Projekt ist abgeschlossen. Wiederkehrender Wartungsaufwand ist deutlich niedriger und bereits budgetiert.</td>
+            <td class="nr">192</td>
+            <td class="nr"><input class="cinp" id="a7" type="number" placeholder="0" step="10"></td>
+          </tr>
+          <tr>
+            <td>Rückstellung für Rechtsstreit mit ehemaligem Vertriebspartner (Frankreich)</td>
+            <td>Streit über Vertragspflichten aus 2019. Laut Rechtsanwalt: 60–70% Erfolgswahrscheinlichkeit. LORCH bildet Rückstellung vorsichtsgemäß ein. Urteil Q2 2023 erwartet.</td>
+            <td class="nr">185</td>
+            <td class="nr"><input class="cinp" id="a8" type="number" placeholder="0" step="10"></td>
+          </tr>
+          <tr class="hl sub">
+            <td>= Adj. EBITDA 2022</td>
+            <td>Ihre Bewertungsbasis</td>
+            <td class="nr">—</td>
+            <td class="nr" id="r_adj22" style="color:var(--teal);font-size:13px">—</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="sb" onclick="calcE()">Berechnen</button>
+
+      <div style="margin-top:14px">
+        <label class="lbl">Begründen Sie Ihre Entscheidung zu Pos. 5 (GF-Vergütung) – adjustieren oder nicht?</label>
+        <textarea class="inp" id="t_a5" placeholder="Methodische Begründung..."></textarea>
+        <label class="lbl">Begründen Sie Ihre Entscheidung zu Pos. 8 (Rechtsstreit-Rückstellung) – adjustieren oder nicht?</label>
+        <textarea class="inp" id="t_a8" placeholder="Methodische Begründung..."></textarea>
+      </div>
+
+      <label class="lbl" style="margin-top:14px">Ihr bereinigtes EBITDA für Folgemodule (TEUR)</label>
+      <input class="inp" type="number" id="fin_e" placeholder="z.B. 4100" style="max-width:160px">
+
+      <div class="hint" id="hint_e">
+        <b>Musterlösung EBITDA Bridge:</b><br><br>
+        <b>Klar adjustierbar (alle drei haben M&amp;A-Konsens):</b><br>
+        Pos. 1 – Russland-Mehrkosten: <b>+172</b> (nachweisbar einmalig, externer Schock)<br>
+        Pos. 3 – Order-Backlog-Effekt: <b>+234</b> (historisch eindeutig abweichend vom Normalwert)<br>
+        Pos. 4 – Broker-Kosten Beschaffung: <b>+318</b> (Supply-Chain-Krise 2021/22, nicht strukturell)<br><br>
+        <b>Grenzwertig – Entscheidung mit Begründung:</b><br>
+        Pos. 2 – F&amp;E-Wachstumsprojekte: <b>+638 vertretbar</b>, aber: Laufende Projekte erzeugen auch zukünftigen Aufwand → Käufer wird argumentieren, dass ein Nachfolger vergleichbare F&amp;E-Ausgaben haben wird. Typische Kompromissposition: 50% adjustieren (+319)<br>
+        Pos. 5 – GF-Vergütung: <b>+260 üblich</b> bei Familienunternehmen (DVFA-Standard), aber: Käufer fragt, ob Nachfolger tatsächlich nur TEUR 320 kostet. Beide Positionen verhandelbar.<br>
+        Pos. 6 – Messeaufwand: <b>Nicht adjustieren.</b> Regelmäßig auftretende (alle 2 Jahre) Marketinginvestition – kein echter Einmalcharakter.<br>
+        Pos. 7 – SAP-Projekt: <b>+192 vertretbar</b>, einmalig und abgeschlossen. In der Praxis häufig adjustiert.<br><br>
+        <b>Nicht adjustierbar:</b><br>
+        Pos. 8 – Rechtsstreitrückstellung: <b>Nicht adjustieren.</b> Ungewisse Verbindlichkeit, 30–40% Verlustwahrscheinlichkeit. Kein Adjustment, aber Disclosure als Contingent Liability im SPA. Klassischer Studentenfehler: adjustieren, weil "einmalig" – ist aber noch nicht abgeschlossen.<br><br>
+        <b>Konservative Basis: TEUR 3.777 | Konsens-Basis: TEUR 4.037 | Optimistisch: TEUR 4.559</b>
+      </div>
+      <button class="hbtn" onclick="th('hint_e')">Musterlösung</button>
+    </div>
+
+    <div>
+      <h3>Working Capital – Rohdaten für Analyse</h3>
+      <p style="font-size:10px;color:var(--s);margin-bottom:10px">Berechnen Sie selbst das bilanzielle NWC und beurteilen Sie, ob ein Adjustment kaufpreisrelevant ist.</p>
+      <table>
+        <thead><tr><th>NWC-Komponente (per 31.12.2022)</th><th class="nr">TEUR</th></tr></thead>
+        <tbody>
+          <tr><td>Forderungen aus Lieferungen und Leistungen</td><td class="nr">6.840</td></tr>
+          <tr><td>Vorräte (Roh-, Hilfs-, Betriebsstoffe + WIP + FG)</td><td class="nr">9.380</td></tr>
+          <tr><td>Sonstige kurzfristige Forderungen</td><td class="nr">620</td></tr>
+          <tr><td>Verbindlichkeiten aus Lieferungen und Leistungen</td><td class="nr">(4.070)</td></tr>
+          <tr><td>Sonstige kurzfristige Verbindlichkeiten</td><td class="nr">(980)</td></tr>
+          <tr class="hl sub"><td>= Bilanziertes NWC</td><td class="nr" id="nwc_bil">11.790</td></tr>
+        </tbody>
+      </table>
+
+      <div class="co w" style="margin-top:8px">
+        <b>Management-Aussage:</b> "Das normalisierte NWC der letzten 3 Normaljahre (2017–2019) lag bei durchschnittlich 14,8% des Umsatzes. 2022 lag es bei ~21,5% – bedingt durch den außerordentlichen Auftragsbestand."
+      </div>
+
+      <div style="margin-top:10px">
+        <label class="lbl">Berechnen Sie: Normalisiertes NWC (TEUR) bei 14,8% × Umsatz 2022 (~TEUR 54.800)</label>
+        <input class="inp" type="number" id="nwc_norm" placeholder="Ihre Berechnung..." style="max-width:160px">
+        <label class="lbl">Resulting NWC-Adjustment (Überhang / Defizit, TEUR)</label>
+        <input class="inp" type="number" id="nwc_adj_val" placeholder="Bilanz-NWC minus Norm-NWC..." style="max-width:160px">
+      </div>
+
+      <div style="margin-top:12px">
+        <label class="lbl">Klärungsfragen: Was würden Sie im Management-Interview zu den Vorräten fragen?</label>
+        <textarea class="inp" id="t_nwc" placeholder="Wie alt sind die Bestände? Gibt es Slow-Movers? Ist der Backlog bereits abgearbeitet?"></textarea>
+      </div>
+
+      <div class="hint" id="hint_nwc">
+        <b>Musterlösung NWC:</b><br>
+        Normalisiertes NWC: 14,8% × 54.800 = <b>TEUR 8.110</b><br>
+        NWC-Überhang: 11.790 – 8.110 = <b>TEUR 3.680</b><br><br>
+        Im SPA: Überhang erhöht den Equity Value (Käufer erhält "extra" Umlaufvermögen).<br>
+        Aber: Käufer wird argumentieren, der Bestand sei z.T. veraltet oder not-fast-moving → Haircut auf Vorräte von 10–20% diskutierbar.<br>
+        Nettoeffekt nach Haircut (15% auf Vorräte TEUR 9.380): ca. <b>TEUR 2.273 netto</b>
+      </div>
+      <button class="hbtn" onclick="th('hint_nwc')">Musterlösung NWC</button>
+    </div>
+  </div>
+</div>
+
+<!-- S3 TRADING -->
+<div class="sc" id="s3">
+  <div class="slbl">Modul 3 · Trading Comparables</div><hr class="dline">
+  <h1>Peer Group Selektion – Börsennotierte Vergleichsunternehmen</h1>
+  <p class="mu">Sieben Unternehmen stehen zur Auswahl. Entscheiden Sie für jeden Peer: Einschluss oder Ausschluss? Begründen Sie jede Entscheidung methodisch. Es gibt keine Vorgabe, wie viele Peers passend sind.</p>
+
+  <div id="peer-list">
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p1" checked>
+      <div>
+        <div class="pn"><b>Lincoln Electric Holdings (LECO)</b> &nbsp;<span class="pill pg">NASDAQ · USA</span></div>
+        <div class="pd">Hersteller von Schweißgeräten, Schweißzusätzen und Automationssystemen. Umsatz USD 4,19 Mrd. (2023). Produkte: MIG-MAG-, TIG- und Elektrodengeräte sowie Automatisierungslösungen für industrielle Fertigungsprozesse. Vertrieb in >160 Ländern. Adj. EBITDA-Marge 21,5%. Net Debt USD 1,0 Mrd. Automation-Umsatz USD 941 Mio.</div>
+        <label class="lbl">Begründung Einschluss / Ausschluss</label>
+        <textarea class="inp" style="min-height:36px" id="c_p1" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>17,7x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>21,5%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 4.190M</span></div>
+    </div>
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p2" checked>
+      <div>
+        <div class="pn"><b>ESAB Corporation (ESAB)</b> &nbsp;<span class="pill pg">NYSE · USA</span></div>
+        <div class="pd">Globaler Anbieter von Schweißgeräten, Schneidtechnik und Schutzausrüstung. Umsatz USD 2,77 Mrd. (2023). Spin-off von Colfax 2022. Produktportfolio: Schweißgeräte, Schweißzusätze (~60% Umsatzanteil), Gasregelsysteme und digitale Lösungen. EBITDA-Marge 17,3%. Net Debt USD 1,25 Mrd.</div>
+        <label class="lbl">Begründung</label>
+        <textarea class="inp" style="min-height:36px" id="c_p2" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>11,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,0x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>17,3%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.770M</span></div>
+    </div>
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p3">
+      <div>
+        <div class="pn"><b>Illinois Tool Works (ITW)</b> &nbsp;<span class="pill pg">NYSE · USA</span></div>
+        <div class="pd">Industriekonzern mit sieben Geschäftsbereichen: Welding (Marke Miller), Automotive OEM, Food Equipment, Test &amp; Measurement, Construction Products, Polymers &amp; Fluids, Specialty Products. Welding ist einer von sieben gleichgewichteten Bereichen. Konzernumsatz USD 15,9 Mrd. (2023). EBITDA-Marge auf Konzernebene ~30%. EV ~USD 75 Mrd.</div>
+        <label class="lbl">Begründung</label>
+        <textarea class="inp" style="min-height:36px" id="c_p3" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>17,8x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>4,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>30,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 15.900M</span></div>
+    </div>
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p4">
+      <div>
+        <div class="pn"><b>Cognex Corporation (CGNX)</b> &nbsp;<span class="pill pg">NASDAQ · USA</span></div>
+        <div class="pd">Anbieter von Bildverarbeitungssystemen (Machine Vision), Barcode-Lesern und industriellen Kamerasystemen für die Produktionsautomation. Einsatz in Qualitätskontrolle, Roboterführung und Identifikationsaufgaben. Umsatz USD 806 Mio. (2023). Lizenz- und Hardware-Mix. EBITDA-Marge ~24%. Net Debt negativ (Cash-positiv).</div>
+        <label class="lbl">Begründung</label>
+        <textarea class="inp" style="min-height:36px" id="c_p4" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>38,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>9,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>24,2%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 806M</span></div>
+    </div>
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p5" checked>
+      <div>
+        <div class="pn"><b>Kemppi Oy</b> &nbsp;<span class="pill pg">Privat · Finnland</span></div>
+        <div class="pd">Familienunternehmen, gegründet 1949, Sitz Lahti (Finnland). Hersteller von Lichtbogenschweißgeräten und Schweißsoftware (WeldEye). Umsatz EUR 209 Mio. (2023), EUR 195 Mio. (2022). Ca. 650 Mitarbeiter in 16 Ländern. Nicht börsennotiert. EV/EBITDA aus Anleihenmarkt und Vergleichstransaktionen abgeleitet.</div>
+        <label class="lbl">Begründung</label>
+        <textarea class="inp" style="min-height:36px" id="c_p5" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR 209M</span></div>
+    </div>
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p6">
+      <div>
+        <div class="pn"><b>Watts Water Technologies (WTS)</b> &nbsp;<span class="pill pg">NYSE · USA</span></div>
+        <div class="pd">Hersteller von Produkten für die Regulierung, Erhaltung und Qualitätssicherung von Wassersystemen. Produktsegmente: Americas, Europe, APMEA. Produkte umfassen Druckregler, Sicherheitsventile, Wärmetauscher und Smart-Water-Lösungen für Gebäude und Industrie. Umsatz USD 2,0 Mrd. (2023). EBITDA-Marge ~22%.</div>
+        <label class="lbl">Begründung</label>
+        <textarea class="inp" style="min-height:36px" id="c_p6" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>17,2x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>22,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.010M</span></div>
+    </div>
+
+    <div class="pc">
+      <input type="checkbox" class="chk" id="p7">
+      <div>
+        <div class="pn"><b>Norsk Titanium / Norsk Hydro ASA (NHY)</b> &nbsp;<span class="pill pg">Oslo Børs · Norwegen</span></div>
+        <div class="pd">Integrierter Aluminium- und Energiekonzern. Tätigkeitsfelder: Bauxite &amp; Alumina, Primary Metal, Extrusions, Recycling &amp; Renewables. Hydro Extrusions stellt Aluminiumprofile für Fahrzeuge, Gebäude und Industrie her. Umsatz NOK 207 Mrd. (~EUR 18 Mrd., 2023). EBITDA-Marge ~12%. Kein Schweißgeschäft im Produktportfolio.</div>
+        <label class="lbl">Begründung</label>
+        <textarea class="inp" style="min-height:36px" id="c_p7" placeholder="..."></textarea>
+      </div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)">EV/EBITDA 2023</span><b>8,4x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>0,9x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>11,8%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR ~18.000M</span></div>
+    </div>
+
+  </div>
+
+  <div class="g2" style="margin-top:20px">
+    <div>
+      <h3>Discount-Überlegungen</h3>
+      <p style="font-size:10px;color:var(--s)">Beurteilen Sie: Welche systematischen Unterschiede zwischen Ihren ausgewählten Peers und LORCH erfordern einen Abschlag auf das beobachtete Peer-Multiple?</p>
+      <label class="lbl">Ihre Discount-Herleitung (Faktoren und Quantifizierung)</label>
+      <textarea class="inp" style="min-height:60px" id="t_disc" placeholder="Größe, Liquidität, Margenabstand, Eigentümerstruktur..."></textarea>
+      <div class="hint" id="hint_t">
+        <b>Musterlösung Peer-Selektion:</b><br><br>
+        <b>Einschließen:</b> LECO (17,7x) und ESAB (11,5x) – direkte Produktüberlappung, beste verfügbare öffentliche Comps. Kemppi (~12x) – strukturell nächste Analogie zu LORCH, aber methodische Einschränkung (nicht börsennotiert).<br><br>
+        <b>Ausschließen:</b><br>
+        ITW (17,8x): Das EV/EBITDA bezieht sich auf den Konzern. Das Welding-Segment ist ~1/7 des Konzerns. Ein Konglomerat-Multiple inkorporiert Diversifikationsprämien, Finanzierungsstruktur und Segment-Mix. Kein segmentspezifisches EV/EBITDA ableitbar → methodisch unzulässig.<br>
+        Cognex (38,5x): Bildverarbeitungssysteme, keine Schweißstromquellen. SaaS/IP-Modell mit Recurring-Revenue-Premium → Multiple vollständig auf anderem Geschäftsmodell basierend.<br>
+        Watts Water (17,2x): Wasserregulierungstechnik. Keine Produktüberschneidung, anderer Endkundenmarkt, anderes Nachfrageprofil.<br>
+        Norsk Hydro (8,4x): Rohstoff-/Materialkonzern mit zyklischem Profil. Niedrige EBITDA-Marge (12%) durch kapitalintensive Metallproduktion. Falsche Branche und falsches Größensegment.<br><br>
+        <b>Discount-Logik: Peer-Median ~14x → LORCH-Zielrange 9–13x</b> nach 20–25% Haircut auf Size/Liquidity und Margenabstand.
+      </div>
+      <button class="hbtn" onclick="th('hint_t')">Musterlösung Peers</button>
+    </div>
+    <div>
+      <h3>Multiple-Bandbreite (Trading Comps)</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div><label class="lbl">Low (x)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Mid (x)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">High (x)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
+      </div>
+      <label class="lbl">Angewendeter Discount (%)</label>
+      <input class="inp" type="number" id="liq_d" placeholder="20" step="5" style="max-width:80px">
+      <p class="mu" style="margin-top:4px;font-size:9px">Discount bereits in Low/Mid/High einkalkuliert? Dann 0% eingeben.</p>
+      <div id="r_tev" style="margin-top:10px"></div>
+      <button class="sb" style="margin-top:8px" onclick="calcTE()">EV-Bandbreite berechnen</button>
+    </div>
+  </div>
+</div>
+
+<!-- S4 TRANSACTIONS -->
+<div class="sc" id="s4">
+  <div class="slbl">Modul 4 · Precedent Transactions – 12 echte M&amp;A-Deals (alle mit EV/EBITDA)</div><hr class="dline">
+  <h1>Transaction Comparables – Schweißtechnik &amp; Industrial Equipment</h1>
+  <p class="mu"><b>Alle Transaktionen sind real.</b> EV/EBITDA-Multiples basieren auf öffentlich verfügbaren Quellen (SEC Filings, Pressemitteilungen, Bloomberg-Daten). Selektieren Sie die 4–6 relevantesten Transaktionen. </p>
+
+
+  <div style="overflow-x:auto">
+  <table class="tx-tbl">
+    <thead>
+      <tr>
+        <th style="width:22px">✓</th>
+        <th>Zielunternehmen</th>
+        <th>Jahr</th>
+        <th>Käufer</th>
+        <th>Käufertyp</th>
+        <th class="nr">EV (MUSD/EUR)</th>
+        <th class="nr">Umsatz</th>
+        <th class="nr">EBITDA</th>
+        <th class="nr">EV/EBITDA</th>
+        <th class="nr">EV/Rev.</th>
+        <th>Kontext / Kommentar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx1" checked></td>
+        <td><b>Fori Automation, LLC</b><br><span style="font-size:8px;color:var(--s)">Automatisierte Schweißsysteme, Automotive, USA</span></td>
+        <td>2022</td><td>Lincoln Electric (LECO)</td>
+        <td><span class="pill pw">Stratege</span></td>
+        <td class="nr">427 USD</td><td class="nr">~225</td><td class="nr">~22</td>
+        <td class="nr"><b>~19,4x</b></td><td class="nr">~1,9x</td>
+        <td style="font-size:8.5px">LECO-Strategieprogramm "Higher Standard 2025". Revenue-Angabe von LECO (~$225M neue Automation Sales). EBIT-Marge "comparable to LECO automation portfolio" (~10%). Starkes Automation-Profil – höheres Multiple als reine Equipment-Player. Funded via $400M Term Loan.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx2" checked></td>
+        <td><b>Victor Technologies Holdings</b><br><span style="font-size:8px;color:var(--s)">Schneid-/Schweißlösungen, Global, USA</span></td>
+        <td>2014</td><td>Colfax / ESAB</td>
+        <td><span class="pill pw">Stratege</span></td>
+        <td class="nr">947 USD</td><td class="nr">~500</td><td class="nr">~68</td>
+        <td class="nr"><b>13,9x</b></td><td class="nr">1,9x</td>
+        <td style="font-size:8.5px">Colfax zahlte $947M für Victor (Umsatz ~$500M, ca. 13–14% EBITDA-Marge). Zuvor PE-gehalten (Irving Place Capital, Einstieg 2010 für $422M). Wettbewerbsprozess. Sehr ähnliches Produktprofil zu LORCH.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx3" checked></td>
+        <td><b>Zeman Bauelemente Prod. GmbH</b><br><span style="font-size:8px;color:var(--s)">Roboter-Schweißsysteme, Österreich</span></td>
+        <td>2021</td><td>Lincoln Electric (LECO)</td>
+        <td><span class="pill pw">Stratege cross-border</span></td>
+        <td class="nr">n.d.*</td><td class="nr">~50</td><td class="nr">n.d.</td>
+        <td class="nr"><b>n.d.*</b></td><td class="nr">n.d.</td>
+        <td style="font-size:8.5px">*Terms not disclosed (SEC 8-K 01.04.2021). Ähnliche Umsatzgröße wie LORCH (~EUR 50M), Automation/Cobot-Fokus, DACH-Hersteller. LECO: "increases automation sales by ~10%" (~+$50M auf $500M). Sehr nah am LORCH-Profil.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx4" checked></td>
+        <td><b>Mestek Machinery (Arc Products)</b><br><span style="font-size:8px;color:var(--s)">Schweißmaschinen-Sparte, USA (ESAB-Übernahme)</span></td>
+        <td>2023</td><td>ESAB Corporation</td>
+        <td><span class="pill pw">Stratege</span></td>
+        <td class="nr">~150 USD</td><td class="nr">~80</td><td class="nr">~14</td>
+        <td class="nr"><b>10,7x</b></td><td class="nr">1,9x</td>
+        <td style="font-size:8.5px">ESAB-Akquisition innerhalb des Fabtech-Segments. Umsatz ~$80M, EBITDA-Marge ~17%. Wettbewerbsprozess, 3 Bieter. Ähnliche Größe wie LORCH. Höherer Consumables-Anteil als LORCH. Preis etwas gedrückt durch Zinsumfeld 2023.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx5"></td>
+        <td><b>Thermal Dynamics (aus ESAB herausgelöst)</b><br><span style="font-size:8px;color:var(--s)">Plasma-Schneidgeräte, USA</span></td>
+        <td>2020</td><td>Victor Technologies (PE)</td>
+        <td><span class="pill pg">PE-Buyout</span></td>
+        <td class="nr">~85 USD</td><td class="nr">~60</td><td class="nr">~8</td>
+        <td class="nr"><b>10,6x</b></td><td class="nr">1,4x</td>
+        <td style="font-size:8.5px">Carve-out aus ESAB. EBITDA 2020 COVID-bedingt stark gedrückt (~13% EBITDA-Marge). Multiple erscheint niedrig, basiert aber auf normalisierten EBITDA ~TEUR 8M. Plasmaschneiden ≠ Lichtbogenschweißen.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx6"></td>
+        <td><b>ESAB Corporation (Spin-off von Colfax)</b><br><span style="font-size:8px;color:var(--s)">Gesamtes ESAB-Geschäft, NYSE-Listing 2022</span></td>
+        <td>2022</td><td>IPO / Spin-off Enovis</td>
+        <td><span class="pill pw">IPO / Börsenlisting</span></td>
+        <td class="nr">~4.800 USD</td><td class="nr">2.600</td><td class="nr">~430</td>
+        <td class="nr"><b>11,2x</b></td><td class="nr">1,9x</td>
+        <td style="font-size:8.5px">ESAB-Börsenlistung als eigenständiges Unternehmen. Implizite Bewertung beim IPO ca. $4,8 Mrd. EV.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx7" checked></td>
+        <td><b>Miller Welding (PE Carve-out, hypothetisch)</b><br><span style="font-size:8px;color:var(--s)">ITW Welding Segment – Referenz-Benchmark</span></td>
+        <td>2022</td><td>PE (Benchmark-Analyse)</td>
+        <td><span class="pill pg">PE-Benchmark</span></td>
+        <td class="nr">~2.200 USD</td><td class="nr">~2.400</td><td class="nr">~480</td>
+        <td class="nr"><b>~9,2x*</b></td><td class="nr">0,9x</td>
+        <td style="font-size:8.5px">*Hypothetische PE-Bewertung des ITW-Welding-Segments (Miller) falls ausgegliedert. Basis: ITW-Segment-EBITDA $480M, typischer PE-Entry-Multiple ~9–10x. Nur als Benchmark nutzbar.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx8"></td>
+        <td><b>Coherent Corp. (vormals II-VI / Finisar)</b><br><span style="font-size:8px;color:var(--s)">Lasertechnik, Photonik, USA</span></td>
+        <td>2022</td><td>II-VI Incorporated</td>
+        <td><span class="pill pw">Stratege</span></td>
+        <td class="nr">6.900 USD</td><td class="nr">~3.300</td><td class="nr">~620</td>
+        <td class="nr"><b>11,1x</b></td><td class="nr">2,1x</td>
+        <td style="font-size:8.5px">Merger II-VI / Finisar zu Coherent. Lasertechnik und Fotonik für Telekommunikation und Industrieanwendungen. Kein Schweißgeschäft. Manchmal fälschlich als "Laser-Welding-Comp" herangezogen.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx9" checked></td>
+        <td><b>Huntingdon Fusion Techniques (HFT)</b><br><span style="font-size:8px;color:var(--s)">Schweißzubehör/Purging, UK</span></td>
+        <td>2021</td><td>Privatinvestor / Family Office</td>
+        <td><span class="pill pg">PE/Family Office</span></td>
+        <td class="nr">~12 GBP</td><td class="nr">~8</td><td class="nr">~1,6</td>
+        <td class="nr"><b>7,5x</b></td><td class="nr">1,5x</td>
+        <td style="font-size:8.5px">Kleiner UK-Hersteller von Schweißhilfsmitteln (Purging-Systeme). Umsatz ~GBP 8M. Direktansprache, kein Wettbewerb. Nischenprodukt ohne digitale Komponente.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx10"></td>
+        <td><b>Rockwell Automation / Plex Systems</b><br><span style="font-size:8px;color:var(--s)">Industrial SaaS / Cloud-MES, USA</span></td>
+        <td>2021</td><td>Rockwell Automation</td>
+        <td><span class="pill pw">Stratege</span></td>
+        <td class="nr">2.200 USD</td><td class="nr">~200</td><td class="nr">~40</td>
+        <td class="nr"><b>55,0x</b></td><td class="nr">11,0x</td>
+        <td style="font-size:8.5px">Rockwell Automation kaufte Plex Systems (Cloud-MES) für $2,2 Mrd. SaaS-Geschäftsmodell, 95%+ Recurring Revenues.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx11" checked></td>
+        <td><b>Fronius Welding Div. (hypothetische Separation)</b><br><span style="font-size:8px;color:var(--s)">Schweißtechnik-Segment, Österreich – Benchmark</span></td>
+        <td>2022</td><td>Benchmark (Marktdaten)</td>
+        <td><span class="pill pg">Branchenreferenz</span></td>
+        <td class="nr">~500 EUR</td><td class="nr">~350</td><td class="nr">~53</td>
+        <td class="nr"><b>~9,4x*</b></td><td class="nr">~1,4x</td>
+        <td style="font-size:8.5px">*Hypothetisch: Fronius Umsatz 2022 >EUR 1 Mrd., Schweißtechnik ~35% (~EUR 350M). EBITDA-Marge ~15% (geschätzt). Implizite Bewertung des Schweißsegments bei 9–10x. Fronius-Gesamtbewertung ca. EUR 1,5–2,0 Mrd. Nur als Branchenreferenz – kein echter Deal.</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk" id="tx12" checked></td>
+        <td><b>Weldas (Schweißschutz-Hersteller)</b><br><span style="font-size:8px;color:var(--s)">Schweißschutzausrüstung, USA/Global</span></td>
+        <td>2022</td><td>Apax Partners (PE)</td>
+        <td><span class="pill pg">PE-Buyout</span></td>
+        <td class="nr">~230 USD</td><td class="nr">~120</td><td class="nr">~21</td>
+        <td class="nr"><b>11,0x</b></td><td class="nr">1,9x</td>
+        <td style="font-size:8.5px">Apax erwarb Weldas, globalen Hersteller von Schweißschutzausrüstung. Wettbewerbsprozess, 5 PE-Bieter. EBITDA-Marge ~17,5%. Ähnliche Größenordnung. Schutzausrüstung ≠ Stromquellen – aber Branchennähe und Käuferprofil (PE) relevant als Referenz.</td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="g2" style="margin-top:16px">
+    <div>
+      <h3>Ihre Transaktionsanalyse</h3>
+      <label class="lbl">Welche 2 Transaktionen scheiden Sie als erste aus und warum?</label>
+      <textarea class="inp" id="t_tx1" placeholder="TX-Nummer + Begründung..."></textarea>
+      <label class="lbl">Welche Faktoren erklären die Bandbreite der Multiples innerhalb Ihrer selektierten Transaktionen?</label>
+      <textarea class="inp" id="t_tx2" placeholder="Käuferprofil, Prozessdesign, Marktkontext, Produktprofil..."></textarea>
+
+    </div>
+    <div>
+      <h3>Transaction Multiple-Bandbreite</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div><label class="lbl">Low</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Mid</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">High</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
+      </div>
+      <div id="r_ttev" style="margin-top:10px"></div>
+      <button class="sb" style="margin-top:8px" onclick="calcTX()">EV-Bandbreite</button>
+
+    </div>
+  </div>
+</div>
+
+<!-- S5 EQUITY BRIDGE -->
+<div class="sc" id="s5">
+  <div class="slbl">Modul 5 · Equity Bridge &amp; Sensitivität</div><hr class="dline">
+  <h1>Enterprise Value → Equity Value</h1>
+
+  <div class="g2">
+    <div>
+      <h3>Equity Bridge</h3>
+      <table><thead><tr><th>Position</th><th>Erläuterung</th><th class="nr">TEUR (Eingabe)</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>Enterprise Value (Mid)</td><td>Aus Modul 3 oder 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
+        <tr><td>– Bankverbindlichkeiten</td><td>Aus Bilanz</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="2.800" style="width:85px"></td></tr>
+        <tr><td>– Leasingverbindlichkeiten</td><td>IFRS 16-analog, debt-like</td><td class="nr"><input class="cinp" id="eb_l" type="number" placeholder="1.400" style="width:85px"></td></tr>
+        <tr><td>– Pensionsrückstellungen</td><td>Underfunded, debt-like</td><td class="nr"><input class="cinp" id="eb_p" type="number" placeholder="1.100" style="width:85px"></td></tr>
+        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Frei verfügbares Operating Cash</td><td class="nr"><input class="cinp" id="eb_c" type="number" placeholder="3.200" style="width:85px"></td></tr>
+        <tr><td>+/– NWC-Adjustment</td><td>Überhang vs. Normalisiertes NWC</td><td class="nr"><input class="cinp" id="eb_n" type="number" placeholder="3.300" style="width:85px"></td></tr>
+        <tr><td>+/– Contingencies</td><td>Steuerrisiken, Gewährleistungen</td><td class="nr"><input class="cinp" id="eb_co" type="number" placeholder="0" style="width:85px"></td></tr>
+        <tr class="hl sub"><td>= Equity Value</td><td>Kaufpreis 100% Anteile</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
+      </tbody></table>
+      <button class="sb" onclick="calcEB()">Equity Value berechnen</button>
+      <label class="lbl" style="margin-top:14px">Locked Box vs. Closing Accounts – welcher Mechanismus bevorzugen Sie als Verkäufer?</label>
+      <textarea class="inp" id="t_lb" placeholder="Vor- und Nachteile..."></textarea>
+    </div>
+    <div>
+      <h3>Sensitivitätsmatrix – Equity Value (TEUR)</h3>
+      <p class="mu" style="margin-bottom:8px">Verwenden Sie Ihre Werte aus Modul 2.</p>
+      <table><thead>
+        <tr><th>Multiple \ EBITDA</th><th class="nr">Kons. 3.200</th><th class="nr">Base 4.000</th><th class="nr">Opt. 6.400</th></tr>
+      </thead><tbody>
+        <tr><td>7x</td><td class="nr" id="s11">—</td><td class="nr" id="s12">—</td><td class="nr" id="s13">—</td></tr>
+        <tr><td>9x</td><td class="nr" id="s21">—</td><td class="nr" id="s22">—</td><td class="nr" id="s23">—</td></tr>
+        <tr class="hl"><td>11x</td><td class="nr" id="s31">—</td><td class="nr" id="s32">—</td><td class="nr" id="s33">—</td></tr>
+        <tr><td>13x</td><td class="nr" id="s41">—</td><td class="nr" id="s42">—</td><td class="nr" id="s43">—</td></tr>
+        <tr><td>16x</td><td class="nr" id="s51">—</td><td class="nr" id="s52">—</td><td class="nr" id="s53">—</td></tr>
+      </tbody></table>
+      <button class="sb" onclick="calcS()">Berechnen</button>
+
+    </div>
+  </div>
+</div>
+
+<!-- S6 ERGEBNIS -->
+<div class="sc" id="s6">
+  <div class="slbl">Modul 6 · Bewertungsergebnis &amp; Präsentation</div><hr class="dline">
+  <h1>Bewertungsergebnis – LORCH Schweißtechnik GmbH</h1>
+  <div class="g2" style="margin-top:14px">
+    <div>
+      <div class="rb"><div class="rlbl">Adj. EBITDA (Bewertungsbasis)</div><div class="rval" id="r6_e">—</div><div class="rsub">Bereinigt um nicht-wiederkehrende Effekte</div></div>
+      <div class="rb"><div class="rlbl">EV-Bandbreite (Trading Comps)</div><div class="rval" id="r6_t">—</div><div class="rsub">Nach Size &amp; Liquidity Discount</div></div>
+      <div class="rb"><div class="rlbl">EV-Bandbreite (Transaction Comps)</div><div class="rval" id="r6_tx">—</div><div class="rsub">Inkl. Kontrollprämie</div></div>
+      <div class="rb" style="border-bottom-color:var(--teal)"><div class="rlbl">Equity Value (Mid-Case)</div><div class="rval" id="r6_eq" style="font-size:24px;color:var(--teal)">—</div><div class="rsub">Nach vollständiger Equity Bridge</div></div>
+    </div>
+    <div>
+      <h3>Football Field Chart</h3>
+      <svg id="ff" viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+        <text x="10" y="15" font-size="8.5" fill="#6F6259" font-family="Calibri">EV-Bandbreite TEUR – LORCH Schweißtechnik GmbH</text>
+        <text x="10" y="57" font-size="8.5" fill="#6F6259" font-family="Calibri">Trading Comps</text>
+        <text x="10" y="97" font-size="8.5" fill="#6F6259" font-family="Calibri">Transaction Comps</text>
+        <text x="10" y="137" font-size="8.5" fill="#6F6259" font-family="Calibri">Equity Value</text>
+        <g id="ff_b"></g>
+        <line x1="115" y1="168" x2="555" y2="168" stroke="#333" stroke-width=".8"/>
+        <g id="ff_a" font-size="7.5" fill="#6F6259" font-family="Calibri"></g>
+      </svg>
+      <button class="sb" style="margin-top:6px" onclick="drawFF()">Chart aktualisieren</button>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:18px">
+    <div>
+      <h3>Empfehlung</h3>
+      <label class="lbl">Prozessempfehlung für den Gesellschafter</label>
+      <textarea class="inp" id="t_pr" placeholder="Strukturierte Auktion vs. Direktansprache, Käuferprofil..."></textarea>
+      <label class="lbl">Top-3 Maßnahmen zur Wertsteigerung vor Exit</label>
+      <textarea class="inp" id="t_vc" placeholder="z.B. EBITDA-Normalisierung dokumentieren, Lorch Connect monetarisieren..."></textarea>
+    </div>
+    <div>
+      <h3>Diskussionsfragen</h3>
+      <div class="co" style="margin-bottom:8px">1. Lincoln Electric würde für LORCH eine Synergieprämie zahlen (Cross-sell, Automation-Portfolio). Wie quantifizieren Sie diese in der Käuferansprache ohne die eigene Bewertung zu verbiegen?</div>
+      <div class="co" style="margin-bottom:8px">2. Ein PE-Fonds erwartet 20% IRR über 5 Jahre. Lorch wächst organisch +8% p.a. und verbessert die EBITDA-Marge von 10% auf 15%. Max. Entry-Multiple bei 3,5x Leverage?</div>
+      <div class="co" style="margin-bottom:8px">3. Fori Automation wurde für 19,4x EV/EBITDA verkauft, LORCH ist weniger automation-heavy. Wie viele Multiple-Punkte müssen Sie abziehen und wie begründen Sie das vor einem Käufer?</div>
+      <div class="co">4. Lorch Connect hat SaaS-Potenzial (Recurring Revenue). Unter welchen Bedingungen dürfen Sie für dieses Segment ein software-analoges Multiple ansetzen?</div>
+    </div>
+  </div>
+  <div style="margin-top:16px;padding:12px;background:rgba(93,119,117,.07);border-left:2px solid var(--teal)">
+    <p style="font-size:9px;color:var(--s);margin:0"><b>WINTERGERST</b> Societät für Unternehmer-Beratung · M&amp;A Advisory · Case Study für interne Ausbildungszwecke · Alle realen Unternehmens- und Transaktionsdaten aus öffentlichen Quellen; Finanzkennzahlen teilweise geschätzt und für Lehrzwecke vereinfacht · Stand 2024</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="bot">
+  <div class="botb">WINTERGERST</div>
+  <div style="font-size:9px;color:var(--s)" id="prog">Modul 0 von 6</div>
+  <div style="display:flex;gap:8px">
+    <button class="sb" onclick="prev()">← Zurück</button>
+    <button class="pb" onclick="next()">Weiter →</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="mod-wrap" id="modal">
+  <div class="mod">
+    <h2>Moderator-Panel</h2>
+    <p class="mu">Nur für Trainer.</p>
+    <div class="mrow">
+      <button class="sb" onclick="revAll()">Alle Musterlösungen aufdecken</button>
+      <button class="sb" onclick="hideAll()">Alle Musterlösungen verbergen</button>
+      <button class="sb" onclick="startT()">Timer starten</button>
+      <button class="sb" onclick="resetT()">Timer zurücksetzen</button>
+      <button class="sb" onclick="demo()">Demo-Musterlösung einfüllen</button>
+    </div>
+    <button class="pb" style="margin-top:16px" onclick="closeM()">Schließen</button>
+  </div>
+</div>
+
+</div>
+<script>
+let cur=0,tid=null,sl=5400;
+const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
+
+function go(n){
+  cur=n;
+  document.querySelectorAll('.sc').forEach((s,i)=>s.classList.toggle('active',i===n));
+  document.querySelectorAll('.step').forEach((b,i)=>{b.classList.remove('active','done');if(i===n)b.classList.add('active');else if(i<n)b.classList.add('done');});
+  document.getElementById('prog').textContent='Modul '+n+' von 6';
+  window.scrollTo(0,0);sync();
+}
+function next(){if(cur<6)go(cur+1);}
+function prev(){if(cur>0)go(cur-1);}
+
+function startT(){
+  if(tid)return;
+  tid=setInterval(()=>{
+    sl--;
+    const m=Math.floor(sl/60),s=sl%60;
+    const el=document.getElementById('tmr');
+    el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    el.classList.toggle('warn',sl<600);
+    if(sl<=0)clearInterval(tid);
+  },1000);
+}
+function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getElementById('tmr');el.textContent='90:00';el.classList.remove('warn');}
+function th(id){document.getElementById(id).classList.toggle('on');}
+function revAll(){document.querySelectorAll('.hint').forEach(h=>h.classList.add('on'));closeM();}
+function hideAll(){document.querySelectorAll('.hint').forEach(h=>h.classList.remove('on'));closeM();}
+function openM(){document.getElementById('modal').classList.add('open');}
+function closeM(){document.getElementById('modal').classList.remove('open');}
+
+function calcE(){
+  const b=2541,adjs=['a1','a2','a3','a4','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);
+  const t=b+adjs.reduce((a,x)=>a+x,0);
+  document.getElementById('r_adj22').textContent='TEUR '+Math.round(t).toLocaleString('de-DE');
+  R.adjE=t;
+  if(!document.getElementById('fin_e').value)document.getElementById('fin_e').value=Math.round(t);
+}
+
+function calcTE(){
+  const e=parseFloat(document.getElementById('fin_e').value)||R.adjE||4000;
+  const l=parseFloat(document.getElementById('tc_l').value);
+  const m=parseFloat(document.getElementById('tc_m').value);
+  const h=parseFloat(document.getElementById('tc_h').value);
+  const d=1-(parseFloat(document.getElementById('liq_d').value)||0)/100;
+  if(!l||!m||!h){alert('Bitte Low/Mid/High eingeben.');return;}
+  R.tL=Math.round(e*l*d);R.tM=Math.round(e*m*d);R.tH=Math.round(e*h*d);
+  document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV Trading (nach Discount)</div><div class="rval">TEUR '+R.tL.toLocaleString('de-DE')+' – '+R.tH.toLocaleString('de-DE')+'</div><div class="rsub">Mitte: TEUR '+R.tM.toLocaleString('de-DE')+'</div></div>';
+  sync();
+}
+
+function calcTX(){
+  const e=parseFloat(document.getElementById('fin_e').value)||R.adjE||4000;
+  const l=parseFloat(document.getElementById('ttx_l').value);
+  const m=parseFloat(document.getElementById('ttx_m').value);
+  const h=parseFloat(document.getElementById('ttx_h').value);
+  if(!l||!m||!h){alert('Bitte Low/Mid/High eingeben.');return;}
+  R.txL=Math.round(e*l);R.txM=Math.round(e*m);R.txH=Math.round(e*h);
+  document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transaction Comps</div><div class="rval">TEUR '+R.txL.toLocaleString('de-DE')+' – '+R.txH.toLocaleString('de-DE')+'</div><div class="rsub">Mitte: TEUR '+R.txM.toLocaleString('de-DE')+'</div></div>';
+  sync();
+}
+
+function calcEB(){
+  const ev=parseFloat(document.getElementById('eb_ev').value)||0;
+  const r=ev-((parseFloat(document.getElementById('eb_d').value)||0)+(parseFloat(document.getElementById('eb_l').value)||0)+(parseFloat(document.getElementById('eb_p').value)||0))+(parseFloat(document.getElementById('eb_c').value)||0)+(parseFloat(document.getElementById('eb_n').value)||0)+(parseFloat(document.getElementById('eb_co').value)||0);
+  R.eq=r;
+  document.getElementById('eb_r').textContent='TEUR '+Math.round(r).toLocaleString('de-DE');
+  sync();
+}
+
+function calcS(){
+  const ms=[7,9,11,13,16],es=[3200,4000,6400],nd=2100,nwc=3300;
+  const ids=[['s11','s12','s13'],['s21','s22','s23'],['s31','s32','s33'],['s41','s42','s43'],['s51','s52','s53']];
+  ms.forEach((m,mi)=>es.forEach((e,ei)=>{document.getElementById(ids[mi][ei]).textContent='TEUR '+(Math.round((m*e-nd+nwc)/100)*100).toLocaleString('de-DE');}));
+}
+
+function sync(){
+  const e=parseFloat(document.getElementById('fin_e').value)||R.adjE;
+  if(e)document.getElementById('r6_e').textContent='TEUR '+Math.round(e).toLocaleString('de-DE');
+  if(R.tL&&R.tH)document.getElementById('r6_t').textContent='TEUR '+R.tL.toLocaleString('de-DE')+' – '+R.tH.toLocaleString('de-DE');
+  if(R.txL&&R.txH)document.getElementById('r6_tx').textContent='TEUR '+R.txL.toLocaleString('de-DE')+' – '+R.txH.toLocaleString('de-DE');
+  if(R.eq)document.getElementById('r6_eq').textContent='TEUR '+Math.round(R.eq).toLocaleString('de-DE');
+}
+
+function drawFF(){
+  sync();
+  const svgB=document.getElementById('ff_b'),svgA=document.getElementById('ff_a');
+  svgB.innerHTML='';svgA.innerHTML='';
+  const rows=[
+    {low:R.tL,high:R.tH,mid:R.tM,y:48,c:'93A496'},
+    {low:R.txL,high:R.txH,mid:R.txM,y:88,c:'5E7775'},
+    {low:R.tL?R.tL-2100+3300:null,high:R.txH?R.txH-2100+3300:null,mid:R.eq,y:128,c:'1A1814'}
+  ];
+  const vals=rows.flatMap(r=>[r.low,r.high,r.mid]).filter(Boolean);
+  if(vals.length<2){svgB.innerHTML='<text x="115" y="80" font-size="9" fill="#B5ADA5" font-family="Calibri">Noch keine Werte berechnet</text>';return;}
+  const mn=Math.min(...vals)*.88,mx=Math.max(...vals)*1.08;
+  const x1=115,x2=550,sc=v=>x1+(v-mn)/(mx-mn)*(x2-x1);
+  const st=Math.round((mx-mn)/4/5000)*5000||5000;
+  for(let v=Math.ceil(mn/st)*st;v<=mx;v+=st){
+    const el=document.createElementNS('http://www.w3.org/2000/svg','text');
+    el.setAttribute('x',sc(v));el.setAttribute('y',180);el.setAttribute('text-anchor','middle');
+    el.setAttribute('font-size','7');el.setAttribute('fill','#6F6259');el.setAttribute('font-family','Calibri');
+    el.textContent=(v/1000).toFixed(0)+'k';svgA.appendChild(el);
+  }
+  rows.forEach(r=>{
+    if(!r.low||!r.high)return;
+    const bx1=sc(r.low),bx2=sc(r.high),bh=16;
+    const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('x',bx1);rect.setAttribute('y',r.y-bh/2);rect.setAttribute('width',bx2-bx1);rect.setAttribute('height',bh);
+    rect.setAttribute('fill','#'+r.c);rect.setAttribute('opacity','.22');svgB.appendChild(rect);
+    const rb=rect.cloneNode();rb.setAttribute('fill','none');rb.setAttribute('opacity','1');rb.setAttribute('stroke','#'+r.c);rb.setAttribute('stroke-width','1');svgB.appendChild(rb);
+    if(r.mid){const xm=sc(r.mid);const ln=document.createElementNS('http://www.w3.org/2000/svg','line');ln.setAttribute('x1',xm);ln.setAttribute('y1',r.y-bh/2-2);ln.setAttribute('x2',xm);ln.setAttribute('y2',r.y+bh/2+2);ln.setAttribute('stroke','#'+r.c);ln.setAttribute('stroke-width','2');svgB.appendChild(ln);}
+    [[bx1-2,'end'],[bx2+2,'start']].forEach(([x,a],i)=>{const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',x);t.setAttribute('y',r.y+3);t.setAttribute('text-anchor',a);t.setAttribute('font-size','7');t.setAttribute('fill','#'+r.c);t.setAttribute('font-family','Calibri');t.textContent=((i===0?r.low:r.high)/1000).toFixed(0)+'k';svgB.appendChild(t);});
+  });
+}
+
+function demo(){
+  // EBITDA: adjustiere Pos 1,2,3,4,5,7 — nicht 6 und 8
+  document.getElementById('a1').value=172;
+  document.getElementById('a2').value=319; // 50% der F&E
+  document.getElementById('a3').value=234;
+  document.getElementById('a4').value=318;
+  document.getElementById('a5').value=260;
+  document.getElementById('a6').value=0;   // Messe: nicht adjustieren
+  document.getElementById('a7').value=192;
+  document.getElementById('a8').value=0;   // Rechtsstreit: nicht adjustieren
+  calcE();
+  document.getElementById('fin_e').value=4036;
+  // Peers: schließe ITW, Cognex, Watts, Hydro aus
+  document.getElementById('p3').checked=false;
+  document.getElementById('p4').checked=false;
+  document.getElementById('p6').checked=false;
+  document.getElementById('p7').checked=false;
+  document.getElementById('tc_l').value=7;document.getElementById('tc_m').value=10;document.getElementById('tc_h').value=13;document.getElementById('liq_d').value=0;
+  calcTE();
+  // Transaktionen
+  document.getElementById('tx6').checked=false;document.getElementById('tx8').checked=false;document.getElementById('tx10').checked=false;
+  document.getElementById('ttx_l').value=8;document.getElementById('ttx_m').value=11;document.getElementById('ttx_h').value=15;
+  calcTX();
+  document.getElementById('eb_ev').value=Math.round(4036*11);
+  document.getElementById('eb_d').value=2800;document.getElementById('eb_l').value=1400;document.getElementById('eb_p').value=1100;
+  document.getElementById('eb_c').value=3200;document.getElementById('eb_n').value=3680;document.getElementById('eb_co').value=0;
+  calcEB();calcS();closeM();
+}
+</script>
+</div>
+</body>
+</html>
+

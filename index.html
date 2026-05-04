@@ -200,6 +200,10 @@ td{padding:7px 8px;border-bottom:.8px solid #cfc5ba}tr:last-child td{border-bott
 .hl td{font-weight:600;background:rgba(93,119,117,.07)}.sub td{border-top:.8px solid var(--s)}.adj td{color:var(--teal);font-style:italic}
 .inp{background:transparent;border:none;border-bottom:1.2px solid var(--s);font-family:Calibri,sans-serif;font-size:13px;color:var(--t);padding:3px 0;width:100%;outline:none}
 .inp:focus{border-bottom-color:var(--t)}
+.entry-focus{background:rgba(182,134,46,.10);border:1px dashed var(--gd);padding:8px 10px;border-radius:8px;margin:8px 0 10px}
+.entry-focus b{color:var(--t)}
+.inp::placeholder, .cinp::placeholder{color:#7f756b;opacity:1}
+.inp, .cinp, textarea.inp{background:rgba(255,255,255,.35)}
 .cinp{background:transparent;border:none;border-bottom:1px solid var(--m);font-family:Calibri,sans-serif;font-size:12px;color:var(--teal);width:72px;text-align:right;padding:2px 0;outline:none}
 .lbl{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--s);margin-bottom:3px;margin-top:9px}
 textarea.inp{resize:vertical;min-height:40px}
@@ -287,10 +291,10 @@ textarea.inp{resize:vertical;min-height:40px}
       <div class="co" style="margin-top:6px">
         Die Zuteilung erfolgt vorab durch die Lehrkraft. Jede Gruppe nutzt ihren eigenen Link.
         <ul style="margin:8px 0 0 18px;line-height:1.9">
-          <li><a href="group1.html" style="color:var(--teal);font-weight:700">Gruppe 1 – Arbeitsseite öffnen</a></li>
-          <li><a href="group2.html" style="color:var(--teal);font-weight:700">Gruppe 2 – Arbeitsseite öffnen</a></li>
-          <li><a href="group3.html" style="color:var(--teal);font-weight:700">Gruppe 3 – Arbeitsseite öffnen</a></li>
-          <li><a href="group4.html" style="color:var(--teal);font-weight:700">Gruppe 4 – Arbeitsseite öffnen</a></li>
+          <li><a href="?group=1" style="color:var(--teal);font-weight:700">Gruppe 1 – Arbeitsseite öffnen</a></li>
+          <li><a href="?group=2" style="color:var(--teal);font-weight:700">Gruppe 2 – Arbeitsseite öffnen</a></li>
+          <li><a href="?group=3" style="color:var(--teal);font-weight:700">Gruppe 3 – Arbeitsseite öffnen</a></li>
+          <li><a href="?group=4" style="color:var(--teal);font-weight:700">Gruppe 4 – Arbeitsseite öffnen</a></li>
         </ul>
         <p class="mu" style="margin-top:8px">Hinweis: Mehrere Studierende können innerhalb einer Gruppe parallel auf verschiedenen PCs arbeiten, solange sie denselben Gruppen-Link nutzen.</p>
       </div>
@@ -357,6 +361,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2">
     <div>
       <h3>EBITDA Bridge – GJ 2022 Basis</h3>
+      <div class="entry-focus"><b>Hier eintragen:</b> Nutzen Sie die Spalte „Ihre Eingabe" und tragen Sie nur die Adjustments ein, die Sie methodisch begründen können.</div>
       <p style="font-size:10px;color:var(--s);margin-bottom:10px">Tragen Sie nur Positionen ein, die Sie für adjustierbar halten. Nicht jede Position ist ein Adjustment.</p>
 
       <table>
@@ -458,7 +463,7 @@ textarea.inp{resize:vertical;min-height:40px}
         Pos. 8 – Rechtsstreitrückstellung: <b>Nicht adjustieren.</b> Ungewisse Verbindlichkeit, 30–40% Verlustwahrscheinlichkeit. Kein Adjustment, aber Disclosure als Contingent Liability im SPA. Klassischer Studentenfehler: adjustieren, weil "einmalig" – ist aber noch nicht abgeschlossen.<br><br>
         <b>Konservative Basis: TEUR 3.777 | Konsens-Basis: TEUR 4.037 | Optimistisch: TEUR 4.559</b>
       </div>
-      <button class="hbtn" onclick="th('hint_e')">Musterlösung</button>
+      <button class="hbtn" onclick="th('hint_e')">Hinweise EBITDA</button>
     </div>
 
     <div>
@@ -493,14 +498,14 @@ textarea.inp{resize:vertical;min-height:40px}
       </div>
 
       <div class="hint" id="hint_nwc">
-        <b>Musterlösung NWC:</b><br>
+        <b>Hinweise NWC:</b><br>
         Normalisiertes NWC: 14,8% × 54.800 = <b>TEUR 8.110</b><br>
         NWC-Überhang: 11.790 – 8.110 = <b>TEUR 3.680</b><br><br>
         Im SPA: Überhang erhöht den Equity Value (Käufer erhält "extra" Umlaufvermögen).<br>
         Aber: Käufer wird argumentieren, der Bestand sei z.T. veraltet oder not-fast-moving → Haircut auf Vorräte von 10–20% diskutierbar.<br>
         Nettoeffekt nach Haircut (15% auf Vorräte TEUR 9.380): ca. <b>TEUR 2.273 netto</b>
       </div>
-      <button class="hbtn" onclick="th('hint_nwc')">Musterlösung NWC</button>
+      <button class="hbtn" onclick="th('hint_nwc')">Hinweise NWC</button>
     </div>
   </div>
 </div>
@@ -607,7 +612,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <label class="lbl">Ihre Discount-Herleitung (Faktoren und Quantifizierung)</label>
       <textarea class="inp" style="min-height:60px" id="t_disc" placeholder="Größe, Liquidität, Margenabstand, Eigentümerstruktur..."></textarea>
       <div class="hint" id="hint_t">
-        <b>Musterlösung Peer-Selektion:</b><br><br>
+        <b>Hinweise zur Peer-Selektion:</b><br><br>
         <b>Einschließen:</b> LECO (17,7x) und ESAB (11,5x) – direkte Produktüberlappung, beste verfügbare öffentliche Comps. Kemppi (~12x) – strukturell nächste Analogie zu LORCH, aber methodische Einschränkung (nicht börsennotiert).<br><br>
         <b>Ausschließen:</b><br>
         ITW (17,8x): Das EV/EBITDA bezieht sich auf den Konzern. Das Welding-Segment ist ~1/7 des Konzerns. Ein Konglomerat-Multiple inkorporiert Diversifikationsprämien, Finanzierungsstruktur und Segment-Mix. Kein segmentspezifisches EV/EBITDA ableitbar → methodisch unzulässig.<br>
@@ -616,7 +621,7 @@ textarea.inp{resize:vertical;min-height:40px}
         Norsk Hydro (8,4x): Rohstoff-/Materialkonzern mit zyklischem Profil. Niedrige EBITDA-Marge (12%) durch kapitalintensive Metallproduktion. Falsche Branche und falsches Größensegment.<br><br>
         <b>Discount-Logik: Peer-Median ~14x → LORCH-Zielrange 9–13x</b> nach 20–25% Haircut auf Size/Liquidity und Margenabstand.
       </div>
-      <button class="hbtn" onclick="th('hint_t')">Musterlösung Peers</button>
+      <button class="hbtn" onclick="th('hint_t')">Hinweise Peers</button>
     </div>
     <div>
       <h3>Multiple-Bandbreite (Trading Comps)</h3>
@@ -783,6 +788,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2" style="margin-top:16px">
     <div>
       <h3>Ihre Transaktionsanalyse</h3>
+      <div class="entry-focus"><b>Hier eintragen:</b> Schreiben Sie Ihre Auswahl und Begründungen in die beiden Textfelder unten.</div>
       <label class="lbl">Welche 2 Transaktionen scheiden Sie als erste aus und warum?</label>
       <textarea class="inp" id="t_tx1" placeholder="TX-Nummer + Begründung..."></textarea>
       <label class="lbl">Welche Faktoren erklären die Bandbreite der Multiples innerhalb Ihrer selektierten Transaktionen?</label>
@@ -811,6 +817,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2">
     <div>
       <h3>Equity Bridge</h3>
+      <div class="entry-focus"><b>Hier eintragen:</b> Füllen Sie die TEUR-Eingabefelder in der rechten Spalte der Tabelle aus.</div>
       <table><thead><tr><th>Position</th><th>Erläuterung</th><th class="nr">TEUR (Eingabe)</th></tr></thead>
       <tbody>
         <tr class="hl"><td>Enterprise Value (Mid)</td><td>Aus Modul 3 oder 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
@@ -893,6 +900,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2" style="margin-top:18px">
     <div>
       <h3>Empfehlung</h3>
+      <div class="entry-focus"><b>Hier eintragen:</b> Formulieren Sie unten Ihre Prozessempfehlung und die Top-3 Wertsteigerungsmaßnahmen.</div>
       <label class="lbl">Prozessempfehlung für den Gesellschafter</label>
       <textarea class="inp" id="t_pr" placeholder="Strukturierte Auktion vs. Direktansprache, Käuferprofil..."></textarea>
       <label class="lbl">Top-3 Maßnahmen zur Wertsteigerung vor Exit</label>
@@ -909,6 +917,17 @@ textarea.inp{resize:vertical;min-height:40px}
   <div style="margin-top:16px;padding:12px;background:rgba(93,119,117,.07);border-left:2px solid var(--teal)">
     <p style="font-size:9px;color:var(--s);margin:0"><b>WINTERGERST</b> Societät für Unternehmer-Beratung · M&amp;A Advisory · Case Study für interne Ausbildungszwecke · Alle realen Unternehmens- und Transaktionsdaten aus öffentlichen Quellen; Finanzkennzahlen teilweise geschätzt und für Lehrzwecke vereinfacht · Stand 2024</p>
   </div>
+  <div id="moderator-solution" class="co" style="margin-top:18px;display:none">
+    <h3 style="margin-top:0">Moderator-Musterlösung (Final)</h3>
+    <p class="mu">Nur für die Nachbesprechung am Ende. Empfohlene Referenzwerte:</p>
+    <ul style="margin:6px 0 0 18px;line-height:1.8">
+      <li>Adj. EBITDA (Basis): ca. TEUR 4.036</li>
+      <li>Trading-Multiple-Range: ca. 7,0x–13,0x (Mid 10,0x)</li>
+      <li>Transaction-Multiple-Range: ca. 8,0x–15,0x (Mid 11,0x–11,5x)</li>
+      <li>Equity Value Mid-Case: aus EV minus debt-like items plus Cash plus NWC-Adjustment</li>
+    </ul>
+  </div>
+
 </div>
 
 <!-- FOOTER -->
@@ -927,12 +946,10 @@ textarea.inp{resize:vertical;min-height:40px}
     <h2>Moderator-Panel</h2>
     <p class="mu">Nur für Trainer.</p>
     <div class="mrow">
-      <button class="sb" onclick="revAll()">Alle Musterlösungen aufdecken</button>
-      <button class="sb" onclick="hideAll()">Alle Musterlösungen verbergen</button>
-      <button class="sb" onclick="startT()">Timer starten</button>
+            <button class="sb" onclick="startT()">Timer starten</button>
       <button class="sb" onclick="resetT()">Timer zurücksetzen</button>
-      <button class="sb" onclick="demo()">Demo-Musterlösung einfüllen</button>
-    </div>
+      <button class="sb" onclick="openModeratorSolution()">Moderator: Musterlösung öffnen</button>
+          </div>
     <button class="pb" style="margin-top:16px" onclick="closeM()">Schließen</button>
   </div>
 </div>
@@ -951,18 +968,6 @@ function removeLegacyIntegratedCaseSection(){
 }
 
 
-<<<<<<< codex/merge-conflict-beheben-6ds0pa
-
-function removeLehrkraftSetupFromTabs(){
-  document.querySelectorAll('.step, .tab, button, h1, h2, h3, section').forEach(el=>{
-    if((el.textContent||'').trim().toLowerCase()==='1) lehrkraft setup'){
-      const stepEl = el.closest('.step, .tab, section') || el;
-      if(stepEl){ stepEl.remove(); }
-    }
-  });
-}
-
-=======
 >>>>>>> main
 function syncLegacyIntroCardsVisibility(){
   document.querySelectorAll('.container section.card').forEach((sec,idx)=>{
@@ -975,9 +980,7 @@ function syncLegacyIntroCardsVisibility(){
 const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 
 removeLegacyIntegratedCaseSection();
-<<<<<<< codex/merge-conflict-beheben-6ds0pa
 removeLehrkraftSetupFromTabs();
-=======
 >>>>>>> main
 syncLegacyIntroCardsVisibility();
 
@@ -1004,10 +1007,9 @@ function startT(){
 }
 function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getElementById('tmr');el.textContent='90:00';el.classList.remove('warn');}
 function th(id){document.getElementById(id).classList.toggle('on');}
-function revAll(){document.querySelectorAll('.hint').forEach(h=>h.classList.add('on'));closeM();}
-function hideAll(){document.querySelectorAll('.hint').forEach(h=>h.classList.remove('on'));closeM();}
 function openM(){document.getElementById('modal').classList.add('open');}
 function closeM(){document.getElementById('modal').classList.remove('open');}
+function openModeratorSolution(){ closeM(); go(6); const el=document.getElementById('moderator-solution'); if(el) el.style.display='block'; }
 
 function calcE(){
   const b=2541,adjs=['a1','a2','a3','a4','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);
@@ -1113,6 +1115,7 @@ function setTxBasis(mode){
   document.getElementById('tx_basis').textContent='Aktuell: '+mode;
 }
 
+function demoDisabled(){
 function demo(){
   // EBITDA: adjustiere Pos 1,2,3,4,5,7 — nicht 6 und 8
   document.getElementById('a1').value=172;

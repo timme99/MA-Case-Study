@@ -1,58 +1,33 @@
 # MA-Case-Study
 
-Einfache, statische Web-App für eine M&A-Case-Study im Unterricht.
+Simple, static web app for an M&A case study in class.
 
-## Enthalten
-- Flexible Gruppeneinteilung in **immer 4 Gruppen** (auch wenn Teilnehmerzahl nicht 20 ist)
-- Geeignet für den Standardfall mit **20 Studierenden** in **4 Gruppen à 5 Personen**
-- Integrierte Inhalte der alten Wintergerst-Lorch-Case-Study
-- Gruppenmodus über URL (`?group=1` bis `?group=4`), damit Gruppen in unterschiedlichen Versionen arbeiten
-- Auswahl der Peer-Referenz je Gruppe: `FY-1`, `FY0`, `LTM`, `NTM`
-- Gruppennotizen je Gruppe separat im Browser gespeichert
-- Ergebnisbereich mit Checkliste für verlinkte Ergebnis-Sheets je Gruppe
-- Vereinfachte Diskussionsfragen (u. a. Preiswirkung Strategischer Käufer vs. Finanzinvestor)
-- Zusätzliche Hint-Boxen für unklare Punkte in einfacher Sprache
+## Included
+- Flexible group setup with **always 4 groups** (even if there are not exactly 20 participants)
+- Suitable for the standard setup with **20 students** in **4 groups of 5 people**
+- Integrated content from the former Wintergerst-Lorch case study
+- Group mode via URL (`?group=1` to `?group=4`) so groups can work in separate versions
+- Per-group peer reference selection: `FY-1`, `FY0`, `LTM`, `NTM`
+- Group notes are stored separately per group in the browser
+- Results section with checklist for linked result sheets per group
+- Simplified discussion questions (e.g., pricing impact: strategic buyer vs. financial investor)
+- Additional hint boxes for unclear points in plain language
 
-## Nutzung
-1. Lehrkraft öffnet die Seite ohne URL-Parameter und erstellt die 4 Gruppen.
-2. Für Gruppenarbeit je Link verteilen: `?group=1`, `?group=2`, `?group=3`, `?group=4`.
-3. Jede Gruppe arbeitet in ihrer eigenen Version und sieht nur ihren Gruppenbereich.
+## Usage
+1. Instructor opens the page without URL parameters and sets up the 4 groups.
+2. Share one link per group: `?group=1`, `?group=2`, `?group=3`, `?group=4`.
+3. Each group works in its own version and only sees its own group area.
 
-## Lokal starten
+## Run locally
 ```bash
 python3 -m http.server 8080
 ```
-Dann im Browser öffnen: <http://localhost:8080>
+Then open in your browser: <http://localhost:8080>
 
-## Deployment auf Vercel
-1. Repository zu GitHub pushen.
-2. In Vercel **Add New Project** wählen und das Repository importieren.
-3. Framework Preset auf **Other** lassen.
-4. Kein Build Command nötig, direkt deployen.
+## Deploy on Vercel
+1. Push the repository to GitHub.
+2. In Vercel, choose **Add New Project** and import the repository.
+3. Leave Framework Preset as **Other**.
+4. No build command needed; deploy directly.
 
-Die App nutzt nur `index.html` und `vercel.json` und ist direkt deploybar.
-Einfache, statische Web-App für eine M&A-Case-Study mit:
-
-- Gruppeneinteilung für **20 Studierende** in **4 Gruppen à 5 Personen**
-- Ablauf für Bearbeitung der Case Study
-- Abschlusspräsentation inkl. Q&A
-- Vorschläge für Diskussionsfragen (z. B. Preiswirkung bei Finanzinvestor vs. Strategen)
-
-## Lokaler Start
-
-Da die App rein statisch ist, genügt ein einfacher Static-Server, z. B.:
-
-```bash
-python3 -m http.server 8080
-```
-
-Dann im Browser öffnen: <http://localhost:8080>
-
-## Deployment auf Vercel
-
-1. Repository zu GitHub pushen.
-2. In Vercel "Add New Project" wählen und das Repo importieren.
-3. Framework Preset auf **Other** lassen (kein Build Command erforderlich).
-4. Deploy starten.
-
-Die App nutzt nur `index.html` + `vercel.json` und ist direkt deploybar.
+The app only uses `index.html` and `vercel.json` and can be deployed directly.

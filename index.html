@@ -195,53 +195,46 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2">
     <div>
       <h3>EBITDA Bridge – FY 2022 Base</h3>
-      <div class="entry-focus"><b>Enter values here:</b> Use the "Your input" column and enter only adjustments you can justify methodologically. Amounts are intentionally hidden – derive your own estimate from the case hints.</div>
+      <div class="entry-focus"><b>Enter values here:</b> Use the "Your input" column and enter only adjustments you can justify methodologically. Derive your estimate exclusively from the information in the description column.</div>
       <p style="font-size:10px;color:var(--s);margin-bottom:10px">Enter only items you consider adjustable. Not every item is an adjustment.</p>
 
       <table>
         <thead>
           <tr>
-            <th style="width:42%">Item (from data room)</th>
-            <th style="width:33%">Description</th>
-            <th class="nr" style="width:13%">Case hint</th>
-            <th class="nr" style="width:12%">Your input</th>
+            <th style="width:45%">Item (from data room)</th>
+            <th style="width:40%">Description</th>
+            <th class="nr" style="width:15%">Your input</th>
           </tr>
         </thead>
         <tbody>
           <tr class="hl">
             <td>Reported EBITDA 2022</td>
             <td>Starting point – HGB financial statements</td>
-            <td class="nr">Starting point is given in intro text.</td>
             <td class="nr">—</td>
           </tr>
           <tr>
             <td>Additional costs from geopolitical event (Eastern Europe)</td>
             <td>Management: "Additional costs due to loss of a market as a result of government restrictions. Amount is one-off and clearly isolatable."</td>
-            <td class="nr">Hint: assess one-off character and evidence (historical level vs. temporary spike).</td>
-            <td class="nr"><input class="cinp" id="a1" type="number" placeholder="0" step="10"></td>
+            <td class="nr"><input class="cinp" id="a1" type="number" step="10"></td>
           </tr>
           <tr>
             <td>Managing director compensation (owner-manager)</td>
             <td>Annual compensation of the owner-manager is EUR k 580. Market-standard external CEO compensation for this company size: EUR k 320. Difference: EUR k 260.</td>
-            <td class="nr">Hint: adjust only market-vs-owner excess.</td>
-            <td class="nr"><input class="cinp" id="a5" type="number" placeholder="0" step="10"></td>
+            <td class="nr"><input class="cinp" id="a5" type="number" step="10"></td>
           </tr>
           <tr>
             <td>Trade fair investment (EuroBLECH 2022)</td>
             <td>One-time trade-fair presence after the COVID pause for market repositioning. Clarify whether this is exceptional catch-up spend or part of recurring commercial strategy.</td>
-            <td class="nr">Hint: explain your decision clearly (borderline item: partial or no adjustment may be justified).</td>
-            <td class="nr"><input class="cinp" id="a6" type="number" placeholder="0" step="10"></td>
+            <td class="nr"><input class="cinp" id="a6" type="number" step="10"></td>
           </tr>
           <tr>
             <td>Expense for implementation of a new ERP module (SAP S/4HANA)</td>
             <td>Project costs for system integration and external consultants. Project is completed. Recurring maintenance expense is significantly lower and already budgeted.</td>
-            <td class="nr">Hint: completed implementation; low-to-mid triple-digit EUR k.</td>
-            <td class="nr"><input class="cinp" id="a7" type="number" placeholder="0" step="10"></td>
+            <td class="nr"><input class="cinp" id="a7" type="number" step="10"></td>
           </tr>
           <tr class="hl sub">
             <td>= Adj. EBITDA 2022</td>
             <td>Your valuation basis</td>
-            <td class="nr">—</td>
             <td class="nr" id="r_adj22" style="color:var(--teal);font-size:13px">—</td>
           </tr>
         </tbody>
@@ -261,32 +254,32 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
 
     <div>
-      <h3>Working capital – bilanzbasiert & LTM adjustment</h3>
-      <p style="font-size:10px;color:var(--s);margin-bottom:10px">Ermittle zuerst das bilanzierte Working Capital aus den Positionen unten. Leite danach auf Basis der LTM-Entwicklung ein plausibles NWC-Adjustment ab.</p>
+      <h3>Working capital – balance-sheet based & LTM adjustment</h3>
+      <p style="font-size:10px;color:var(--s);margin-bottom:10px">First calculate the balance-sheet working capital from the items below. Then derive a plausible NWC adjustment based on LTM development.</p>
       <table>
-        <thead><tr><th>NWC-Komponente (per 31.12.2022)</th><th class="nr">EUR k</th></tr></thead>
+        <thead><tr><th>NWC component (as of 31.12.2022)</th><th class="nr">EUR k</th></tr></thead>
         <tbody>
           <tr><td>Trade receivables</td><td class="nr">6.840</td></tr>
-          <tr><td>Inventories (Roh-, Hilfs-, Betriebsstoffe + WIP + FG)</td><td class="nr">9.380</td></tr>
-          <tr><td>Sonstige kurzfristige Forderungen</td><td class="nr">620</td></tr>
+          <tr><td>Inventories (raw materials, auxiliary materials, operating supplies + WIP + FG)</td><td class="nr">9.380</td></tr>
+          <tr><td>Other short-term receivables</td><td class="nr">620</td></tr>
           <tr><td>Trade payables</td><td class="nr">(4.070)</td></tr>
-          <tr><td>Sonstige kurzfristige Verbindlichkeiten</td><td class="nr">(980)</td></tr>
-          <tr class="hl sub"><td>= Bilanziertes NWC</td><td class="nr" id="nwc_bil">11.790</td></tr>
+          <tr><td>Other short-term liabilities</td><td class="nr">(980)</td></tr>
+          <tr class="hl sub"><td>= Balance-sheet NWC</td><td class="nr" id="nwc_bil">11.790</td></tr>
         </tbody>
       </table>
 
       <div style="margin-top:10px">
-        <label class="lbl">1) Berechne das bilanzierte Working Capital (EUR k) aus der Tabelle</label>
+        <label class="lbl">1) Calculate the balance-sheet working capital (EUR k) from the table</label>
         <input class="inp" type="number" id="wc_bil_calc" placeholder="AR + Inventories + Other CA - AP - Other CL" style="max-width:260px">
       </div>
 
       <div class="co w" style="margin-top:8px">
-        <b>Vorgabe für Schritt 2 (LTM):</b> Für die Kaufpreisüberleitung unterstellen wir ein <b>NWC-Adjustment von +1.000 EUR k</b> (Abbau des außergewöhnlich hohen 2022-Niveaus in den Last 12 months).
+        <b>Assumption for Step 2 (LTM):</b> For the purchase price bridge, assume an <b>NWC adjustment of +1,000 EUR k</b> (reduction of the unusually high 2022 level over the last 12 months).
       </div>
 
       <div style="margin-top:10px">
-        <label class="lbl">2) Übernimm die LTM-Vorgabe als NWC-Adjustment (EUR k)</label>
-        <input class="inp" type="number" id="nwc_adj_val" placeholder="z. B. 1.000" style="max-width:160px">
+        <label class="lbl">2) Transfer the LTM assumption as NWC adjustment (EUR k)</label>
+        <input class="inp" type="number" id="nwc_adj_val" placeholder="e.g., 1000" style="max-width:160px">
       </div>
 
       <div style="margin-top:12px">

@@ -112,7 +112,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <li>Derive adjusted EBITDA from raw data (EBITDA Bridge)</li>
         <li>Select a peer group from publicly listed comparable companies</li>
         <li>Analyze and filter 10–12 real precedent transactions</li>
-        <li>Working Capital Adjustment bewerten</li>
+        <li>Assess working capital adjustment</li>
         <li>Calculate enterprise value and equity value</li>
         <li>Create a football field chart and sensitivity matrix</li>
       </ul>
@@ -137,7 +137,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <tbody>
         <tr><td>1</td><td>Company Profile</td><td class="nr">8</td></tr>
         <tr><td>2</td><td>EBITDA Bridge &amp; NWC</td><td class="nr">18</td></tr>
-        <tr><td>3</td><td>Trading Comps – Peer Selektion</td><td class="nr">18</td></tr>
+        <tr><td>3</td><td>Trading Comps – Peer Selection</td><td class="nr">18</td></tr>
         <tr><td>4</td><td>Transaction Comps – 10+ Deals</td><td class="nr">20</td></tr>
         <tr><td>5</td><td>Equity Bridge &amp; Sensitivity</td><td class="nr">12</td></tr>
         <tr><td>6</td><td>Results &amp; Discussion</td><td class="nr">14</td></tr>
@@ -165,7 +165,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <tbody>
         <tr><td>Revenue (estimate)</td><td class="nr">~45.000</td><td class="nr">~50.000</td><td class="nr">~55.000</td><td class="nr">~62.000</td></tr>
         <tr><td>EBITDA (reported)</td><td class="nr">908</td><td class="nr">2.238</td><td class="nr">2.541</td><td class="nr">5.440</td></tr>
-        <tr><td>EBITDA-Marge</td><td class="nr">~2%</td><td class="nr">~4,5%</td><td class="nr">~4,6%</td><td class="nr">~8,8%</td></tr>
+        <tr><td>EBITDA margin</td><td class="nr">~2%</td><td class="nr">~4,5%</td><td class="nr">~4,6%</td><td class="nr">~8,8%</td></tr>
       </tbody></table>
       <div class="co">Historical EBITDA reference: 2017: TEUR 1.946 | 2018: TEUR 3.364 | 2019: TEUR 2.019. The low margin in 2020–2022 is largely due to high growth-related R&amp;D investments that were expensed.</div>
       <h3>Balance sheet (estimated, EURk)</h3>
@@ -187,11 +187,11 @@ textarea.inp{resize:vertical;min-height:40px}
 <div class="sc" id="s2">
   <div class="slbl">Module 2 · EBITDA Bridge &amp; Working Capital</div><hr class="dline">
   <h1>Derive Adjusted EBITDA</h1>
-  <p class="mu">Starting point: Reported EBITDA GJ 2022 (TEUR 2.541). The following items come from the data room and management discussions. Decide for each item: adjustment yes or no? If yes: in what amount and with what rationale?</p>
+  <p class="mu">Starting point: Reported EBITDA FY 2022 (TEUR 2.541). The following items come from the data room and management discussions. Decide for each item: adjustment yes or no? If yes: in what amount and with what rationale?</p>
 
   <div class="g2">
     <div>
-      <h3>EBITDA Bridge – GJ 2022 Basis</h3>
+      <h3>EBITDA Bridge – FY 2022 Base</h3>
       <div class="entry-focus"><b>Enter values here:</b> Use the "Your input" column and enter only adjustments you can justify methodologically.</div>
       <p style="font-size:10px;color:var(--s);margin-bottom:10px">Enter only items you consider adjustable. Not every item is an adjustment.</p>
 
@@ -199,7 +199,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <thead>
           <tr>
             <th style="width:42%">Item (from data room)</th>
-            <th style="width:33%">Sachverhalt</th>
+            <th style="width:33%">Description</th>
             <th class="nr" style="width:13%">Amount (TEUR)</th>
             <th class="nr" style="width:12%">Your input</th>
           </tr>
@@ -242,7 +242,7 @@ textarea.inp{resize:vertical;min-height:40px}
             <td class="nr"><input class="cinp" id="a5" type="number" placeholder="0" step="10"></td>
           </tr>
           <tr>
-            <td>Abschreibung auf Messe-Investition (EuroBLECH 2022)</td>
+            <td>Depreciation of trade fair investment (EuroBLECH 2022)</td>
             <td>One-time trade-fair presence for market positioning after the COVID pause. Fully expensed. Not repeated annually at this scale.</td>
             <td class="nr">148</td>
             <td class="nr"><input class="cinp" id="a6" type="number" placeholder="0" step="10"></td>
@@ -261,7 +261,7 @@ textarea.inp{resize:vertical;min-height:40px}
           </tr>
           <tr class="hl sub">
             <td>= Adj. EBITDA 2022</td>
-            <td>Ihre valuation basis</td>
+            <td>Your valuation basis</td>
             <td class="nr">—</td>
             <td class="nr" id="r_adj22" style="color:var(--teal);font-size:13px">—</td>
           </tr>
@@ -286,12 +286,12 @@ textarea.inp{resize:vertical;min-height:40px}
         Pos. 3 – Order-Backlog-Effekt: <b>+234</b> (historisch eindeutig abweichend vom Normalwert)<br>
         Pos. 4 – Broker costs in procurement: <b>+318</b> (2021/22 supply-chain crisis, not structural)<br><br>
         <b>Borderline – decision with rationale:</b><br>
-        Pos. 2 – R&amp;D growth projects: <b>+638 vertretbar</b>, aber: Laufende Projekte erzeugen auch zukünftigen Aufwand → Buyer wird argumentieren, dass ein Nachfolger vergleichbare F&amp;E-Ausgaben haben wird. Typische Kompromissposition: 50% adjustieren (+319)<br>
-        Pos. 5 – management compensation: <b>+260 common</b> in family-owned companies (DVFA-Standard), aber: buyer asks whether a successor really costs only TEUR 320. Both items are negotiable.<br>
+        Item 2 – R&amp;D growth projects: <b>+638 defendable</b>, but ongoing projects also create future expense → buyer will argue that a successor will incur comparable R&amp;D spending. Typical compromise position: adjust 50% (+319)<br>
+        Pos. 5 – management compensation: <b>+260 common</b> in family-owned companies (DVFA-Standard), but: buyer asks whether a successor really costs only TEUR 320. Both items are negotiable.<br>
         Pos. 6 – Messeaufwand: <b>Do not adjust.</b> Recurring (every 2 years) marketing investment — not a true one-off.<br>
         Pos. 7 – SAP project: <b>+192 vertretbar</b>, one-time and completed. Frequently adjusted in practice.<br><br>
         <b>Nicht adjustierbar:</b><br>
-        Pos. 8 – Legal-dispute provision: <b>Do not adjust.</b> Ungewisse Verbindlichkeit, 30–40% Verlustwahrscheinlichkeit. Kein Adjustment, aber Disclosure als Contingent Liability im SPA. Classic student mistake: adjusting because it is "one-time"—but it is not yet resolved.<br><br>
+        Pos. 8 – Legal-dispute provision: <b>Do not adjust.</b> Uncertain liability, 30–40% loss probability. No adjustment, but disclose as a contingent liability in the SPA. Classic student mistake: adjusting because it is "one-time"—but it is not yet resolved.<br><br>
         <b>Konservative Basis: TEUR 3.777 | Konsens-Basis: TEUR 4.037 | Optimistisch: TEUR 4.559</b>
       </div>
       <button class="hbtn" onclick="th('hint_e')">Notee EBITDA</button>
@@ -318,7 +318,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
       <div style="margin-top:10px">
         <label class="lbl">Calculate: normalized NWC (TEUR) at 14.8% × 2022 revenue (~TEUR 54,800)</label>
-        <input class="inp" type="number" id="nwc_norm" placeholder="Ihre Berechnung..." style="max-width:160px">
+        <input class="inp" type="number" id="nwc_norm" placeholder="Your calculation..." style="max-width:160px">
         <label class="lbl">Resulting NWC adjustment (surplus/deficit, TEUR)</label>
         <input class="inp" type="number" id="nwc_adj_val" placeholder="Bilanz-NWC minus Norm-NWC..." style="max-width:160px">
       </div>
@@ -358,80 +358,80 @@ textarea.inp{resize:vertical;min-height:40px}
   <div id="peer-list">
 
     <div class="pc">
-      <input type="checkbox" class="chk" id="p1" checked>
+      <input type="checkbox" class="chk" id="p1">
       <div>
         <div class="pn"><b>Lincoln Electric Holdings (LECO)</b> &nbsp;<span class="pill pg">NASDAQ · USA</span></div>
         <div class="pd">Manufacturer of welding equipment, welding consumables, and automation systems. Revenue USD 4.19bn (2023). Products: MIG-MAG, TIG, and stick systems plus automation solutions for industrial production. Sales in >160 countries. Adj. EBITDA margin 21.5%. Net debt USD 1.0bn. Automation revenue USD 941m.</div>
         <label class="lbl">Rationale Einschluss / Ausschluss</label>
         <textarea class="inp" style="min-height:36px" id="c_p1" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,7x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>21,5%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 4.190M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,7x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>21,5%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>USD 4.190M</span></div>
     </div>
 
     <div class="pc">
-      <input type="checkbox" class="chk" id="p2" checked>
+      <input type="checkbox" class="chk" id="p2">
       <div>
         <div class="pn"><b>ESAB Corporation (ESAB)</b> &nbsp;<span class="pill pg">NYSE · USA</span></div>
         <div class="pd">Global provider of welding equipment, cutting technology, and protective gear. Revenue USD 2.77bn (2023). Spin-off from Colfax in 2022. Portfolio: welding machines, welding consumables (~60% revenue share), gas control systems, and digital solutions. EBITDA margin 17.3%. Net debt USD 1.25bn.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p2" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>11,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,0x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>17,3%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.770M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>11,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,0x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>17,3%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>USD 2.770M</span></div>
     </div>
 
     <div class="pc">
       <input type="checkbox" class="chk" id="p3">
       <div>
         <div class="pn"><b>Illinois Tool Works (ITW)</b> &nbsp;<span class="pill pg">NYSE · USA</span></div>
-        <div class="pd">Industriekonzern mit sieben Geschäftsbereichen: Welding (Marke Miller), Automotive OEM, Food Equipment, Test &amp; Measurement, Construction Products, Polymers &amp; Fluids, Specialty Products. Welding ist einer von sieben gleichgewichteten Bereichen. Konzernumsatz USD 15,9 Mrd. (2023). EBITDA-Marge auf Konzernebene ~30%. EV ~USD 75 Mrd.</div>
+        <div class="pd">Industrial conglomerate with seven business segments: Welding (brand Miller), Automotive OEM, Food Equipment, Test &amp; Measurement, Construction Products, Polymers &amp; Fluids, Specialty Products. Welding is one of seven equally weighted segments. Group revenue USD 15.9B (2023). EBITDA margin at group level ~30%. EV ~USD 75B.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p3" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,8x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>4,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>30,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 15.900M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,8x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>4,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>30,1%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>USD 15.900M</span></div>
     </div>
 
     <div class="pc">
       <input type="checkbox" class="chk" id="p4">
       <div>
         <div class="pn"><b>Cognex Corporation (CGNX)</b> &nbsp;<span class="pill pg">NASDAQ · USA</span></div>
-        <div class="pd">Anbieter von Bildverarbeitungssystemen (Machine Vision), Barcode-Lesern and industriellen Kamerasystemen für die Produktionsautomation. Einsatz in Qualitätskontrolle, Roboterführung and Identifikationsaufgaben. Umsatz USD 806 Mio. (2023). Lizenz- and Hardware-Mix. EBITDA-Marge ~24%. Net Debt negativ (Cash-positiv).</div>
+        <div class="pd">Provider of machine vision systems, barcode readers, and industrial camera systems for production automation. Used in quality control, robot guidance, and identification tasks. Revenue USD 806M (2023). License and hardware mix. EBITDA margin ~24%. Net debt negative (cash positive).</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p4" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>38,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>9,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>24,2%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 806M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>38,5x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>9,7x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>24,2%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>USD 806M</span></div>
     </div>
 
     <div class="pc">
-      <input type="checkbox" class="chk" id="p5" checked>
+      <input type="checkbox" class="chk" id="p5">
       <div>
         <div class="pn"><b>Kemppi Oy</b> &nbsp;<span class="pill pg">Privat · Finnland</span></div>
-        <div class="pd">Familienunternehmen, gegründet 1949, Sitz Lahti (Finnland). Hersteller von Lichtbogenschweißgeräten and Schweißsoftware (WeldEye). Umsatz EUR 209 Mio. (2023), EUR 195 Mio. (2022). Ca. 650 Mitarbeiter in 16 Ländern. Nicht börsennotiert. EV/EBITDA aus Anleihenmarkt and Vergleichstransaktionen abgeleitet.</div>
+        <div class="pd">Family-owned company founded in 1949, headquartered in Lahti (Finland). Manufacturer of arc welding equipment and welding software (WeldEye). Revenue EUR 209M (2023), EUR 195M (2022). Approx. 650 employees in 16 countries. Not publicly listed. EV/EBITDA derived from bond market and comparable transactions.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p5" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR 209M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>EUR 209M</span></div>
     </div>
 
     <div class="pc">
       <input type="checkbox" class="chk" id="p6">
       <div>
         <div class="pn"><b>Watts Water Technologies (WTS)</b> &nbsp;<span class="pill pg">NYSE · USA</span></div>
-        <div class="pd">Hersteller von Produkten für die Regulierung, Erhaltung and Qualitätssicherung von Wassersystemen. Produktsegmente: Americas, Europe, APMEA. Produkte umfassen Druckregler, Sicherheitsventile, Wärmetauscher and Smart-Water-Lösungen für Gebäude and Industrie. Umsatz USD 2,0 Mrd. (2023). EBITDA-Marge ~22%.</div>
+        <div class="pd">Manufacturer of products for regulation, maintenance, and quality assurance of water systems. Product segments: Americas, Europe, APMEA. Products include pressure regulators, safety valves, heat exchangers, and smart water solutions for buildings and industry. Revenue USD 2.0B (2023). EBITDA margin ~22%.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p6" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,2x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>22,1%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>USD 2.010M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,2x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>22,1%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>USD 2.010M</span></div>
     </div>
 
     <div class="pc">
       <input type="checkbox" class="chk" id="p7">
       <div>
         <div class="pn"><b>Norsk Titanium / Norsk Hydro ASA (NHY)</b> &nbsp;<span class="pill pg">Oslo Børs · Norwegen</span></div>
-        <div class="pd">Integrierter Aluminium- and Energiekonzern. Tätigkeitsfelder: Bauxite &amp; Alumina, Primary Metal, Extrusions, Recycling &amp; Renewables. Hydro Extrusions stellt Aluminiumprofile für Fahrzeuge, Gebäude and Industrie her. Umsatz NOK 207 Mrd. (~EUR 18 Mrd., 2023). EBITDA-Marge ~12%. Kein Schweißgeschäft im Produktportfolio.</div>
+        <div class="pd">Integrated aluminum and energy group. Business areas: Bauxite & Alumina, Primary Metal, Extrusions, Recycling & Renewables. Hydro Extrusions produces aluminum profiles for vehicles, buildings, and industry. Revenue NOK 207B (~EUR 18B, 2023). EBITDA margin ~12%. No welding business in the product portfolio.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p7" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>8,4x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>0,9x</span><br><span style="font-size:8px;color:var(--m)">EBITDA-Marge</span><span>11,8%</span><br><span style="font-size:8px;color:var(--m)">Umsatz</span><span>EUR ~18.000M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>8,4x</b><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>0,9x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>11,8%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>EUR ~18.000M</span></div>
     </div>
 
   </div>
@@ -440,17 +440,17 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Discount considerations</h3>
       <p style="font-size:10px;color:var(--s)">Assess: which systematic differences between your selected peers and LORCH require a discount to the observed peer multiple?</p>
-      <label class="lbl">Ihre Discount-Herleitung (Faktoren and Quantifizierung)</label>
+      <label class="lbl">Your discount derivation (factors and quantification)</label>
       <textarea class="inp" style="min-height:60px" id="t_disc" placeholder="Size, liquidity, margin gap, ownership structure..."></textarea>
       <div class="hint" id="hint_t">
         <b>Notes on peer selection:</b><br><br>
-        <b>Include:</b> LECO (17,7x) and ESAB (11,5x) – direkte Produktüberlappung, beste verfügbare öffentliche Comps. Kemppi (~12x) – strukturell nächste Analogie zu LORCH, aber methodische Einschränkung (nicht börsennotiert).<br><br>
+        <b>Include:</b> LECO (17,7x) and ESAB (11,5x) – direct product overlap, best available public comps. Kemppi (~12x) – structurally the closest analogue to LORCH, but with methodological limitations (not publicly listed).<br><br>
         <b>Exclude:</b><br>
         ITW (17,8x): The EV/EBITDA relates to the group. The welding segment is ~1/7 of the group. A conglomerate multiple includes diversification premiums, financing structure, and segment mix. No segment-specific EV/EBITDA can be derived → methodologically invalid.<br>
         Cognex (38,5x): Machine vision systems, no welding power sources. SaaS/IP model with recurring-revenue premium → multiple based on a fundamentally different business model.<br>
         Watts Water (17,2x): Water regulation technology. No product overlap, different end market, different demand profile.<br>
         Norsk Hydro (8,4x): Commodity/material group with cyclical profile. Low EBITDA margin (12%) due to capital-intensive metal production. Wrong sector and wrong size segment.<br><br>
-        <b>Discount-Logik: Peer-Median ~14x → LORCH-Zielrange 9–13x</b> nach 20–25% Haircut auf Size/Liquidity and Margenabstand.
+        <b>Discount logic: peer median ~14x → LORCH target range 9–13x</b> after a 20–25% haircut for size/liquidity and margin gap.
       </div>
       <button class="hbtn" onclick="th('hint_t')">Peer guidance</button>
     </div>
@@ -472,7 +472,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S4 TRANSACTIONS -->
 <div class="sc" id="s4">
-  <div class="slbl">Module 4 · Precedent Transactions – 12 echte M&amp;A-Deals (alle mit EV/EBITDA)</div><hr class="dline">
+  <div class="slbl">Module 4 · Precedent Transactions – 12 real M&A deals (all with EV/EBITDA)</div><hr class="dline">
   <h1>Transaction Comparables – Welding Technology &amp; Industrial Equipment</h1>
   <p class="mu"><b>All transactions are real.</b> EV/EBITDA-Multiples are based on publicly available sources (SEC filings, press releases, Bloomberg data). Select the 4–6 most relevant transactions. </p>
   <div class="co" style="margin-top:10px">
@@ -495,7 +495,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <th>Buyer</th>
         <th>Buyertyp</th>
         <th class="nr">EV (MUSD/EUR)</th>
-        <th class="nr">Umsatz</th>
+        <th class="nr">Revenue</th>
         <th class="nr">EBITDA</th>
         <th class="nr" id="tx_metric_head">EV/EBITDA LTM</th>
         <th class="nr">EV/Rev.</th>
@@ -504,16 +504,16 @@ textarea.inp{resize:vertical;min-height:40px}
     </thead>
     <tbody>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx1" checked></td>
+        <td><input type="checkbox" class="chk" id="tx1"></td>
         <td><b>Fori Automation, LLC</b><br><span style="font-size:8px;color:var(--s)">Automated welding systems, Automotive, USA</span></td>
         <td>2022</td><td>Lincoln Electric (LECO)</td>
         <td><span class="pill pw">Stratege</span></td>
         <td class="nr">427 USD</td><td class="nr">~225</td><td class="nr">~22</td>
         <td class="nr"><b>~19,4x</b></td><td class="nr">~1,9x</td>
-        <td style="font-size:8.5px">LECO strategy program "Higher Standard 2025". LECO revenue disclosure (~$225M new automation sales). EBIT-Marge "comparable to LECO automation portfolio" (~10%). Strong automation profile — higher multiple than pure equipment players. Funded via $400M term loan.</td>
+        <td style="font-size:8.5px">LECO strategy program "Higher Standard 2025". LECO revenue disclosure (~$225M new automation sales). EBIT margin "comparable to LECO automation portfolio" (~10%). Strong automation profile — higher multiple than pure equipment players. Funded via $400M term loan.</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx2" checked></td>
+        <td><input type="checkbox" class="chk" id="tx2"></td>
         <td><b>Victor Technologies Holdings</b><br><span style="font-size:8px;color:var(--s)">Cutting/welding solutions, Global, USA</span></td>
         <td>2014</td><td>Colfax / ESAB</td>
         <td><span class="pill pw">Stratege</span></td>
@@ -522,31 +522,31 @@ textarea.inp{resize:vertical;min-height:40px}
         <td style="font-size:8.5px">Colfax paid $947M for Victor (revenue ~$500M, c.13–14% EBITDA margin). Previously PE-owned (Irving Place Capital, entry in 2010 for $422M). Competitive process. Very similar product profile to LORCH.</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx3" checked></td>
+        <td><input type="checkbox" class="chk" id="tx3"></td>
         <td><b>Zeman Bauelemente Prod. GmbH</b><br><span style="font-size:8px;color:var(--s)">Robotic welding systems, Austria</span></td>
         <td>2021</td><td>Lincoln Electric (LECO)</td>
         <td><span class="pill pw">Stratege cross-border</span></td>
         <td class="nr">n.d.*</td><td class="nr">~50</td><td class="nr">n.d.</td>
         <td class="nr"><b>n.d.*</b></td><td class="nr">n.d.</td>
-        <td style="font-size:8.5px">*Terms not disclosed (SEC 8-K 01.04.2021). Similar revenue size as LORCH (~EUR 50M), automation/cobot focus, DACH manufacturer. LECO: "increases automation sales by ~10%" (~+$50M auf $500M). Sehr nah am LORCH-Profile.</td>
+        <td style="font-size:8.5px">*Terms not disclosed (SEC 8-K 01.04.2021). Similar revenue size as LORCH (~EUR 50M), automation/cobot focus, DACH manufacturer. LECO: "increases automation sales by ~10%" (~+$50M auf $500M). Very close to the LORCH profile.</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx4" checked></td>
+        <td><input type="checkbox" class="chk" id="tx4"></td>
         <td><b>Mestek Machinery (Arc Products)</b><br><span style="font-size:8px;color:var(--s)">Welding machine division, USA (ESAB acquisition)</span></td>
         <td>2023</td><td>ESAB Corporation</td>
         <td><span class="pill pw">Stratege</span></td>
         <td class="nr">~150 USD</td><td class="nr">~80</td><td class="nr">~14</td>
         <td class="nr"><b>10,7x</b></td><td class="nr">1,9x</td>
-        <td style="font-size:8.5px">ESAB-Akquisition innerhalb des Fabtech-Segments. Umsatz ~$80M, EBITDA-Marge ~17%. Wettbewerbsprozess, 3 Bieter. Ähnliche Größe wie LORCH. Höherer Consumables-Anteil als LORCH. Preis etwas gedrückt durch Zinsumfeld 2023.</td>
+        <td style="font-size:8.5px">ESAB acquisition within the Fabtech segment. Revenue ~$80M, EBITDA margin ~17%. Competitive process, 3 bidders. Similar size to LORCH. Higher consumables share than LORCH. Price somewhat pressured by 2023 interest-rate environment.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx5"></td>
-        <td><b>Thermal Dynamics (spun out from ESAB)</b><br><span style="font-size:8px;color:var(--s)">Plasma-Schneidgeräte, USA</span></td>
+        <td><b>Thermal Dynamics (spun out from ESAB)</b><br><span style="font-size:8px;color:var(--s)">Plasma cutting equipment, USA</span></td>
         <td>2020</td><td>Victor Technologies (PE)</td>
         <td><span class="pill pg">PE-Buyout</span></td>
         <td class="nr">~85 USD</td><td class="nr">~60</td><td class="nr">~8</td>
         <td class="nr"><b>10,6x</b></td><td class="nr">1,4x</td>
-        <td style="font-size:8.5px">Carve-out aus ESAB. EBITDA 2020 COVID-bedingt stark gedrückt (~13% EBITDA-Marge). Multiple erscheint niedrig, basiert aber auf normalisierten EBITDA ~TEUR 8M. Plasmaschneiden ≠ Lichtbogenschweißen.</td>
+        <td style="font-size:8.5px">Carve-out from ESAB. EBITDA 2020 strongly depressed due to COVID (~13% EBITDA margin). Multiple appears low, but is based on normalized EBITDA of ~TEUR 8M. Plasma cutting ≠ arc welding.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx6"></td>
@@ -555,16 +555,16 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pw">IPO / Stock exchange listing</span></td>
         <td class="nr">~4.800 USD</td><td class="nr">2.600</td><td class="nr">~430</td>
         <td class="nr"><b>11,2x</b></td><td class="nr">1,9x</td>
-        <td style="font-size:8.5px">ESAB-Börsenlistung als eigenständiges Unternehmen. Implizite Bewertung beim IPO ca. $4,8 Mrd. EV.</td>
+        <td style="font-size:8.5px">ESAB stock listing as a standalone company. Implied valuation at IPO approx. $4.8B EV.</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx7" checked></td>
-        <td><b>Miller Welding (PE Carve-out, hypothetisch)</b><br><span style="font-size:8px;color:var(--s)">ITW Welding Segment – Referenz-Benchmark</span></td>
+        <td><input type="checkbox" class="chk" id="tx7"></td>
+        <td><b>Miller Welding (PE carve-out, hypothetical)</b><br><span style="font-size:8px;color:var(--s)">ITW Welding segment – reference benchmark</span></td>
         <td>2022</td><td>PE (Benchmark-Analyse)</td>
         <td><span class="pill pg">PE-Benchmark</span></td>
         <td class="nr">~2.200 USD</td><td class="nr">~2.400</td><td class="nr">~480</td>
         <td class="nr"><b>~9,2x*</b></td><td class="nr">0,9x</td>
-        <td style="font-size:8.5px">*Hypothetische PE-Bewertung des ITW-Welding-Segments (Miller) falls ausgegliedert. Basis: ITW-Segment-EBITDA $480M, typischer PE-Entry-Multiple ~9–10x. Nur als Benchmark nutzbar.</td>
+        <td style="font-size:8.5px">*Hypothetical PE valuation of the ITW welding segment (Miller) if carved out. Basis: ITW segment EBITDA $480M, typical PE entry multiple ~9–10x. Usable only as a benchmark.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx8"></td>
@@ -573,16 +573,16 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pw">Stratege</span></td>
         <td class="nr">6.900 USD</td><td class="nr">~3.300</td><td class="nr">~620</td>
         <td class="nr"><b>11,1x</b></td><td class="nr">2,1x</td>
-        <td style="font-size:8.5px">Merger II-VI / Finisar zu Coherent. Lasertechnik and Fotonik für Telekommunikation and Industrieanwendungen. Kein Schweißgeschäft. Manchmal fälschlich als "Laser-Welding-Comp" herangezogen.</td>
+        <td style="font-size:8.5px">Merger II-VI / Finisar zu Coherent. Laser technology and photonics for telecommunications and industrial applications. No welding business. Sometimes incorrectly used as a "laser welding comp."</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx9" checked></td>
-        <td><b>Huntingdon Fusion Techniques (HFT)</b><br><span style="font-size:8px;color:var(--s)">Schweißzubehör/Purging, UK</span></td>
+        <td><input type="checkbox" class="chk" id="tx9"></td>
+        <td><b>Huntingdon Fusion Techniques (HFT)</b><br><span style="font-size:8px;color:var(--s)">Welding accessories/purging, UK</span></td>
         <td>2021</td><td>Privatinvestor / Family Office</td>
         <td><span class="pill pg">PE/Family Office</span></td>
         <td class="nr">~12 GBP</td><td class="nr">~8</td><td class="nr">~1,6</td>
         <td class="nr"><b>7,5x</b></td><td class="nr">1,5x</td>
-        <td style="font-size:8.5px">Kleiner UK-Hersteller von Schweißhilfsmitteln (Purging-Systeme). Umsatz ~GBP 8M. Direktansprache, kein Wettbewerb. Nischenprodukt ohne digitale Komponente.</td>
+        <td style="font-size:8.5px">Small UK manufacturer of welding auxiliaries (purging systems). Revenue ~GBP 8M. Direct approach, no competition. Niche product without a digital component.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx10"></td>
@@ -591,25 +591,25 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pw">Stratege</span></td>
         <td class="nr">2.200 USD</td><td class="nr">~200</td><td class="nr">~40</td>
         <td class="nr"><b>55,0x</b></td><td class="nr">11,0x</td>
-        <td style="font-size:8.5px">Rockwell Automation kaufte Plex Systems (Cloud-MES) für $2,2 Mrd. SaaS-Business Model, 95%+ Recurring Revenues.</td>
+        <td style="font-size:8.5px">Rockwell Automation acquired Plex Systems (Cloud MES) for $2.2B. SaaS business model, 95%+ Recurring Revenues.</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx11" checked></td>
-        <td><b>Fronius Welding Div. (hypothetische Separation)</b><br><span style="font-size:8px;color:var(--s)">Welding Technology-Segment, Österreich – Benchmark</span></td>
+        <td><input type="checkbox" class="chk" id="tx11"></td>
+        <td><b>Fronius Welding Div. (hypothetical separation)</b><br><span style="font-size:8px;color:var(--s)">Welding technology segment, Austria – benchmark</span></td>
         <td>2022</td><td>Benchmark (Marktdaten)</td>
         <td><span class="pill pg">Branchenreferenz</span></td>
         <td class="nr">~500 EUR</td><td class="nr">~350</td><td class="nr">~53</td>
         <td class="nr"><b>~9,4x*</b></td><td class="nr">~1,4x</td>
-        <td style="font-size:8.5px">*Hypothetisch: Fronius Umsatz 2022 >EUR 1 Mrd., Welding Technology ~35% (~EUR 350M). EBITDA-Marge ~15% (geschätzt). Implizite Bewertung des Schweißsegments bei 9–10x. Fronius-Totalbewertung ca. EUR 1,5–2,0 Mrd. Nur als Branchenreferenz – kein echter Deal.</td>
+        <td style="font-size:8.5px">*Hypothetical: Fronius revenue 2022 >EUR 1B, Welding Technology ~35% (~EUR 350M). EBITDA margin ~15% (estimated). Implied valuation of the welding segment at 9–10x. Total Fronius valuation approx. EUR 1.5–2.0B. Only as an industry reference – not an actual deal.</td>
       </tr>
       <tr>
-        <td><input type="checkbox" class="chk" id="tx12" checked></td>
-        <td><b>Weldas (Schweißschutz-Hersteller)</b><br><span style="font-size:8px;color:var(--s)">Schweißschutzausrüstung, USA/Global</span></td>
+        <td><input type="checkbox" class="chk" id="tx12"></td>
+        <td><b>Weldas (welding safety equipment manufacturer)</b><br><span style="font-size:8px;color:var(--s)">Welding protective equipment, USA/Global</span></td>
         <td>2022</td><td>Apax Partners (PE)</td>
         <td><span class="pill pg">PE-Buyout</span></td>
         <td class="nr">~230 USD</td><td class="nr">~120</td><td class="nr">~21</td>
         <td class="nr"><b>11,0x</b></td><td class="nr">1,9x</td>
-        <td style="font-size:8.5px">Apax erwarb Weldas, globalen Hersteller von Schweißschutzausrüstung. Wettbewerbsprozess, 5 PE-Bieter. EBITDA-Marge ~17,5%. Ähnliche Größenordnung. Schutzausrüstung ≠ Stromquellen – aber Branchennähe and Buyerprofil (PE) relevant als Referenz.</td>
+        <td style="font-size:8.5px">Apax acquired Weldas, a global manufacturer of welding protective equipment. Competitive process, 5 PE bidders. EBITDA margin ~17.5%. Similar size range. Protective equipment ≠ power sources – but industry proximity and buyer profile (PE) are relevant as references.</td>
       </tr>
 
     </tbody>
@@ -618,7 +618,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
   <div class="g2" style="margin-top:16px">
     <div>
-      <h3>Ihre Transaktionsanalyse</h3>
+      <h3>Your transaction analysis</h3>
       <div class="entry-focus"><b>Enter values here:</b> Write your selection and rationale in the two text fields below.</div>
       <label class="lbl">Which 2 transactions would you exclude first, and why?</label>
       <textarea class="inp" id="t_tx1" placeholder="TX-Nummer + Rationale..."></textarea>

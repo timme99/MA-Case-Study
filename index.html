@@ -606,20 +606,21 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Equity Bridge</h3>
       <div class="entry-focus"><b>Enter values here:</b> Fill in the TEUR input fields in the right column of the table.</div>
+      <div class="co w" style="margin-bottom:10px"><b>Transfer rule:</b> Pull debt and cash values directly from the balance sheet in Module 1 and transfer your NWC adjustment from Module 2. For uncertain items, follow the hint in the “Explanation” column and document your decision.</div>
       <table><thead><tr><th>Item</th><th>Explanation</th><th class="nr">TEUR (input)</th></tr></thead>
       <tbody>
         <tr class="hl"><td>Enterprise Value (Mid)</td><td>From module 3 or 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
-        <tr><td>– Bankverbindlichkeiten</td><td>Aus Bilanz</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="2.800" style="width:85px"></td></tr>
-        <tr><td>– Lease liabilities</td><td>IFRS 16-analog, debt-like</td><td class="nr"><input class="cinp" id="eb_l" type="number" placeholder="1.400" style="width:85px"></td></tr>
-        <tr><td>– Pension provisions</td><td>Underfanded, debt-like</td><td class="nr"><input class="cinp" id="eb_p" type="number" placeholder="1.100" style="width:85px"></td></tr>
-        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Freely available operating cash</td><td class="nr"><input class="cinp" id="eb_c" type="number" placeholder="3.200" style="width:85px"></td></tr>
-        <tr><td>+/– NWC-Adjustment</td><td>Surplus vs. normalized NWC</td><td class="nr"><input class="cinp" id="eb_n" type="number" placeholder="3.300" style="width:85px"></td></tr>
-        <tr><td>+/– Contingencies</td><td>Tax risks, warranties</td><td class="nr"><input class="cinp" id="eb_co" type="number" placeholder="0" style="width:85px"></td></tr>
-        <tr class="hl sub"><td>= Equity Value</td><td>Kaufpreis 100% Anteile</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
+        <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="" style="width:85px"></td></tr>
+        <tr><td>– Lease liabilities</td><td>IFRS 16-analog, debt-like</td><td class="nr"><input class="cinp" id="eb_l" type="number" placeholder="" style="width:85px"></td></tr>
+        <tr><td>– Pension provisions</td><td>Underfunded, debt-like <span style="color:var(--gd)">→ Typically treated as debt-like.</span></td><td class="nr"><input class="cinp" id="eb_p" type="number" placeholder="" style="width:85px"></td></tr>
+        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Freely available operating cash</td><td class="nr"><input class="cinp" id="eb_c" type="number" placeholder="" style="width:85px"></td></tr>
+        <tr><td>+/– NWC-Adjustment</td><td>Surplus vs. normalized NWC</td><td class="nr"><input class="cinp" id="eb_n" type="number" placeholder="" style="width:85px"></td></tr>
+        <tr><td>+/– Contingencies</td><td>Tax risks, warranties <span style="color:var(--gd)">→ Usually adjust only if evidence-backed and quantified.</span></td><td class="nr"><input class="cinp" id="eb_co" type="number" placeholder="" style="width:85px"></td></tr>
+        <tr class="hl sub"><td>= Equity Value</td><td>Purchase price for 100% equity</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
       </tbody></table>
-      <button class="sb" onclick="calcEB()">Equity Value berechnen</button>
+      <button class="sb" onclick="prefillEBFromCase()">Auto-transfer from case</button> <button class="sb" onclick="checkBridgeCoverage()">Check balance sheet coverage</button> <button class="sb" onclick="calcEB()">Calculate Equity Value</button>
       <label class="lbl" style="margin-top:14px">Locked Box vs. Closing Accounts – which mechanism do you prefer as seller?</label>
-      <textarea class="inp" id="t_lb" placeholder="Vor- and Nachteile..."></textarea>
+      <textarea class="inp" id="t_lb" placeholder="Pros and cons..."></textarea>
     </div>
     <div>
       <h3>Sensitivitysmatrix – Equity Value (TEUR)</h3>
@@ -890,6 +891,25 @@ function calcTX(){
   R.txL=Math.round(e*l);R.txM=Math.round(e*m);R.txH=Math.round(e*h);
   document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transactions (after control premium)</div><div class="rval">TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US')+'</div><div class="rsub">Mid: TEUR '+R.txM.toLocaleString('en-US')+'</div></div>';
   sync();
+}
+
+
+function setIfEmpty(id,val){const el=document.getElementById(id);if(el && (el.value===""||el.value===null))el.value=val;}
+function prefillEBFromCase(){
+  setIfEmpty('eb_d',2800);
+  setIfEmpty('eb_l',1400);
+  setIfEmpty('eb_p',1100);
+  setIfEmpty('eb_c',3200);
+  const nwcInput=parseFloat(document.getElementById('nwc_adj_val')?.value);
+  if(!Number.isNaN(nwcInput)) setIfEmpty('eb_n',nwcInput);
+  const evMid=R.tM||R.txM;
+  if(evMid) setIfEmpty('eb_ev',Math.round(evMid));
+}
+function checkBridgeCoverage(){
+  const required=['eb_d','eb_l','eb_p','eb_c','eb_n'];
+  const missing=required.filter(id=>!(document.getElementById(id).value!==''));
+  if(missing.length){alert('Missing transfers: '+missing.join(', ')+'\nPlease transfer all relevant balance sheet and NWC items.');return;}
+  alert('Check complete: all key balance sheet and NWC bridge points are populated.');
 }
 
 function calcEB(){

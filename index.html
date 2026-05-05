@@ -82,7 +82,7 @@ textarea.inp{resize:vertical;min-height:40px}
 <div id="app">
 
 <nav class="nav">
-  <div class="brand"><b>WINTERGERST</b> &nbsp;·&nbsp; M&amp;A Case Study</div>
+  <div class="brand"><b>WINTERGERST</b></div>
   <div class="steps" id="sb2">
     <button class="step active" onclick="go(0)">0&nbsp;Intro</button>
     <button class="step" onclick="go(1)">1&nbsp;Profile</button>
@@ -612,7 +612,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <div><label class="lbl">Version C (High)</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
       </div>
       <div id="r_ttev" style="margin-top:10px"></div>
-      <button class="sb" style="margin-top:8px" onclick="calcTX()">EV range</button>
+      <button class="sb" style="margin-top:8px" onclick="calcTX()">EV Range</button>
 
     </div>
   </div>
@@ -887,7 +887,7 @@ function calcE(){
   const t=b+adjs.reduce((a,x)=>a+x,0);
   document.getElementById('r_adj22').textContent='TEUR '+Math.round(t).toLocaleString('en-US');
   R.adjE=t;
-  if(!document.getElementById('fin_e').value)document.getElementById('fin_e').value=Math.round(t);
+  document.getElementById('fin_e').value=Math.round(t);
 }
 
 function calcTE(){
@@ -909,7 +909,7 @@ function calcTX(){
   const h=parseFloat(document.getElementById('ttx_h').value);
   if(!l||!m||!h){alert('Please enter Low/Mid/High values.');return;}
   R.txL=Math.round(e*l);R.txM=Math.round(e*m);R.txH=Math.round(e*h);
-  document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transaction Comps</div><div class="rval">TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US')+'</div><div class="rsub">Mitte: TEUR '+R.txM.toLocaleString('en-US')+'</div></div>';
+  document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transactions (after control premium)</div><div class="rval">TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US')+'</div><div class="rsub">Mid: TEUR '+R.txM.toLocaleString('en-US')+'</div></div>';
   sync();
 }
 

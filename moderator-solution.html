@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moderator Musterlösung</title>
+<style>body{font-family:Arial,sans-serif;margin:40px;background:#f7f7f7} .card{max-width:900px;margin:auto;background:#fff;padding:24px;border-radius:10px} .ok{display:none} .muted{color:#666}</style></head>
+<body><div class="card">
+<h1>Geschützte Musterlösung (Moderator)</h1>
+<p class="muted">Nur für Lehrende. Diese Seite ist absichtlich nicht im Studenten-Flow verlinkt.</p>
+<div id="locked"><p>Zugriffsschutz aktiv.</p></div>
+<div id="ok" class="ok">
+<h3>Empfohlene Referenzwerte</h3>
+<ul>
+<li>Adj. EBITDA (Basis): ca. TEUR 4.036</li>
+<li>Trading-Multiple-Range: ca. 7,0x–13,0x (Mid 10,0x)</li>
+<li>Transaction-Multiple-Range: ca. 8,0x–15,0x (Mid 11,0x–11,5x)</li>
+<li>Equity Value Mid-Case: aus EV minus debt-like items plus Cash plus NWC-Adjustment</li>
+<li>NWC normalisiert: TEUR 8.110; NWC-Überschuss: TEUR 3.680</li>
+<li>EBITDA-Adjustments (Konsens-Basis): +172, +234, +318, +260, +192</li>
+</ul></div></div>
+<script>
+const KEY='WG-MOD-2026';
+const k=new URLSearchParams(location.search).get('key');
+if(k===KEY){document.getElementById('locked').style.display='none';document.getElementById('ok').style.display='block';}
+else{document.getElementById('locked').innerHTML='<p><b>Kein Zugriff.</b> Ungültiger Schlüssel.</p>';}
+</script></body></html>

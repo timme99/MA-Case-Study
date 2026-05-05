@@ -144,7 +144,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>6</td><td>Result &amp; Discussion</td><td class="nr">14</td></tr>
         <tr class="hl"><td></td><td>Total</td><td class="nr">90</td></tr>
       </tbody></table>
-      <p class="mu" style="margin-top:8px">Click the timer at the top right. Use the moderator button for sample solutions.</p>
+      <p class="mu" style="margin-top:8px">Click the timer at the top right. The session is structured for independent student work.</p>
     </div>
   </div>
 </div>
@@ -281,23 +281,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
       <label class="lbl" style="margin-top:14px">Your adjusted EBITDA for subsequent modules (EURk)</label>
       <input class="inp" type="number" id="fin_e" placeholder="e.g., 4100" style="max-width:160px">
-
-      <div class="hint" id="hint_e">
-        <b>Sample solution EBITDA bridge:</b><br><br>
-        <b>Clearly adjustable (all three have M&amp;A consensus):</b><br>
-        Pos. 1 – Russland-Mehrkosten: <b>+172</b> (nachweisbar einmalig, externer Schock)<br>
-        Pos. 3 – Order-Backlog-Effekt: <b>+234</b> (historisch eindeutig abweichend vom Normalwert)<br>
-        Pos. 4 – Broker costs in procurement: <b>+318</b> (2021/22 supply-chain crisis, not structural)<br><br>
-        <b>Borderline – decision with rationale:</b><br>
-        Item 2 – R&amp;D growth projects: <b>+638 defendable</b>, but ongoing projects also create future expense → buyer will argue that a successor will incur comparable R&amp;D spending. Typical compromise position: adjust 50% (+319)<br>
-        Pos. 5 – management compensation: <b>+260 common</b> in family-owned companies (DVFA-Standard), but: buyer asks whether a successor really costs only TEUR 320. Both items are negotiable.<br>
-        Pos. 6 – Messeaufwand: <b>Do not adjust.</b> Recurring (every 2 years) marketing investment — not a true one-off.<br>
-        Pos. 7 – SAP project: <b>+192 vertretbar</b>, one-time and completed. Frequently adjusted in practice.<br><br>
-        <b>Nicht adjustierbar:</b><br>
-        Pos. 8 – Legal-dispute provision: <b>Do not adjust.</b> Uncertain liability, 30–40% loss probability. No adjustment, but disclose as a contingent liability in the SPA. Classic student mistake: adjusting because it is "one-time"—but it is not yet resolved.<br><br>
-        <b>Konservative Basis: TEUR 3.777 | Konsens-Basis: TEUR 4.037 | Optimistisch: TEUR 4.559</b>
-      </div>
-      <button class="hbtn" onclick="th('hint_e')">Notee EBITDA</button>
+      
     </div>
 
     <div>
@@ -330,16 +314,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Clarifying questions: what would you ask in the management interview about inventories?</label>
         <textarea class="inp" id="t_nwc" placeholder="How old is the inventory? Are there slow movers? Has the backlog already been worked down?"></textarea>
       </div>
-
-      <div class="hint" id="hint_nwc">
-        <b>NWC guidance:</b><br>
-        Normalisiertes NWC: 14,8% × 54.800 = <b>TEUR 8.110</b><br>
-        NWC surplus: 11.790 – 8.110 = <b>TEUR 3.680</b><br><br>
-        In the SPA: a surplus increases equity value (buyer receives "extra" working capital).<br>
-        However, the buyer may argue that inventory is partly obsolete or slow-moving → a 10–20% haircut on inventories is debatable.<br>
-        Nettoeffekt nach Haircut (15% auf Inventories TEUR 9.380): ca. <b>TEUR 2.273 netto</b>
-      </div>
-      <button class="hbtn" onclick="th('hint_nwc')">Notee NWC</button>
+      
     </div>
   </div>
 </div>
@@ -768,14 +743,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <p style="font-size:9px;color:var(--s);margin:0"><b>WINTERGERST</b> Partnership for Entrepreneurial Consulting · M&amp;A Advisory · Case Study for internal training purposes · all real company and transaction data from public sources; financial metrics partly estimated and simplified for teaching purposes · as of 2024</p>
   </div>
   <div id="moderator-solution" class="co" style="margin-top:18px;display:none">
-    <h3 style="margin-top:0">Moderator sample solution (final)</h3>
-    <p class="mu">For end-of-session debrief only. Recommended reference values:</p>
-    <ul style="margin:6px 0 0 18px;line-height:1.8">
-      <li>Adj. EBITDA (Basis): ca. TEUR 4.036</li>
-      <li>Trading-Multiple-Range: ca. 7,0x–13,0x (Mid 10,0x)</li>
-      <li>Transaction-Multiple-Range: ca. 8,0x–15,0x (Mid 11,0x–11,5x)</li>
-      <li>Equity Value Mid-Case: aus EV minus debt-like items plus Cash plus NWC-Adjustment</li>
-    </ul>
+    <p class="mu">Sample solution moved to protected moderator page.</p>
   </div>
 
 </div>
@@ -798,7 +766,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div class="mrow">
             <button class="sb" onclick="startT()">Start timer</button>
       <button class="sb" onclick="resetT()">Reset timer</button>
-      <button class="sb" onclick="openModeratorSolution()">Moderator: open sample solution</button>
+      <button class="sb" onclick="openModeratorSolution()">Moderator: open protected solution page</button>
           </div>
     <button class="pb" style="margin-top:16px" onclick="closeM()">Close</button>
   </div>
@@ -912,7 +880,7 @@ function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getEleme
 function th(id){document.getElementById(id).classList.toggle('on');}
 function openM(){document.getElementById('modal').classList.add('open');}
 function closeM(){document.getElementById('modal').classList.remove('open');}
-function openModeratorSolution(){ closeM(); go(6); const el=document.getElementById('moderator-solution'); if(el) el.style.display='block'; }
+function openModeratorSolution(){ closeM(); const key=prompt('Moderator key:'); if(!key) return; const url=`moderator-solution.html?key=${encodeURIComponent(key)}`; window.open(url,'_blank'); }
 
 function calcE(){
   const b=2541,adjs=['a1','a2','a3','a4','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);

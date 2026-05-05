@@ -827,48 +827,24 @@ const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 
 const BASE_MULTIPLES={
   trading:{
-    p1:{ltm:{low:17.7,mid:17.7,high:17.7},ntm:{low:16.8,mid:16.8,high:16.8}},p2:{ltm:{low:11.5,mid:11.5,high:11.5},ntm:{low:10.9,mid:10.9,high:10.9}},p3:{ltm:{low:17.8,mid:17.8,high:17.8},ntm:{low:16.9,mid:16.9,high:16.9}},
-    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:34.5,mid:34.5,high:34.5}},p5:{ltm:{low:11.0,mid:12.0,high:13.0},ntm:{low:10.5,mid:11.4,high:12.4}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.1,mid:16.1,high:16.1}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:7.9,mid:7.9,high:7.9}}
+    p1:{ltm:{low:17.7,mid:17.7,high:17.7},ntm:{low:17.1,mid:17.3,high:17.6}},p2:{ltm:{low:11.5,mid:11.5,high:11.5},ntm:{low:11.0,mid:11.3,high:11.6}},p3:{ltm:{low:17.8,mid:17.8,high:17.8},ntm:{low:17.2,mid:17.5,high:18.0}},
+    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:37.9,mid:38.2,high:38.6}},p5:{ltm:{low:11.0,mid:12.0,high:13.0},ntm:{low:10.6,mid:11.7,high:13.4}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.8,mid:17.0,high:17.4}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:8.0,mid:8.3,high:8.5}}
   },
   transaction:{
-    tx1:{ltm:{low:19.4,mid:19.4,high:19.4},ntm:{low:18.2,mid:18.2,high:18.2}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9},ntm:{low:13.1,mid:13.1,high:13.1}},tx3:{ltm:{low:11.8,mid:12.4,high:13.0},ntm:{low:11.1,mid:11.7,high:12.3}},tx4:{ltm:{low:10.7,mid:10.7,high:10.7},ntm:{low:10.1,mid:10.1,high:10.1}},
-    tx5:{ltm:{low:10.6,mid:10.6,high:10.6},ntm:{low:9.9,mid:9.9,high:9.9}},tx6:{ltm:{low:11.2,mid:11.2,high:11.2},ntm:{low:10.6,mid:10.6,high:10.6}},tx7:{ltm:{low:9.2,mid:9.2,high:9.2},ntm:{low:8.8,mid:8.8,high:8.8}},tx8:{ltm:{low:11.1,mid:11.1,high:11.1},ntm:{low:10.4,mid:10.4,high:10.4}},
-    tx9:{ltm:{low:7.5,mid:7.5,high:7.5},ntm:{low:7.1,mid:7.1,high:7.1}},tx10:{ltm:{low:55.0,mid:55.0,high:55.0},ntm:{low:49.0,mid:49.0,high:49.0}},tx11:{ltm:{low:9.4,mid:9.4,high:9.4},ntm:{low:8.9,mid:8.9,high:8.9}},tx12:{ltm:{low:11.0,mid:11.0,high:11.0},ntm:{low:10.3,mid:10.3,high:10.3}}
+    tx1:{ltm:{low:19.4,mid:19.4,high:19.4},ntm:{low:18.9,mid:19.1,high:19.5}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9},ntm:{low:13.4,mid:13.7,high:14.0}},tx3:{ltm:{low:11.8,mid:12.4,high:13.0},ntm:{low:11.3,mid:12.0,high:13.4}},tx4:{ltm:{low:10.7,mid:10.7,high:10.7},ntm:{low:10.2,mid:10.5,high:10.9}},
+    tx5:{ltm:{low:10.6,mid:10.6,high:10.6},ntm:{low:10.1,mid:10.4,high:10.8}},tx6:{ltm:{low:11.2,mid:11.2,high:11.2},ntm:{low:10.8,mid:11.0,high:11.4}},tx7:{ltm:{low:9.2,mid:9.2,high:9.2},ntm:{low:8.9,mid:9.1,high:9.4}},tx8:{ltm:{low:11.1,mid:11.1,high:11.1},ntm:{low:10.7,mid:11.0,high:11.3}},
+    tx9:{ltm:{low:7.5,mid:7.5,high:7.5},ntm:{low:7.2,mid:7.4,high:7.7}},tx10:{ltm:{low:55.0,mid:55.0,high:55.0},ntm:{low:54.3,mid:54.8,high:55.2}},tx11:{ltm:{low:9.4,mid:9.4,high:9.4},ntm:{low:9.0,mid:9.2,high:9.6}},tx12:{ltm:{low:11.0,mid:11.0,high:11.0},ntm:{low:10.6,mid:10.8,high:11.2}}
   }
 };
 
 let peerMode='LTM',txMode='LTM';
-
-function randomOffset(){
-  const raw=(Math.random()*2)-1;
-  const adjusted=Math.abs(raw)<0.1?(raw<0?-0.1:0.1):raw;
-  return Number(adjusted.toFixed(1));
-}
-
-function createRandomNTMFromLTM(ltm){
-  return {
-    low:Number((ltm.low+randomOffset()).toFixed(1)),
-    mid:Number((ltm.mid+randomOffset()).toFixed(1)),
-    high:Number((ltm.high+randomOffset()).toFixed(1))
-  };
-}
-
-function initializeRandomNTMMultiples(){
-  ['trading','transaction'].forEach(group=>{
-    Object.values(BASE_MULTIPLES[group]).forEach(entry=>{
-      if(entry?.ltm){
-        entry.ntm=createRandomNTMFromLTM(entry.ltm);
-      }
-    });
-  });
-}
 
 function getModeAdjustedMultiple(entry,mode){
   if(!entry)return null;
   const ltm=entry.ltm;
   if(mode==='LTM')return ltm;
   if(entry.ntm)return entry.ntm;
-  return createRandomNTMFromLTM(ltm);
+  return {low:ltm.low-0.2,mid:ltm.mid-0.2,high:ltm.high-0.2};
 }
 
 
@@ -893,8 +869,6 @@ function updateRangeFromSelection(map,prefix,targetIds,mode='LTM'){
   if(prefix==='t')calcTE();
   if(prefix==='tx')calcTX();
 }
-
-initializeRandomNTMMultiples();
 
 function bindRangeAutoCalc(){
   Object.keys(BASE_MULTIPLES.trading).forEach(id=>{

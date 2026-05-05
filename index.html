@@ -195,7 +195,7 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2">
     <div>
       <h3>EBITDA Bridge – FY 2022 Base</h3>
-      <div class="entry-focus"><b>Enter values here:</b> Use the "Your input" column and enter only adjustments you can justify methodologically.</div>
+      <div class="entry-focus"><b>Enter values here:</b> Use the "Your input" column and enter only adjustments you can justify methodologically. Amounts are intentionally hidden – derive your own estimate from the case hints.</div>
       <p style="font-size:10px;color:var(--s);margin-bottom:10px">Enter only items you consider adjustable. Not every item is an adjustment.</p>
 
       <table>
@@ -203,7 +203,7 @@ textarea.inp{resize:vertical;min-height:40px}
           <tr>
             <th style="width:42%">Item (from data room)</th>
             <th style="width:33%">Description</th>
-            <th class="nr" style="width:13%">Amount (TEUR)</th>
+            <th class="nr" style="width:13%">Case hint</th>
             <th class="nr" style="width:12%">Your input</th>
           </tr>
         </thead>
@@ -211,56 +211,32 @@ textarea.inp{resize:vertical;min-height:40px}
           <tr class="hl">
             <td>Reported EBITDA 2022</td>
             <td>Starting point – HGB financial statements</td>
-            <td class="nr">2.541</td>
+            <td class="nr">Starting point is given in intro text.</td>
             <td class="nr">—</td>
           </tr>
           <tr>
             <td>Additional costs from geopolitical event (Eastern Europe)</td>
             <td>Management: "Additional costs due to loss of a market as a result of government restrictions. Amount is one-off and clearly isolatable."</td>
-            <td class="nr">172</td>
+            <td class="nr">Hint: clearly one-off; low triple-digit TEUR.</td>
             <td class="nr"><input class="cinp" id="a1" type="number" placeholder="0" step="10"></td>
-          </tr>
-          <tr>
-            <td>R&amp;D expense for new product lines (APR helmet, S-Series, cobot interface)</td>
-            <td>Booked as personnel and material costs in operating results. Management: "Strategic future investments, not base business." Projects are still ongoing.</td>
-            <td class="nr">638</td>
-            <td class="nr"><input class="cinp" id="a2" type="number" placeholder="0" step="50"></td>
-          </tr>
-          <tr>
-            <td>Expense from elevated order backlog (order-backlog effect)</td>
-            <td>Additional production expense in Q3/Q4 2022 to work down an exceptionally high order backlog (peak: TEUR 8,203 in May 2022 vs. normal TEUR 2,500). Bottleneck-related extra costs.</td>
-            <td class="nr">234</td>
-            <td class="nr"><input class="cinp" id="a3" type="number" placeholder="0" step="50"></td>
-          </tr>
-          <tr>
-            <td>Broker and intermediary costs in procurement</td>
-            <td>Supply shortages in electronic components forced spot-market sourcing at markups. Comparison years 2019–2021 do not show this item.</td>
-            <td class="nr">318</td>
-            <td class="nr"><input class="cinp" id="a4" type="number" placeholder="0" step="50"></td>
           </tr>
           <tr>
             <td>Managing director compensation (owner-manager)</td>
             <td>Annual compensation of the owner-manager is TEUR 580. Market-standard external CEO compensation for this company size: TEUR 320. Difference: TEUR 260.</td>
-            <td class="nr">260</td>
+            <td class="nr">Hint: adjust only market-vs-owner excess.</td>
             <td class="nr"><input class="cinp" id="a5" type="number" placeholder="0" step="10"></td>
           </tr>
           <tr>
             <td>Depreciation of trade fair investment (EuroBLECH 2022)</td>
             <td>One-time trade-fair presence for market positioning after the COVID pause. Fully expensed. Not repeated annually at this scale.</td>
-            <td class="nr">148</td>
+            <td class="nr">Hint: one event after COVID pause; low triple-digit TEUR.</td>
             <td class="nr"><input class="cinp" id="a6" type="number" placeholder="0" step="10"></td>
           </tr>
           <tr>
             <td>Expense for implementation of a new ERP module (SAP S/4HANA)</td>
             <td>Project costs for system integration and external consultants. Project is completed. Recurring maintenance expense is significantly lower and already budgeted.</td>
-            <td class="nr">192</td>
+            <td class="nr">Hint: completed implementation; low-to-mid triple-digit TEUR.</td>
             <td class="nr"><input class="cinp" id="a7" type="number" placeholder="0" step="10"></td>
-          </tr>
-          <tr>
-            <td>Provision for legal dispute with former distribution partner (France)</td>
-            <td>Dispute over contractual obligations from 2019. According to counsel: 60–70% probability of success. LORCH recognizes a prudent provision. Ruling expected in Q2 2023.</td>
-            <td class="nr">185</td>
-            <td class="nr"><input class="cinp" id="a8" type="number" placeholder="0" step="10"></td>
           </tr>
           <tr class="hl sub">
             <td>= Adj. EBITDA 2022</td>
@@ -275,8 +251,8 @@ textarea.inp{resize:vertical;min-height:40px}
       <div style="margin-top:14px">
         <label class="lbl">Explain your decision on item 5 (management compensation) – adjust or not?</label>
         <textarea class="inp" id="t_a5" placeholder="Methodological rationale..."></textarea>
-        <label class="lbl">Explain your decision on item 8 (legal provision) – adjust or not?</label>
-        <textarea class="inp" id="t_a8" placeholder="Methodological rationale..."></textarea>
+        <label class="lbl">Explain your decision on item 7 (ERP implementation) – adjust or not?</label>
+        <textarea class="inp" id="t_a7" placeholder="Methodological rationale..."></textarea>
       </div>
 
       <label class="lbl" style="margin-top:14px">Your adjusted EBITDA for subsequent modules (EURk)</label>
@@ -883,7 +859,7 @@ function closeM(){document.getElementById('modal').classList.remove('open');}
 function openModeratorSolution(){ closeM(); const key=prompt('Moderator key:'); if(!key) return; const url=`moderator-solution.html?key=${encodeURIComponent(key)}`; window.open(url,'_blank'); }
 
 function calcE(){
-  const b=2541,adjs=['a1','a2','a3','a4','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);
+  const b=2541,adjs=['a1','a5','a6','a7'].map(id=>parseFloat(document.getElementById(id).value)||0);
   const t=b+adjs.reduce((a,x)=>a+x,0);
   document.getElementById('r_adj22').textContent='TEUR '+Math.round(t).toLocaleString('en-US');
   R.adjE=t;

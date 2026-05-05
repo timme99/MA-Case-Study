@@ -839,12 +839,36 @@ const BASE_MULTIPLES={
 
 let peerMode='LTM',txMode='LTM';
 
+function randomOffset(){
+  const raw=(Math.random()*2)-1;
+  const adjusted=Math.abs(raw)<0.1?(raw<0?-0.1:0.1):raw;
+  return Number(adjusted.toFixed(1));
+}
+
+function createRandomNTMFromLTM(ltm){
+  return {
+    low:Number((ltm.low+randomOffset()).toFixed(1)),
+    mid:Number((ltm.mid+randomOffset()).toFixed(1)),
+    high:Number((ltm.high+randomOffset()).toFixed(1))
+  };
+}
+
+function initializeRandomNTMMultiples(){
+  ['trading','transaction'].forEach(group=>{
+    Object.values(BASE_MULTIPLES[group]).forEach(entry=>{
+      if(entry?.ltm){
+        entry.ntm=createRandomNTMFromLTM(entry.ltm);
+      }
+    });
+  });
+}
+
 function getModeAdjustedMultiple(entry,mode){
   if(!entry)return null;
   const ltm=entry.ltm;
   if(mode==='LTM')return ltm;
   if(entry.ntm)return entry.ntm;
-  return {low:ltm.low-0.2,mid:ltm.mid-0.2,high:ltm.high-0.2};
+  return createRandomNTMFromLTM(ltm);
 }
 
 
@@ -869,6 +893,8 @@ function updateRangeFromSelection(map,prefix,targetIds,mode='LTM'){
   if(prefix==='t')calcTE();
   if(prefix==='tx')calcTX();
 }
+
+initializeRandomNTMMultiples();
 
 function bindRangeAutoCalc(){
   Object.keys(BASE_MULTIPLES.trading).forEach(id=>{

@@ -285,8 +285,8 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
 
     <div>
-      <h3>Working capital – raw data for analysis</h3>
-      <p style="font-size:10px;color:var(--s);margin-bottom:10px">Calculate accounting NWC yourself and assess whether an adjustment is purchase-price relevant.</p>
+      <h3>Working capital – bilanzbasiert & LTM adjustment</h3>
+      <p style="font-size:10px;color:var(--s);margin-bottom:10px">Ermittle zuerst das bilanzierte Working Capital aus den Positionen unten. Leite danach auf Basis der LTM-Entwicklung ein plausibles NWC-Adjustment ab.</p>
       <table>
         <thead><tr><th>NWC-Komponente (per 31.12.2022)</th><th class="nr">TEUR</th></tr></thead>
         <tbody>
@@ -299,15 +299,18 @@ textarea.inp{resize:vertical;min-height:40px}
         </tbody>
       </table>
 
+      <div style="margin-top:10px">
+        <label class="lbl">1) Berechne das bilanzierte Working Capital (TEUR) aus der Tabelle</label>
+        <input class="inp" type="number" id="wc_bil_calc" placeholder="AR + Inventories + Other CA - AP - Other CL" style="max-width:260px">
+      </div>
+
       <div class="co w" style="margin-top:8px">
-        <b>Management statement:</b> "Normalized NWC across the last 3 normal years (2017–2019) averaged 14.8% of revenue. In 2022 it was ~21.5%, driven by the extraordinary backlog."
+        <b>Vorgabe für Schritt 2 (LTM):</b> Für die Kaufpreisüberleitung unterstellen wir ein <b>NWC-Adjustment von +1.000 TEUR</b> (Abbau des außergewöhnlich hohen 2022-Niveaus in den Last 12 months).
       </div>
 
       <div style="margin-top:10px">
-        <label class="lbl">Calculate: normalized NWC (TEUR) at 14.8% × 2022 revenue (~TEUR 54,800)</label>
-        <input class="inp" type="number" id="nwc_norm" placeholder="Your calculation..." style="max-width:160px">
-        <label class="lbl">Resulting NWC adjustment (surplus/deficit, TEUR)</label>
-        <input class="inp" type="number" id="nwc_adj_val" placeholder="Bilanz-NWC minus Norm-NWC..." style="max-width:160px">
+        <label class="lbl">2) Übernimm die LTM-Vorgabe als NWC-Adjustment (TEUR)</label>
+        <input class="inp" type="number" id="nwc_adj_val" placeholder="z. B. 1.000" style="max-width:160px">
       </div>
 
       <div style="margin-top:12px">

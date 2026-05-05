@@ -7,12 +7,12 @@
 <style>
 :root{--bg:#E9E3DA;--t:#111111;--s:#4A3F36;--m:#7A6E63;--teal:#2F5E59;--gn:#6D8A78;--dv:#1F1F1F;--rd:#8F1F1C;--gd:#B6862E}
 *{box-sizing:border-box;margin:0;padding:0}
-body{backgroand:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:14px;line-height:1.7}
-#app{backgroand:var(--bg);max-width:1000px;margin:0 auto;min-height:100vh}
-.nav{backgroand:var(--bg);border-bottom:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:8px 20px;position:sticky;top:0;z-index:50;flex-wrap:wrap;gap:4px}
+body{background:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:14px;line-height:1.7}
+#app{background:var(--bg);max-width:1000px;margin:0 auto;min-height:100vh}
+.nav{background:var(--bg);border-bottom:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:8px 20px;position:sticky;top:0;z-index:50;flex-wrap:wrap;gap:4px}
 .brand{font-size:11px;letter-spacing:.18em;color:var(--s);text-transform:uppercase;white-space:nowrap}.brand b{color:var(--t)}
 .steps{display:flex;gap:1px;flex-wrap:wrap}
-.step{padding:5px 10px;font-size:10px;cursor:pointer;border:none;backgroand:transparent;color:var(--m);text-transform:uppercase;border-bottom:1.5px solid transparent;letter-spacing:.06em}
+.step{padding:5px 10px;font-size:10px;cursor:pointer;border:none;background:transparent;color:var(--m);text-transform:uppercase;border-bottom:1.5px solid transparent;letter-spacing:.06em}
 .step:hover{color:var(--t)}.step.active{color:var(--t);border-bottom-color:var(--t)}.step.done{color:var(--teal);border-bottom-color:var(--teal)}
 #tmr{font-size:12px;color:var(--s);cursor:pointer;border:.8px solid var(--m);padding:2px 7px;user-select:none}
 #tmr.warn{color:var(--rd);border-color:var(--rd)}
@@ -28,24 +28,24 @@ table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px}
 th{text-align:left;padding:6px 7px;font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--s);border-bottom:.8px solid var(--dv)}
 td{padding:7px 8px;border-bottom:.8px solid #cfc5ba}tr:last-child td{border-bottom:none}
 .nr{text-align:right;font-variant-numeric:tabular-nums}
-.hl td{font-weight:600;backgroand:rgba(93,119,117,.07)}.sub td{border-top:.8px solid var(--s)}.adj td{color:var(--teal);font-style:italic}
-.inp{backgroand:transparent;border:none;border-bottom:1.2px solid var(--s);font-family:Calibri,sans-serif;font-size:13px;color:var(--t);padding:3px 0;width:100%;outline:none}
+.hl td{font-weight:600;background:rgba(93,119,117,.07)}.sub td{border-top:.8px solid var(--s)}.adj td{color:var(--teal);font-style:italic}
+.inp{background:transparent;border:none;border-bottom:1.2px solid var(--s);font-family:Calibri,sans-serif;font-size:13px;color:var(--t);padding:3px 0;width:100%;outline:none}
 .inp:focus{border-bottom-color:var(--t)}
-.entry-focus{backgroand:rgba(182,134,46,.10);border:1px dashed var(--gd);padding:8px 10px;border-radius:8px;margin:8px 0 10px}
+.entry-focus{background:rgba(182,134,46,.10);border:1px dashed var(--gd);padding:8px 10px;border-radius:8px;margin:8px 0 10px}
 .entry-focus b{color:var(--t)}
 .inp::placeholder, .cinp::placeholder{color:#7f756b;opacity:1}
-.inp, .cinp, textarea.inp{backgroand:rgba(255,255,255,.35)}
-.cinp{backgroand:transparent;border:none;border-bottom:1px solid var(--m);font-family:Calibri,sans-serif;font-size:12px;color:var(--teal);width:72px;text-align:right;padding:2px 0;outline:none}
+.inp, .cinp, textarea.inp{background:rgba(255,255,255,.35)}
+.cinp{background:transparent;border:none;border-bottom:1px solid var(--m);font-family:Calibri,sans-serif;font-size:12px;color:var(--teal);width:72px;text-align:right;padding:2px 0;outline:none}
 .lbl{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--s);margin-bottom:3px;margin-top:9px}
 textarea.inp{resize:vertical;min-height:40px}
-.co{padding:10px 14px;margin-bottom:10px;border-left:3px solid var(--teal);backgroand:rgba(47,94,89,.12);font-size:13px;color:var(--s)}
-.co.w{border-left-color:var(--gd);backgroand:rgba(216,174,80,.06)}
-.co.r{border-left-color:var(--rd);backgroand:rgba(166,45,42,.05);color:var(--rd)}
-.hbtn{font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:.8px solid var(--m);backgroand:transparent;color:var(--m);padding:2px 8px;cursor:pointer;margin-top:5px}
+.co{padding:10px 14px;margin-bottom:10px;border-left:3px solid var(--teal);background:rgba(47,94,89,.12);font-size:13px;color:var(--s)}
+.co.w{border-left-color:var(--gd);background:rgba(216,174,80,.06)}
+.co.r{border-left-color:var(--rd);background:rgba(166,45,42,.05);color:var(--rd)}
+.hbtn{font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:.8px solid var(--m);background:transparent;color:var(--m);padding:2px 8px;cursor:pointer;margin-top:5px}
 .hbtn:hover{border-color:var(--s);color:var(--s)}
-.hint{display:none;margin-top:6px;padding:8px 11px;border-left:2px solid var(--gd);backgroand:rgba(216,174,80,.07);font-size:10px;color:var(--s);line-height:1.6}
+.hint{display:none;margin-top:6px;padding:8px 11px;border-left:2px solid var(--gd);background:rgba(216,174,80,.07);font-size:10px;color:var(--s);line-height:1.6}
 .hint.on{display:block}
-.rb{padding:11px 14px;backgroand:rgba(0,0,0,.05);border-bottom:1.5px solid var(--t);margin-bottom:9px}
+.rb{padding:11px 14px;background:rgba(0,0,0,.05);border-bottom:1.5px solid var(--t);margin-bottom:9px}
 .rlbl{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--s)}
 .rval{font-size:20px;font-weight:400;color:var(--t);margin-top:2px}
 .rsub{font-size:9px;color:var(--m);margin-top:1px}
@@ -54,25 +54,25 @@ textarea.inp{resize:vertical;min-height:40px}
 .pm{font-size:10px;text-align:right;color:var(--s);min-width:80px}
 .pm b{display:block;font-size:14px;color:var(--t);font-weight:400}
 .pill{display:inline-block;font-size:7px;letter-spacing:.08em;padding:1px 5px;text-transform:uppercase;margin-right:3px}
-.pg{backgroand:rgba(147,164,150,.2);color:var(--teal)}.pw{backgroand:rgba(216,174,80,.2);color:#8a6e10}.pr{backgroand:rgba(166,45,42,.12);color:var(--rd)}
-.bot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1000px;backgroand:var(--bg);border-top:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:7px 20px;z-index:49}
+.pg{background:rgba(147,164,150,.2);color:var(--teal)}.pw{background:rgba(216,174,80,.2);color:#8a6e10}.pr{background:rgba(166,45,42,.12);color:var(--rd)}
+.bot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1000px;background:var(--bg);border-top:.8px solid var(--dv);display:flex;align-items:center;justify-content:space-between;padding:7px 20px;z-index:49}
 .botb{font-size:10px;letter-spacing:.15em;color:var(--m);text-transform:uppercase}
-.pb{backgroand:var(--t);color:var(--bg);border:none;padding:8px 16px;font-family:Calibri,sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
-.pb:hover{backgroand:var(--s)}
-.sb{backgroand:transparent;color:var(--s);border:1px solid var(--s);padding:7px 12px;font-family:Calibri,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-.sb:hover{backgroand:var(--s);color:var(--bg)}
-.mod-wrap{display:none;position:fixed;inset:0;backgroand:rgba(26,24,20,.55);z-index:100;align-items:center;justify-content:center}
+.pb{background:var(--t);color:var(--bg);border:none;padding:8px 16px;font-family:Calibri,sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+.pb:hover{background:var(--s)}
+.sb{background:transparent;color:var(--s);border:1px solid var(--s);padding:7px 12px;font-family:Calibri,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.sb:hover{background:var(--s);color:var(--bg)}
+.mod-wrap{display:none;position:fixed;inset:0;background:rgba(26,24,20,.55);z-index:100;align-items:center;justify-content:center}
 .mod-wrap.open{display:flex}
-.mod{backgroand:var(--bg);border-top:2px solid var(--t);padding:22px 26px;max-width:400px;width:90%}
+.mod{background:var(--bg);border-top:2px solid var(--t);padding:22px 26px;max-width:400px;width:90%}
 .mod h2{font-size:13px;font-weight:400;margin-bottom:10px}
 .mrow{display:flex;flex-direction:column;gap:7px;margin-top:12px}
 /* tx table special */
 .tx-tbl td{font-size:9px;vertical-align:top;padding:5px 4px}
 .tx-tbl th{font-size:7.5px}
-.ex td{backgroand:rgba(166,45,42,.04);color:#888}
+.ex td{background:rgba(166,45,42,.04);color:#888}
 .chk{accent-color:var(--teal);width:14px;height:14px;cursor:pointer}
 
-.container .card{backgroand:rgba(47,94,89,.10);border:1px solid #7A6E63;border-left:4px solid var(--teal);border-radius:10px;padding:16px 18px;margin-bottom:12px;color:var(--t)}
+.container .card{background:rgba(47,94,89,.10);border:1px solid #7A6E63;border-left:4px solid var(--teal);border-radius:10px;padding:16px 18px;margin-bottom:12px;color:var(--t)}
 .container .card h1,.container .card h2,.container .card h3{color:var(--t)}
 .container .card .subtitle{color:var(--s);font-weight:600}
 
@@ -90,7 +90,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <button class="step" onclick="go(3)">3&nbsp;Trading</button>
     <button class="step" onclick="go(4)">4&nbsp;Transactions</button>
     <button class="step" onclick="go(5)">5&nbsp;Equity Bridge</button>
-    <button class="step" onclick="go(6)">6&nbsp;Results</button>
+    <button class="step" onclick="go(6)">6&nbsp;Result</button>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
     <span id="tmr" onclick="startT()" title="Click: Start timer">90:00</span>
@@ -117,6 +117,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <li>Create a football field chart and sensitivity matrix</li>
       </ul>
       <div class="co w"><b>Important note:</b> In Modules 3 and 4, there are intentionally unsuitable peers and transactions. Filtering them out and justifying your decisions is a core part of the task.</div>
+      <div class="co" style="margin-top:8px"><b>Key terms (quick glossary):</b> HGB = German accounting standard; TEUR/EURk = thousand euros; NWC = net working capital (receivables + inventory - payables); EV = enterprise value; Equity Bridge = EV to equity value reconciliation (debt/cash/NWC); DVFA = German valuation guidance often used for management adjustments; LTM/NTM = last/twelve-next months EBITDA basis.</div>
 
       <h3>Group access links (pre-assigned)</h3>
       <div class="co" style="margin-top:6px">
@@ -140,7 +141,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>3</td><td>Trading Comps – Peer Selection</td><td class="nr">18</td></tr>
         <tr><td>4</td><td>Transaction Comps – 10+ Deals</td><td class="nr">20</td></tr>
         <tr><td>5</td><td>Equity Bridge &amp; Sensitivity</td><td class="nr">12</td></tr>
-        <tr><td>6</td><td>Results &amp; Discussion</td><td class="nr">14</td></tr>
+        <tr><td>6</td><td>Result &amp; Discussion</td><td class="nr">14</td></tr>
         <tr class="hl"><td></td><td>Total</td><td class="nr">90</td></tr>
       </tbody></table>
       <p class="mu" style="margin-top:8px">Click the timer at the top right. Use the moderator button for sample solutions.</p>
@@ -163,9 +164,9 @@ textarea.inp{resize:vertical;min-height:40px}
       <h3>Financial metrics (EURk, unadjusted)</h3>
       <table><thead><tr><th>Item</th><th class="nr">2020</th><th class="nr">2021</th><th class="nr">2022</th><th class="nr">2023e</th></tr></thead>
       <tbody>
-        <tr><td>Revenue (estimate)</td><td class="nr">~45.000</td><td class="nr">~50.000</td><td class="nr">~55.000</td><td class="nr">~62.000</td></tr>
+        <tr><td>Revenue (estimate)</td><td class="nr">~45,000</td><td class="nr">~50,000</td><td class="nr">~55,000</td><td class="nr">~62,000</td></tr>
         <tr><td>EBITDA (reported)</td><td class="nr">908</td><td class="nr">2.238</td><td class="nr">2.541</td><td class="nr">5.440</td></tr>
-        <tr><td>EBITDA margin</td><td class="nr">~2%</td><td class="nr">~4,5%</td><td class="nr">~4,6%</td><td class="nr">~8,8%</td></tr>
+        <tr><td>EBITDA margin</td><td class="nr">~2%</td><td class="nr">~4.5%</td><td class="nr">~4.6%</td><td class="nr">~8.8%</td></tr>
       </tbody></table>
       <div class="co">Historical EBITDA reference: 2017: TEUR 1.946 | 2018: TEUR 3.364 | 2019: TEUR 2.019. The low margin in 2020–2022 is largely due to high growth-related R&amp;D investments that were expensed.</div>
       <h3>Balance sheet (estimated, EURk)</h3>
@@ -188,6 +189,8 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="slbl">Module 2 · EBITDA Bridge &amp; Working Capital</div><hr class="dline">
   <h1>Derive Adjusted EBITDA</h1>
   <p class="mu">Starting point: Reported EBITDA FY 2022 (TEUR 2.541). The following items come from the data room and management discussions. Decide for each item: adjustment yes or no? If yes: in what amount and with what rationale?</p>
+
+  <div class="co"><b>Adjustment decision rules:</b> adjust only if the item is clearly one-off, non-recurring, non-operating for steady-state performance, and evidence-backed. If an item is ongoing or strategic, explain whether you fully adjust, partially adjust, or do not adjust.</div>
 
   <div class="g2">
     <div>
@@ -267,17 +270,17 @@ textarea.inp{resize:vertical;min-height:40px}
           </tr>
         </tbody>
       </table>
-      <button class="sb" onclick="calcE()">Berechnen</button>
+      <button class="sb" onclick="calcE()">Calculate</button>
 
       <div style="margin-top:14px">
         <label class="lbl">Explain your decision on item 5 (management compensation) – adjust or not?</label>
-        <textarea class="inp" id="t_a5" placeholder="Methodische Rationale..."></textarea>
+        <textarea class="inp" id="t_a5" placeholder="Methodological rationale..."></textarea>
         <label class="lbl">Explain your decision on item 8 (legal provision) – adjust or not?</label>
-        <textarea class="inp" id="t_a8" placeholder="Methodische Rationale..."></textarea>
+        <textarea class="inp" id="t_a8" placeholder="Methodological rationale..."></textarea>
       </div>
 
       <label class="lbl" style="margin-top:14px">Your adjusted EBITDA for subsequent modules (EURk)</label>
-      <input class="inp" type="number" id="fin_e" placeholder="z.B. 4100" style="max-width:160px">
+      <input class="inp" type="number" id="fin_e" placeholder="e.g., 4100" style="max-width:160px">
 
       <div class="hint" id="hint_e">
         <b>Sample solution EBITDA bridge:</b><br><br>
@@ -499,7 +502,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <th class="nr">EBITDA</th>
         <th class="nr" id="tx_metric_head">EV/EBITDA LTM</th>
         <th class="nr">EV/Rev.</th>
-        <th>Kontext / Kommentar</th>
+        <th>Kontext / Comment</th>
       </tr>
     </thead>
     <tbody>
@@ -668,7 +671,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <h3>Sensitivitysmatrix – Equity Value (TEUR)</h3>
       <p class="mu" style="margin-bottom:8px">Use your values from module 2.</p>
       <table><thead>
-        <tr><th>Multiple \ EBITDA</th><th class="nr">Kons. 3.200</th><th class="nr">Base 4.000</th><th class="nr">Opt. 6.400</th></tr>
+        <tr><th>Multiple \ EBITDA</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
       </thead><tbody>
         <tr><td>7x</td><td class="nr" id="s11">—</td><td class="nr" id="s12">—</td><td class="nr" id="s13">—</td></tr>
         <tr><td>9x</td><td class="nr" id="s21">—</td><td class="nr" id="s22">—</td><td class="nr" id="s23">—</td></tr>
@@ -676,7 +679,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>13x</td><td class="nr" id="s41">—</td><td class="nr" id="s42">—</td><td class="nr" id="s43">—</td></tr>
         <tr><td>16x</td><td class="nr" id="s51">—</td><td class="nr" id="s52">—</td><td class="nr" id="s53">—</td></tr>
       </tbody></table>
-      <button class="sb" onclick="calcS()">Berechnen</button>
+      <button class="sb" onclick="calcS()">Calculate</button>
 
     </div>
   </div>
@@ -685,11 +688,11 @@ textarea.inp{resize:vertical;min-height:40px}
 <!-- S6 ERGEBNIS -->
 <div class="sc" id="s6">
   <div class="slbl">Module 6 · Valuation result & presentation</div><hr class="dline">
-  <h1>Bewertungsergebnis – LORCH Welding Technology GmbH</h1>
+  <h1>Valuation result – LORCH Welding Technology GmbH</h1>
   <div class="g2" style="margin-top:14px">
     <div>
       <div class="rb"><div class="rlbl">Adj. EBITDA (valuation basis)</div><div class="rval" id="r6_e">—</div><div class="rsub">Adjusted for non-recurring effects</div></div>
-      <div class="rb"><div class="rlbl">EV range (Trading Comps)</div><div class="rval" id="r6_t">—</div><div class="rsub">Nach Size &amp; Liquidity Discount</div></div>
+      <div class="rb"><div class="rlbl">EV range (Trading Comps)</div><div class="rval" id="r6_t">—</div><div class="rsub">after size &amp; liquidity discount</div></div>
       <div class="rb"><div class="rlbl">EV range (Transaction Comps)</div><div class="rval" id="r6_tx">—</div><div class="rsub">incl. control premium</div></div>
       <div class="rb" style="border-bottom-color:var(--teal)"><div class="rlbl">Equity Value (Mid-Case)</div><div class="rval" id="r6_eq" style="font-size:24px;color:var(--teal)">—</div><div class="rsub">after full equity bridge</div></div>
     </div>
@@ -704,55 +707,55 @@ textarea.inp{resize:vertical;min-height:40px}
         <line x1="115" y1="168" x2="555" y2="168" stroke="#333" stroke-width=".8"/>
         <g id="ff_a" font-size="7.5" fill="#6F6259" font-family="Calibri"></g>
       </svg>
-      <button class="sb" style="margin-top:6px" onclick="drawFF()">Chart aktualisieren</button>
+      <button class="sb" style="margin-top:6px" onclick="drawFF()">Update chart</button>
     </div>
   </div>
   <div style="margin-top:16px" class="co">
     <h3 style="margin-top:0">Summary Slide – Management overview</h3>
     <p class="mu" style="margin-bottom:10px">Compact overview of the 4 key values for the closing slide.</p>
     <table>
-      <thead><tr><th>Kennzahl</th><th class="nr">Results</th><th>Kommentar</th></tr></thead>
+      <thead><tr><th>Metric</th><th class="nr">Result</th><th>Comment</th></tr></thead>
       <tbody>
-        <tr><td>Adj. EBITDA</td><td class="nr" id="sum_e">—</td><td>Bereinigte valuation basis</td></tr>
+        <tr><td>Adj. EBITDA</td><td class="nr" id="sum_e">—</td><td>Adjusted valuation basis</td></tr>
         <tr><td>EV Trading (Low–High)</td><td class="nr" id="sum_t">—</td><td>Market comparison of listed peers</td></tr>
-        <tr><td>EV Transactions (Low–High)</td><td class="nr" id="sum_tx">—</td><td>Vergleich realer M&amp;A-Deals</td></tr>
+        <tr><td>EV Transactions (Low–High)</td><td class="nr" id="sum_tx">—</td><td>Comparison of real M&amp;A deals</td></tr>
         <tr><td>Equity Value (Mid)</td><td class="nr" id="sum_eq">—</td><td>Purchase price indicator after bridge</td></tr>
       </tbody>
     </table>
-    <h3 style="margin-top:12px">Results-Sheet &amp; Verlinkungen</h3>
+    <h3 style="margin-top:12px">Results sheet &amp; links</h3>
     <p style="font-size:10px;color:var(--s);margin-bottom:8px">Please maintain exactly one link per group and verify that it opens.</p>
     <table>
-      <thead><tr><th>Group</th><th>Results-Sheet</th><th>Status</th></tr></thead>
+      <thead><tr><th>Group</th><th>Results sheet</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Group 1</td><td><a href="#" style="color:var(--teal)">Link eintragen</a></td><td>⏳ offen</td></tr>
-        <tr><td>Group 2</td><td><a href="#" style="color:var(--teal)">Link eintragen</a></td><td>⏳ offen</td></tr>
-        <tr><td>Group 3</td><td><a href="#" style="color:var(--teal)">Link eintragen</a></td><td>⏳ offen</td></tr>
-        <tr><td>Group 4</td><td><a href="#" style="color:var(--teal)">Link eintragen</a></td><td>⏳ offen</td></tr>
+        <tr><td>Group 1</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
+        <tr><td>Group 2</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
+        <tr><td>Group 3</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
+        <tr><td>Group 4</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
       </tbody>
     </table>
-    <div class="co w" style="margin-top:8px"><b>Note:</b> Erst auf <i>✅ verlinkt</i> setzen, wenn Link klickbar ist and alle Kernfelder (Adj. EBITDA, EV rangen, Equity Value, Empfehlung) im Sheet vorhanden sind.</div>
+    <div class="co w" style="margin-top:8px"><b>Note:</b> Only set to <i>✅ linked</i> once the link is clickable and all core fields (Adj. EBITDA, EV ranges, Equity Value, recommendation) are present in the sheet.</div>
   </div>
 
   <div class="g2" style="margin-top:18px">
     <div>
-      <h3>Empfehlung</h3>
+      <h3>Recommendation</h3>
       <div class="entry-focus"><b>Enter values here:</b> Formulate your process recommendation and the top 3 value-creation measures below.</div>
       <label class="lbl">Process recommendation for the shareholder</label>
-      <textarea class="inp" id="t_pr" placeholder="Strukturierte Auktion vs. Direktansprache, Buyerprofil..."></textarea>
+      <textarea class="inp" id="t_pr" placeholder="Structured auction vs. direct outreach, buyer profile..."></textarea>
       <label class="lbl">Top 3 measures for value creation before exit</label>
-      <textarea class="inp" id="t_vc" placeholder="z.B. EBITDA-Normalisierung dokumentieren, Lorch Connect monetarisieren..."></textarea>
+      <textarea class="inp" id="t_vc" placeholder="e.g., document EBITDA normalization, monetize Lorch Connect..."></textarea>
     </div>
     <div>
-      <h3>Discussionsfragen (vereinfacht)</h3>
+      <h3>Discussion questions (simplified)</h3>
       <div class="entry-focus"><b>Enter values here:</b> Answer the 4 questions briefly in bullet points (1–2 sentences per field).</div>
       <label class="lbl">1) Who is likely to pay more: strategic buyer or financial investor?</label>
-      <textarea class="inp" id="dq1" placeholder="Kurze Rationale..."></textarea>
+      <textarea class="inp" id="dq1" placeholder="Short rationale..."></textarea>
       <label class="lbl">2) What influences price more: EBITDA or multiple?</label>
-      <textarea class="inp" id="dq2" placeholder="Kurze Rationale..."></textarea>
+      <textarea class="inp" id="dq2" placeholder="Short rationale..."></textarea>
       <label class="lbl">3) Which two risks would you reflect directly in price?</label>
-      <textarea class="inp" id="dq3" placeholder="Risiko 1, Risiko 2..."></textarea>
+      <textarea class="inp" id="dq3" placeholder="Risk 1, risk 2..."></textarea>
       <label class="lbl">4) Which single pre-sale measure increases value the fastest?</label>
-      <textarea class="inp" id="dq4" placeholder="Measure + short effect..."></textarea>
+      <textarea class="inp" id="dq4" placeholder="Measure + short impact..."></textarea>
       <div class="hint on" id="hint_simple_disc">
         <b>Hint box (simple explanation):</b><br>
         <b>Strategic buyer</b> often pays more if synergies can be realized (e.g., shared sales, procurement, production).<br>
@@ -761,7 +764,7 @@ textarea.inp{resize:vertical;min-height:40px}
       </div>
     </div>
   </div>
-  <div style="margin-top:16px;padding:12px;backgroand:rgba(93,119,117,.07);border-left:2px solid var(--teal)">
+  <div style="margin-top:16px;padding:12px;background:rgba(93,119,117,.07);border-left:2px solid var(--teal)">
     <p style="font-size:9px;color:var(--s);margin:0"><b>WINTERGERST</b> Partnership for Entrepreneurial Consulting · M&amp;A Advisory · Case Study for internal training purposes · all real company and transaction data from public sources; financial metrics partly estimated and simplified for teaching purposes · as of 2024</p>
   </div>
   <div id="moderator-solution" class="co" style="margin-top:18px;display:none">
@@ -793,7 +796,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <h2>Moderator-Panel</h2>
     <p class="mu">For trainers only.</p>
     <div class="mrow">
-            <button class="sb" onclick="startT()">Timer starten</button>
+            <button class="sb" onclick="startT()">Start timer</button>
       <button class="sb" onclick="resetT()">Reset timer</button>
       <button class="sb" onclick="openModeratorSolution()">Moderator: open sample solution</button>
           </div>
@@ -914,9 +917,9 @@ function openModeratorSolution(){ closeM(); go(6); const el=document.getElementB
 function calcE(){
   const b=2541,adjs=['a1','a2','a3','a4','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);
   const t=b+adjs.reduce((a,x)=>a+x,0);
-  document.getElementById('r_adj22').textContent='TEUR '+Math.roand(t).toLocaleString('en-US');
+  document.getElementById('r_adj22').textContent='TEUR '+Math.round(t).toLocaleString('en-US');
   R.adjE=t;
-  if(!document.getElementById('fin_e').value)document.getElementById('fin_e').value=Math.roand(t);
+  if(!document.getElementById('fin_e').value)document.getElementById('fin_e').value=Math.round(t);
 }
 
 function calcTE(){
@@ -925,8 +928,8 @@ function calcTE(){
   const m=parseFloat(document.getElementById('tc_m').value);
   const h=parseFloat(document.getElementById('tc_h').value);
   const d=1-(parseFloat(document.getElementById('liq_d').value)||0)/100;
-  if(!l||!m||!h){alert('Please enter Low/Mid/High.');return;}
-  R.tL=Math.roand(e*l*d);R.tM=Math.roand(e*m*d);R.tH=Math.roand(e*h*d);
+  if(!l||!m||!h){alert('Please enter Low/Mid/High values.');return;}
+  R.tL=Math.round(e*l*d);R.tM=Math.round(e*m*d);R.tH=Math.round(e*h*d);
   document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV trading (after discount)</div><div class="rval">TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US')+'</div><div class="rsub">Mitte: TEUR '+R.tM.toLocaleString('en-US')+'</div></div>';
   sync();
 }
@@ -936,8 +939,8 @@ function calcTX(){
   const l=parseFloat(document.getElementById('ttx_l').value);
   const m=parseFloat(document.getElementById('ttx_m').value);
   const h=parseFloat(document.getElementById('ttx_h').value);
-  if(!l||!m||!h){alert('Please enter Low/Mid/High.');return;}
-  R.txL=Math.roand(e*l);R.txM=Math.roand(e*m);R.txH=Math.roand(e*h);
+  if(!l||!m||!h){alert('Please enter Low/Mid/High values.');return;}
+  R.txL=Math.round(e*l);R.txM=Math.round(e*m);R.txH=Math.round(e*h);
   document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transaction Comps</div><div class="rval">TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US')+'</div><div class="rsub">Mitte: TEUR '+R.txM.toLocaleString('en-US')+'</div></div>';
   sync();
 }
@@ -946,27 +949,27 @@ function calcEB(){
   const ev=parseFloat(document.getElementById('eb_ev').value)||0;
   const r=ev-((parseFloat(document.getElementById('eb_d').value)||0)+(parseFloat(document.getElementById('eb_l').value)||0)+(parseFloat(document.getElementById('eb_p').value)||0))+(parseFloat(document.getElementById('eb_c').value)||0)+(parseFloat(document.getElementById('eb_n').value)||0)+(parseFloat(document.getElementById('eb_co').value)||0);
   R.eq=r;
-  document.getElementById('eb_r').textContent='TEUR '+Math.roand(r).toLocaleString('en-US');
+  document.getElementById('eb_r').textContent='TEUR '+Math.round(r).toLocaleString('en-US');
   sync();
 }
 
 function calcS(){
   const ms=[7,9,11,13,16],es=[3200,4000,6400],nd=2100,nwc=3300;
   const ids=[['s11','s12','s13'],['s21','s22','s23'],['s31','s32','s33'],['s41','s42','s43'],['s51','s52','s53']];
-  ms.forEach((m,mi)=>es.forEach((e,ei)=>{document.getElementById(ids[mi][ei]).textContent='TEUR '+(Math.roand((m*e-nd+nwc)/100)*100).toLocaleString('en-US');}));
+  ms.forEach((m,mi)=>es.forEach((e,ei)=>{document.getElementById(ids[mi][ei]).textContent='TEUR '+(Math.round((m*e-nd+nwc)/100)*100).toLocaleString('en-US');}));
 }
 
 function sync(){
   const e=parseFloat(document.getElementById('fin_e').value)||R.adjE;
-  if(e)document.getElementById('r6_e').textContent='TEUR '+Math.roand(e).toLocaleString('en-US');
+  if(e)document.getElementById('r6_e').textContent='TEUR '+Math.round(e).toLocaleString('en-US');
   if(R.tL&&R.tH)document.getElementById('r6_t').textContent='TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US');
   if(R.txL&&R.txH)document.getElementById('r6_tx').textContent='TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US');
-  if(R.eq)document.getElementById('r6_eq').textContent='TEUR '+Math.roand(R.eq).toLocaleString('en-US');
+  if(R.eq)document.getElementById('r6_eq').textContent='TEUR '+Math.round(R.eq).toLocaleString('en-US');
   const se=document.getElementById('sum_e'),st=document.getElementById('sum_t'),stx=document.getElementById('sum_tx'),seq=document.getElementById('sum_eq');
-  if(se && e)se.textContent='TEUR '+Math.roand(e).toLocaleString('en-US');
+  if(se && e)se.textContent='TEUR '+Math.round(e).toLocaleString('en-US');
   if(st && R.tL && R.tH)st.textContent='TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US');
   if(stx && R.txL && R.txH)stx.textContent='TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US');
-  if(seq && R.eq)seq.textContent='TEUR '+Math.roand(R.eq).toLocaleString('en-US');
+  if(seq && R.eq)seq.textContent='TEUR '+Math.round(R.eq).toLocaleString('en-US');
 }
 
 function drawFF(){
@@ -982,7 +985,7 @@ function drawFF(){
   if(vals.length<2){svgB.innerHTML='<text x="115" y="80" font-size="9" fill="#B5ADA5" font-family="Calibri">No values calculated yet</text>';return;}
   const mn=Math.min(...vals)*.88,mx=Math.max(...vals)*1.08;
   const x1=115,x2=550,sc=v=>x1+(v-mn)/(mx-mn)*(x2-x1);
-  const st=Math.roand((mx-mn)/4/5000)*5000||5000;
+  const st=Math.round((mx-mn)/4/5000)*5000||5000;
   for(let v=Math.ceil(mn/st)*st;v<=mx;v+=st){
     const el=document.createElementNS('http://www.w3.org/2000/svg','text');
     el.setAttribute('x',sc(v));el.setAttribute('y',180);el.setAttribute('text-anchor','middle');

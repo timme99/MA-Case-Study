@@ -364,7 +364,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p5" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/EBITDA NTM (est.)</span><span>9,5–11,5x</span><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>EUR 209M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>12,0x</b><br><span style="font-size:8px;color:var(--m)">EV/EBITDA NTM (est.)</span><span>11,0x</span><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>EUR 209M</span></div>
     </div>
 
     <div class="pc">
@@ -399,7 +399,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <textarea class="inp" style="min-height:60px" id="t_disc" placeholder="Size, liquidity, margin gap, ownership structure..."></textarea>
       <div class="hint" id="hint_t">
         <b>Notes on peer selection:</b><br><br>
-        <b>Include:</b> LECO (17,7x) and ESAB (11,5x) – direct product overlap, best available public comps. Kemppi (~12x) – structurally the closest analogue to LORCH, but with methodological limitations (not publicly listed).<br><br>
+        <b>Include:</b> LECO (17,7x) and ESAB (11,5x) – direct product overlap, best available public comps. Kemppi (12.0x LTM est.) – structurally the closest analogue to LORCH, but with methodological limitations (not publicly listed).<br><br>
         <b>Exclude:</b><br>
         ITW (17,8x): The EV/EBITDA relates to the group. The welding segment is ~1/7 of the group. A conglomerate multiple includes diversification premiums, financing structure, and segment mix. No segment-specific EV/EBITDA can be derived → methodologically invalid.<br>
         Cognex (38,5x): Machine vision systems, no welding power sources. SaaS/IP model with recurring-revenue premium → multiple based on a fundamentally different business model.<br>
@@ -518,7 +518,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td>2022</td><td>PE (Benchmark Analysis)</td>
         <td><span class="pill pg">PE Benchmark</span></td>
         <td class="nr">~2.200 USD</td><td class="nr">~2.400</td><td class="nr">~480</td>
-        <td class="nr"><b>~9,2x*</b></td><td class="nr">0,9x</td>
+        <td class="nr"><b>~9,2x*</b></td><td class="nr">~9,1x</td><td class="nr">0,9x</td>
         <td style="font-size:8.5px">*Hypothetical PE valuation of the ITW welding segment (Miller) if carved out. Basis: ITW segment EBITDA $480M, typical PE entry multiple ~9–10x. Usable only as a benchmark.</td>
       </tr>
       <tr>
@@ -777,7 +777,7 @@ const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 const BASE_MULTIPLES={
   trading:{
     p1:{ltm:{low:17.7,mid:17.7,high:17.7},ntm:{low:17.1,mid:17.3,high:17.6}},p2:{ltm:{low:11.5,mid:11.5,high:11.5},ntm:{low:11.0,mid:11.3,high:11.6}},p3:{ltm:{low:17.8,mid:17.8,high:17.8},ntm:{low:17.2,mid:17.5,high:18.0}},
-    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:37.9,mid:38.2,high:38.6}},p5:{ltm:{low:11.0,mid:12.0,high:13.0},ntm:{low:10.6,mid:11.7,high:13.4}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.8,mid:17.0,high:17.4}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:8.0,mid:8.3,high:8.5}}
+    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:37.9,mid:38.2,high:38.6}},p5:{ltm:{low:12.0,mid:12.0,high:12.0},ntm:{low:11.0,mid:11.0,high:11.0}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.8,mid:17.0,high:17.4}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:8.0,mid:8.3,high:8.5}}
   },
   transaction:{
     tx1:{ltm:{low:19.4,mid:19.4,high:19.4},ntm:{low:18.9,mid:19.1,high:19.5}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9},ntm:{low:13.4,mid:13.7,high:14.0}},tx3:{ltm:{low:11.8,mid:12.4,high:13.0},ntm:{low:11.3,mid:12.0,high:13.4}},tx4:{ltm:{low:10.7,mid:10.7,high:10.7},ntm:{low:10.2,mid:10.5,high:10.9}},

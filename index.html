@@ -682,6 +682,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <g id="ff_a" font-size="7.5" fill="#6F6259" font-family="Calibri"></g>
       </svg>
       <button class="sb" style="margin-top:6px" onclick="drawFF()">Update chart</button>
+      <button class="pb" style="margin-top:6px;margin-left:8px" onclick="openPresentation()">Generate presentation →</button>
     </div>
   </div>
   <div style="margin-top:16px" class="co">
@@ -866,6 +867,11 @@ function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getEleme
 function th(id){document.getElementById(id).classList.toggle('on');}
 function openM(){document.getElementById('modal').classList.add('open');}
 function closeM(){document.getElementById('modal').classList.remove('open');}
+function openPresentation(){
+  saveState();
+  const g=getGroupFromUrl();
+  window.open(`student-presentation.html?group=${encodeURIComponent(g)}`,'_blank');
+}
 function openModeratorSolution(){ closeM(); const key=prompt('Moderator key:'); if(!key) return; const url=`moderator-solution.html?key=${encodeURIComponent(key)}`; window.open(url,'_blank'); }
 
 function calcE(){

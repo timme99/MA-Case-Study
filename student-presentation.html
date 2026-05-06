@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Group Presentation – LORCH M&A Case Study</title>
+<style>
+:root{--bg:#E9E3DA;--t:#111111;--s:#4A3F36;--m:#7A6E63;--teal:#2F5E59;--dv:#1F1F1F;--rd:#8F1F1C;--gd:#B6862E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:14px;line-height:1.7}
+#app{max-width:900px;margin:0 auto;padding:28px 24px 80px}
+
+.top-bar{background:var(--t);color:var(--bg);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.top-bar .brand{font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.top-bar .title{font-size:12px;font-weight:600}
+.btn-print{background:transparent;border:1px solid var(--bg);color:var(--bg);padding:4px 12px;font-family:Calibri,sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.btn-print:hover{background:rgba(255,255,255,.15)}
+
+.section{border:1px solid #cfc5ba;margin-bottom:20px;border-radius:4px;overflow:hidden}
+.sec-head{padding:12px 18px;background:rgba(47,94,89,.08);border-bottom:1px solid #cfc5ba}
+.sec-num{font-size:10px;color:var(--m);margin-bottom:2px;letter-spacing:.1em;text-transform:uppercase}
+.sec-head h2{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--teal)}
+.sec-body{padding:16px 18px}
+
+h3{font-size:11px;font-weight:600;color:var(--s);text-transform:uppercase;letter-spacing:.08em;margin:16px 0 6px}
+h3:first-child{margin-top:0}
+p{margin-bottom:7px;font-size:13px}
+
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:12px}
+th{text-align:left;padding:5px 8px;font-size:9px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--s);border-bottom:.8px solid var(--dv)}
+td{padding:6px 8px;border-bottom:.8px solid #cfc5ba}
+tr:last-child td{border-bottom:none}
+.nr{text-align:right;font-variant-numeric:tabular-nums}
+.hl td{font-weight:600;background:rgba(93,119,117,.07)}
+.sub td{border-top:.8px solid var(--s)}
+
+.kv{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+.kvbox{padding:10px 14px;background:rgba(47,94,89,.07);border-left:3px solid var(--teal)}
+.kvbox .k{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);margin-bottom:3px}
+.kvbox .v{font-size:18px;font-weight:400;color:var(--t)}
+.kvbox .sub{font-size:10px;color:var(--m);margin-top:2px}
+
+.answer-box{background:rgba(255,255,255,.45);border:1px solid #cfc5ba;border-left:3px solid var(--teal);padding:10px 14px;margin-bottom:10px;font-size:13px;min-height:36px;white-space:pre-wrap;line-height:1.6}
+.answer-box.empty{color:var(--m);font-style:italic;border-left-color:#cfc5ba}
+
+.pill{display:inline-block;font-size:8px;letter-spacing:.06em;padding:2px 6px;text-transform:uppercase;margin:0 2px 2px 0;border-radius:2px}
+.pg{background:rgba(147,164,150,.25);color:var(--teal)}
+.pr{background:rgba(166,45,42,.12);color:var(--rd)}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+.no-data{text-align:center;padding:40px;color:var(--m);font-size:13px}
+.label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);margin-bottom:4px}
+
+@media print{
+  body{background:#fff}
+  #app{padding:0}
+  .btn-print{display:none}
+  .top-bar{background:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec-head{background:rgba(47,94,89,.08);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section{break-inside:avoid;page-break-inside:avoid}
+  .kvbox{background:rgba(47,94,89,.07);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .answer-box{background:rgba(255,255,255,.8);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="content"></div>
+</div>
+
+<script>
+const PEERS = {
+  p1:{name:'Lincoln Electric Holdings (LECO)',ltm:17.7,ntm:17.2},
+  p2:{name:'ESAB Corporation',ltm:11.5,ntm:12.0},
+  p3:{name:'Illinois Tool Works (ITW)',ltm:17.8,ntm:18.0},
+  p4:{name:'Cognex Corporation (CGNX)',ltm:38.5,ntm:40.0},
+  p5:{name:'Kemppi Oy',ltm:12.0,ntm:11.0},
+  p6:{name:'Watts Water Technologies (WTS)',ltm:17.2,ntm:18.7},
+  p7:{name:'Norsk Hydro ASA (NHY)',ltm:8.4,ntm:6.9}
+};
+
+const TRANSACTIONS = {
+  tx1:{name:'Fori Automation, LLC',ltm:19.4},
+  tx2:{name:'Victor Technologies Holdings',ltm:13.9},
+  tx3:{name:'Zeman Bauelemente Prod. GmbH',ltm:'n.d.'},
+  tx4:{name:'Mestek Machinery (Arc Products)',ltm:10.7},
+  tx5:{name:'Thermal Dynamics',ltm:10.6},
+  tx6:{name:'ESAB Corporation (Spin-off)',ltm:11.2},
+  tx7:{name:'Miller Welding (PE benchmark)',ltm:9.2},
+  tx8:{name:'Coherent Corp.',ltm:11.1},
+  tx9:{name:'Huntingdon Fusion Techniques (HFT)',ltm:7.5},
+  tx10:{name:'Rockwell / Plex Systems',ltm:55.0},
+  tx11:{name:'Fronius Welding Div. (benchmark)',ltm:9.4},
+  tx12:{name:'Weldas',ltm:11.0}
+};
+
+function getGroup(){
+  return new URLSearchParams(location.search).get('group')||'default';
+}
+
+function loadState(){
+  const key=`ma_case_study_state_v1_${getGroup()}`;
+  const raw=localStorage.getItem(key);
+  if(!raw)return null;
+  try{
+    const state=JSON.parse(raw);
+    const map={};
+    (state.fields||[]).forEach(f=>{map[f.id]=f.value;});
+    return map;
+  }catch(e){return null;}
+}
+
+function val(d,id,fallback='—'){
+  const v=d[id];
+  if(v===undefined||v===null||v==='')return fallback;
+  return v;
+}
+
+function num(d,id){
+  const v=parseFloat(d[id]);
+  return isNaN(v)?null:v;
+}
+
+function fmt(n,decimals=0){
+  if(n===null||n===undefined)return '—';
+  return n.toLocaleString('en-US',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
+}
+
+function answerBox(text, fallbackText){
+  const isEmpty = !text || text.trim()==='';
+  const cls = isEmpty ? 'answer-box empty' : 'answer-box';
+  return `<div class="${cls}">${isEmpty ? (fallbackText||'No answer entered.') : escHtml(text)}</div>`;
+}
+
+function escHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render(){
+  const group = getGroup();
+  const d = loadState();
+  const container = document.getElementById('content');
+
+  if(!d){
+    container.innerHTML=`
+      <div class="top-bar">
+        <div class="brand">WINTERGERST · M&amp;A Advisory</div>
+        <div class="title">Group Presentation</div>
+      </div>
+      <div class="no-data">
+        <p><b>No data found for Group ${group}.</b></p>
+        <p style="margin-top:8px;font-size:12px">Open the case study with <a href="index.html?group=${group}" style="color:var(--teal)">?group=${group}</a> and enter your answers first.</p>
+      </div>`;
+    return;
+  }
+
+  // --- Calculations ---
+  const a1=num(d,'a1')||0, a5=num(d,'a5')||0, a6=num(d,'a6')||0, a7=num(d,'a7')||0;
+  const adjEBITDA = num(d,'fin_e') || (2541+a1+a5+a6+a7);
+  const tcL=num(d,'tc_l'), tcM=num(d,'tc_m'), tcH=num(d,'tc_h');
+  const ttxL=num(d,'ttx_l'), ttxM=num(d,'ttx_m'), ttxH=num(d,'ttx_h');
+  const ebEv=num(d,'eb_ev'), ebD=num(d,'eb_d')||0, ebL=num(d,'eb_l')||0,
+        ebP=num(d,'eb_p')||0, ebC=num(d,'eb_c')||0, ebN=num(d,'eb_n')||0, ebCo=num(d,'eb_co')||0;
+  const equityMid = ebEv!==null ? ebEv - ebD - ebL - ebP + ebC + ebN + ebCo : null;
+  const eqLow=num(d,'eb_eq_l'), eqHigh=num(d,'eb_eq_h');
+  const liqD=num(d,'liq_d')||0;
+  const evTL=tcL&&adjEBITDA?Math.round(adjEBITDA*tcL*(1-liqD/100)):null;
+  const evTH=tcH&&adjEBITDA?Math.round(adjEBITDA*tcH*(1-liqD/100)):null;
+  const evTM=tcM&&adjEBITDA?Math.round(adjEBITDA*tcM*(1-liqD/100)):null;
+  const evTxL=ttxL&&adjEBITDA?Math.round(adjEBITDA*ttxL):null;
+  const evTxH=ttxH&&adjEBITDA?Math.round(adjEBITDA*ttxH):null;
+  const evTxM=ttxM&&adjEBITDA?Math.round(adjEBITDA*ttxM):null;
+
+  // Selected peers
+  const selectedPeers=Object.keys(PEERS).filter(id=>d[id]===true||d[id]==='true');
+  const selectedTx=Object.keys(TRANSACTIONS).filter(id=>d[id]===true||d[id]==='true');
+
+  container.innerHTML = `
+  <div class="top-bar">
+    <div>
+      <div class="brand">WINTERGERST · M&amp;A Advisory</div>
+      <div style="font-size:11px;color:#ccc;margin-top:2px">Group ${group} Presentation · LORCH Welding Technology GmbH · M&amp;A Case Study</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="btn-print" onclick="window.print()">Export PDF / Print</button>
+    </div>
+  </div>
+
+  <!-- SECTION 1: EBITDA BRIDGE -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">Module 2</div>
+      <h2>EBITDA Bridge &amp; Working Capital</h2>
+    </div>
+    <div class="sec-body">
+      <div class="kv">
+        <div class="kvbox"><div class="k">Starting EBITDA FY 2022</div><div class="v">TEUR 2,541</div><div class="sub">Reported, HGB</div></div>
+        <div class="kvbox"><div class="k">Total Adjustments</div><div class="v">+ TEUR ${fmt(a1+a5+a6+a7)}</div><div class="sub">4 items</div></div>
+        <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">TEUR ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
+      </div>
+
+      <table>
+        <thead><tr><th>Item</th><th class="nr">Your adjustment (TEUR)</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr><td>1) Geopolitical event (Eastern Europe)</td><td class="nr">${a1?'+'+fmt(a1):'—'}</td><td>${val(d,'t_a1','No rationale entered.')}</td></tr>
+          <tr><td>2) Owner-manager compensation</td><td class="nr">${a5?'+'+fmt(a5):'—'}</td><td>${val(d,'t_a5','No rationale entered.')}</td></tr>
+          <tr><td>3) Trade fair investment (EuroBLECH 2022)</td><td class="nr">${a6?'+'+fmt(a6):'—'}</td><td>${val(d,'t_a6r','No rationale entered.')}</td></tr>
+          <tr><td>4) ERP implementation (SAP S/4HANA)</td><td class="nr">${a7?'+'+fmt(a7):'—'}</td><td>${val(d,'t_a7','No rationale entered.')}</td></tr>
+          <tr class="hl sub"><td><b>= Adj. EBITDA 2022</b></td><td class="nr"><b>TEUR ${fmt(adjEBITDA)}</b></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="g2" style="margin-top:8px">
+        <div>
+          <div class="label">Balance-sheet NWC (calculated)</div>
+          <div class="answer-box${!val(d,'wc_bil_calc','').trim()?' empty':''}">${val(d,'wc_bil_calc','No value entered.')} TEUR</div>
+        </div>
+        <div>
+          <div class="label">NWC Adjustment (LTM)</div>
+          <div class="answer-box${!val(d,'nwc_adj_val','').trim()?' empty':''}">${val(d,'nwc_adj_val','No value entered.')} TEUR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TRADING COMPS -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">Module 3</div>
+      <h2>Trading Comparables – Peer Group Selection</h2>
+    </div>
+    <div class="sec-body">
+      ${selectedPeers.length ? `
+      <table>
+        <thead><tr><th>Peer</th><th class="nr">EV/EBITDA LTM</th><th>Decision</th><th>Rationale</th></tr></thead>
+        <tbody>
+          ${Object.keys(PEERS).map(id=>{
+            const p=PEERS[id]; const selected=selectedPeers.includes(id);
+            return `<tr${!selected?' style="opacity:.45"':''}>
+              <td><b>${p.name}</b></td>
+              <td class="nr">${p.ltm}×</td>
+              <td>${selected?'<span class="pill pg">Include</span>':'<span class="pill pr">Exclude</span>'}</td>
+              <td style="font-size:11px">${val(d,'c_'+id,'—')}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>` : '<p style="color:var(--m);font-size:12px">No peers selected.</p>'}
+
+      <div class="g2">
+        <div>
+          <div class="label">Discount derivation</div>
+          ${answerBox(val(d,'t_disc',''),'No discount rationale entered.')}
+          ${liqD?`<p style="font-size:11px;color:var(--s)">Applied discount: <b>${liqD}%</b></p>`:''}
+        </div>
+        <div>
+          <div class="kv" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:0">
+            <div class="kvbox"><div class="k">Low</div><div class="v">${tcL?tcL+'×':'—'}</div>${evTL?`<div class="sub">EV TEUR ${fmt(evTL)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">Mid</div><div class="v">${tcM?tcM+'×':'—'}</div>${evTM?`<div class="sub">EV TEUR ${fmt(evTM)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">High</div><div class="v">${tcH?tcH+'×':'—'}</div>${evTH?`<div class="sub">EV TEUR ${fmt(evTH)}</div>`:''}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: TRANSACTION COMPS -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">Module 4</div>
+      <h2>Transaction Comparables – Selection &amp; Analysis</h2>
+    </div>
+    <div class="sec-body">
+      ${selectedTx.length ? `
+      <table>
+        <thead><tr><th>Transaction</th><th class="nr">EV/EBITDA LTM</th><th>Decision</th></tr></thead>
+        <tbody>
+          ${Object.keys(TRANSACTIONS).map(id=>{
+            const tx=TRANSACTIONS[id]; const selected=selectedTx.includes(id);
+            return `<tr${!selected?' style="opacity:.45"':''}>
+              <td><b>${tx.name}</b></td>
+              <td class="nr">${typeof tx.ltm==='number'?tx.ltm+'×':tx.ltm}</td>
+              <td>${selected?'<span class="pill pg">Include</span>':'<span class="pill pr">Exclude</span>'}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>` : '<p style="color:var(--m);font-size:12px">No transactions selected.</p>'}
+
+      <div class="g2">
+        <div>
+          <div class="label">Transactions excluded first &amp; why</div>
+          ${answerBox(val(d,'t_tx1',''),'No exclusion rationale entered.')}
+          <div class="label">Factors explaining the multiple spread</div>
+          ${answerBox(val(d,'t_tx2',''),'No analysis entered.')}
+        </div>
+        <div>
+          <div class="kv" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:0">
+            <div class="kvbox"><div class="k">Low</div><div class="v">${ttxL?ttxL+'×':'—'}</div>${evTxL?`<div class="sub">EV TEUR ${fmt(evTxL)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">Mid</div><div class="v">${ttxM?ttxM+'×':'—'}</div>${evTxM?`<div class="sub">EV TEUR ${fmt(evTxM)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">High</div><div class="v">${ttxH?ttxH+'×':'—'}</div>${evTxH?`<div class="sub">EV TEUR ${fmt(evTxH)}</div>`:''}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: EQUITY BRIDGE -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">Module 5</div>
+      <h2>Equity Bridge &amp; Valuation Range</h2>
+    </div>
+    <div class="sec-body">
+      <div class="g2">
+        <div>
+          <table>
+            <thead><tr><th>Item</th><th class="nr">TEUR</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Enterprise Value (Mid)</td><td class="nr">${ebEv!==null?fmt(ebEv):'—'}</td></tr>
+              <tr><td>– Financial liabilities</td><td class="nr">${ebD?'('+fmt(ebD)+')':'—'}</td></tr>
+              <tr><td>– Lease liabilities</td><td class="nr">${ebL?'('+fmt(ebL)+')':'—'}</td></tr>
+              <tr><td>– Pension provisions</td><td class="nr">${ebP?'('+fmt(ebP)+')':'—'}</td></tr>
+              <tr><td>+ Cash &amp; Cash Equiv.</td><td class="nr">${ebC?fmt(ebC):'—'}</td></tr>
+              <tr><td>+/– NWC Adjustment</td><td class="nr">${ebN?fmt(ebN):'—'}</td></tr>
+              <tr><td>+/– Contingencies</td><td class="nr">${ebCo?fmt(ebCo):'—'}</td></tr>
+              <tr class="hl sub"><td><b>= Equity Value (Mid)</b></td><td class="nr" style="color:var(--teal);font-size:14px"><b>${equityMid!==null?'TEUR '+fmt(equityMid):'—'}</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="kv" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+            <div class="kvbox"><div class="k">Equity Value Low</div><div class="v">${eqLow?'TEUR '+fmt(eqLow):'—'}</div></div>
+            <div class="kvbox"><div class="k">Equity Value High</div><div class="v">${eqHigh?'TEUR '+fmt(eqHigh):'—'}</div></div>
+          </div>
+          <div class="label">Most uncertain bridge item &amp; SPA mechanism</div>
+          ${answerBox(val(d,'t_lb',''),'No answer entered.')}
+          <div class="label">Earn-out clause conditions</div>
+          ${answerBox(val(d,'t_earnout',''),'No answer entered.')}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: RESULT & DISCUSSION -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">Module 6</div>
+      <h2>Valuation Result &amp; Discussion</h2>
+    </div>
+    <div class="sec-body">
+      <div class="kv" style="margin-bottom:18px">
+        <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">TEUR ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
+        <div class="kvbox"><div class="k">EV Range (Trading)</div><div class="v">${evTL&&evTH?'TEUR '+fmt(evTL)+' – '+fmt(evTH):'—'}</div><div class="sub">Mid TEUR ${evTM?fmt(evTM):'—'}</div></div>
+        <div class="kvbox"><div class="k">EV Range (Transactions)</div><div class="v">${evTxL&&evTxH?'TEUR '+fmt(evTxL)+' – '+fmt(evTxH):'—'}</div><div class="sub">Mid TEUR ${evTxM?fmt(evTxM):'—'}</div></div>
+      </div>
+      <div class="kv" style="grid-template-columns:1fr 1fr;margin-bottom:18px">
+        <div class="kvbox"><div class="k">Equity Value (Mid)</div><div class="v" style="color:var(--teal)">${equityMid!==null?'TEUR '+fmt(equityMid):'—'}</div><div class="sub">After full equity bridge</div></div>
+        <div class="kvbox"><div class="k">Equity Value Range</div><div class="v">${eqLow&&eqHigh?'TEUR '+fmt(eqLow)+' – '+fmt(eqHigh):'—'}</div><div class="sub">Low to High</div></div>
+      </div>
+
+      <div class="g2">
+        <div>
+          <h3>Process Recommendation</h3>
+          ${answerBox(val(d,'t_pr',''),'No recommendation entered.')}
+          <h3>Top 3 Value-Creation Measures</h3>
+          ${answerBox(val(d,'t_vc',''),'No measures entered.')}
+        </div>
+        <div>
+          <h3>Discussion Questions</h3>
+          <div class="label">1) Strategic buyer vs. financial investor</div>
+          ${answerBox(val(d,'dq1',''),'No answer entered.')}
+          <div class="label">2) EBITDA vs. multiple sensitivity</div>
+          ${answerBox(val(d,'dq2',''),'No answer entered.')}
+          <div class="label">3) Two risks reflected in price</div>
+          ${answerBox(val(d,'dq3',''),'No answer entered.')}
+          <div class="label">4) Fastest pre-sale value measure</div>
+          ${answerBox(val(d,'dq4',''),'No answer entered.')}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:10px;font-size:9px;color:var(--m);text-align:center">
+    WINTERGERST · M&amp;A Advisory · LORCH Welding Technology GmbH – Group ${group} · Case Study for internal training purposes · as of 2024
+  </div>`;
+}
+
+render();
+</script>
+</body>
+</html>

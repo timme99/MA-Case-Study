@@ -166,20 +166,20 @@ textarea.inp{resize:vertical;min-height:40px}
       <table><thead><tr><th>Item</th><th class="nr">2020</th><th class="nr">2021</th><th class="nr">2022</th><th class="nr">2023e</th></tr></thead>
       <tbody>
         <tr><td>Revenue (estimate)</td><td class="nr">~45,000</td><td class="nr">~50,000</td><td class="nr">~55,000</td><td class="nr">~62,000</td></tr>
-        <tr><td>EBITDA (reported)</td><td class="nr">908</td><td class="nr">2.238</td><td class="nr">2.541</td><td class="nr">5.440</td></tr>
+        <tr><td>EBITDA (reported)</td><td class="nr">908</td><td class="nr">2,238</td><td class="nr">2,541</td><td class="nr">5,440</td></tr>
         <tr><td>EBITDA margin</td><td class="nr">~2%</td><td class="nr">~4.5%</td><td class="nr">~4.6%</td><td class="nr">~8.8%</td></tr>
       </tbody></table>
       <div class="co">Historical EBITDA reference: 2017: EUR k 1,946 | 2018: EUR k 3,364 | 2019: EUR k 2,019. The low margin in 2020–2022 is largely due to high growth-related R&amp;D investments that were expensed.</div>
       <h3>Balance sheet (estimated, EUR k)</h3>
       <table><thead><tr><th>Item</th><th class="nr">EUR k</th></tr></thead>
       <tbody>
-        <tr><td>Cash</td><td class="nr">3.200</td></tr>
-        <tr><td>Trade receivables</td><td class="nr">6.800</td></tr>
-        <tr><td>Inventories</td><td class="nr">9.400</td></tr>
-        <tr><td>Trade payables</td><td class="nr">(4.100)</td></tr>
-        <tr><td>Financial liabilities</td><td class="nr">(2.800)</td></tr>
-        <tr><td>Lease liabilities</td><td class="nr">(1.400)</td></tr>
-        <tr><td>Pension provisions</td><td class="nr">(1.100)</td></tr>
+        <tr><td>Cash</td><td class="nr">3,200</td></tr>
+        <tr><td>Trade receivables</td><td class="nr">6,840</td></tr>
+        <tr><td>Inventories</td><td class="nr">9,380</td></tr>
+        <tr><td>Trade payables</td><td class="nr">(4,070)</td></tr>
+        <tr><td>Financial liabilities</td><td class="nr">(2,800)</td></tr>
+        <tr><td>Lease liabilities</td><td class="nr">(1,400)</td></tr>
+        <tr><td>Pension provisions</td><td class="nr">(1,100)</td></tr>
       </tbody></table>
     </div>
   </div>
@@ -376,7 +376,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div class="pc">
       <input type="checkbox" class="chk" id="p7">
       <div>
-        <div class="pn"><b>Norsk Titanium / Norsk Hydro ASA (NHY)</b> &nbsp;<span class="pill pg">Oslo Børs · Norway</span></div>
+        <div class="pn"><b>Norsk Hydro ASA (NHY)</b> &nbsp;<span class="pill pg">Oslo Børs · Norway</span></div>
         <div class="pd">Integrated aluminum and energy group. Business areas: Bauxite & Alumina, Primary Metal, Extrusions, Recycling & Renewables. Hydro Extrusions produces aluminum profiles for vehicles, buildings, and industry. Revenue NOK 207B (~EUR 18B, 2023). EBITDA margin ~12%. No welding business in the product portfolio.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p7" placeholder="..."></textarea>
@@ -549,7 +549,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td>2022</td><td>Benchmark (Market Data)</td>
         <td><span class="pill pg">Sector Reference</span></td>
         <td class="nr">~500 EUR</td><td class="nr">~350</td><td class="nr">~53</td>
-        <td class="nr"><b>~9,4x*</b></td><td class="nr">~1,4x</td>
+        <td class="nr"><b>~9,4x*</b></td><td class="nr">~9,2x</td><td class="nr">~1,4x</td>
         <td style="font-size:8.5px">*Hypothetical: Fronius revenue 2022 >EUR 1B, Welding Technology ~35% (~EUR 350M). EBITDA margin ~15% (estimated). Implied valuation of the welding segment at 9–10x. Total Fronius valuation approx. EUR 1.5–2.0B. Only as an industry reference – not an actual deal.</td>
       </tr>
       <tr>
@@ -931,7 +931,7 @@ function calcEB(){
 }
 
 function calcS(){
-  const ms=[7,9,11,13,16],es=[3200,4000,6400],nd=2100,nwc=3300;
+  const ms=[7,9,11,13,16],es=[3200,4000,6400],nd=2100,nwc=1000;
   const ids=[['s11','s12','s13'],['s21','s22','s23'],['s31','s32','s33'],['s41','s42','s43'],['s51','s52','s53']];
   ms.forEach((m,mi)=>es.forEach((e,ei)=>{document.getElementById(ids[mi][ei]).textContent='TEUR '+(Math.round((m*e-nd+nwc)/100)*100).toLocaleString('en-US');}));
 }
@@ -960,7 +960,7 @@ function drawFF(){
   const rows=[
     {low:R.tL,high:R.tH,mid:R.tM,y:48,c:'93A496'},
     {low:R.txL,high:R.txH,mid:R.txM,y:88,c:'5E7775'},
-    {low:R.tL?R.tL-2100+3300:null,high:R.txH?R.txH-2100+3300:null,mid:R.eq,y:128,c:'1A1814'}
+    {low:R.tL?R.tL-2100+1000:null,high:R.txH?R.txH-2100+1000:null,mid:R.eq,y:128,c:'1A1814'}
   ];
   const vals=rows.flatMap(r=>[r.low,r.high,r.mid]).filter(Boolean);
   if(vals.length<2){svgB.innerHTML='<text x="115" y="80" font-size="9" fill="#B5ADA5" font-family="Calibri">No values calculated yet</text>';return;}

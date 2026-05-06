@@ -52,6 +52,7 @@ textarea.inp{resize:vertical;min-height:40px}
 .pc{border-bottom:.5px solid #ddd9d4;padding:8px 0;display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:start}
 .pn{font-size:11px}.pd{font-size:9px;color:var(--s);margin-top:2px}
 .pm{font-size:10px;text-align:right;color:var(--s);min-width:80px}
+.pm span{display:block}.pm span:not([style]){color:var(--t);font-size:10px;margin-bottom:2px}.pm br{display:none}
 .pm b{display:block;font-size:14px;color:var(--t);font-weight:400}
 .pill{display:inline-block;font-size:7px;letter-spacing:.08em;padding:1px 5px;text-transform:uppercase;margin-right:3px}
 .pg{background:rgba(147,164,150,.2);color:var(--teal)}.pw{background:rgba(216,174,80,.2);color:#8a6e10}.pr{background:rgba(166,45,42,.12);color:var(--rd)}
@@ -988,10 +989,6 @@ function drawFF(){
 
 function setPeerBasis(mode){
   peerMode=mode;
-  document.querySelectorAll('.peer-metric').forEach(el=>{
-    const est=el.textContent.includes('(est.)');
-    el.textContent='EV/EBITDA '+mode+(est?' (est.)':'');
-  });
   document.getElementById('peer_basis').textContent='Current: '+mode;
   document.getElementById('btn_peer_ltm').classList.toggle('active-basis',mode==='LTM');
   document.getElementById('btn_peer_ntm').classList.toggle('active-basis',mode==='NTM');
@@ -1004,7 +1001,6 @@ function setPeerBasis(mode){
 
 function setTxBasis(mode){
   txMode=mode;
-  document.getElementById('tx_metric_head').textContent='EV/EBITDA '+mode;
   document.getElementById('tx_basis').textContent='Current: '+mode;
   document.getElementById('btn_tx_ltm').classList.toggle('active-basis',mode==='LTM');
   document.getElementById('btn_tx_ntm').classList.toggle('active-basis',mode==='NTM');

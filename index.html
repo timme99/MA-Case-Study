@@ -101,7 +101,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
 <!-- S0 INTRO -->
 <div class="sc active" id="s0">
-  <div class="slbl">M&amp;A Case Study · WINTERGERST Partnership for Entrepreneurial Consulting</div>
+  <div class="slbl">WINTERGERST</div>
   <hr class="dline">
   <h1>LORCH Welding Technology GmbH</h1>
   <p class="mu">Sell-side valuation · welding technology / mechanical engineering · 90 minutes</p>
@@ -215,7 +215,7 @@ textarea.inp{resize:vertical;min-height:40px}
           </tr>
           <tr>
             <td>Additional costs from geopolitical event (Eastern Europe)</td>
-            <td>Management: "Additional costs due to loss of a market as a result of government restrictions. Amount is one-off and clearly isolatable."</td>
+            <td>Management: "Additional costs due to loss of a market as a result of government restrictions. Amount booked under other operating expenses: <b>EUR k 172</b>. One-off and clearly isolatable."</td>
             <td class="nr"><input class="cinp" id="a1" type="number" step="10"></td>
           </tr>
           <tr>
@@ -225,12 +225,12 @@ textarea.inp{resize:vertical;min-height:40px}
           </tr>
           <tr>
             <td>Trade fair investment (EuroBLECH 2022)</td>
-            <td>One-time trade-fair presence after the COVID pause for market repositioning. Clarify whether this is exceptional catch-up spend or part of recurring commercial strategy.</td>
+            <td>One-time trade-fair presence after the COVID pause for market repositioning. Total EuroBLECH 2022 costs expensed: <b>EUR k 318</b>. Clarify whether this is exceptional catch-up spend or part of recurring commercial strategy.</td>
             <td class="nr"><input class="cinp" id="a6" type="number" step="10"></td>
           </tr>
           <tr>
             <td>Expense for implementation of a new ERP module (SAP S/4HANA)</td>
-            <td>Project costs for system integration and external consultants. Project is completed. Recurring maintenance expense is significantly lower and already budgeted.</td>
+            <td>Project costs for system integration and external consultants expensed in FY 2022: <b>EUR k 192</b>. Project is completed. Recurring maintenance expense is significantly lower and already budgeted.</td>
             <td class="nr"><input class="cinp" id="a7" type="number" step="10"></td>
           </tr>
           <tr class="hl sub">
@@ -269,7 +269,7 @@ textarea.inp{resize:vertical;min-height:40px}
           <tr><td>Other short-term receivables</td><td class="nr">620</td></tr>
           <tr><td>Trade payables</td><td class="nr">(4.070)</td></tr>
           <tr><td>Other short-term liabilities</td><td class="nr">(980)</td></tr>
-          <tr class="hl sub"><td>= Balance-sheet NWC</td><td class="nr" id="nwc_bil">11.790</td></tr>
+          <tr class="hl sub"><td>= Balance-sheet NWC</td><td class="nr" id="nwc_bil">—</td></tr>
         </tbody>
       </table>
 
@@ -287,11 +287,6 @@ textarea.inp{resize:vertical;min-height:40px}
         <input class="inp" type="number" id="nwc_adj_val" placeholder="e.g., 1000" style="max-width:160px">
       </div>
 
-      <div style="margin-top:12px">
-        <label class="lbl">Clarifying questions: what would you ask in the management interview about inventories?</label>
-        <textarea class="inp" id="t_nwc" placeholder="How old is the inventory? Are there slow movers? Has the backlog already been worked down?"></textarea>
-      </div>
-      
     </div>
   </div>
 </div>
@@ -364,7 +359,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p5" placeholder="..."></textarea>
       </div>
-      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>11–13x</b><br><span style="font-size:8px;color:var(--m)">EV/EBITDA NTM (est.)</span><span>9,5–11,5x</span><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>EUR 209M</span></div>
+      <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM (est.)</span><b>12,0x</b><br><span style="font-size:8px;color:var(--m)">EV/EBITDA NTM (est.)</span><span>11,0x</span><br><span style="font-size:8px;color:var(--m)">EV/Revenue (est.)</span><span>~1,5x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>~14%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>EUR 209M</span></div>
     </div>
 
     <div class="pc">
@@ -399,7 +394,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <textarea class="inp" style="min-height:60px" id="t_disc" placeholder="Size, liquidity, margin gap, ownership structure..."></textarea>
       <div class="hint" id="hint_t">
         <b>Notes on peer selection:</b><br><br>
-        <b>Include:</b> LECO (17,7x) and ESAB (11,5x) – direct product overlap, best available public comps. Kemppi (~12x) – structurally the closest analogue to LORCH, but with methodological limitations (not publicly listed).<br><br>
+        <b>Include:</b> LECO (17,7x) and ESAB (11,5x) – direct product overlap, best available public comps. Kemppi (12.0x LTM est.) – structurally the closest analogue to LORCH, but with methodological limitations (not publicly listed).<br><br>
         <b>Exclude:</b><br>
         ITW (17,8x): The EV/EBITDA relates to the group. The welding segment is ~1/7 of the group. A conglomerate multiple includes diversification premiums, financing structure, and segment mix. No segment-specific EV/EBITDA can be derived → methodologically invalid.<br>
         Cognex (38,5x): Machine vision systems, no welding power sources. SaaS/IP model with recurring-revenue premium → multiple based on a fundamentally different business model.<br>
@@ -518,7 +513,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td>2022</td><td>PE (Benchmark Analysis)</td>
         <td><span class="pill pg">PE Benchmark</span></td>
         <td class="nr">~2.200 USD</td><td class="nr">~2.400</td><td class="nr">~480</td>
-        <td class="nr"><b>~9,2x*</b></td><td class="nr">0,9x</td>
+        <td class="nr"><b>~9,2x*</b></td><td class="nr">~9,1x</td><td class="nr">0,9x</td>
         <td style="font-size:8.5px">*Hypothetical PE valuation of the ITW welding segment (Miller) if carved out. Basis: ITW segment EBITDA $480M, typical PE entry multiple ~9–10x. Usable only as a benchmark.</td>
       </tr>
       <tr>
@@ -603,22 +598,35 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2">
     <div>
       <h3>Equity Bridge</h3>
-      <div class="entry-focus"><b>Enter values here:</b> Fill in the TEUR input fields in the right column of the table.</div>
-      <div class="co w" style="margin-bottom:10px"><b>Transfer rule:</b> Pull debt and cash values directly from the balance sheet in Module 1 and transfer your NWC adjustment from Module 2. For uncertain items, follow the hint in the “Explanation” column and document your decision.</div>
-      <table><thead><tr><th>Item</th><th>Explanation</th><th class="nr">TEUR (input)</th></tr></thead>
+      <div class=”entry-focus”><b>Enter values here:</b> Transfer all values from the balance sheet (Module 1) and your NWC adjustment (Module 2). Decide independently how to treat each item — not every balance sheet line belongs in the bridge.</div>
+      <table><thead><tr><th>Item</th><th>Explanation</th><th class=”nr”>TEUR (input)</th></tr></thead>
       <tbody>
-        <tr class="hl"><td>Enterprise Value (Mid)</td><td>From module 3 or 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
-        <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>– Lease liabilities</td><td>IFRS 16-analog, debt-like</td><td class="nr"><input class="cinp" id="eb_l" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>– Pension provisions</td><td>Underfunded, debt-like <span style="color:var(--gd)">→ Typically treated as debt-like.</span></td><td class="nr"><input class="cinp" id="eb_p" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Freely available operating cash</td><td class="nr"><input class="cinp" id="eb_c" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>+/– NWC-Adjustment</td><td>Surplus vs. normalized NWC</td><td class="nr"><input class="cinp" id="eb_n" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>+/– Contingencies</td><td>Tax risks, warranties <span style="color:var(--gd)">→ Usually adjust only if evidence-backed and quantified.</span></td><td class="nr"><input class="cinp" id="eb_co" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr class="hl sub"><td>= Equity Value</td><td>Purchase price for 100% equity</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
+        <tr class=”hl”><td>Enterprise Value (Mid)</td><td>From module 3 or 4</td><td class=”nr”><input class=”cinp” id=”eb_ev” type=”number” placeholder=”EV” style=”width:85px”></td></tr>
+        <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class=”nr”><input class=”cinp” id=”eb_d” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>– Lease liabilities</td><td>Are these debt-like? Justify.</td><td class=”nr”><input class=”cinp” id=”eb_l” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>– Pension provisions</td><td>Are these debt-like? Justify.</td><td class=”nr”><input class=”cinp” id=”eb_p” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Freely available operating cash</td><td class=”nr”><input class=”cinp” id=”eb_c” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>+/– NWC-Adjustment</td><td>Surplus vs. normalized NWC (from Module 2)</td><td class=”nr”><input class=”cinp” id=”eb_n” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>+/– Contingencies</td><td>Tax risks, warranties – include only if evidence-backed</td><td class=”nr”><input class=”cinp” id=”eb_co” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr class=”hl sub”><td>= Equity Value (Mid)</td><td>Purchase price for 100% equity</td><td class=”nr” id=”eb_r” style=”font-size:14px;color:var(--teal)”>—</td></tr>
       </tbody></table>
-      <button class="sb" onclick="prefillEBFromCase()">Auto-transfer from case</button> <button class="sb" onclick="checkBridgeCoverage()">Check balance sheet coverage</button> <button class="sb" onclick="calcEB()">Calculate Equity Value</button>
-      <label class="lbl" style="margin-top:14px">Locked Box vs. Closing Accounts – which mechanism do you prefer as seller?</label>
-      <textarea class="inp" id="t_lb" placeholder="Pros and cons..."></textarea>
+      <button class=”sb” onclick=”calcEB()”>Calculate Equity Value</button>
+
+      <div style=”margin-top:16px”>
+        <label class=”lbl”>Equity Value Range – enter your low and high (TEUR)</label>
+        <div style=”display:flex;gap:12px;align-items:center;margin-top:4px”>
+          <div><span style=”font-size:10px;color:var(--s);text-transform:uppercase;letter-spacing:.08em”>Low</span><br><input class=”inp” type=”number” id=”eb_eq_l” placeholder=”e.g. 23000” style=”max-width:120px”></div>
+          <div><span style=”font-size:10px;color:var(--s);text-transform:uppercase;letter-spacing:.08em”>High</span><br><input class=”inp” type=”number” id=”eb_eq_h” placeholder=”e.g. 51000” style=”max-width:120px”></div>
+        </div>
+        <p style=”font-size:10px;color:var(--s);margin-top:5px”>Apply your trading and transaction low/high multiples through the same bridge to derive the full equity value range.</p>
+      </div>
+
+      <div style=”margin-top:14px”>
+        <label class=”lbl”>Which bridge item carries the most uncertainty — and how would you handle it in the SPA?</label>
+        <textarea class=”inp” id=”t_lb” placeholder=”Identify the item, explain the risk, and propose a mechanism (e.g. escrow, earn-out, price adjustment clause, W&amp;I insurance)...”></textarea>
+        <label class=”lbl” style=”margin-top:10px”>Under what conditions would you propose an earn-out clause to bridge a valuation gap with the buyer?</label>
+        <textarea class=”inp” id=”t_earnout” placeholder=”When does an earn-out make sense? What KPI would you tie it to, and what are the risks for the seller?”></textarea>
+      </div>
     </div>
     <div>
       <h3>Sensitivity Matrix – Equity Value (TEUR)</h3>
@@ -718,7 +726,7 @@ textarea.inp{resize:vertical;min-height:40px}
     </div>
   </div>
   <div style="margin-top:16px;padding:12px;background:rgba(93,119,117,.07);border-left:2px solid var(--teal)">
-    <p style="font-size:9px;color:var(--s);margin:0"><b>WINTERGERST</b> Partnership for Entrepreneurial Consulting · M&amp;A Advisory · Case Study for internal training purposes · all real company and transaction data from public sources; financial metrics partly estimated and simplified for teaching purposes · as of 2024</p>
+    <p style="font-size:9px;color:var(--s);margin:0"><b>WINTERGERST</b> · M&amp;A Advisory · Case Study for internal training purposes · all real company and transaction data from public sources; financial metrics partly estimated and simplified for teaching purposes · as of 2024</p>
   </div>
   <div id="moderator-solution" class="co" style="margin-top:18px;display:none">
     <p class="mu">Sample solution moved to protected moderator page.</p>
@@ -777,7 +785,7 @@ const R={adjE:null,tL:null,tM:null,tH:null,txL:null,txM:null,txH:null,eq:null};
 const BASE_MULTIPLES={
   trading:{
     p1:{ltm:{low:17.7,mid:17.7,high:17.7},ntm:{low:17.1,mid:17.3,high:17.6}},p2:{ltm:{low:11.5,mid:11.5,high:11.5},ntm:{low:11.0,mid:11.3,high:11.6}},p3:{ltm:{low:17.8,mid:17.8,high:17.8},ntm:{low:17.2,mid:17.5,high:18.0}},
-    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:37.9,mid:38.2,high:38.6}},p5:{ltm:{low:11.0,mid:12.0,high:13.0},ntm:{low:10.6,mid:11.7,high:13.4}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.8,mid:17.0,high:17.4}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:8.0,mid:8.3,high:8.5}}
+    p4:{ltm:{low:38.5,mid:38.5,high:38.5},ntm:{low:37.9,mid:38.2,high:38.6}},p5:{ltm:{low:12.0,mid:12.0,high:12.0},ntm:{low:11.0,mid:11.0,high:11.0}},p6:{ltm:{low:17.2,mid:17.2,high:17.2},ntm:{low:16.8,mid:17.0,high:17.4}},p7:{ltm:{low:8.4,mid:8.4,high:8.4},ntm:{low:8.0,mid:8.3,high:8.5}}
   },
   transaction:{
     tx1:{ltm:{low:19.4,mid:19.4,high:19.4},ntm:{low:18.9,mid:19.1,high:19.5}},tx2:{ltm:{low:13.9,mid:13.9,high:13.9},ntm:{low:13.4,mid:13.7,high:14.0}},tx3:{ltm:{low:11.8,mid:12.4,high:13.0},ntm:{low:11.3,mid:12.0,high:13.4}},tx4:{ltm:{low:10.7,mid:10.7,high:10.7},ntm:{low:10.2,mid:10.5,high:10.9}},

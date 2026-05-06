@@ -234,6 +234,11 @@ textarea.inp{resize:vertical;min-height:40px}
             <td>Project costs for system integration and external consultants expensed in FY 2022: <b>EUR k 192</b>. Project is completed. Recurring maintenance expense is significantly lower and already budgeted.</td>
             <td class="nr"><input class="cinp" id="a7" type="number" step="10"></td>
           </tr>
+          <tr>
+            <td>Additional logistics costs (supply chain disruptions)</td>
+            <td>In FY 2022, Lorch incurred additional freight and logistics costs of <b>EUR k 145</b> due to global supply chain disruptions (airfreight premiums, alternative supplier surcharges). Management classifies these as one-off costs attributable to an extraordinary market environment.</td>
+            <td class="nr"><input class="cinp" id="a8" type="number" step="10"></td>
+          </tr>
           <tr class="hl sub">
             <td>= Adj. EBITDA 2022</td>
             <td>Your valuation basis</td>
@@ -246,12 +251,14 @@ textarea.inp{resize:vertical;min-height:40px}
       <div style="margin-top:14px">
         <label class="lbl">Explain your decision on item 1 (geopolitical event) – adjust or not?</label>
         <textarea class="inp" id="t_a1" placeholder="Methodological rationale..."></textarea>
-        <label class="lbl">Explain your decision on item 3 (trade fair investment) – adjust or not?</label>
-        <textarea class="inp" id="t_a6r" placeholder="Methodological rationale..."></textarea>
         <label class="lbl">Explain your decision on item 2 (management compensation) – adjust or not?</label>
         <textarea class="inp" id="t_a5" placeholder="Methodological rationale..."></textarea>
+        <label class="lbl">Explain your decision on item 3 (trade fair investment) – adjust or not?</label>
+        <textarea class="inp" id="t_a6r" placeholder="Methodological rationale..."></textarea>
         <label class="lbl">Explain your decision on item 4 (ERP implementation) – adjust or not?</label>
         <textarea class="inp" id="t_a7" placeholder="Methodological rationale..."></textarea>
+        <label class="lbl">Explain your decision on item 5 (logistics cost overruns) – adjust or not?</label>
+        <textarea class="inp" id="t_a8" placeholder="Methodological rationale..."></textarea>
       </div>
 
       <label class="lbl" style="margin-top:14px">Your adjusted EBITDA for subsequent modules (EUR k)</label>
@@ -874,7 +881,7 @@ function openPresentation(){
 function openModeratorSolution(){ closeM(); const key=prompt('Moderator key:'); if(!key) return; const url=`moderator-solution.html?key=${encodeURIComponent(key)}`; window.open(url,'_blank'); }
 
 function calcE(){
-  const b=2541,adjs=['a1','a5','a6','a7'].map(id=>parseFloat(document.getElementById(id).value)||0);
+  const b=2541,adjs=['a1','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);
   const t=b+adjs.reduce((a,x)=>a+x,0);
   document.getElementById('r_adj22').textContent='TEUR '+Math.round(t).toLocaleString('en-US');
   R.adjE=t;
@@ -940,7 +947,7 @@ function calcS(){
 function sync(){
   const e=parseFloat(document.getElementById('fin_e').value)||R.adjE;
   if(e)document.getElementById('r6_e').textContent='EUR k '+Math.round(e).toLocaleString('en-US');
-  const adjMap=[['a1','Geopolitical event'],['a5','Owner-manager comp. normalization'],['a6','Trade fair investment'],['a7','ERP implementation']];
+  const adjMap=[['a1','Geopolitical event'],['a5','Owner-manager comp. normalization'],['a6','Trade fair investment'],['a7','ERP implementation'],['a8','Logistics costs']];
   const applied=adjMap.map(([id,label])=>({label,val:parseFloat(document.getElementById(id)?.value)||0})).filter(x=>x.val!==0);
   const adjText=applied.length?applied.map(x=>`${x.label}: EUR k ${x.val}`).join(' | '):'—';
   const adjEl=document.getElementById('r6_adj_items'); if(adjEl)adjEl.textContent='Adjustments: '+adjText;

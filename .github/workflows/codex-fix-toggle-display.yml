@@ -1,0 +1,75 @@
+name: Apply Codex toggle display fix
+
+on:
+  push:
+    branches:
+      - codex/fix-ltm-ntm-toggle-display
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/fix-ltm-ntm-toggle-display
+
+      - name: Patch index.html
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(source, old, new, label):
+              if old in source:
+                  return source.replace(old, new, 1)
+              old_crlf = old.replace('\n', '\r\n')
+              new_crlf = new.replace('\n', '\r\n')
+              if old_crlf in source:
+                  return source.replace(old_crlf, new_crlf, 1)
+              raise SystemExit(f'Missing expected block: {label}')
+
+          text = replace_once(
+              text,
+              ".pm{font-size:10px;text-align:right;color:var(--s);min-width:80px}\n.pm b{display:block;font-size:14px;color:var(--t);font-weight:400}",
+              ".pm{font-size:10px;text-align:right;color:var(--s);min-width:80px}\n.pm span{display:block}.pm span:not([style]){color:var(--t);font-size:10px;margin-bottom:2px}.pm br{display:none}\n.pm b{display:block;font-size:14px;color:var(--t);font-weight:400}",
+              'peer metric CSS'
+          )
+
+          text = replace_once(
+              text,
+              "function setPeerBasis(mode){\n  peerMode=mode;\n  document.querySelectorAll('.peer-metric').forEach(el=>{\n    const est=el.textContent.includes('(est.)');\n    el.textContent='EV/EBITDA '+mode+(est?' (est.)':'');\n  });\n  document.getElementById('peer_basis').textContent='Current: '+mode;",
+              "function setPeerBasis(mode){\n  peerMode=mode;\n  document.getElementById('peer_basis').textContent='Current: '+mode;",
+              'peer toggle label rewrite'
+          )
+
+          text = replace_once(
+              text,
+              "function setTxBasis(mode){\n  txMode=mode;\n  document.getElementById('tx_metric_head').textContent='EV/EBITDA '+mode;\n  document.getElementById('tx_basis').textContent='Current: '+mode;",
+              "function setTxBasis(mode){\n  txMode=mode;\n  document.getElementById('tx_basis').textContent='Current: '+mode;",
+              'transaction toggle header rewrite'
+          )
+
+          workflow = Path('.github/workflows/codex-fix-toggle-display.yml')
+          if workflow.exists():
+              workflow.unlink()
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/codex-fix-toggle-display.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Fix LTM and NTM toggle display"
+          git push origin HEAD:codex/fix-ltm-ntm-toggle-display

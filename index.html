@@ -95,7 +95,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <button class="step" onclick="go(6)">6&nbsp;Result</button>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
-    <span id="tmr" onclick="startT()" title="Click: Start timer">90:00</span>
+    <span id="tmr" onclick="startT()" title="Click: Start timer">45:00</span>
     <button class="sb" onclick="openM()">Moderator</button>
   </div>
 </nav>
@@ -119,7 +119,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <li>Create a football field chart and sensitivity matrix</li>
       </ul>
       <div class="co w"><b>Important note:</b> In Modules 3 and 4, there are intentionally unsuitable peers and transactions. Filtering them out and justifying your decisions is a core part of the task.</div>
-      <div class="co" style="margin-top:8px"><b>Key terms (quick glossary):</b> HGB = German accounting standard; EUR k = thousand euros; NWC = net working capital (receivables + inventory - payables); EV = enterprise value; Equity Bridge = EV to equity value reconciliation (debt/cash/NWC); DVFA = German valuation guidance often used for management adjustments; LTM/NTM = last/twelve-next months EBITDA basis.</div>
+      <div class="co" style="margin-top:8px"><b>Key terms (quick glossary):</b> HGB = German accounting standard; EUR k = thousand euros; NWC = net working capital (receivables + inventory - payables); EV = enterprise value; Equity Bridge = EV to equity value reconciliation (debt/cash/NWC); DVFA = German valuation guidance often used for management adjustments; LTM = last twelve months / NTM = next twelve months (EBITDA basis).</div>
 
       <h3>Group access links (pre-assigned)</h3>
       <div class="co" style="margin-top:6px">
@@ -159,7 +159,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Business Model</h3>
       <p>Premium manufacturer of welding power sources (MIG-MAG, TIG, stick electrode, automation/cobot) under the brand "smart welding." Headquarters: Auenwald, Baden-Württemberg. Production entirely in Germany (build-to-order via SAP). Sales in >60 countries, >65% export share, 7 own foreign subsidiaries.</p>
-      <p>Founded in 1957, family-owned business ( brothers), ~280 FTE worldwide, >50 in R&amp;D. 25,000 welding machines/year. Digitalization push: Lorch Connect (IoT/remote monitoring), cobot welding (partnership with Yaskawa since 2020).</p>
+      <p>Founded in 1957, family-owned business (owner-managed), ~280 FTE worldwide, >50 in R&amp;D. 25,000 welding machines/year. Digitalization push: Lorch Connect (IoT/remote monitoring), cobot welding (partnership with Yaskawa since 2020).</p>
       <div class="co w"><b>Core risk:</b> In FY 2022, Russia sanctions led to an EBITDA impact of EUR k 172 (booked as "Change in Other Operating Expenses"). Working capital was inflated by elevated order backlog (peak EUR k 8,203 in May 2022 vs. normal EUR k 2,500).</div>
     </div>
     <div>
@@ -272,10 +272,10 @@ textarea.inp{resize:vertical;min-height:40px}
       <table>
         <thead><tr><th>NWC component (as of 31.12.2022)</th><th class="nr">EUR k</th></tr></thead>
         <tbody>
-          <tr><td>Trade receivables</td><td class="nr">6.840</td></tr>
-          <tr><td>Inventories (raw materials, auxiliary materials, operating supplies + WIP + FG)</td><td class="nr">9.380</td></tr>
+          <tr><td>Trade receivables</td><td class="nr">6,840</td></tr>
+          <tr><td>Inventories (raw materials, auxiliary materials, operating supplies + WIP + FG)</td><td class="nr">9,380</td></tr>
           <tr><td>Other short-term receivables</td><td class="nr">620</td></tr>
-          <tr><td>Trade payables</td><td class="nr">(4.070)</td></tr>
+          <tr><td>Trade payables</td><td class="nr">(4,070)</td></tr>
           <tr><td>Other short-term liabilities</td><td class="nr">(980)</td></tr>
           <tr class="hl sub"><td>= Balance-sheet NWC</td><td class="nr" id="nwc_bil">—</td></tr>
         </tbody>
@@ -283,11 +283,11 @@ textarea.inp{resize:vertical;min-height:40px}
 
       <div style="margin-top:10px">
         <label class="lbl">1) Calculate the balance-sheet working capital (EUR k) from the table</label>
-        <input class="inp" type="number" id="wc_bil_calc" placeholder="AR + Inventories + Other CA - AP - Other CL" style="max-width:260px">
+        <input class="inp" type="number" id="wc_bil_calc" placeholder="Trade rec. + Inventories + Other rec. − Payables − Other liab." style="max-width:260px" oninput="const v=this.value;const el=document.getElementById('nwc_bil');el.textContent=v?'EUR k '+parseFloat(v).toLocaleString('en-US'):'—';">
       </div>
 
       <div class="co w" style="margin-top:8px">
-        <b>Assumption for Step 2 (LTM):</b> For the purchase price bridge, assume an <b>NWC adjustment of +1,000 EUR k</b> (reduction of the unusually high 2022 level over the last 12 months).
+        <b>Assumption for Step 2 (LTM):</b> For the purchase price bridge, assume an <b>NWC adjustment of EUR k 1,000</b> (reduction of the unusually high 2022 level over the last 12 months).
       </div>
 
       <div style="margin-top:10px">
@@ -415,13 +415,13 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Multiple Range (Trading Comps)</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div><label class="lbl">Version A (Low, x)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version B (Mid, x)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version C (High, x)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Low (×)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Mid (×)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">High (×)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
       </div>
-      <label class="lbl">Applied Discount (%)</label>
+      <label class="lbl">Liquidity / Size Discount (%)</label>
       <input class="inp" type="number" id="liq_d" placeholder="20" step="5" style="max-width:80px">
-      <p class="mu" style="margin-top:4px;font-size:9px">Discount already factored into Low/Mid/High? Enter 0%.</p>
+      <p class="mu" style="margin-top:4px;font-size:9px">Applied to EV to reflect non-public company characteristics (size, liquidity). Enter 0% if already factored into your Low/Mid/High multiples.</p>
       <div id="r_tev" style="margin-top:10px"></div>
       <button class="sb" style="margin-top:8px" onclick="calcTE()">Calculate EV Range</button>
     </div>
@@ -504,7 +504,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><span class="pill pg">PE Buyout</span></td>
         <td class="nr">~85 USD</td><td class="nr">~60</td><td class="nr">~8</td>
         <td class="nr"><b>10,6x</b></td><td class="nr">9,1x</td><td class="nr">1,4x</td>
-        <td style="font-size:8.5px">Carve-out from ESAB. EBITDA 2020 strongly depressed due to COVID (~13% EBITDA margin). Multiple appears low, but is based on normalized EBITDA of ~TEUR 8M. Plasma cutting ≠ arc welding.</td>
+        <td style="font-size:8.5px">Carve-out from ESAB. EBITDA 2020 strongly depressed due to COVID (~13% EBITDA margin). Multiple appears low, but is based on normalized EBITDA of ~EUR 8m. Plasma cutting ≠ arc welding.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx6"></td>
@@ -587,12 +587,12 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Transaction Multiple Range</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div><label class="lbl">Version A (Low)</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version B (Mid)</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version C (High)</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Low (×)</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Mid (×)</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">High (×)</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
       </div>
       <div id="r_ttev" style="margin-top:10px"></div>
-      <button class="sb" style="margin-top:8px" onclick="calcTX()">EV Range</button>
+      <button class="sb" style="margin-top:8px" onclick="calcTX()">Calculate EV Range</button>
 
     </div>
   </div>
@@ -607,7 +607,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Equity Bridge</h3>
       <div class="entry-focus"><b>Enter values here:</b> Transfer all values from the balance sheet (Module 1) and your NWC adjustment (Module 2). Decide independently how to treat each item — not every balance sheet line belongs in the bridge.</div>
-      <table><thead><tr><th>Item</th><th>Explanation</th><th class="nr">TEUR (input)</th></tr></thead>
+      <table><thead><tr><th>Item</th><th>Explanation</th><th class="nr">EUR k (input)</th></tr></thead>
       <tbody>
         <tr class="hl"><td>Enterprise Value (Mid)</td><td>From module 3 or 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
         <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="" style="width:85px"></td></tr>
@@ -619,26 +619,27 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr class="hl sub"><td>= Equity Value (Mid)</td><td>Purchase price for 100% equity</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
       </tbody></table>
       <button class="sb" style="margin-top:8px" onclick="calcEB()">Calculate Equity Value</button>
+      <button class="sb" style="margin-top:8px;margin-left:8px;opacity:.7" onclick="prefillEBFromCase()">Prefill from case data</button>
 
       <h3 style="margin-top:18px">Equity Value Range</h3>
       <p style="font-size:10px;color:var(--s);margin-bottom:8px">Apply your trading and transaction low/high multiples through the same bridge to derive the full equity value range.</p>
       <div class="g2" style="gap:12px;margin-bottom:0">
         <div>
-          <label class="lbl">Low (TEUR)</label>
+          <label class="lbl">Low (EUR k)</label>
           <input class="inp" type="number" id="eb_eq_l" placeholder="e.g. 23000">
         </div>
         <div>
-          <label class="lbl">High (TEUR)</label>
+          <label class="lbl">High (EUR k)</label>
           <input class="inp" type="number" id="eb_eq_h" placeholder="e.g. 51000">
         </div>
       </div>
     </div>
 
     <div>
-      <h3>Sensitivity Matrix – Equity Value (TEUR)</h3>
-      <p class="mu" style="margin-bottom:8px">Use your values from module 2.</p>
+      <h3>Sensitivity Matrix – Equity Value (EUR k)</h3>
+      <p class="mu" style="margin-bottom:8px">Fixed EBITDA scenarios (EUR k). Assumptions: net debt EUR k 2,100, NWC adjustment EUR k +1,000.</p>
       <table><thead>
-        <tr><th>Multiple \ EBITDA</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
+        <tr><th>Multiple / EBITDA →</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
       </thead><tbody>
         <tr><td>7x</td><td class="nr" id="s11">—</td><td class="nr" id="s12">—</td><td class="nr" id="s13">—</td></tr>
         <tr><td>9x</td><td class="nr" id="s21">—</td><td class="nr" id="s22">—</td><td class="nr" id="s23">—</td></tr>
@@ -679,7 +680,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Football Field Chart</h3>
       <svg id="ff" viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg" style="width:100%">
-        <text x="10" y="15" font-size="8.5" fill="#6F6259" font-family="Calibri">EV range TEUR – LORCH Welding Technology GmbH</text>
+        <text x="10" y="15" font-size="8.5" fill="#6F6259" font-family="Calibri">EV range EUR k – LORCH Welding Technology GmbH</text>
         <text x="10" y="57" font-size="8.5" fill="#6F6259" font-family="Calibri">Trading Comps</text>
         <text x="10" y="97" font-size="8.5" fill="#6F6259" font-family="Calibri">Transaction Comps</text>
         <text x="10" y="137" font-size="8.5" fill="#6F6259" font-family="Calibri">Equity Value</text>
@@ -762,7 +763,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
 </div>
 <script>
-let cur=0,tid=null,sl=5400;
+let cur=0,tid=null,sl=2700;
 
 function removeLegacyIntegratedCaseSection(){
   document.querySelectorAll('section.card').forEach(sec=>{
@@ -869,7 +870,7 @@ function startT(){
     if(sl<=0)clearInterval(tid);
   },1000);
 }
-function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getElementById('tmr');el.textContent='90:00';el.classList.remove('warn');}
+function resetT(){clearInterval(tid);tid=null;sl=2700;const el=document.getElementById('tmr');el.textContent='45:00';el.classList.remove('warn');}
 function th(id){document.getElementById(id).classList.toggle('on');}
 function openM(){document.getElementById('modal').classList.add('open');}
 function closeM(){document.getElementById('modal').classList.remove('open');}
@@ -883,7 +884,7 @@ function openModeratorSolution(){ closeM(); const key=prompt('Moderator key:'); 
 function calcE(){
   const b=2541,adjs=['a1','a5','a6','a7','a8'].map(id=>parseFloat(document.getElementById(id).value)||0);
   const t=b+adjs.reduce((a,x)=>a+x,0);
-  document.getElementById('r_adj22').textContent='TEUR '+Math.round(t).toLocaleString('en-US');
+  document.getElementById('r_adj22').textContent='EUR k '+Math.round(t).toLocaleString('en-US');
   R.adjE=t;
   document.getElementById('fin_e').value=Math.round(t);
 }
@@ -896,7 +897,7 @@ function calcTE(){
   const d=1-(parseFloat(document.getElementById('liq_d').value)||0)/100;
   if(!l||!m||!h){alert('Please enter Low/Mid/High values.');return;}
   R.tL=Math.round(e*l*d);R.tM=Math.round(e*m*d);R.tH=Math.round(e*h*d);
-  document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV trading (after discount)</div><div class="rval">TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US')+'</div><div class="rsub">Mid: TEUR '+R.tM.toLocaleString('en-US')+'</div></div>';
+  document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV trading (after discount)</div><div class="rval">EUR k '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US')+'</div><div class="rsub">Mid: EUR k '+R.tM.toLocaleString('en-US')+'</div></div>';
   sync();
 }
 
@@ -907,7 +908,7 @@ function calcTX(){
   const h=parseFloat(document.getElementById('ttx_h').value);
   if(!l||!m||!h){alert('Please enter Low/Mid/High values.');return;}
   R.txL=Math.round(e*l);R.txM=Math.round(e*m);R.txH=Math.round(e*h);
-  document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transactions (after control premium)</div><div class="rval">TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US')+'</div><div class="rsub">Mid: TEUR '+R.txM.toLocaleString('en-US')+'</div></div>';
+  document.getElementById('r_ttev').innerHTML='<div class="rb"><div class="rlbl">EV Transactions (after control premium)</div><div class="rval">EUR k '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US')+'</div><div class="rsub">Mid: EUR k '+R.txM.toLocaleString('en-US')+'</div></div>';
   sync();
 }
 
@@ -934,14 +935,14 @@ function calcEB(){
   const ev=parseFloat(document.getElementById('eb_ev').value)||0;
   const r=ev-((parseFloat(document.getElementById('eb_d').value)||0)+(parseFloat(document.getElementById('eb_l').value)||0)+(parseFloat(document.getElementById('eb_p').value)||0))+(parseFloat(document.getElementById('eb_c').value)||0)+(parseFloat(document.getElementById('eb_n').value)||0)+(parseFloat(document.getElementById('eb_co').value)||0);
   R.eq=r;
-  document.getElementById('eb_r').textContent='TEUR '+Math.round(r).toLocaleString('en-US');
+  document.getElementById('eb_r').textContent='EUR k '+Math.round(r).toLocaleString('en-US');
   sync();
 }
 
 function calcS(){
   const ms=[7,9,11,13,16],es=[3200,4000,6400],nd=2100,nwc=1000;
   const ids=[['s11','s12','s13'],['s21','s22','s23'],['s31','s32','s33'],['s41','s42','s43'],['s51','s52','s53']];
-  ms.forEach((m,mi)=>es.forEach((e,ei)=>{document.getElementById(ids[mi][ei]).textContent='TEUR '+(Math.round((m*e-nd+nwc)/100)*100).toLocaleString('en-US');}));
+  ms.forEach((m,mi)=>es.forEach((e,ei)=>{document.getElementById(ids[mi][ei]).textContent='EUR k '+(Math.round((m*e-nd+nwc)/100)*100).toLocaleString('en-US');}));
 }
 
 function sync(){
@@ -951,14 +952,14 @@ function sync(){
   const applied=adjMap.map(([id,label])=>({label,val:parseFloat(document.getElementById(id)?.value)||0})).filter(x=>x.val!==0);
   const adjText=applied.length?applied.map(x=>`${x.label}: EUR k ${x.val}`).join(' | '):'—';
   const adjEl=document.getElementById('r6_adj_items'); if(adjEl)adjEl.textContent='Adjustments: '+adjText;
-  if(R.tL&&R.tH)document.getElementById('r6_t').textContent='TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US');
-  if(R.txL&&R.txH)document.getElementById('r6_tx').textContent='TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US');
-  if(R.eq)document.getElementById('r6_eq').textContent='TEUR '+Math.round(R.eq).toLocaleString('en-US');
+  if(R.tL&&R.tH)document.getElementById('r6_t').textContent='EUR k '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US');
+  if(R.txL&&R.txH)document.getElementById('r6_tx').textContent='EUR k '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US');
+  if(R.eq)document.getElementById('r6_eq').textContent='EUR k '+Math.round(R.eq).toLocaleString('en-US');
   const se=document.getElementById('sum_e'),st=document.getElementById('sum_t'),stx=document.getElementById('sum_tx'),seq=document.getElementById('sum_eq');
-  if(se && e)se.textContent='TEUR '+Math.round(e).toLocaleString('en-US');
-  if(st && R.tL && R.tH)st.textContent='TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US');
-  if(stx && R.txL && R.txH)stx.textContent='TEUR '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US');
-  if(seq && R.eq)seq.textContent='TEUR '+Math.round(R.eq).toLocaleString('en-US');
+  if(se && e)se.textContent='EUR k '+Math.round(e).toLocaleString('en-US');
+  if(st && R.tL && R.tH)st.textContent='EUR k '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US');
+  if(stx && R.txL && R.txH)stx.textContent='EUR k '+R.txL.toLocaleString('en-US')+' – '+R.txH.toLocaleString('en-US');
+  if(seq && R.eq)seq.textContent='EUR k '+Math.round(R.eq).toLocaleString('en-US');
 }
 
 function drawFF(){
@@ -1053,6 +1054,8 @@ function loadState(){
     });
     if(Number.isFinite(state.cur))cur=Math.max(0,Math.min(6,state.cur));
     if(Number.isFinite(state.sl))sl=state.sl;
+    const nwcField=(state.fields||[]).find(f=>f.id==='wc_bil_calc');
+    if(nwcField&&nwcField.value){const el=document.getElementById('nwc_bil');if(el)el.textContent='EUR k '+parseFloat(nwcField.value).toLocaleString('en-US');}
   }catch(_e){}
 }
 
@@ -1072,7 +1075,7 @@ updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m
 go(cur);
 calcE();
 sync();
-if(sl<5400){
+if(sl<2700){
   const m=Math.floor(sl/60),s=sl%60;
   const el=document.getElementById('tmr');
   el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');

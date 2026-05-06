@@ -598,22 +598,35 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="g2">
     <div>
       <h3>Equity Bridge</h3>
-      <div class="entry-focus"><b>Enter values here:</b> Fill in the TEUR input fields in the right column of the table.</div>
-      <div class="co w" style="margin-bottom:10px"><b>Transfer rule:</b> Pull debt and cash values directly from the balance sheet in Module 1 and transfer your NWC adjustment from Module 2. For uncertain items, follow the hint in the “Explanation” column and document your decision.</div>
-      <table><thead><tr><th>Item</th><th>Explanation</th><th class="nr">TEUR (input)</th></tr></thead>
+      <div class=”entry-focus”><b>Enter values here:</b> Transfer all values from the balance sheet (Module 1) and your NWC adjustment (Module 2). Decide independently how to treat each item — not every balance sheet line belongs in the bridge.</div>
+      <table><thead><tr><th>Item</th><th>Explanation</th><th class=”nr”>TEUR (input)</th></tr></thead>
       <tbody>
-        <tr class="hl"><td>Enterprise Value (Mid)</td><td>From module 3 or 4</td><td class="nr"><input class="cinp" id="eb_ev" type="number" placeholder="EV" style="width:85px"></td></tr>
-        <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class="nr"><input class="cinp" id="eb_d" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>– Lease liabilities</td><td>IFRS 16-analog, debt-like</td><td class="nr"><input class="cinp" id="eb_l" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>– Pension provisions</td><td>Underfunded, debt-like <span style="color:var(--gd)">→ Typically treated as debt-like.</span></td><td class="nr"><input class="cinp" id="eb_p" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Freely available operating cash</td><td class="nr"><input class="cinp" id="eb_c" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>+/– NWC-Adjustment</td><td>Surplus vs. normalized NWC</td><td class="nr"><input class="cinp" id="eb_n" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr><td>+/– Contingencies</td><td>Tax risks, warranties <span style="color:var(--gd)">→ Usually adjust only if evidence-backed and quantified.</span></td><td class="nr"><input class="cinp" id="eb_co" type="number" placeholder="" style="width:85px"></td></tr>
-        <tr class="hl sub"><td>= Equity Value</td><td>Purchase price for 100% equity</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
+        <tr class=”hl”><td>Enterprise Value (Mid)</td><td>From module 3 or 4</td><td class=”nr”><input class=”cinp” id=”eb_ev” type=”number” placeholder=”EV” style=”width:85px”></td></tr>
+        <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class=”nr”><input class=”cinp” id=”eb_d” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>– Lease liabilities</td><td>Are these debt-like? Justify.</td><td class=”nr”><input class=”cinp” id=”eb_l” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>– Pension provisions</td><td>Are these debt-like? Justify.</td><td class=”nr”><input class=”cinp” id=”eb_p” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>+ Cash &amp; Cash Equiv.</td><td>Freely available operating cash</td><td class=”nr”><input class=”cinp” id=”eb_c” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>+/– NWC-Adjustment</td><td>Surplus vs. normalized NWC (from Module 2)</td><td class=”nr”><input class=”cinp” id=”eb_n” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr><td>+/– Contingencies</td><td>Tax risks, warranties – include only if evidence-backed</td><td class=”nr”><input class=”cinp” id=”eb_co” type=”number” placeholder=”” style=”width:85px”></td></tr>
+        <tr class=”hl sub”><td>= Equity Value (Mid)</td><td>Purchase price for 100% equity</td><td class=”nr” id=”eb_r” style=”font-size:14px;color:var(--teal)”>—</td></tr>
       </tbody></table>
-      <button class="sb" onclick="prefillEBFromCase()">Auto-transfer from case</button> <button class="sb" onclick="checkBridgeCoverage()">Check balance sheet coverage</button> <button class="sb" onclick="calcEB()">Calculate Equity Value</button>
-      <label class="lbl" style="margin-top:14px">Locked Box vs. Closing Accounts – which mechanism do you prefer as seller?</label>
-      <textarea class="inp" id="t_lb" placeholder="Pros and cons..."></textarea>
+      <button class=”sb” onclick=”calcEB()”>Calculate Equity Value</button>
+
+      <div style=”margin-top:16px”>
+        <label class=”lbl”>Equity Value Range – enter your low and high (TEUR)</label>
+        <div style=”display:flex;gap:12px;align-items:center;margin-top:4px”>
+          <div><span style=”font-size:10px;color:var(--s);text-transform:uppercase;letter-spacing:.08em”>Low</span><br><input class=”inp” type=”number” id=”eb_eq_l” placeholder=”e.g. 23000” style=”max-width:120px”></div>
+          <div><span style=”font-size:10px;color:var(--s);text-transform:uppercase;letter-spacing:.08em”>High</span><br><input class=”inp” type=”number” id=”eb_eq_h” placeholder=”e.g. 51000” style=”max-width:120px”></div>
+        </div>
+        <p style=”font-size:10px;color:var(--s);margin-top:5px”>Apply your trading and transaction low/high multiples through the same bridge to derive the full equity value range.</p>
+      </div>
+
+      <div style=”margin-top:14px”>
+        <label class=”lbl”>Which bridge item carries the most uncertainty — and how would you handle it in the SPA?</label>
+        <textarea class=”inp” id=”t_lb” placeholder=”Identify the item, explain the risk, and propose a mechanism (e.g. escrow, earn-out, price adjustment clause, W&amp;I insurance)...”></textarea>
+        <label class=”lbl” style=”margin-top:10px”>Under what conditions would you propose an earn-out clause to bridge a valuation gap with the buyer?</label>
+        <textarea class=”inp” id=”t_earnout” placeholder=”When does an earn-out make sense? What KPI would you tie it to, and what are the risks for the seller?”></textarea>
+      </div>
     </div>
     <div>
       <h3>Sensitivity Matrix – Equity Value (TEUR)</h3>

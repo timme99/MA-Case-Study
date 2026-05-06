@@ -195,31 +195,31 @@ function render(){
     </div>
     <div class="sec-body">
       <div class="kv">
-        <div class="kvbox"><div class="k">Starting EBITDA FY 2022</div><div class="v">TEUR 2,541</div><div class="sub">Reported, HGB</div></div>
-        <div class="kvbox"><div class="k">Total Adjustments</div><div class="v">+ TEUR ${fmt(a1+a5+a6+a7+a8)}</div><div class="sub">5 items presented</div></div>
-        <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">TEUR ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
+        <div class="kvbox"><div class="k">Starting EBITDA FY 2022</div><div class="v">EUR k 2,541</div><div class="sub">Reported, HGB</div></div>
+        <div class="kvbox"><div class="k">Total Adjustments</div><div class="v">+ EUR k ${fmt(a1+a5+a6+a7+a8)}</div><div class="sub">5 items presented</div></div>
+        <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">EUR k ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
       </div>
 
       <table>
-        <thead><tr><th>Item</th><th class="nr">Your adjustment (TEUR)</th><th>Rationale</th></tr></thead>
+        <thead><tr><th>Item</th><th class="nr">Your adjustment (EUR k)</th><th>Rationale</th></tr></thead>
         <tbody>
           <tr><td>1) Geopolitical event (Eastern Europe)</td><td class="nr">${a1?'+'+fmt(a1):'—'}</td><td>${val(d,'t_a1','No rationale entered.')}</td></tr>
           <tr><td>2) Owner-manager compensation</td><td class="nr">${a5?'+'+fmt(a5):'—'}</td><td>${val(d,'t_a5','No rationale entered.')}</td></tr>
           <tr><td>3) Trade fair investment (EuroBLECH 2022)</td><td class="nr">${a6?'+'+fmt(a6):'—'}</td><td>${val(d,'t_a6r','No rationale entered.')}</td></tr>
           <tr><td>4) ERP implementation (SAP S/4HANA)</td><td class="nr">${a7?'+'+fmt(a7):'—'}</td><td>${val(d,'t_a7','No rationale entered.')}</td></tr>
           <tr><td>5) Additional logistics costs (supply chain disruptions)</td><td class="nr">${a8?'+'+fmt(a8):'—'}</td><td>${val(d,'t_a8','No rationale entered.')}</td></tr>
-          <tr class="hl sub"><td><b>= Adj. EBITDA 2022</b></td><td class="nr"><b>TEUR ${fmt(adjEBITDA)}</b></td><td></td></tr>
+          <tr class="hl sub"><td><b>= Adj. EBITDA 2022</b></td><td class="nr"><b>EUR k ${fmt(adjEBITDA)}</b></td><td></td></tr>
         </tbody>
       </table>
 
       <div class="g2" style="margin-top:8px">
         <div>
           <div class="label">Balance-sheet NWC (calculated)</div>
-          <div class="answer-box${!val(d,'wc_bil_calc','').trim()?' empty':''}">${val(d,'wc_bil_calc','No value entered.')} TEUR</div>
+          <div class="answer-box${!val(d,'wc_bil_calc','').trim()?' empty':''}">${val(d,'wc_bil_calc','No value entered.')} EUR k</div>
         </div>
         <div>
           <div class="label">NWC Adjustment (LTM)</div>
-          <div class="answer-box${!val(d,'nwc_adj_val','').trim()?' empty':''}">${val(d,'nwc_adj_val','No value entered.')} TEUR</div>
+          <div class="answer-box${!val(d,'nwc_adj_val','').trim()?' empty':''}">${val(d,'nwc_adj_val','No value entered.')} EUR k</div>
         </div>
       </div>
     </div>
@@ -256,9 +256,9 @@ function render(){
         </div>
         <div>
           <div class="kv" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:0">
-            <div class="kvbox"><div class="k">Low</div><div class="v">${tcL?tcL+'×':'—'}</div>${evTL?`<div class="sub">EV TEUR ${fmt(evTL)}</div>`:''}</div>
-            <div class="kvbox"><div class="k">Mid</div><div class="v">${tcM?tcM+'×':'—'}</div>${evTM?`<div class="sub">EV TEUR ${fmt(evTM)}</div>`:''}</div>
-            <div class="kvbox"><div class="k">High</div><div class="v">${tcH?tcH+'×':'—'}</div>${evTH?`<div class="sub">EV TEUR ${fmt(evTH)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">Low</div><div class="v">${tcL?tcL+'×':'—'}</div>${evTL?`<div class="sub">EV EUR k ${fmt(evTL)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">Mid</div><div class="v">${tcM?tcM+'×':'—'}</div>${evTM?`<div class="sub">EV EUR k ${fmt(evTM)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">High</div><div class="v">${tcH?tcH+'×':'—'}</div>${evTH?`<div class="sub">EV EUR k ${fmt(evTH)}</div>`:''}</div>
           </div>
         </div>
       </div>
@@ -296,9 +296,9 @@ function render(){
         </div>
         <div>
           <div class="kv" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:0">
-            <div class="kvbox"><div class="k">Low</div><div class="v">${ttxL?ttxL+'×':'—'}</div>${evTxL?`<div class="sub">EV TEUR ${fmt(evTxL)}</div>`:''}</div>
-            <div class="kvbox"><div class="k">Mid</div><div class="v">${ttxM?ttxM+'×':'—'}</div>${evTxM?`<div class="sub">EV TEUR ${fmt(evTxM)}</div>`:''}</div>
-            <div class="kvbox"><div class="k">High</div><div class="v">${ttxH?ttxH+'×':'—'}</div>${evTxH?`<div class="sub">EV TEUR ${fmt(evTxH)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">Low</div><div class="v">${ttxL?ttxL+'×':'—'}</div>${evTxL?`<div class="sub">EV EUR k ${fmt(evTxL)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">Mid</div><div class="v">${ttxM?ttxM+'×':'—'}</div>${evTxM?`<div class="sub">EV EUR k ${fmt(evTxM)}</div>`:''}</div>
+            <div class="kvbox"><div class="k">High</div><div class="v">${ttxH?ttxH+'×':'—'}</div>${evTxH?`<div class="sub">EV EUR k ${fmt(evTxH)}</div>`:''}</div>
           </div>
         </div>
       </div>
@@ -315,7 +315,7 @@ function render(){
       <div class="g2">
         <div>
           <table>
-            <thead><tr><th>Item</th><th class="nr">TEUR</th></tr></thead>
+            <thead><tr><th>Item</th><th class="nr">EUR k</th></tr></thead>
             <tbody>
               <tr class="hl"><td>Enterprise Value (Mid)</td><td class="nr">${ebEv!==null?fmt(ebEv):'—'}</td></tr>
               <tr><td>– Financial liabilities</td><td class="nr">${ebD?'('+fmt(ebD)+')':'—'}</td></tr>
@@ -324,14 +324,14 @@ function render(){
               <tr><td>+ Cash &amp; Cash Equiv.</td><td class="nr">${ebC?fmt(ebC):'—'}</td></tr>
               <tr><td>+/– NWC Adjustment</td><td class="nr">${ebN?fmt(ebN):'—'}</td></tr>
               <tr><td>+/– Contingencies</td><td class="nr">${ebCo?fmt(ebCo):'—'}</td></tr>
-              <tr class="hl sub"><td><b>= Equity Value (Mid)</b></td><td class="nr" style="color:var(--teal);font-size:14px"><b>${equityMid!==null?'TEUR '+fmt(equityMid):'—'}</b></td></tr>
+              <tr class="hl sub"><td><b>= Equity Value (Mid)</b></td><td class="nr" style="color:var(--teal);font-size:14px"><b>${equityMid!==null?'EUR k '+fmt(equityMid):'—'}</b></td></tr>
             </tbody>
           </table>
         </div>
         <div>
           <div class="kv" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
-            <div class="kvbox"><div class="k">Equity Value Low</div><div class="v">${eqLow?'TEUR '+fmt(eqLow):'—'}</div></div>
-            <div class="kvbox"><div class="k">Equity Value High</div><div class="v">${eqHigh?'TEUR '+fmt(eqHigh):'—'}</div></div>
+            <div class="kvbox"><div class="k">Equity Value Low</div><div class="v">${eqLow?'EUR k '+fmt(eqLow):'—'}</div></div>
+            <div class="kvbox"><div class="k">Equity Value High</div><div class="v">${eqHigh?'EUR k '+fmt(eqHigh):'—'}</div></div>
           </div>
           <div class="label">Most uncertain bridge item &amp; SPA mechanism</div>
           ${answerBox(val(d,'t_lb',''),'No answer entered.')}
@@ -350,13 +350,13 @@ function render(){
     </div>
     <div class="sec-body">
       <div class="kv" style="margin-bottom:18px">
-        <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">TEUR ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
-        <div class="kvbox"><div class="k">EV Range (Trading)</div><div class="v">${evTL&&evTH?'TEUR '+fmt(evTL)+' – '+fmt(evTH):'—'}</div><div class="sub">Mid TEUR ${evTM?fmt(evTM):'—'}</div></div>
-        <div class="kvbox"><div class="k">EV Range (Transactions)</div><div class="v">${evTxL&&evTxH?'TEUR '+fmt(evTxL)+' – '+fmt(evTxH):'—'}</div><div class="sub">Mid TEUR ${evTxM?fmt(evTxM):'—'}</div></div>
+        <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">EUR k ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
+        <div class="kvbox"><div class="k">EV Range (Trading)</div><div class="v">${evTL&&evTH?'EUR k '+fmt(evTL)+' – '+fmt(evTH):'—'}</div><div class="sub">Mid EUR k ${evTM?fmt(evTM):'—'}</div></div>
+        <div class="kvbox"><div class="k">EV Range (Transactions)</div><div class="v">${evTxL&&evTxH?'EUR k '+fmt(evTxL)+' – '+fmt(evTxH):'—'}</div><div class="sub">Mid EUR k ${evTxM?fmt(evTxM):'—'}</div></div>
       </div>
       <div class="kv" style="grid-template-columns:1fr 1fr;margin-bottom:18px">
-        <div class="kvbox"><div class="k">Equity Value (Mid)</div><div class="v" style="color:var(--teal)">${equityMid!==null?'TEUR '+fmt(equityMid):'—'}</div><div class="sub">After full equity bridge</div></div>
-        <div class="kvbox"><div class="k">Equity Value Range</div><div class="v">${eqLow&&eqHigh?'TEUR '+fmt(eqLow)+' – '+fmt(eqHigh):'—'}</div><div class="sub">Low to High</div></div>
+        <div class="kvbox"><div class="k">Equity Value (Mid)</div><div class="v" style="color:var(--teal)">${equityMid!==null?'EUR k '+fmt(equityMid):'—'}</div><div class="sub">After full equity bridge</div></div>
+        <div class="kvbox"><div class="k">Equity Value Range</div><div class="v">${eqLow&&eqHigh?'EUR k '+fmt(eqLow)+' – '+fmt(eqHigh):'—'}</div><div class="sub">Low to High</div></div>
       </div>
 
       <div class="g2">

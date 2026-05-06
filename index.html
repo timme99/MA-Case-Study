@@ -591,11 +591,11 @@ textarea.inp{resize:vertical;min-height:40px}
 </div>
 
 <!-- S5 EQUITY BRIDGE -->
-<div class="sc" id="s5">
-  <div class="slbl">Module 5 · Equity Bridge &amp; Sensitivity</div><hr class="dline">
+<div class=”sc” id=”s5”>
+  <div class=”slbl”>Module 5 · Equity Bridge &amp; Sensitivity</div><hr class=”dline”>
   <h1>Enterprise Value → Equity Value</h1>
 
-  <div class="g2">
+  <div class=”g2”>
     <div>
       <h3>Equity Bridge</h3>
       <div class=”entry-focus”><b>Enter values here:</b> Transfer all values from the balance sheet (Module 1) and your NWC adjustment (Module 2). Decide independently how to treat each item — not every balance sheet line belongs in the bridge.</div>
@@ -610,38 +610,51 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>+/– Contingencies</td><td>Tax risks, warranties – include only if evidence-backed</td><td class=”nr”><input class=”cinp” id=”eb_co” type=”number” placeholder=”” style=”width:85px”></td></tr>
         <tr class=”hl sub”><td>= Equity Value (Mid)</td><td>Purchase price for 100% equity</td><td class=”nr” id=”eb_r” style=”font-size:14px;color:var(--teal)”>—</td></tr>
       </tbody></table>
-      <button class=”sb” onclick=”calcEB()”>Calculate Equity Value</button>
+      <button class=”sb” style=”margin-top:8px” onclick=”calcEB()”>Calculate Equity Value</button>
 
-      <div style=”margin-top:16px”>
-        <label class=”lbl”>Equity Value Range – enter your low and high (TEUR)</label>
-        <div style=”display:flex;gap:12px;align-items:center;margin-top:4px”>
-          <div><span style=”font-size:10px;color:var(--s);text-transform:uppercase;letter-spacing:.08em”>Low</span><br><input class=”inp” type=”number” id=”eb_eq_l” placeholder=”e.g. 23000” style=”max-width:120px”></div>
-          <div><span style=”font-size:10px;color:var(--s);text-transform:uppercase;letter-spacing:.08em”>High</span><br><input class=”inp” type=”number” id=”eb_eq_h” placeholder=”e.g. 51000” style=”max-width:120px”></div>
+      <h3 style=”margin-top:18px”>Equity Value Range</h3>
+      <p style=”font-size:10px;color:var(--s);margin-bottom:8px”>Apply your trading and transaction low/high multiples through the same bridge to derive the full equity value range.</p>
+      <div class=”g2” style=”gap:12px;margin-bottom:0”>
+        <div>
+          <label class=”lbl”>Low (TEUR)</label>
+          <input class=”inp” type=”number” id=”eb_eq_l” placeholder=”e.g. 23000”>
         </div>
-        <p style=”font-size:10px;color:var(--s);margin-top:5px”>Apply your trading and transaction low/high multiples through the same bridge to derive the full equity value range.</p>
-      </div>
-
-      <div style=”margin-top:14px”>
-        <label class=”lbl”>Which bridge item carries the most uncertainty — and how would you handle it in the SPA?</label>
-        <textarea class=”inp” id=”t_lb” placeholder=”Identify the item, explain the risk, and propose a mechanism (e.g. escrow, earn-out, price adjustment clause, W&amp;I insurance)...”></textarea>
-        <label class=”lbl” style=”margin-top:10px”>Under what conditions would you propose an earn-out clause to bridge a valuation gap with the buyer?</label>
-        <textarea class=”inp” id=”t_earnout” placeholder=”When does an earn-out make sense? What KPI would you tie it to, and what are the risks for the seller?”></textarea>
+        <div>
+          <label class=”lbl”>High (TEUR)</label>
+          <input class=”inp” type=”number” id=”eb_eq_h” placeholder=”e.g. 51000”>
+        </div>
       </div>
     </div>
+
     <div>
       <h3>Sensitivity Matrix – Equity Value (TEUR)</h3>
-      <p class="mu" style="margin-bottom:8px">Use your values from module 2.</p>
+      <p class=”mu” style=”margin-bottom:8px”>Use your values from module 2.</p>
       <table><thead>
-        <tr><th>Multiple \ EBITDA</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
+        <tr><th>Multiple \ EBITDA</th><th class=”nr”>Consv. 3,200</th><th class=”nr”>Base 4,000</th><th class=”nr”>Upside 6,400</th></tr>
       </thead><tbody>
-        <tr><td>7x</td><td class="nr" id="s11">—</td><td class="nr" id="s12">—</td><td class="nr" id="s13">—</td></tr>
-        <tr><td>9x</td><td class="nr" id="s21">—</td><td class="nr" id="s22">—</td><td class="nr" id="s23">—</td></tr>
-        <tr class="hl"><td>11x</td><td class="nr" id="s31">—</td><td class="nr" id="s32">—</td><td class="nr" id="s33">—</td></tr>
-        <tr><td>13x</td><td class="nr" id="s41">—</td><td class="nr" id="s42">—</td><td class="nr" id="s43">—</td></tr>
-        <tr><td>16x</td><td class="nr" id="s51">—</td><td class="nr" id="s52">—</td><td class="nr" id="s53">—</td></tr>
+        <tr><td>7x</td><td class=”nr” id=”s11”>—</td><td class=”nr” id=”s12”>—</td><td class=”nr” id=”s13”>—</td></tr>
+        <tr><td>9x</td><td class=”nr” id=”s21”>—</td><td class=”nr” id=”s22”>—</td><td class=”nr” id=”s23”>—</td></tr>
+        <tr class=”hl”><td>11x</td><td class=”nr” id=”s31”>—</td><td class=”nr” id=”s32”>—</td><td class=”nr” id=”s33”>—</td></tr>
+        <tr><td>13x</td><td class=”nr” id=”s41”>—</td><td class=”nr” id=”s42”>—</td><td class=”nr” id=”s43”>—</td></tr>
+        <tr><td>16x</td><td class=”nr” id=”s51”>—</td><td class=”nr” id=”s52”>—</td><td class=”nr” id=”s53”>—</td></tr>
       </tbody></table>
-      <button class="sb" onclick="calcS()">Calculate</button>
+      <button class=”sb” onclick=”calcS()”>Calculate</button>
+    </div>
+  </div>
 
+  <hr class=”dline” style=”margin-top:24px”>
+  <div class=”g2” style=”margin-top:16px”>
+    <div>
+      <h3>Discussion Question 1</h3>
+      <div class=”entry-focus”><b>Enter values here:</b> Identify the bridge item, explain the risk, and name the SPA mechanism you would use.</div>
+      <label class=”lbl” style=”margin-top:10px”>Which bridge item carries the most uncertainty — and how would you handle it in the SPA?</label>
+      <textarea class=”inp” id=”t_lb” placeholder=”e.g. Pension provisions — risk of underfunding worsening post-signing → propose escrow or W&amp;I insurance to cap seller liability...”></textarea>
+    </div>
+    <div>
+      <h3>Discussion Question 2</h3>
+      <div class=”entry-focus”><b>Enter values here:</b> State the conditions, name a concrete KPI, and explain the seller-side risks.</div>
+      <label class=”lbl” style=”margin-top:10px”>Under what conditions would you propose an earn-out clause to bridge a valuation gap with the buyer?</label>
+      <textarea class=”inp” id=”t_earnout” placeholder=”e.g. When buyer and seller disagree on FY2024 EBITDA trajectory → tie earn-out to EBITDA target with 2-year horizon; seller risk: buyer controls operations post-closing...”></textarea>
     </div>
   </div>
 </div>
@@ -669,6 +682,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <g id="ff_a" font-size="7.5" fill="#6F6259" font-family="Calibri"></g>
       </svg>
       <button class="sb" style="margin-top:6px" onclick="drawFF()">Update chart</button>
+      <button class="pb" style="margin-top:6px;margin-left:8px" onclick="openPresentation()">Generate presentation →</button>
     </div>
   </div>
   <div style="margin-top:16px" class="co">
@@ -683,18 +697,6 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr><td>Equity Value (Mid)</td><td class="nr" id="sum_eq">—</td><td>Purchase price indicator after bridge</td></tr>
       </tbody>
     </table>
-    <h3 style="margin-top:12px">Results sheet &amp; links</h3>
-    <p style="font-size:10px;color:var(--s);margin-bottom:8px">Please maintain exactly one link per group and verify that it opens.</p>
-    <table>
-      <thead><tr><th>Group</th><th>Results sheet</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Group 1</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
-        <tr><td>Group 2</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
-        <tr><td>Group 3</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
-        <tr><td>Group 4</td><td><a href="#" style="color:var(--teal)">Insert link</a></td><td>⏳ open</td></tr>
-      </tbody>
-    </table>
-    <div class="co w" style="margin-top:8px"><b>Note:</b> Only set to <i>✅ linked</i> once the link is clickable and all core fields (Adj. EBITDA, EV ranges, Equity Value, recommendation) are present in the sheet.</div>
   </div>
 
   <div class="g2" style="margin-top:18px">
@@ -717,12 +719,6 @@ textarea.inp{resize:vertical;min-height:40px}
       <textarea class="inp" id="dq3" placeholder="Risk 1, risk 2..."></textarea>
       <label class="lbl">4) Which single pre-sale measure increases value the fastest?</label>
       <textarea class="inp" id="dq4" placeholder="Measure + short impact..."></textarea>
-      <div class="hint on" id="hint_simple_disc">
-        <b>Hint box (simple explanation):</b><br>
-        <b>Strategic buyer</b> often pays more if synergies can be realized (e.g., shared sales, procurement, production).<br>
-        <b>Financial investor</b> is usually more focused on return, financing, and exit multiple, and therefore often more price-sensitive.<br>
-        Rule of thumb for discussion: <b>Price = EBITDA × multiple ± bridge (net debt, cash, NWC, risks)</b>.
-      </div>
     </div>
   </div>
   <div style="margin-top:16px;padding:12px;background:rgba(93,119,117,.07);border-left:2px solid var(--teal)">
@@ -871,6 +867,11 @@ function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getEleme
 function th(id){document.getElementById(id).classList.toggle('on');}
 function openM(){document.getElementById('modal').classList.add('open');}
 function closeM(){document.getElementById('modal').classList.remove('open');}
+function openPresentation(){
+  saveState();
+  const g=getGroupFromUrl();
+  window.open(`student-presentation.html?group=${encodeURIComponent(g)}`,'_blank');
+}
 function openModeratorSolution(){ closeM(); const key=prompt('Moderator key:'); if(!key) return; const url=`moderator-solution.html?key=${encodeURIComponent(key)}`; window.open(url,'_blank'); }
 
 function calcE(){

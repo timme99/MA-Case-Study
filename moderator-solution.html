@@ -1,24 +1,386 @@
 <!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Moderator Musterlösung</title>
-<style>body{font-family:Arial,sans-serif;margin:40px;background:#f7f7f7} .card{max-width:900px;margin:auto;background:#fff;padding:24px;border-radius:10px} .ok{display:none} .muted{color:#666}</style></head>
-<body><div class="card">
-<h1>Geschützte Musterlösung (Moderator)</h1>
-<p class="muted">Nur für Lehrende. Diese Seite ist absichtlich nicht im Studenten-Flow verlinkt.</p>
-<div id="locked"><p>Zugriffsschutz aktiv.</p></div>
-<div id="ok" class="ok">
-<h3>Empfohlene Referenzwerte</h3>
-<ul>
-<li>Adj. EBITDA (Basis): ca. TEUR 4.036</li>
-<li>Trading-Multiple-Range: ca. 7,0x–13,0x (Mid 10,0x)</li>
-<li>Transaction-Multiple-Range: ca. 8,0x–15,0x (Mid 11,0x–11,5x)</li>
-<li>Equity Value Mid-Case: aus EV minus debt-like items plus Cash plus NWC-Adjustment</li>
-<li>NWC normalisiert: TEUR 8.110; NWC-Überschuss: TEUR 3.680</li>
-<li>EBITDA-Adjustments (Konsens-Basis): +172, +234, +318, +260, +192</li>
-</ul></div></div>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moderator Sample Solution – LORCH M&A Case Study</title>
+<style>
+:root{--bg:#E9E3DA;--t:#111111;--s:#4A3F36;--m:#7A6E63;--teal:#2F5E59;--gn:#6D8A78;--dv:#1F1F1F;--rd:#8F1F1C;--gd:#B6862E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--t);font-family:Calibri,'Futura Std Book',sans-serif;font-size:14px;line-height:1.7}
+#app{max-width:900px;margin:0 auto;padding:28px 24px 80px}
+
+/* --- gate --- */
+#gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;gap:16px;text-align:center}
+#gate h1{font-size:22px;font-weight:600}
+#gate p{color:var(--s);font-size:13px}
+.pin-form{display:flex;gap:8px;margin-top:8px}
+.pin-inp{font-family:Calibri,sans-serif;font-size:18px;letter-spacing:.25em;text-align:center;width:120px;padding:8px 10px;border:1.5px solid var(--s);background:rgba(255,255,255,.5);outline:none}
+.pin-inp:focus{border-color:var(--t)}
+.btn-go{background:var(--t);color:var(--bg);border:none;padding:9px 18px;font-family:Calibri,sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.btn-go:hover{background:var(--s)}
+#gate-err{color:var(--rd);font-size:12px;min-height:18px}
+
+/* --- solution --- */
+#sol{display:none}
+.top-bar{background:var(--t);color:var(--bg);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.top-bar .brand{font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.top-bar .title{font-size:12px;font-weight:600;letter-spacing:.05em;text-align:right}
+.btn-print{background:transparent;border:1px solid var(--bg);color:var(--bg);padding:4px 12px;font-family:Calibri,sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.btn-print:hover{background:rgba(255,255,255,.15)}
+
+.section{border:1px solid #cfc5ba;margin-bottom:20px;border-radius:4px;overflow:hidden}
+.sec-head{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(47,94,89,.08);border-bottom:1px solid #cfc5ba}
+.sec-head h2{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--teal)}
+.sec-num{font-size:10px;color:var(--m);margin-bottom:2px;letter-spacing:.1em;text-transform:uppercase}
+.btn-reveal{background:var(--teal);color:#fff;border:none;padding:5px 14px;font-family:Calibri,sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.btn-reveal:hover{background:var(--s)}
+.btn-reveal.shown{background:transparent;color:var(--m);border:1px solid var(--m)}
+.sec-body{display:none;padding:16px 18px}
+.sec-body.open{display:block}
+
+h3{font-size:11px;font-weight:400;color:var(--s);text-transform:uppercase;letter-spacing:.08em;margin:14px 0 5px}
+h3:first-child{margin-top:0}
+p{margin-bottom:7px;font-size:13px}
+ul,ol{margin:6px 0 10px 18px;font-size:13px;line-height:1.8}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:12px}
+th{text-align:left;padding:5px 8px;font-size:9px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--s);border-bottom:.8px solid var(--dv)}
+td{padding:6px 8px;border-bottom:.8px solid #cfc5ba}
+tr:last-child td{border-bottom:none}
+.nr{text-align:right;font-variant-numeric:tabular-nums}
+.hl td{font-weight:600;background:rgba(93,119,117,.07)}
+.sub td{border-top:.8px solid var(--s)}
+.adj td{color:var(--teal)}
+.ex td{color:#888}
+
+.kv{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+.kvbox{padding:10px 14px;background:rgba(47,94,89,.07);border-left:3px solid var(--teal)}
+.kvbox .k{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);margin-bottom:3px}
+.kvbox .v{font-size:18px;font-weight:400;color:var(--t)}
+.kvbox .sub{font-size:10px;color:var(--m);margin-top:2px}
+
+.co{padding:10px 14px;margin-bottom:10px;border-left:3px solid var(--teal);background:rgba(47,94,89,.10);font-size:12px;color:var(--s)}
+.co.w{border-left-color:var(--gd);background:rgba(216,174,80,.07)}
+.co.r{border-left-color:var(--rd);background:rgba(166,45,42,.05);color:var(--rd)}
+
+.pill{display:inline-block;font-size:8px;letter-spacing:.06em;padding:2px 6px;text-transform:uppercase;margin:0 2px 2px 0;border-radius:2px}
+.pg{background:rgba(147,164,150,.25);color:var(--teal)}
+.pr{background:rgba(166,45,42,.12);color:var(--rd)}
+.pw{background:rgba(216,174,80,.2);color:#8a6e10}
+
+.disc-note{font-size:11px;color:var(--s);border-left:2px solid var(--gd);padding:6px 10px;background:rgba(216,174,80,.05);margin-bottom:10px}
+
+@media print{
+  #gate{display:none!important}
+  #sol{display:block!important}
+  .btn-reveal{display:none}
+  .sec-body{display:block!important}
+  .top-bar .btn-print{display:none}
+  .section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- PIN GATE -->
+<div id="gate">
+  <div>
+    <p class="brand" style="font-size:10px;letter-spacing:.2em;color:var(--s);text-transform:uppercase;margin-bottom:12px">WINTERGERST · M&amp;A Advisory</p>
+    <h1>Moderator Sample Solution</h1>
+    <p style="margin-top:6px">LORCH Welding Technology GmbH – Case Study</p>
+    <p style="margin-top:4px;font-size:12px">For instructors only. Enter the 4-digit PIN to unlock.</p>
+  </div>
+  <div class="pin-form">
+    <input class="pin-inp" id="pin" type="password" maxlength="4" placeholder="····" autocomplete="off" onkeydown="if(event.key==='Enter')unlock()">
+    <button class="btn-go" onclick="unlock()">Unlock →</button>
+  </div>
+  <div id="gate-err">&nbsp;</div>
+</div>
+
+<!-- SOLUTION (hidden until PIN correct) -->
+<div id="sol">
+
+  <div class="top-bar">
+    <div>
+      <div class="brand">WINTERGERST · M&amp;A Advisory</div>
+      <div style="font-size:11px;color:#ccc;margin-top:2px">Moderator Sample Solution · LORCH Welding Technology GmbH</div>
+    </div>
+    <div style="text-align:right;display:flex;align-items:center;gap:12px">
+      <span style="font-size:10px;color:#aaa">Click "Reveal" per section after each group presents</span>
+      <button class="btn-print" onclick="window.print()">Print / PDF</button>
+    </div>
+  </div>
+
+  <!-- SECTION 1: EBITDA BRIDGE -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">Module 2</div>
+        <h2>EBITDA Bridge – Recommended Adjustments</h2>
+      </div>
+      <button class="btn-reveal" onclick="reveal(this,'body1')">Reveal ▼</button>
+    </div>
+    <div class="sec-body" id="body1">
+
+      <div class="kv">
+        <div class="kvbox"><div class="k">Starting EBITDA (FY 2022)</div><div class="v">TEUR 2,541</div><div class="sub">Reported, HGB</div></div>
+        <div class="kvbox"><div class="k">Total Adjustments</div><div class="v">+ TEUR 942</div><div class="sub">4 items, all one-off</div></div>
+        <div class="kvbox"><div class="k">Adj. EBITDA (consensus)</div><div class="v">TEUR 3,483</div><div class="sub">Valuation basis</div></div>
+      </div>
+
+      <table>
+        <thead><tr><th style="width:35%">Item</th><th class="nr" style="width:15%">Amount</th><th>Adjust?</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Reported EBITDA FY 2022</td><td class="nr">2,541</td><td>–</td><td>Starting point</td></tr>
+          <tr class="adj"><td>1) Geopolitical event (Eastern Europe)</td><td class="nr">+172</td><td><b>Yes – full</b></td><td>Clearly one-off: government-mandated market exit, non-recurring, evidence-backed from management. Full adjustment per DVFA standard.</td></tr>
+          <tr class="adj"><td>2) Owner-manager compensation</td><td class="nr">+260</td><td><b>Yes – full</b></td><td>EUR k 580 actual vs. EUR k 320 market rate = delta EUR k 260. Standard DVFA normalization. Full adjustment appropriate; partial adjustment is defensible only if ownership continuity is contractually guaranteed post-sale.</td></tr>
+          <tr class="adj"><td>3) Trade fair investment (EuroBLECH 2022)</td><td class="nr">+318</td><td><b>Yes – full or partial</b></td><td>First trade fair participation after COVID pause → one-time repositioning spend. Full adjustment defensible; a recurring component (next fair cycle 2024) could be modelled as ~EUR k 100/2yrs = EUR k 50/yr normalized cost. Either approach acceptable if justified.</td></tr>
+          <tr class="adj"><td>4) ERP implementation (SAP S/4HANA)</td><td class="nr">+192</td><td><b>Yes – full</b></td><td>Project completed, non-recurring, now in steady-state maintenance (already budgeted separately). Full one-off adjustment per DVFA.</td></tr>
+          <tr class="hl sub"><td><b>= Adj. EBITDA</b></td><td class="nr"><b>3,483</b></td><td colspan="2">TEUR 3,483 consensus basis (range: 3,200–4,036 depending on trade fair treatment)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="co w">
+        <b>Discussion note:</b> Some groups may arrive at ~TEUR 4,036 if they add the full trade fair amount plus a separate management bonus normalization. The spread in student results is pedagogically valuable — discuss what methodological choices drove each group's number.
+      </div>
+
+      <h3>Working Capital</h3>
+      <table>
+        <thead><tr><th>NWC Component</th><th class="nr">TEUR</th></tr></thead>
+        <tbody>
+          <tr><td>Trade receivables</td><td class="nr">6,840</td></tr>
+          <tr><td>Inventories</td><td class="nr">9,380</td></tr>
+          <tr><td>Other short-term receivables</td><td class="nr">620</td></tr>
+          <tr><td>Trade payables</td><td class="nr">(4,070)</td></tr>
+          <tr><td>Other short-term liabilities</td><td class="nr">(980)</td></tr>
+          <tr class="hl sub"><td><b>= Balance-sheet NWC</b></td><td class="nr"><b>11,790</b></td></tr>
+          <tr><td>Normalized NWC (steady-state, ~EUR 55M revenue)</td><td class="nr">≈ 8,110</td></tr>
+          <tr class="adj"><td>NWC surplus (above normalized)</td><td class="nr"><b>3,680</b></td></tr>
+          <tr><td>LTM NWC adjustment used in equity bridge</td><td class="nr"><b>+1,000</b></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--s)">The +1,000 LTM assumption reflects partial unwind of the peak 2022 order backlog (EUR k 8,203 → normalized ~EUR k 2,500). Students may also argue for a larger unwind if they model full normalization.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TRADING COMPS -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">Module 3</div>
+        <h2>Trading Comparables – Recommended Peer Set</h2>
+      </div>
+      <button class="btn-reveal" onclick="reveal(this,'body2')">Reveal ▼</button>
+    </div>
+    <div class="sec-body" id="body2">
+
+      <table>
+        <thead><tr><th>Peer</th><th class="nr">EV/EBITDA LTM</th><th class="nr">EV/EBITDA NTM</th><th>Decision</th><th>Key Rationale</th></tr></thead>
+        <tbody>
+          <tr><td><b>Lincoln Electric (LECO)</b></td><td class="nr">17.7x</td><td class="nr">17.2x</td><td><span class="pill pg">Include</span></td><td>Direct product overlap (MIG-MAG, TIG, automation). Best public pure-play welding comp. Scale premium expected vs. LORCH.</td></tr>
+          <tr><td><b>ESAB Corporation</b></td><td class="nr">11.5x</td><td class="nr">12.0x</td><td><span class="pill pg">Include</span></td><td>Welding equipment post-spin-off. Revenue mix (~60% consumables) dilutes multiple slightly vs. pure machine player. Good anchor.</td></tr>
+          <tr><td><b>Kemppi Oy</b></td><td class="nr">~12x</td><td class="nr">~10–11x</td><td><span class="pill pw">Include (caveat)</span></td><td>Structurally closest analogue to LORCH (size, product, DACH proximity). Limitation: private company — implied multiple from bond market, lower reliability. Use as soft reference.</td></tr>
+          <tr class="ex"><td><b>Illinois Tool Works (ITW)</b></td><td class="nr">17.8x</td><td class="nr">18.0x</td><td><span class="pill pr">Exclude</span></td><td>Conglomerate: welding is 1 of 7 segments. Group multiple includes diversification premium and segment mix — cannot isolate welding EV/EBITDA. Methodologically invalid.</td></tr>
+          <tr class="ex"><td><b>Cognex Corporation</b></td><td class="nr">38.5x</td><td class="nr">40.0x</td><td><span class="pill pr">Exclude</span></td><td>Machine vision / SaaS-IP model. Multiple driven by high-margin recurring revenue, not hardware. Fundamentally different business model from LORCH.</td></tr>
+          <tr class="ex"><td><b>Watts Water Technologies</b></td><td class="nr">17.2x</td><td class="nr">18.7x</td><td><span class="pill pr">Exclude</span></td><td>Water regulation technology. No product overlap, different end market, different demand cycle. No basis for inclusion.</td></tr>
+          <tr class="ex"><td><b>Norsk Hydro (NHY)</b></td><td class="nr">8.4x</td><td class="nr">6.9x</td><td><span class="pill pr">Exclude</span></td><td>Commodity aluminum group. Cyclical, capital-intensive, low EBITDA margin (~12%), wrong sector. Inclusion would anchor range artificially low.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="disc-note">
+        <b>Discount derivation:</b> Selected peer median EV/EBITDA ≈ 14× (LECO 17.7x, ESAB 11.5x, Kemppi ~12x).
+        Apply 20–25% haircut for: (1) size discount – LORCH TEUR ~55M revenue vs. USD 2–4B peers; (2) liquidity/public market premium absent; (3) EBITDA margin gap (~7% adj. LORCH vs. 17–22% peers).
+      </div>
+
+      <div class="kv">
+        <div class="kvbox"><div class="k">Low (Version A)</div><div class="v">7.0×</div><div class="sub">Peers at discount + macro risk</div></div>
+        <div class="kvbox"><div class="k">Mid (Version B)</div><div class="v">10.0×</div><div class="sub">Peer median less 25% discount</div></div>
+        <div class="kvbox"><div class="k">High (Version C)</div><div class="v">13.0×</div><div class="sub">Best-in-class comp, synergy buyer</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: TRANSACTION COMPS -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">Module 4</div>
+        <h2>Transaction Comparables – Recommended Selection</h2>
+      </div>
+      <button class="btn-reveal" onclick="reveal(this,'body3')">Reveal ▼</button>
+    </div>
+    <div class="sec-body" id="body3">
+
+      <table>
+        <thead><tr><th>TX</th><th>Target</th><th class="nr">EV/EBITDA LTM</th><th>Decision</th><th>Key Rationale</th></tr></thead>
+        <tbody>
+          <tr><td>TX2</td><td><b>Victor Technologies / Colfax-ESAB</b></td><td class="nr">13.9×</td><td><span class="pill pg">Include</span></td><td>Direct welding product overlap. Competitive auction (3+ bidders). Prior PE ownership (Irving Place Capital) → clean LBO exit. Most comparable deal in the set.</td></tr>
+          <tr><td>TX4</td><td><b>Mestek / Arc Products (ESAB)</b></td><td class="nr">10.7×</td><td><span class="pill pg">Include</span></td><td>Similar size (~USD 80M revenue), strategic buyer, welding equipment focus. 2023 interest-rate environment slightly pressured price — note macro context.</td></tr>
+          <tr><td>TX6</td><td><b>ESAB IPO / Colfax Spin-off</b></td><td class="nr">11.2×</td><td><span class="pill pg">Include</span></td><td>Whole-business public-market reference point. Implied EV ~USD 4.8B. Consumables-heavy dilutes multiple slightly vs. pure-play.</td></tr>
+          <tr><td>TX12</td><td><b>Weldas / Apax Partners</b></td><td class="nr">11.0×</td><td><span class="pill pg">Include</span></td><td>PE entry in welding-adjacent space. Competitive process (5 PE bidders). Shows PE appetite for the sector at ~11×. Note: protective equipment, not power sources.</td></tr>
+          <tr><td>TX5</td><td><b>Thermal Dynamics / Victor (PE)</b></td><td class="nr">10.6×</td><td><span class="pill pw">Include as floor</span></td><td>COVID-depressed EBITDA makes multiple appear low. Plasma cutting ≠ arc welding. Use as lower anchor only with explicit caveat.</td></tr>
+          <tr class="ex"><td>TX10</td><td><b>Plex Systems / Rockwell Automation</b></td><td class="nr">55.0×</td><td><span class="pill pr">Exclude first</span></td><td><b>SaaS / Cloud MES:</b> 95%+ recurring revenue model. Multiple driven by ARR and NRR metrics — fundamentally incomparable to LORCH hardware business. Inclusion would grossly mislead the range.</td></tr>
+          <tr class="ex"><td>TX8</td><td><b>Coherent Corp. (II-VI/Finisar)</b></td><td class="nr">11.1×</td><td><span class="pill pr">Exclude second</span></td><td><b>Laser/photonics tech:</b> No welding power-source business. Sometimes confused with "laser welding" but product and business model are entirely different. Multiple coincidentally similar — do not include.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="co w">
+        <b>Key discussion: why does the multiple spread range from 7.5× to 19.4×?</b><br>
+        Main drivers: (1) <b>Buyer type</b> — strategic acquirers pay synergy premiums (TX1 LECO/Fori at 19.4×); PE buyers anchor to IRR (TX5, TX12 at 10–11×); (2) <b>Process design</b> — competitive auctions drive up price (TX2 had 3 bidders); (3) <b>Market timing</b> — TX4 was 2023 (high rates = lower multiples); TX2 was 2014 (lower rate environment); (4) <b>Product profile</b> — automation/cobot premium (TX1) vs. commodity welding accessories (TX9 at 7.5×).
+      </div>
+
+      <div class="kv">
+        <div class="kvbox"><div class="k">Low (Version A)</div><div class="v">8.0×</div><div class="sub">PE entry, rate pressure</div></div>
+        <div class="kvbox"><div class="k">Mid (Version B)</div><div class="v">11.5×</div><div class="sub">Sector median, mixed process</div></div>
+        <div class="kvbox"><div class="k">High (Version C)</div><div class="v">15.0×</div><div class="sub">Competitive auction, strategic premium</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: EQUITY BRIDGE -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">Module 5</div>
+        <h2>Equity Bridge – Reference Fill-In</h2>
+      </div>
+      <button class="btn-reveal" onclick="reveal(this,'body4')">Reveal ▼</button>
+    </div>
+    <div class="sec-body" id="body4">
+
+      <p style="font-size:12px;color:var(--s);margin-bottom:12px">Using mid-case transaction multiple (11.5×) on consensus Adj. EBITDA (TEUR 3,483):</p>
+      <table>
+        <thead><tr><th>Item</th><th>Note</th><th class="nr">TEUR</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td><b>Enterprise Value (Mid)</b></td><td>11.5× × TEUR 3,483</td><td class="nr"><b>40,055</b></td></tr>
+          <tr><td>– Financial liabilities</td><td>From balance sheet</td><td class="nr">(2,800)</td></tr>
+          <tr><td>– Lease liabilities</td><td>IFRS 16-analog, debt-like</td><td class="nr">(1,400)</td></tr>
+          <tr><td>– Pension provisions</td><td>Underfunded, treated as debt-like</td><td class="nr">(1,100)</td></tr>
+          <tr><td>+ Cash &amp; equivalents</td><td>Freely available operating cash</td><td class="nr">3,200</td></tr>
+          <tr><td>+ NWC adjustment</td><td>LTM surplus unwind (+1,000)</td><td class="nr">1,000</td></tr>
+          <tr><td>+/– Contingencies</td><td>No evidence-backed items assumed</td><td class="nr">0</td></tr>
+          <tr class="hl sub"><td><b>= Equity Value (Mid-Case)</b></td><td>Indicative purchase price for 100%</td><td class="nr" style="color:var(--teal);font-size:15px"><b>≈ 38,955</b></td></tr>
+        </tbody>
+      </table>
+
+      <div class="co">
+        <b>Sensitivity note:</b> Equity Value range using trading comps low/high (7×–13×) and transaction comps low/high (8×–15×):
+        <ul style="margin-top:6px">
+          <li>Trading Low (7×): EV 24,381 → Equity ≈ TEUR 23,281</li>
+          <li>Trading High (13×): EV 45,279 → Equity ≈ TEUR 44,179</li>
+          <li>Transaction High (15×): EV 52,245 → Equity ≈ TEUR 51,145</li>
+        </ul>
+      </div>
+
+      <h3>Locked Box vs. Closing Accounts – Recommended answer</h3>
+      <p><b>As seller, prefer Locked Box:</b> Fixes the economic transfer date at signing (typically last balance sheet date). No post-closing adjustment risk. Seller controls the "box" from signing to closing. Only risk: leakage provisions must be carefully drafted. Closing Accounts gives more flexibility to buyer (post-closing price adjustment) — unfavorable to seller if NWC declines between signing and closing.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: DISCUSSION QUESTIONS -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">Module 6</div>
+        <h2>Discussion Questions – Model Answers</h2>
+      </div>
+      <button class="btn-reveal" onclick="reveal(this,'body5')">Reveal ▼</button>
+    </div>
+    <div class="sec-body" id="body5">
+
+      <h3>1) Who pays more: strategic buyer or financial investor?</h3>
+      <p><b>Strategic buyer typically pays more.</b> Reasons: (a) can realize operational synergies (shared procurement, manufacturing overlap, combined sales channels) that create value beyond standalone; (b) can justify a higher entry multiple because the synergy EBITDA upside lowers their effective purchase multiple post-integration; (c) LORCH's Lorch Connect IoT platform and Yaskawa cobot partnership are attractive for automation-focused strategic buyers (e.g., LECO, ESAB). Financial investors (PE) are constrained by IRR targets, debt service capacity (leverage ratio ×3–4×), and exit multiple assumptions — price is capped by LBO math, not synergies.</p>
+
+      <h3>2) Does EBITDA or multiple sensitivity influence price more?</h3>
+      <p><b>EBITDA is the more powerful lever at this company size.</b> Price = EBITDA × Multiple. A 1× multiple change on TEUR 3,483 = TEUR 3,483 impact. A 10% EBITDA improvement = TEUR 348 × 11.5× = TEUR 4,005 impact. The multiplicative effect of EBITDA means documentation quality (EBITDA adjustments) and forward-looking earnings credibility often matter more than haggling over the multiple. That said: in a competitive auction, multiple compression/expansion between bidders is the key variable.</p>
+
+      <h3>3) Which two risks would you reflect directly in the price?</h3>
+      <ul>
+        <li><b>Customer/market concentration:</b> Russia exit wiped EUR k 172 EBITDA. New geographic concentration risk (Eastern Europe dependency) → buyer will price in a risk discount or escrow.</li>
+        <li><b>Key-person / owner-operator risk:</b> Grüb brothers management. No documented succession, no professional management layer fully in place. PE buyers will request management equity plan or retention arrangement → effective price reduction for seller.</li>
+        <li><i>Also acceptable: OEM/automation dependency on Yaskawa (single-partner risk for cobot revenue), or inventory quality risk (elevated WIP/FG, slow-mover risk in backlog).</i></li>
+      </ul>
+
+      <h3>4) Which single pre-sale measure increases value the fastest?</h3>
+      <p><b>Recommended: EBITDA normalization and documentation quality.</b> A clean, auditor-reviewed quality of earnings (QoE) report reducing information asymmetry directly increases the multiple buyers are willing to pay — buyers price uncertainty via a risk discount. Documenting the TEUR 942 adjustment with third-party evidence transforms EBITDA from TEUR 2,541 to TEUR 3,483: that alone at 11.5× = TEUR 10.8M of additional equity value. Secondary option: accelerate Lorch Connect revenue recognition — recurring IoT/SaaS revenues command a premium multiple and broaden the buyer universe to digital-industrial acquirers.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PROCESS RECOMMENDATION -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">Module 6 – Closing</div>
+        <h2>Process Recommendation &amp; Value Creation</h2>
+      </div>
+      <button class="btn-reveal" onclick="reveal(this,'body6')">Reveal ▼</button>
+    </div>
+    <div class="sec-body" id="body6">
+
+      <h3>Recommended sale process</h3>
+      <p><b>Structured limited auction (4–6 bidders):</b> Broad public auction would expose LORCH to competitor intelligence risk and management distraction. Full bilateral (direct outreach) sacrifices price tension. A limited auction with pre-screened strategic buyers (LECO, ESAB, Fronius, potentially Atlas Copco/Epiroc) plus 2–3 PE firms (with automation focus) balances price maximization and process control. Timeline: ~6 months from NDA to SPA. Seller advisory role: prepare clean IM, QoE, management presentation, and data room. Aim for binding bids from 3+ parties.</p>
+
+      <h3>Top 3 value-creation measures before exit</h3>
+      <ol>
+        <li><b>Quality of Earnings (QoE) documentation</b> — Commission a Big-4 or specialist M&A QoE report confirming all EBITDA adjustments with third-party evidence. Directly translates into a higher defensible EBITDA and reduces buyer risk discount on the multiple.</li>
+        <li><b>Lorch Connect revenue packaging</b> — Formalize IoT subscription / SaaS fee structure for Lorch Connect and cobot monitoring. Even TEUR 300–500 of recurring revenue shifts EBITDA quality perception. Recurring-revenue components attract digital acquirers and compress the applicable multiple upward.</li>
+        <li><b>NWC normalization &amp; inventory audit</b> — Work down the peak inventory (FG + WIP) to near-normalized levels before the transaction date. This reduces NWC surplus risk in the price negotiation and removes the slow-mover discount argument from buyers during due diligence.</li>
+      </ol>
+
+      <div class="co w" style="margin-top:12px">
+        <b>Instructor note:</b> The football field for LORCH sits approximately TEUR 23,000–52,000 EV (full range) with a mid-case equity value of approximately TEUR 39,000. The wide range reflects the fundamental challenge of valuing a mid-market, family-owned industrial company with an inflecting EBITDA trajectory. Disciplined peer selection and adjustment quality are the two areas where students can most improve their result.
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;padding:10px;font-size:9px;color:var(--m);text-align:center">
+    WINTERGERST Partnership for Entrepreneurial Consulting · M&amp;A Advisory · Moderator Sample Solution ·
+    Case Study for internal training purposes · All real company and transaction data from public sources;
+    financial metrics partly estimated and simplified for teaching purposes · as of 2024
+  </div>
+
+</div><!-- /sol -->
+</div><!-- /app -->
+
 <script>
-const KEY='WG-MOD-2026';
-const k=new URLSearchParams(location.search).get('key');
-if(k===KEY){document.getElementById('locked').style.display='none';document.getElementById('ok').style.display='block';}
-else{document.getElementById('locked').innerHTML='<p><b>Kein Zugriff.</b> Ungültiger Schlüssel.</p>';}
-</script></body></html>
+const PIN = '2026';
+
+function unlock(){
+  const val = document.getElementById('pin').value.trim();
+  if(val === PIN){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('sol').style.display = 'block';
+  } else {
+    document.getElementById('gate-err').textContent = 'Incorrect PIN. Please try again.';
+    document.getElementById('pin').value = '';
+    document.getElementById('pin').focus();
+  }
+}
+
+function reveal(btn, bodyId){
+  const body = document.getElementById(bodyId);
+  const isOpen = body.classList.contains('open');
+  if(isOpen){
+    body.classList.remove('open');
+    btn.textContent = 'Reveal ▼';
+    btn.classList.remove('shown');
+  } else {
+    body.classList.add('open');
+    btn.textContent = 'Hide ▲';
+    btn.classList.add('shown');
+  }
+}
+
+// Also support URL key for backwards compatibility (old WG-MOD-2026)
+const urlKey = new URLSearchParams(location.search).get('key');
+if(urlKey === PIN || urlKey === 'WG-MOD-2026'){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('sol').style.display = 'block';
+}
+
+// Auto-focus PIN input
+document.getElementById('pin').focus();
+</script>
+</body>
+</html>

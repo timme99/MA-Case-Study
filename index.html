@@ -71,6 +71,7 @@ textarea.inp{resize:vertical;min-height:40px}
 .tx-tbl th{font-size:7.5px}
 .ex td{background:rgba(166,45,42,.04);color:#888}
 .chk{accent-color:var(--teal);width:14px;height:14px;cursor:pointer}
+.sb.active-basis{background:var(--t);color:var(--bg);}
 
 .container .card{background:rgba(47,94,89,.10);border:1px solid #7A6E63;border-left:4px solid var(--teal);border-radius:10px;padding:16px 18px;margin-bottom:12px;color:var(--t)}
 .container .card h1,.container .card h2,.container .card h3{color:var(--t)}
@@ -242,9 +243,13 @@ textarea.inp{resize:vertical;min-height:40px}
       <button class="sb" onclick="calcE()">Calculate</button>
 
       <div style="margin-top:14px">
-        <label class="lbl">Explain your decision on item 5 (management compensation) – adjust or not?</label>
+        <label class="lbl">Explain your decision on item 1 (geopolitical event) – adjust or not?</label>
+        <textarea class="inp" id="t_a1" placeholder="Methodological rationale..."></textarea>
+        <label class="lbl">Explain your decision on item 3 (trade fair investment) – adjust or not?</label>
+        <textarea class="inp" id="t_a6r" placeholder="Methodological rationale..."></textarea>
+        <label class="lbl">Explain your decision on item 2 (management compensation) – adjust or not?</label>
         <textarea class="inp" id="t_a5" placeholder="Methodological rationale..."></textarea>
-        <label class="lbl">Explain your decision on item 7 (ERP implementation) – adjust or not?</label>
+        <label class="lbl">Explain your decision on item 4 (ERP implementation) – adjust or not?</label>
         <textarea class="inp" id="t_a7" placeholder="Methodological rationale..."></textarea>
       </div>
 
@@ -299,8 +304,8 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="co" style="margin-top:10px">
     <b>Multiples basis only for this page:</b> LTM/NTM can be switched only here for trading peers.
     <div style="margin-top:8px;display:flex;gap:8px">
-      <button class="sb" onclick="setPeerBasis('LTM')">LTM</button>
-      <button class="sb" onclick="setPeerBasis('NTM')">NTM</button>
+      <button class="sb active-basis" id="btn_peer_ltm" onclick="setPeerBasis('LTM')">LTM</button>
+      <button class="sb" id="btn_peer_ntm" onclick="setPeerBasis('NTM')">NTM</button>
       <span id="peer_basis" class="mu" style="margin:0">Current: LTM</span>
     </div>
   </div>
@@ -312,7 +317,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <div>
         <div class="pn"><b>Lincoln Electric Holdings (LECO)</b> &nbsp;<span class="pill pg">NASDAQ · USA</span></div>
         <div class="pd">Manufacturer of welding equipment, welding consumables, and automation systems. Revenue USD 4.19bn (2023). Products: MIG-MAG, TIG, and stick systems plus automation solutions for industrial production. Sales in >160 countries. Adj. EBITDA margin 21.5%. Net debt USD 1.0bn. Automation revenue USD 941m.</div>
-        <label class="lbl">Rationale Einschluss / Ausschluss</label>
+        <label class="lbl">Rationale: Inclusion / Exclusion</label>
         <textarea class="inp" style="min-height:36px" id="c_p1" placeholder="..."></textarea>
       </div>
       <div class="pm"><span style="font-size:8px;color:var(--m)" class="peer-metric">EV/EBITDA LTM</span><b>17,7x</b><br><span style="font-size:8px;color:var(--m)">EV/EBITDA NTM</span><span>17,2x</span><br><span style="font-size:8px;color:var(--m)">EV/Revenue</span><span>2,4x</span><br><span style="font-size:8px;color:var(--m)">EBITDA margin</span><span>21,5%</span><br><span style="font-size:8px;color:var(--m)">Revenue</span><span>USD 4.190M</span></div>
@@ -354,7 +359,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div class="pc">
       <input type="checkbox" class="chk" id="p5">
       <div>
-        <div class="pn"><b>Kemppi Oy</b> &nbsp;<span class="pill pg">Privat · Finnland</span></div>
+        <div class="pn"><b>Kemppi Oy</b> &nbsp;<span class="pill pg">Private · Finland</span></div>
         <div class="pd">Family-owned company founded in 1949, headquartered in Lahti (Finland). Manufacturer of arc welding equipment and welding software (WeldEye). Revenue EUR 209M (2023), EUR 195M (2022). Approx. 650 employees in 16 countries. Not publicly listed. EV/EBITDA derived from bond market and comparable transactions.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p5" placeholder="..."></textarea>
@@ -376,7 +381,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div class="pc">
       <input type="checkbox" class="chk" id="p7">
       <div>
-        <div class="pn"><b>Norsk Titanium / Norsk Hydro ASA (NHY)</b> &nbsp;<span class="pill pg">Oslo Børs · Norwegen</span></div>
+        <div class="pn"><b>Norsk Titanium / Norsk Hydro ASA (NHY)</b> &nbsp;<span class="pill pg">Oslo Børs · Norway</span></div>
         <div class="pd">Integrated aluminum and energy group. Business areas: Bauxite & Alumina, Primary Metal, Extrusions, Recycling & Renewables. Hydro Extrusions produces aluminum profiles for vehicles, buildings, and industry. Revenue NOK 207B (~EUR 18B, 2023). EBITDA margin ~12%. No welding business in the product portfolio.</div>
         <label class="lbl">Rationale</label>
         <textarea class="inp" style="min-height:36px" id="c_p7" placeholder="..."></textarea>
@@ -405,17 +410,17 @@ textarea.inp{resize:vertical;min-height:40px}
       <button class="hbtn" onclick="th('hint_t')">Peer guidance</button>
     </div>
     <div>
-      <h3>Multiple-Bandbreite (Trading Comps)</h3>
+      <h3>Multiple Range (Trading Comps)</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
         <div><label class="lbl">Version A (Low, x)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
         <div><label class="lbl">Version B (Mid, x)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
         <div><label class="lbl">Version C (High, x)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
       </div>
-      <label class="lbl">Angewendeter Discount (%)</label>
+      <label class="lbl">Applied Discount (%)</label>
       <input class="inp" type="number" id="liq_d" placeholder="20" step="5" style="max-width:80px">
-      <p class="mu" style="margin-top:4px;font-size:9px">Discount bereits in Low/Mid/High einkalkuliert? Dann 0% eingeben.</p>
+      <p class="mu" style="margin-top:4px;font-size:9px">Discount already factored into Low/Mid/High? Enter 0%.</p>
       <div id="r_tev" style="margin-top:10px"></div>
-      <button class="sb" style="margin-top:8px" onclick="calcTE()">EV range berechnen</button>
+      <button class="sb" style="margin-top:8px" onclick="calcTE()">Calculate EV Range</button>
     </div>
   </div>
 </div>
@@ -428,8 +433,8 @@ textarea.inp{resize:vertical;min-height:40px}
   <div class="co" style="margin-top:10px">
     <b>Multiples basis only for this page:</b> LTM/NTM can be switched only here for transaction peers.
     <div style="margin-top:8px;display:flex;gap:8px">
-      <button class="sb" onclick="setTxBasis('LTM')">LTM</button>
-      <button class="sb" onclick="setTxBasis('NTM')">NTM</button>
+      <button class="sb active-basis" id="btn_tx_ltm" onclick="setTxBasis('LTM')">LTM</button>
+      <button class="sb" id="btn_tx_ntm" onclick="setTxBasis('NTM')">NTM</button>
       <span id="tx_basis" class="mu" style="margin:0">Current: LTM</span>
     </div>
   </div>
@@ -440,16 +445,16 @@ textarea.inp{resize:vertical;min-height:40px}
     <thead>
       <tr>
         <th style="width:22px">✓</th>
-        <th>Zielunternehmen</th>
-        <th>Jahr</th>
+        <th>Target Company</th>
+        <th>Year</th>
         <th>Buyer</th>
-        <th>Buyertyp</th>
+        <th>Buyer Type</th>
         <th class="nr">EV (MUSD/EUR)</th>
         <th class="nr">Revenue</th>
         <th class="nr">EBITDA</th>
         <th class="nr" id="tx_metric_head">EV/EBITDA LTM</th><th class="nr">EV/EBITDA NTM</th>
         <th class="nr">EV/Rev.</th>
-        <th>Kontext / Comment</th>
+        <th>Context / Comment</th>
       </tr>
     </thead>
     <tbody>
@@ -457,7 +462,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx1"></td>
         <td><b>Fori Automation, LLC</b><br><span style="font-size:8px;color:var(--s)">Automated welding systems, Automotive, USA</span></td>
         <td>2022</td><td>Lincoln Electric (LECO)</td>
-        <td><span class="pill pw">Stratege</span></td>
+        <td><span class="pill pw">Strategic</span></td>
         <td class="nr">427 USD</td><td class="nr">~225</td><td class="nr">~22</td>
         <td class="nr"><b>~19,4x</b></td><td class="nr">18,9x</td><td class="nr">~1,9x</td>
         <td style="font-size:8.5px">LECO strategy program "Higher Standard 2025". LECO revenue disclosure (~$225M new automation sales). EBIT margin "comparable to LECO automation portfolio" (~10%). Strong automation profile — higher multiple than pure equipment players. Funded via $400M term loan.</td>
@@ -466,7 +471,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx2"></td>
         <td><b>Victor Technologies Holdings</b><br><span style="font-size:8px;color:var(--s)">Cutting/welding solutions, Global, USA</span></td>
         <td>2014</td><td>Colfax / ESAB</td>
-        <td><span class="pill pw">Stratege</span></td>
+        <td><span class="pill pw">Strategic</span></td>
         <td class="nr">947 USD</td><td class="nr">~500</td><td class="nr">~68</td>
         <td class="nr"><b>13,9x</b></td><td class="nr">14,4x</td><td class="nr">1,9x</td>
         <td style="font-size:8.5px">Colfax paid $947M for Victor (revenue ~$500M, c.13–14% EBITDA margin). Previously PE-owned (Irving Place Capital, entry in 2010 for $422M). Competitive process. Very similar product profile to LORCH.</td>
@@ -475,7 +480,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx3"></td>
         <td><b>Zeman Bauelemente Prod. GmbH</b><br><span style="font-size:8px;color:var(--s)">Robotic welding systems, Austria</span></td>
         <td>2021</td><td>Lincoln Electric (LECO)</td>
-        <td><span class="pill pw">Stratege cross-border</span></td>
+        <td><span class="pill pw">Strategic Cross-Border</span></td>
         <td class="nr">n.d.*</td><td class="nr">~50</td><td class="nr">n.d.</td>
         <td class="nr"><b>n.d.*</b></td><td class="nr">n.d.*</td><td class="nr">n.d.</td>
         <td style="font-size:8.5px">*Terms not disclosed (SEC 8-K 01.04.2021). Similar revenue size as LORCH (~EUR 50M), automation/cobot focus, DACH manufacturer. LECO: "increases automation sales by ~10%" (~+$50M auf $500M). Very close to the LORCH profile.</td>
@@ -484,7 +489,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx4"></td>
         <td><b>Mestek Machinery (Arc Products)</b><br><span style="font-size:8px;color:var(--s)">Welding machine division, USA (ESAB acquisition)</span></td>
         <td>2023</td><td>ESAB Corporation</td>
-        <td><span class="pill pw">Stratege</span></td>
+        <td><span class="pill pw">Strategic</span></td>
         <td class="nr">~150 USD</td><td class="nr">~80</td><td class="nr">~14</td>
         <td class="nr"><b>10,7x</b></td><td class="nr">12,2x</td><td class="nr">1,9x</td>
         <td style="font-size:8.5px">ESAB acquisition within the Fabtech segment. Revenue ~$80M, EBITDA margin ~17%. Competitive process, 3 bidders. Similar size to LORCH. Higher consumables share than LORCH. Price somewhat pressured by 2023 interest-rate environment.</td>
@@ -493,14 +498,14 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx5"></td>
         <td><b>Thermal Dynamics (spun out from ESAB)</b><br><span style="font-size:8px;color:var(--s)">Plasma cutting equipment, USA</span></td>
         <td>2020</td><td>Victor Technologies (PE)</td>
-        <td><span class="pill pg">PE-Buyout</span></td>
+        <td><span class="pill pg">PE Buyout</span></td>
         <td class="nr">~85 USD</td><td class="nr">~60</td><td class="nr">~8</td>
         <td class="nr"><b>10,6x</b></td><td class="nr">9,1x</td><td class="nr">1,4x</td>
         <td style="font-size:8.5px">Carve-out from ESAB. EBITDA 2020 strongly depressed due to COVID (~13% EBITDA margin). Multiple appears low, but is based on normalized EBITDA of ~TEUR 8M. Plasma cutting ≠ arc welding.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx6"></td>
-        <td><b>ESAB Corporation (Spin-off von Colfax)</b><br><span style="font-size:8px;color:var(--s)">Total ESAB business, NYSE-Listing 2022</span></td>
+        <td><b>ESAB Corporation (Spin-off from Colfax)</b><br><span style="font-size:8px;color:var(--s)">Total ESAB business, NYSE-Listing 2022</span></td>
         <td>2022</td><td>IPO / Spin-off Enovis</td>
         <td><span class="pill pw">IPO / Stock exchange listing</span></td>
         <td class="nr">~4.800 USD</td><td class="nr">2.600</td><td class="nr">~430</td>
@@ -510,25 +515,25 @@ textarea.inp{resize:vertical;min-height:40px}
       <tr>
         <td><input type="checkbox" class="chk" id="tx7"></td>
         <td><b>Miller Welding (PE carve-out, hypothetical)</b><br><span style="font-size:8px;color:var(--s)">ITW Welding segment – reference benchmark</span></td>
-        <td>2022</td><td>PE (Benchmark-Analyse)</td>
-        <td><span class="pill pg">PE-Benchmark</span></td>
+        <td>2022</td><td>PE (Benchmark Analysis)</td>
+        <td><span class="pill pg">PE Benchmark</span></td>
         <td class="nr">~2.200 USD</td><td class="nr">~2.400</td><td class="nr">~480</td>
         <td class="nr"><b>~9,2x*</b></td><td class="nr">0,9x</td>
         <td style="font-size:8.5px">*Hypothetical PE valuation of the ITW welding segment (Miller) if carved out. Basis: ITW segment EBITDA $480M, typical PE entry multiple ~9–10x. Usable only as a benchmark.</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx8"></td>
-        <td><b>Coherent Corp. (vormals II-VI / Finisar)</b><br><span style="font-size:8px;color:var(--s)">Lasertechnik, Photonik, USA</span></td>
+        <td><b>Coherent Corp. (formerly II-VI / Finisar)</b><br><span style="font-size:8px;color:var(--s)">Laser Technology, Photonics, USA</span></td>
         <td>2022</td><td>II-VI Incorporated</td>
-        <td><span class="pill pw">Stratege</span></td>
+        <td><span class="pill pw">Strategic</span></td>
         <td class="nr">6.900 USD</td><td class="nr">~3.300</td><td class="nr">~620</td>
         <td class="nr"><b>11,1x</b></td><td class="nr">11,3x</td><td class="nr">2,1x</td>
-        <td style="font-size:8.5px">Merger II-VI / Finisar zu Coherent. Laser technology and photonics for telecommunications and industrial applications. No welding business. Sometimes incorrectly used as a "laser welding comp."</td>
+        <td style="font-size:8.5px">Merger of II-VI / Finisar into Coherent. Laser technology and photonics for telecommunications and industrial applications. No welding business. Sometimes incorrectly used as a "laser welding comp."</td>
       </tr>
       <tr>
         <td><input type="checkbox" class="chk" id="tx9"></td>
         <td><b>Huntingdon Fusion Techniques (HFT)</b><br><span style="font-size:8px;color:var(--s)">Welding accessories/purging, UK</span></td>
-        <td>2021</td><td>Privatinvestor / Family Office</td>
+        <td>2021</td><td>Private Investor / Family Office</td>
         <td><span class="pill pg">PE/Family Office</span></td>
         <td class="nr">~12 GBP</td><td class="nr">~8</td><td class="nr">~1,6</td>
         <td class="nr"><b>7,5x</b></td><td class="nr">9,0x</td><td class="nr">1,5x</td>
@@ -538,7 +543,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx10"></td>
         <td><b>Rockwell Automation / Plex Systems</b><br><span style="font-size:8px;color:var(--s)">Industrial SaaS / Cloud-MES, USA</span></td>
         <td>2021</td><td>Rockwell Automation</td>
-        <td><span class="pill pw">Stratege</span></td>
+        <td><span class="pill pw">Strategic</span></td>
         <td class="nr">2.200 USD</td><td class="nr">~200</td><td class="nr">~40</td>
         <td class="nr"><b>55,0x</b></td><td class="nr">53,5x</td><td class="nr">11,0x</td>
         <td style="font-size:8.5px">Rockwell Automation acquired Plex Systems (Cloud MES) for $2.2B. SaaS business model, 95%+ Recurring Revenues.</td>
@@ -546,8 +551,8 @@ textarea.inp{resize:vertical;min-height:40px}
       <tr>
         <td><input type="checkbox" class="chk" id="tx11"></td>
         <td><b>Fronius Welding Div. (hypothetical separation)</b><br><span style="font-size:8px;color:var(--s)">Welding technology segment, Austria – benchmark</span></td>
-        <td>2022</td><td>Benchmark (Marktdaten)</td>
-        <td><span class="pill pg">Branchenreferenz</span></td>
+        <td>2022</td><td>Benchmark (Market Data)</td>
+        <td><span class="pill pg">Sector Reference</span></td>
         <td class="nr">~500 EUR</td><td class="nr">~350</td><td class="nr">~53</td>
         <td class="nr"><b>~9,4x*</b></td><td class="nr">~1,4x</td>
         <td style="font-size:8.5px">*Hypothetical: Fronius revenue 2022 >EUR 1B, Welding Technology ~35% (~EUR 350M). EBITDA margin ~15% (estimated). Implied valuation of the welding segment at 9–10x. Total Fronius valuation approx. EUR 1.5–2.0B. Only as an industry reference – not an actual deal.</td>
@@ -556,7 +561,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <td><input type="checkbox" class="chk" id="tx12"></td>
         <td><b>Weldas (welding safety equipment manufacturer)</b><br><span style="font-size:8px;color:var(--s)">Welding protective equipment, USA/Global</span></td>
         <td>2022</td><td>Apax Partners (PE)</td>
-        <td><span class="pill pg">PE-Buyout</span></td>
+        <td><span class="pill pg">PE Buyout</span></td>
         <td class="nr">~230 USD</td><td class="nr">~120</td><td class="nr">~21</td>
         <td class="nr"><b>11,0x</b></td><td class="nr">11,5x</td><td class="nr">1,9x</td>
         <td style="font-size:8.5px">Apax acquired Weldas, a global manufacturer of welding protective equipment. Competitive process, 5 PE bidders. EBITDA margin ~17.5%. Similar size range. Protective equipment ≠ power sources – but industry proximity and buyer profile (PE) are relevant as references.</td>
@@ -571,13 +576,13 @@ textarea.inp{resize:vertical;min-height:40px}
       <h3>Your transaction analysis</h3>
       <div class="entry-focus"><b>Enter values here:</b> Write your selection and rationale in the two text fields below.</div>
       <label class="lbl">Which 2 transactions would you exclude first, and why?</label>
-      <textarea class="inp" id="t_tx1" placeholder="TX-Nummer + Rationale..."></textarea>
+      <textarea class="inp" id="t_tx1" placeholder="Transaction number + rationale..."></textarea>
       <label class="lbl">Which factors explain the spread of multiples within your selected transactions?</label>
-      <textarea class="inp" id="t_tx2" placeholder="Buyerprofil, Prozessdesign, Marktkontext, Produktprofil..."></textarea>
+      <textarea class="inp" id="t_tx2" placeholder="Buyer profile, process design, market context, product profile..."></textarea>
 
     </div>
     <div>
-      <h3>Transaction Multiple-Bandbreite</h3>
+      <h3>Transaction Multiple Range</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
         <div><label class="lbl">Version A (Low)</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
         <div><label class="lbl">Version B (Mid)</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
@@ -616,7 +621,7 @@ textarea.inp{resize:vertical;min-height:40px}
       <textarea class="inp" id="t_lb" placeholder="Pros and cons..."></textarea>
     </div>
     <div>
-      <h3>Sensitivitysmatrix – Equity Value (TEUR)</h3>
+      <h3>Sensitivity Matrix – Equity Value (TEUR)</h3>
       <p class="mu" style="margin-bottom:8px">Use your values from module 2.</p>
       <table><thead>
         <tr><th>Multiple \ EBITDA</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
@@ -734,7 +739,7 @@ textarea.inp{resize:vertical;min-height:40px}
 <!-- MODAL -->
 <div class="mod-wrap" id="modal">
   <div class="mod">
-    <h2>Moderator-Panel</h2>
+    <h2>Moderator Panel</h2>
     <p class="mu">For trainers only.</p>
     <div class="mrow">
             <button class="sb" onclick="startT()">Start timer</button>
@@ -876,7 +881,7 @@ function calcTE(){
   const d=1-(parseFloat(document.getElementById('liq_d').value)||0)/100;
   if(!l||!m||!h){alert('Please enter Low/Mid/High values.');return;}
   R.tL=Math.round(e*l*d);R.tM=Math.round(e*m*d);R.tH=Math.round(e*h*d);
-  document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV trading (after discount)</div><div class="rval">TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US')+'</div><div class="rsub">Mitte: TEUR '+R.tM.toLocaleString('en-US')+'</div></div>';
+  document.getElementById('r_tev').innerHTML='<div class="rb"><div class="rlbl">EV trading (after discount)</div><div class="rval">TEUR '+R.tL.toLocaleString('en-US')+' – '+R.tH.toLocaleString('en-US')+'</div><div class="rsub">Mid: TEUR '+R.tM.toLocaleString('en-US')+'</div></div>';
   sync();
 }
 
@@ -981,6 +986,8 @@ function setPeerBasis(mode){
     el.textContent='EV/EBITDA '+mode+(est?' (est.)':'');
   });
   document.getElementById('peer_basis').textContent='Current: '+mode;
+  document.getElementById('btn_peer_ltm').classList.toggle('active-basis',mode==='LTM');
+  document.getElementById('btn_peer_ntm').classList.toggle('active-basis',mode==='NTM');
   updateRangeFromSelection(BASE_MULTIPLES.trading,'t',{low:'tc_l',mid:'tc_m',high:'tc_h'},peerMode);
   if(document.getElementById('tc_l')?.value && document.getElementById('tc_m')?.value && document.getElementById('tc_h')?.value){
     calcTE();
@@ -992,6 +999,8 @@ function setTxBasis(mode){
   txMode=mode;
   document.getElementById('tx_metric_head').textContent='EV/EBITDA '+mode;
   document.getElementById('tx_basis').textContent='Current: '+mode;
+  document.getElementById('btn_tx_ltm').classList.toggle('active-basis',mode==='LTM');
+  document.getElementById('btn_tx_ntm').classList.toggle('active-basis',mode==='NTM');
   updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m',high:'ttx_h'},txMode);
   if(document.getElementById('ttx_l')?.value && document.getElementById('ttx_m')?.value && document.getElementById('ttx_h')?.value){
     calcTX();

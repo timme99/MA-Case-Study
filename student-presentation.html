@@ -156,8 +156,8 @@ function render(){
   }
 
   // --- Calculations ---
-  const a1=num(d,'a1')||0, a5=num(d,'a5')||0, a6=num(d,'a6')||0, a7=num(d,'a7')||0;
-  const adjEBITDA = num(d,'fin_e') || (2541+a1+a5+a6+a7);
+  const a1=num(d,'a1')||0, a5=num(d,'a5')||0, a6=num(d,'a6')||0, a7=num(d,'a7')||0, a8=num(d,'a8')||0;
+  const adjEBITDA = num(d,'fin_e') || (2541+a1+a5+a6+a7+a8);
   const tcL=num(d,'tc_l'), tcM=num(d,'tc_m'), tcH=num(d,'tc_h');
   const ttxL=num(d,'ttx_l'), ttxM=num(d,'ttx_m'), ttxH=num(d,'ttx_h');
   const ebEv=num(d,'eb_ev'), ebD=num(d,'eb_d')||0, ebL=num(d,'eb_l')||0,
@@ -196,7 +196,7 @@ function render(){
     <div class="sec-body">
       <div class="kv">
         <div class="kvbox"><div class="k">Starting EBITDA FY 2022</div><div class="v">TEUR 2,541</div><div class="sub">Reported, HGB</div></div>
-        <div class="kvbox"><div class="k">Total Adjustments</div><div class="v">+ TEUR ${fmt(a1+a5+a6+a7)}</div><div class="sub">4 items</div></div>
+        <div class="kvbox"><div class="k">Total Adjustments</div><div class="v">+ TEUR ${fmt(a1+a5+a6+a7+a8)}</div><div class="sub">5 items presented</div></div>
         <div class="kvbox"><div class="k">Adj. EBITDA</div><div class="v">TEUR ${fmt(adjEBITDA)}</div><div class="sub">Your valuation basis</div></div>
       </div>
 
@@ -207,6 +207,7 @@ function render(){
           <tr><td>2) Owner-manager compensation</td><td class="nr">${a5?'+'+fmt(a5):'—'}</td><td>${val(d,'t_a5','No rationale entered.')}</td></tr>
           <tr><td>3) Trade fair investment (EuroBLECH 2022)</td><td class="nr">${a6?'+'+fmt(a6):'—'}</td><td>${val(d,'t_a6r','No rationale entered.')}</td></tr>
           <tr><td>4) ERP implementation (SAP S/4HANA)</td><td class="nr">${a7?'+'+fmt(a7):'—'}</td><td>${val(d,'t_a7','No rationale entered.')}</td></tr>
+          <tr><td>5) Additional logistics costs (supply chain disruptions)</td><td class="nr">${a8?'+'+fmt(a8):'—'}</td><td>${val(d,'t_a8','No rationale entered.')}</td></tr>
           <tr class="hl sub"><td><b>= Adj. EBITDA 2022</b></td><td class="nr"><b>TEUR ${fmt(adjEBITDA)}</b></td><td></td></tr>
         </tbody>
       </table>

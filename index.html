@@ -159,7 +159,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Business Model</h3>
       <p>Premium manufacturer of welding power sources (MIG-MAG, TIG, stick electrode, automation/cobot) under the brand "smart welding." Headquarters: Auenwald, Baden-Württemberg. Production entirely in Germany (build-to-order via SAP). Sales in >60 countries, >65% export share, 7 own foreign subsidiaries.</p>
-      <p>Founded in 1957, family-owned business ( brothers), ~280 FTE worldwide, >50 in R&amp;D. 25,000 welding machines/year. Digitalization push: Lorch Connect (IoT/remote monitoring), cobot welding (partnership with Yaskawa since 2020).</p>
+      <p>Founded in 1957, family-owned business (owner-managed), ~280 FTE worldwide, >50 in R&amp;D. 25,000 welding machines/year. Digitalization push: Lorch Connect (IoT/remote monitoring), cobot welding (partnership with Yaskawa since 2020).</p>
       <div class="co w"><b>Core risk:</b> In FY 2022, Russia sanctions led to an EBITDA impact of EUR k 172 (booked as "Change in Other Operating Expenses"). Working capital was inflated by elevated order backlog (peak EUR k 8,203 in May 2022 vs. normal EUR k 2,500).</div>
     </div>
     <div>
@@ -272,10 +272,10 @@ textarea.inp{resize:vertical;min-height:40px}
       <table>
         <thead><tr><th>NWC component (as of 31.12.2022)</th><th class="nr">EUR k</th></tr></thead>
         <tbody>
-          <tr><td>Trade receivables</td><td class="nr">6.840</td></tr>
-          <tr><td>Inventories (raw materials, auxiliary materials, operating supplies + WIP + FG)</td><td class="nr">9.380</td></tr>
+          <tr><td>Trade receivables</td><td class="nr">6,840</td></tr>
+          <tr><td>Inventories (raw materials, auxiliary materials, operating supplies + WIP + FG)</td><td class="nr">9,380</td></tr>
           <tr><td>Other short-term receivables</td><td class="nr">620</td></tr>
-          <tr><td>Trade payables</td><td class="nr">(4.070)</td></tr>
+          <tr><td>Trade payables</td><td class="nr">(4,070)</td></tr>
           <tr><td>Other short-term liabilities</td><td class="nr">(980)</td></tr>
           <tr class="hl sub"><td>= Balance-sheet NWC</td><td class="nr" id="nwc_bil">—</td></tr>
         </tbody>
@@ -283,7 +283,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
       <div style="margin-top:10px">
         <label class="lbl">1) Calculate the balance-sheet working capital (EUR k) from the table</label>
-        <input class="inp" type="number" id="wc_bil_calc" placeholder="AR + Inventories + Other CA - AP - Other CL" style="max-width:260px">
+        <input class="inp" type="number" id="wc_bil_calc" placeholder="Trade rec. + Inventories + Other rec. − Payables − Other liab." style="max-width:260px" oninput="const v=this.value;const el=document.getElementById('nwc_bil');el.textContent=v?'EUR k '+parseFloat(v).toLocaleString('en-US'):'—';">
       </div>
 
       <div class="co w" style="margin-top:8px">
@@ -415,13 +415,13 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Multiple Range (Trading Comps)</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div><label class="lbl">Version A (Low, x)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version B (Mid, x)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version C (High, x)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Low (×)</label><input class="inp" type="number" id="tc_l" placeholder="7.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Mid (×)</label><input class="inp" type="number" id="tc_m" placeholder="10.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">High (×)</label><input class="inp" type="number" id="tc_h" placeholder="13.0" step="0.5" style="max-width:80px"></div>
       </div>
-      <label class="lbl">Applied Discount (%)</label>
+      <label class="lbl">Liquidity / Size Discount (%)</label>
       <input class="inp" type="number" id="liq_d" placeholder="20" step="5" style="max-width:80px">
-      <p class="mu" style="margin-top:4px;font-size:9px">Discount already factored into Low/Mid/High? Enter 0%.</p>
+      <p class="mu" style="margin-top:4px;font-size:9px">Applied to EV to reflect non-public company characteristics (size, liquidity). Enter 0% if already factored into your Low/Mid/High multiples.</p>
       <div id="r_tev" style="margin-top:10px"></div>
       <button class="sb" style="margin-top:8px" onclick="calcTE()">Calculate EV Range</button>
     </div>
@@ -587,12 +587,12 @@ textarea.inp{resize:vertical;min-height:40px}
     <div>
       <h3>Transaction Multiple Range</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div><label class="lbl">Version A (Low)</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version B (Mid)</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
-        <div><label class="lbl">Version C (High)</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Low (×)</label><input class="inp" type="number" id="ttx_l" placeholder="8.0" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">Mid (×)</label><input class="inp" type="number" id="ttx_m" placeholder="11.5" step="0.5" style="max-width:80px"></div>
+        <div><label class="lbl">High (×)</label><input class="inp" type="number" id="ttx_h" placeholder="15.0" step="0.5" style="max-width:80px"></div>
       </div>
       <div id="r_ttev" style="margin-top:10px"></div>
-      <button class="sb" style="margin-top:8px" onclick="calcTX()">EV Range</button>
+      <button class="sb" style="margin-top:8px" onclick="calcTX()">Calculate EV Range</button>
 
     </div>
   </div>
@@ -619,6 +619,7 @@ textarea.inp{resize:vertical;min-height:40px}
         <tr class="hl sub"><td>= Equity Value (Mid)</td><td>Purchase price for 100% equity</td><td class="nr" id="eb_r" style="font-size:14px;color:var(--teal)">—</td></tr>
       </tbody></table>
       <button class="sb" style="margin-top:8px" onclick="calcEB()">Calculate Equity Value</button>
+      <button class="sb" style="margin-top:8px;margin-left:8px;opacity:.7" onclick="prefillEBFromCase()">Prefill from case data</button>
 
       <h3 style="margin-top:18px">Equity Value Range</h3>
       <p style="font-size:10px;color:var(--s);margin-bottom:8px">Apply your trading and transaction low/high multiples through the same bridge to derive the full equity value range.</p>
@@ -636,9 +637,9 @@ textarea.inp{resize:vertical;min-height:40px}
 
     <div>
       <h3>Sensitivity Matrix – Equity Value (EUR k)</h3>
-      <p class="mu" style="margin-bottom:8px">Use your values from module 2.</p>
+      <p class="mu" style="margin-bottom:8px">Fixed EBITDA scenarios (EUR k). Assumptions: net debt EUR k 2,100, NWC adjustment EUR k +1,000.</p>
       <table><thead>
-        <tr><th>Multiple \ EBITDA</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
+        <tr><th>Multiple / EBITDA →</th><th class="nr">Consv. 3,200</th><th class="nr">Base 4,000</th><th class="nr">Upside 6,400</th></tr>
       </thead><tbody>
         <tr><td>7x</td><td class="nr" id="s11">—</td><td class="nr" id="s12">—</td><td class="nr" id="s13">—</td></tr>
         <tr><td>9x</td><td class="nr" id="s21">—</td><td class="nr" id="s22">—</td><td class="nr" id="s23">—</td></tr>
@@ -1053,6 +1054,8 @@ function loadState(){
     });
     if(Number.isFinite(state.cur))cur=Math.max(0,Math.min(6,state.cur));
     if(Number.isFinite(state.sl))sl=state.sl;
+    const nwcField=(state.fields||[]).find(f=>f.id==='wc_bil_calc');
+    if(nwcField&&nwcField.value){const el=document.getElementById('nwc_bil');if(el)el.textContent='EUR k '+parseFloat(nwcField.value).toLocaleString('en-US');}
   }catch(_e){}
 }
 

@@ -95,7 +95,7 @@ textarea.inp{resize:vertical;min-height:40px}
     <button class="step" onclick="go(6)">6&nbsp;Result</button>
   </div>
   <div style="display:flex;align-items:center;gap:10px">
-    <span id="tmr" onclick="startT()" title="Click: Start timer">90:00</span>
+    <span id="tmr" onclick="startT()" title="Click: Start timer">45:00</span>
     <button class="sb" onclick="openM()">Moderator</button>
   </div>
 </nav>
@@ -763,7 +763,7 @@ textarea.inp{resize:vertical;min-height:40px}
 
 </div>
 <script>
-let cur=0,tid=null,sl=5400;
+let cur=0,tid=null,sl=2700;
 
 function removeLegacyIntegratedCaseSection(){
   document.querySelectorAll('section.card').forEach(sec=>{
@@ -870,7 +870,7 @@ function startT(){
     if(sl<=0)clearInterval(tid);
   },1000);
 }
-function resetT(){clearInterval(tid);tid=null;sl=5400;const el=document.getElementById('tmr');el.textContent='90:00';el.classList.remove('warn');}
+function resetT(){clearInterval(tid);tid=null;sl=2700;const el=document.getElementById('tmr');el.textContent='45:00';el.classList.remove('warn');}
 function th(id){document.getElementById(id).classList.toggle('on');}
 function openM(){document.getElementById('modal').classList.add('open');}
 function closeM(){document.getElementById('modal').classList.remove('open');}
@@ -1075,7 +1075,7 @@ updateRangeFromSelection(BASE_MULTIPLES.transaction,'tx',{low:'ttx_l',mid:'ttx_m
 go(cur);
 calcE();
 sync();
-if(sl<5400){
+if(sl<2700){
   const m=Math.floor(sl/60),s=sl%60;
   const el=document.getElementById('tmr');
   el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
